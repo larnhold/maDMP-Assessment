@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # an array of all versions of the dcso-json executable jar in the correct directory
-CONVERTER_PATTERN=("../app-bin/dcso-json/dcso-json-"*".jar")
+CONVERTER_PATTERN=("/home/lukas/Documents/thesis/maDMP-Assesment-lukas/app-bin/dsco-json/dcso-json-"*".jar")
 
 # $1: input-format (json|json-ld|turtle)
 # $2: input file path
