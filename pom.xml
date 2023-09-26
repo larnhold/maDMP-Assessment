@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <packaging>pom</packaging>
-    <groupId>org.arnhold.toolbox</groupId>
+    <groupId>org.arnhold</groupId>
     <artifactId>toolbox</artifactId>
     <version>1.0-SNAPSHOT</version>
 

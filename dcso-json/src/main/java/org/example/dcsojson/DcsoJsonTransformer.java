@@ -27,11 +27,12 @@ public class DcsoJsonTransformer implements IDcsoJsonTransformer {
     private static final Resource CLS_DMP = ResourceFactory.createResource("https://w3id.org/dcso/ns/core#DMP");
     private static final Resource NAMED_INDIVIDUAL = ResourceFactory.createResource(OWL.NS + "NamedIndividual");
     public static final String ONTOLOGY_DCSO_TTL = "/ontology/dcso.ttl";
+    public static final String ONTOLOGY_DCSO_JSONLD = "/ontology/dcso.jsonld";
 
     private final File jsonLdContext;
 
-    public DcsoJsonTransformer(String jsonLdContextPath) throws IOException {
-        this.jsonLdContext = getResourceAsFile(jsonLdContextPath);
+    public DcsoJsonTransformer() throws IOException {
+        this.jsonLdContext = getResourceAsFile(ONTOLOGY_DCSO_JSONLD);
     }
 
     @Override
@@ -64,12 +65,20 @@ public class DcsoJsonTransformer implements IDcsoJsonTransformer {
         convertSemanticToSemantic(jsonLdInputFilePath, turtleOutputFilePath, Representation.JSON_LD, Representation.TURTLE);
     }
 
-    private void convertPlainToSemantic(Path jsonInput, Path outputFilePath, Representation outputLanguage) throws TransformationException {
+    public void convertPlainToSemantic(Path jsonInput, Path outputFilePath, Representation outputLanguage) throws TransformationException {
         try (var dcsoOutputFile = new FileOutputStream(outputFilePath.toString())) {
             var jenaModel = dmpJsonToJenaModel(jsonInput.toFile(), jsonLdContext, true);
             var semanticOutputLanguage = getSemanticLanguage(outputLanguage);
 
             RDFDataMgr.write(dcsoOutputFile, jenaModel, semanticOutputLanguage);
+        } catch (Exception e) {
+            throw new TransformationException("Transformation could not be performed.", e);
+        }
+    }
+
+    public Model convertPlainToModel(File jsonInput) throws TransformationException {
+        try {
+           return dmpJsonToJenaModel(jsonInput, jsonLdContext, true);
         } catch (Exception e) {
             throw new TransformationException("Transformation could not be performed.", e);
         }

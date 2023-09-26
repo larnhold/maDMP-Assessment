@@ -26,7 +26,6 @@ import java.util.concurrent.Callable;
   })
 public class DcsoJson implements Callable<Integer> {
     private static final Logger LOGGER = LoggerFactory.getLogger(DcsoJson.class);
-    public static final String ONTOLOGY_DCSO_JSONLD = "/ontology/dcso.jsonld";
 
     @SuppressWarnings("unused")
     @CommandLine.Parameters(index = "0", arity = "1",
@@ -50,7 +49,7 @@ public class DcsoJson implements Callable<Integer> {
     private final Map<String, DcsoJsonTransformation<Path, Path>> conversions;
 
     public DcsoJson() throws IOException {
-        IDcsoJsonTransformer transformer = new DcsoJsonTransformer(ONTOLOGY_DCSO_JSONLD);
+        IDcsoJsonTransformer transformer = new DcsoJsonTransformer();
         conversions = Map.of(
           Representation.JSON.convertTo(Representation.JSON_LD), transformer::convertJsonToJsonLd,
           Representation.JSON.convertTo(Representation.TURTLE), transformer::convertJsonToTurtle,

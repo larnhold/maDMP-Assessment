@@ -1,5 +1,8 @@
 package org.example.dcsojson;
 
+import org.apache.jena.rdf.model.Model;
+
+import java.io.File;
 import java.nio.file.Path;
 
 public interface IDcsoJsonTransformer {
@@ -63,4 +66,6 @@ public interface IDcsoJsonTransformer {
      * @throws TransformationException If preconditions are not met or an error occurs during processing.
      */
     void convertTurtleToJsonLd(Path turtleInputFilePath, Path jsonLdOutputFilePath) throws TransformationException;
+
+    Model convertPlainToModel(File jsonInput) throws TransformationException;
 }
