@@ -2,6 +2,7 @@ package org.arnhold.evaluation.sample;
 
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.arnhold.evaluation.openaire.service.OpenAireService;
 import org.example.dcsojson.DcsoJsonTransformer;
 import org.example.dcsojson.TransformationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class SampleController {
 
     @Autowired
     ResourceLoader resourceLoader;
+
+    @Autowired
+    OpenAireService openAireService;
 
     private Sample getSample() {
         Sample sample = new Sample();
@@ -40,7 +44,10 @@ public class SampleController {
         var transformer = new DcsoJsonTransformer();
         var model = transformer.convertPlainToModel(file);
         StringWriter sw = new StringWriter();
-        RDFDataMgr.write(sw, model, Lang.JSONLD);
+        RDFDataMgr.write(sw, model, Lang.TURTLE);
+
+        openAireService.test(model);
+
         return sw.toString();
     }
 }

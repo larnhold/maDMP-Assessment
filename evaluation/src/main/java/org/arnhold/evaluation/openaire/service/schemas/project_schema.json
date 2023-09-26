@@ -1,0 +1,119 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "properties" : {
+    "acronym" : {
+      "type" : "string"
+    },
+    "callidentifier" : {
+      "type" : "string"
+    },
+    "code" : {
+      "type" : "string"
+    },
+    "enddate" : {
+      "type" : "string"
+    },
+    "funding" : {
+      "description" : "Funding information for the project",
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "funding_stream" : {
+            "type" : "object",
+            "properties" : {
+              "description" : {
+                "type" : "string"
+              },
+              "id" : {
+                "type" : "string",
+                "description" : "Id of the funding stream"
+              }
+            },
+            "description" : "Description of the funding stream"
+          },
+          "jurisdiction" : {
+            "type" : "string",
+            "description" : "Geographical jurisdiction (e.g. for European Commission is EU, for Croatian Science Foundation is HR)"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "The name of the funder (European Commission)"
+          },
+          "shortName" : {
+            "type" : "string",
+            "description" : "The short name of the funder (EC)"
+          }
+        },
+        "description" : "Funding information for the project"
+      }
+    },
+    "granted" : {
+      "type" : "object",
+      "properties" : {
+        "currency" : {
+          "type" : "string",
+          "description" : "The currency of the granted amount (e.g. EUR)"
+        },
+        "fundedamount" : {
+          "type" : "number",
+          "description" : "The funded amount"
+        },
+        "totalcost" : {
+          "type" : "number",
+          "description" : "The total cost of the project"
+        }
+      },
+      "description" : "The money granted to the project"
+    },
+    "h2020programme" : {
+      "description" : "The h2020 programme funding the project",
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "The code of the programme"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "The description of the programme"
+          }
+        },
+        "description" : "The h2020 programme funding the project"
+      }
+    },
+    "id" : {
+      "type" : "string"
+    },
+    "keywords" : {
+      "type" : "string"
+    },
+    "openaccessmandatefordataset" : {
+      "type" : "boolean"
+    },
+    "openaccessmandateforpublications" : {
+      "type" : "boolean"
+    },
+    "startdate" : {
+      "type" : "string"
+    },
+    "subject" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "summary" : {
+      "type" : "string"
+    },
+    "title" : {
+      "type" : "string"
+    },
+    "websiteurl" : {
+      "type" : "string"
+    }
+  }
+}
