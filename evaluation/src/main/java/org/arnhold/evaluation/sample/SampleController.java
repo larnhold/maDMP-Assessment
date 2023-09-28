@@ -3,6 +3,7 @@ package org.arnhold.evaluation.sample;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.arnhold.evaluation.openaire.service.OpenAireService;
+import org.arnhold.semantic.SemanticService;
 import org.example.dcsojson.DcsoJsonTransformer;
 import org.example.dcsojson.TransformationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class SampleController {
 
     @Autowired
     OpenAireService openAireService;
+
+    @Autowired
+    SemanticService semanticService;
 
     private Sample getSample() {
         Sample sample = new Sample();
@@ -47,6 +51,7 @@ public class SampleController {
         RDFDataMgr.write(sw, model, Lang.TURTLE);
 
         openAireService.test(model);
+        semanticService.test();
 
         return sw.toString();
     }

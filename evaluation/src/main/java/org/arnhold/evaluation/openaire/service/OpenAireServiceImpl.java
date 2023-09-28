@@ -1,8 +1,8 @@
-package org.arnhold.evaluation.openaire;
+package org.arnhold.evaluation.openaire.service;
 
 
 import org.apache.jena.rdf.model.Model;
-import org.arnhold.evaluation.openaire.service.OpenAireService;
+import org.arnhold.evaluation.openaire.DatasourceSchema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
