@@ -1,5 +1,6 @@
-package org.arnhold.evaluation.shacl;
+package org.arnhold.evaluation.shacl.legacy;
 
+import org.arnhold.evaluation.shacl.ShaclValidationResult;
 import org.arnhold.semantic.SemanticService;
 import org.arnhold.semantic.shacl.ShaclValidationService;
 import org.example.dcsojson.DcsoJsonTransformer;
@@ -13,11 +14,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/legacy")
-public class OldShaclController {
+public class LegacyShaclController {
 
     @Autowired
     ResourceLoader resourceLoader;
