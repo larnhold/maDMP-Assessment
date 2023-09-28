@@ -1,0 +1,33 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcso: <https://w3id.org/dcso/ns/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+[] a sh:NodeShape ;
+   sh:targetSubjectsOf dcso:hasMetadata ;
+   sh:targetSubjectsOf dcso:hasMetadataStandardId ;
+   sh:property [
+      sh:path dcso:hasMetadata ;
+      sh:property [
+         sh:path dct:description ;
+         sh:nodeKind sh:Literal ;
+         sh:minCount 1
+      ] ;
+      sh:property [
+         sh:path dcso:language ;
+         sh:nodeKind sh:Literal ;
+         sh:minCount 1
+      ]
+   ] ;
+   sh:property [
+      sh:path dcso:hasMetadataStandardId ;
+      sh:property [
+         sh:path dct:identifier ;
+         sh:or (
+            [ sh:pattern ".*dublin.*" ]
+            [ sh:pattern ".*eml.*" ]
+            [ sh:pattern ".*marc.*" ]
+            [ sh:pattern ".*tei.*" ]
+            [ sh:pattern ".*ddi.*" ]
+         ) ;
+      ]
+   ] .

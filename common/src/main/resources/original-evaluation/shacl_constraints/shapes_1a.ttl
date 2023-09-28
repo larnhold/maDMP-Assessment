@@ -1,0 +1,13 @@
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix dcso: <https://w3id.org/dcso/ns/core#>.
+
+[] a sh:NodeShape ;
+   sh:targetObjectsOf dcso:hasDataset ;
+   sh:property [
+      sh:path dcso:hasMethodology ;
+      sh:minCount 1 ;
+   ] ;
+    sh:property [
+      sh:path dcso:isReused ;
+      sh:minCount 1 ;
+   ] .

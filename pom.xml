@@ -12,6 +12,7 @@
     <modules>
         <module>dcso-json</module>
         <module>evaluation</module>
+        <module>common</module>
     </modules>
 
     <parent>
@@ -23,6 +24,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.arnhold</groupId>
+                <artifactId>common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <scope>compile</scope>
+            </dependency>
             <dependency>
                 <groupId>com.apicatalog</groupId>
                 <artifactId>titanium-json-ld</artifactId>

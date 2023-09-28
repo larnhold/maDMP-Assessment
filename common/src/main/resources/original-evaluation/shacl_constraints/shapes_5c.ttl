@@ -1,0 +1,43 @@
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+[] a sh:NodeShape ;
+   sh:targetObjectsOf dcso:hasDataset ;
+   sh:property [
+      sh:path dcso:hasDistribution ;
+      sh:node [
+         sh:property [
+            sh:path dcso:hasHost ;
+            sh:node [
+               sh:property [
+                  sh:path dct:title ;
+                  sh:minCount 1 ;
+               ]
+            ]
+         ]
+      ]
+   ] ;
+   sh:property [
+      sh:path dcso:hasDistribution ;
+      sh:node [
+         sh:property [
+            sh:path dcat:accessUrl ;
+            sh:minCount 1 ;
+         ]
+      ] ;
+      sh:property [
+         sh:path dct:format ;
+         sh:minCount 1 ;
+      ]
+   ] ;
+   sh:property [
+      sh:path dcso:hasDataset ;
+      sh:node [
+         sh:property [
+            sh:path dct:title ;
+            sh:minCount 1 ;
+         ]
+      ]
+   ] .

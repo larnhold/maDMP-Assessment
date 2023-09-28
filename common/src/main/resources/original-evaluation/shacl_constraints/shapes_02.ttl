@@ -1,0 +1,22 @@
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix dcso: <https://w3id.org/dcso/ns/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+
+[] a sh:NodeShape ;
+   sh:targetSubjectsOf dcso:hasProject ;
+   sh:property [
+      sh:path dct:title ;
+      sh:minCount 1 ;
+   ] ;
+   sh:property [
+      sh:path dcat:startDate ;
+      sh:minCount 1 ;
+   ] ;
+   sh:property [
+      sh:path dcat:endDate ;
+      sh:minCount 1 ;
+   ] ;
+   sh:property [
+      sh:path dct:description ;
+   ] .

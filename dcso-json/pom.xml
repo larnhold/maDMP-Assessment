@@ -47,6 +47,11 @@
             <artifactId>slf4j-simple</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.arnhold</groupId>
+            <artifactId>common</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

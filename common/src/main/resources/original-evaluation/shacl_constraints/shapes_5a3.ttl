@@ -1,0 +1,33 @@
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX terms: <http://purl.org/dc/terms/>
+
+[] a sh:NodeShape ;
+   sh:targetObjectsOf dcso:hasDataset ;
+   sh:property [
+      sh:path terms:issued ;
+      sh:minCount 1 ;
+   ] ;
+   sh:property [
+      sh:path dcso:dataAccess ;
+      sh:datatype xsd:string ;
+      sh:in ("open" "closed") ;
+      sh:minCount 0 ;
+   ] ;
+   sh:property [
+      sh:path dcso:hasLicense ;
+      sh:node [
+         sh:property [
+            sh:path dcso:licenseRef ;
+            sh:minCount 0 ;
+         ]
+      ]
+   ] ;
+   sh:property [
+      sh:path dcat:startDate ;
+      sh:datatype xsd:date ;
+      sh:minCount 0 ;
+   ] .

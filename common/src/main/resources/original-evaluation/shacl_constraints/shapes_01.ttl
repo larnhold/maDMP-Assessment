@@ -1,0 +1,30 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dcso: <https://w3id.org/dcso/ns/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+[] a sh:NodeShape ;
+   sh:targetSubjectsOf dcso:hasContact ;
+   sh:property [
+      sh:path dcso:hasContact ;
+      sh:minCount 1 ;
+   ] ;
+   sh:property [
+      sh:path dcso:hasDMPId ;
+      sh:minCount 1 ;
+   ] ;
+   sh:property [
+      sh:path dct:created ;
+      sh:nodeKind sh:Literal ;
+      sh:minCount 1 ;
+   ] ;
+   sh:property [
+      sh:path dcso:language ;
+      sh:nodeKind sh:Literal ;
+      sh:minCount 1 ;
+   ] ;
+   sh:property [
+      sh:path dct:title ;
+      sh:nodeKind sh:Literal ;
+      sh:minCount 1 ;
+   ] .
