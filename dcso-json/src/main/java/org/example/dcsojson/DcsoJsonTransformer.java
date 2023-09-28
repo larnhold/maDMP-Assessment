@@ -13,6 +13,7 @@ import org.apache.jena.vocabulary.OWL;
 import org.apache.jena.vocabulary.RDF;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -20,6 +21,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+@Component
 public class DcsoJsonTransformer implements IDcsoJsonTransformer {
     private static final Logger LOGGER = LoggerFactory.getLogger(DcsoJsonTransformer.class);
 
