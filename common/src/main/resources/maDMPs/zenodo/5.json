@@ -1,0 +1,257 @@
+{
+  "dmp": {
+    "dmp_id": {
+      "type": "doi",
+      "identifier": "https://doi.org/10.5281/zenodo.4699885"
+    },
+    "title": "Data Management Plan -- Correlating World Conflict with Local Economy Growth",
+    "contact": {
+      "contact_id": {
+        "type": "orcid",
+        "identifier": "https://orcid.org/0000-0001-6244-0173"
+      },
+      "mbox": "max-julian@pogner.at",
+      "name": "Max-Julian Pogner"
+    },
+    "created": "2021-04-19T04:51:48+02:00",
+    "modified": "2021-04-19T04:51:48+02:00",
+    "language": "eng",
+    "ethical_issues_exist": "no",
+    "project": [
+      {
+        "title": "Correlating World Conflict with Local Economy Growth",
+        "start": "2021-04-01",
+        "end": "2021-04-19",
+        "description": "For the average student, the `Uppsala Conflict Data Program <https://ucdp.uu.se/> <https://ucdp.uu.se/>`_ offers a fascinating periscope onto the conflicts of the world. Together with economic figures as collected by `Statistik Austria <https://www.statistik.at> <https://www.statistik.at>`_, the local economic impact of world-wide conflict is calculated.\nWARNING: While this student is fairly confident regarding the numerical quality of the calculations, any conclusions have to be regarded as having worse-than-questionable statistical validity."
+      }
+    ],
+    "dataset": [
+      {
+        "title": "Economic figures of Austria, 1976 to 2020",
+        "dataset_id": {
+          "type": "doi",
+          "identifier": "https://doi.org/10.5281/zenodo.4699804"
+        },
+        "description": "Economical data on the country 'AUSTRIA' as calculated by the state-owned and state-sponsored entity 'STATISTIK AUSTRIA'.\nData comprises such values as the gross domestic product, and related figures.\nData contains one value of each parameter per year, in the extent from 1976 to 2020.\nData constitutes three files, as downloaded by the publisher from the creator's homepage.\nvolkswirtschaftliche_gesamtrechnung_hauptgroessen.xlsx\n    the most recent data, up to 2020. the data 2016 to 2020 is\n    only preliminary.\n\nvolkswirtschaftliche_gesamtrechnungen_1976-2007.pdf\n    austria economic figures from 1976 to 2007 (final numbers).\n\nvolkswirtschaftliche_gesamtrechnungen_1995_-_2018.pdf\n    austria economic figures from 1995 to 2018, final numbers,\n    except 2016 to 2018 which are preliminiary numbers.",
+        "language": "deu",
+        "is_reused": "reused",
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "type": "Dataset",
+        "issued": "2021-05-03",
+        "distribution": [
+          {
+            "title": "`sna-at` data set within the public project github repository",
+            "access_url": "https://github.com/qyanu/2021-gdp-vs-ucdp/tree/master/sna-at-data",
+            "byte_size": 5867691,
+            "data_access": "open",
+            "description": "Re-publishing of the original dataset in unaltered form via public github git repository.\nThe distribution consists of multiple files, exactly in the form the data was acquired from the source.",
+            "format": [
+              "text/csv",
+              "application/vnd.ms-excel"
+            ],
+            "host": {
+              "title": "Github Inc.",
+              "url": "https://github.com",
+              "support_versioning": "yes"
+            },
+            "license": [
+              {
+                "license_ref": "https://raw.githubusercontent.com/qyanu/2021-gdp-vs-ucdp/master/sna-at-data/LICENSE",
+                "start_date": "2021-04-15"
+              }
+            ]
+          },
+          {
+            "title": "`sna-at` data set within the public project github repository",
+            "access_url": "gitolite3@git.qyanu.net:studium/2021-UE-Data-Stewardship/Excercise-1.git:/refs/heads/master:/sna-at-data",
+            "byte_size": 5867691,
+            "data_access": "closed",
+            "description": "Publishing of the original dataset in unaltered form via public github git repository.\nThe distribution consists of multiple files, exactly in the form the data was acquired from the source.",
+            "format": [
+              "text/csv",
+              "application/vnd.ms-excel"
+            ],
+            "host": {
+              "title": "Pogner Family IT System",
+              "url": "https://pogner.at",
+              "support_versioning": "yes",
+              "availability": "sufficient",
+              "backup_frequency": "within 24h",
+              "backup_type": "rotating magnetic disks, on-site and off-site",
+              "storage_type": "active checksum file system, on raid5, on rotating magnetic disks",
+              "geo_location": "AT"
+            },
+            "license": [
+              {
+                "license_ref": "https://raw.githubusercontent.com/qyanu/2021-gdp-vs-ucdp/master/sna-at-data/LICENSE",
+                "start_date": "2021-04-15"
+              }
+            ]
+          }
+        ],
+        "data_quality_assurance": [
+          "file naming convention: store files exactly as named by the data source",
+          "data quality checklist items included in step-by-step download guide",
+          "layman-knowledge visual inspection of files"
+        ],
+        "preservation_statement": "This data set is planned to be shared publicly alongside the public project github repository.\nThe data is shared from 2021-04-19 onward.\nSharing is performed via the github.com platform, until that hoster's strategic direction changes.\nUntil further notice, a web browser and internet connection to the western internet is required to access the public github repository. No authorization or registration is required for access.\nThe DOI of this data set was already acquired via the zenodo platform. However, due to technical limitations of the github/zenodo partnership, technical limitations of the `git` software, combined with the lock-in of the DOI system to institutionalized processes, the DOI for this data set actually points to a snapshot of the data which needs manual update each time the data set at the public project github repository is updated."
+      },
+      {
+        "title": "Gross Domestic Product of Austria, 1976 to 2019",
+        "dataset_id": {
+          "type": "doi",
+          "identifier": "https://doi.org/10.5281/zenodo.4699806"
+        },
+        "description": "Economical data on the nominal gross domestic product of the country 'AUSTRIA' as calculated by the state-owned and state-sponsored entity 'STATISTIK AUSTRIA'.\nThe data points for various years have been collected from various places on https://statistik.at and merged into a single table by the contributor.",
+        "language": "deu",
+        "is_reused": "produced",
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "type": "Dataset",
+        "issued": "2021-05-03",
+        "distribution": [
+          {
+            "title": "`sna-at-extracted` data set within the public project github repository",
+            "access_url": "https://github.com/qyanu/2021-gdp-vs-ucdp/tree/master/sna-at-data-extracted",
+            "byte_size": 18443,
+            "data_access": "open",
+            "description": "Publishing of intermediate processing steps of the 2021-gdp-vs-ucdp project.\nThe distribution consists of a single `csv` file, which is also rendered into `pdf` form.",
+            "format": [
+              "text/csv"
+            ],
+            "host": {
+              "title": "Github Inc.",
+              "url": "https://github.com",
+              "support_versioning": "yes"
+            },
+            "license": [
+              {
+                "license_ref": "https://raw.githubusercontent.com/qyanu/2021-gdp-vs-ucdp/master/sna-at-data/LICENSE",
+                "start_date": "2021-04-15"
+              }
+            ]
+          },
+          {
+            "title": "`sna-at-extracted` data set within the public project github repository",
+            "access_url": "gitolite3@git.qyanu.net:studium/2021-UE-Data-Stewardship/Excercise-1.git:/refs/heads/master:/sna-at-data",
+            "byte_size": 18443,
+            "data_access": "closed",
+            "description": "Sharing of intermediate processing steps of the 2021-gdp-vs-ucdp project.\nThe distribution consists of a single `csv` file, which is also rendered into `pdf` form.",
+            "format": [
+              "text/csv"
+            ],
+            "host": {
+              "title": "Pogner Family IT System",
+              "url": "https://pogner.at",
+              "support_versioning": "yes",
+              "availability": "sufficient",
+              "backup_frequency": "within 24h",
+              "backup_type": "rotating magnetic disks, on-site and off-site",
+              "storage_type": "active checksum file system, on raid5, on rotating magnetic disks",
+              "geo_location": "AT"
+            },
+            "license": [
+              {
+                "license_ref": "https://raw.githubusercontent.com/qyanu/2021-gdp-vs-ucdp/master/sna-at-data/LICENSE",
+                "start_date": "2021-04-15"
+              }
+            ]
+          }
+        ],
+        "data_quality_assurance": [
+          "file naming convention: single file with data is named like data set",
+          "data quality checklist items included in step-by-step extract & combine guide",
+          "layman-knowledge visual inspection of result rendered in pdf form"
+        ],
+        "preservation_statement": "This data set is planned to be shared publicly alongside the public project github repository.\nThe data is shared from 2021-04-19 onward.\nSharing is performed via the github.com platform, until that hoster's strategic direction changes.\nUntil further notice, a web browser and internet connection to the western internet is required to access the public github repository. No authorization or registration is required for access.\nThe DOI of this data set was already acquired via the zenodo platform. However, due to technical limitations of the github/zenodo partnership, technical limitations of the `git` software, combined with the lock-in of the DOI system to institutionalized processes, the DOI for this data set actually points to a snapshot of the data which needs manual update each time the data set at the public project github repository is updated."
+      },
+      {
+        "title": "UCDP/PRIO Armed Conflict Dataset version 20.1",
+        "dataset_id": {
+          "type": "other",
+          "identifier": "urn:git.qyanu.net:qyanu/2021-gdp-vs-ucdp:/ucdp"
+        },
+        "description": "A conflict-year dataset with information on armed conflict where at least one party is the government of a state in the time period 1946-2019.",
+        "language": "eng",
+        "is_reused": "reused",
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "type": "Dataset",
+        "issued": "2020-05-25",
+        "distribution": [
+          {
+            "title": "`ucdp` data set within the non-public project git repository",
+            "access_url": "gitolite3@git.qyanu.net:studium/2021-UE-Data-Stewardship/Excercise-1.git:/refs/heads/master:/ucdp-data",
+            "byte_size": 4295476,
+            "data_access": "closed",
+            "restriction_explanation": "due to the missing license statement at the UCDP download page, permission to re-publish cannot be presumed.",
+            "description": "Verbatim preservation of the originally downloaded files.",
+            "format": [
+              "text/csv"
+            ],
+            "host": {
+              "title": "Pogner Family IT System",
+              "url": "https://pogner.at",
+              "support_versioning": "yes",
+              "availability": "sufficient",
+              "backup_frequency": "within 24h",
+              "backup_type": "rotating magnetic disks, on-site and off-site",
+              "storage_type": "active checksum file system, on raid5, on rotating magnetic disks",
+              "geo_location": "AT"
+            }
+          }
+        ],
+        "data_quality_assurance": [
+          "file naming convention: store files exactly as named by the data source",
+          "data quality checklist provided",
+          "downloaded file content compared with expected sha256 checksum"
+        ],
+        "preservation_statement": "This data set is planned to be barred from sharing, due to licensing concerns.\nA DOI of this data set cannot be obtained without further institutional support, due to it's non-public nature.\nLong-term availability of current, past and future versions of this data set is expected to be continuely provided by the UCDP itself."
+      },
+      {
+        "title": "Aggregated Extraction from the UCDP/PRIO dataset",
+        "dataset_id": {
+          "type": "other",
+          "identifier": "urn:git.qyanu.net:qyanu/2021-gdp-vs-ucdp:/ucdp-extracted"
+        },
+        "description": "Based on the UCDP/PRIO 20.1 dataset, the per-year cummulative world conflict level is calculated as the sum of all `intensity_level` values of all conflicts active in a particular year.",
+        "language": "eng",
+        "is_reused": "produced",
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "type": "Dataset",
+        "issued": "2020-05-25",
+        "distribution": [
+          {
+            "title": "`ucdp-extracted` data set within the non-public project git repository",
+            "access_url": "gitolite3@git.qyanu.net:studium/2021-UE-Data-Stewardship/Excercise-1.git:/refs/heads/master:/ucdp-data-extracted",
+            "byte_size": 14472,
+            "data_access": "closed",
+            "restriction_explanation": "due to the missing license statement at the UCDP download page, permission to publish derivative works cannot be presumed.",
+            "description": "Preservation of the intermediate data set, created during data processing within the 2021-gdp-vs-ucdp project.",
+            "format": [
+              "text/csv"
+            ],
+            "host": {
+              "title": "Pogner Family IT System",
+              "url": "https://pogner.at",
+              "support_versioning": "yes",
+              "availability": "sufficient",
+              "backup_frequency": "within 24h",
+              "backup_type": "rotating magnetic disks, on-site and off-site",
+              "storage_type": "active checksum file system, on raid5, on rotating magnetic disks",
+              "geo_location": "AT"
+            }
+          }
+        ],
+        "data_quality_assurance": [
+          "file naming convention: single file with data is named like data set",
+          "data quality checklist provided",
+          "layman-knowledge visual inspection of result rendered in pdf form"
+        ],
+        "preservation_statement": "This data set is planned to be barred from sharing, due to licensing concerns.\nA DOI of this data set cannot be obtained without further institutional support, due to it's non-public nature.\nLong-term preservation of this data set is performed by the closed-access storage systems within the pogitsys."
+      }
+    ]
+  }
+}

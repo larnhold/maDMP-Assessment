@@ -45,7 +45,7 @@ public class LegacyShaclController {
             }
         }).toList();
 
-        File maDMP = resourceLoader.getResource("classpath:/maDMPs/examples/ex1-header-fundedProject.json").getFile();
+        File maDMP = resourceLoader.getResource("classpath:/maDMPs/zenodo/6.json").getFile();
         var maDMPModel = dcsoJsonTransformer.convertPlainToModel(maDMP);
 
         return shapes.stream().map(x -> {
