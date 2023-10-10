@@ -1,0 +1,627 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cerif: <http://www.eurocris.org/ontologies/cerif/1.3> .
+@prefix dcterms:http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/> .
+@prefix swpo: <http://sw-portal.deri.org/ontologies/swportal> .
+@prefix lexvo: <http://www.lexvo.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix prov: <http://www.w3.org/TR/prov-o/> .
+@prefix schema: <http://schema.org/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix api: <http://purl.org/linked-data/api/> .
+@prefix nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#> .
+@prefix frapo: <http://purl.org/cerif/frapo/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix biotop: <http://purl.org/biotop/biotop.owl#> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix mrel: <http://id.loc.gov/vocabulary/> .
+@prefix dcite: <http://purl.org/spar/datacite/> .
+@prefix oav: <http://lod.openaire.eu/vocab/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://lod.openaire.eu/vocab>
+  dc:Title ""@en ;
+  dc:creator "UBONN, ARC"@en ;
+  dc:issued "2017-06-01"^^xsd:date ;
+  dc:isVersionOf <http://lod.openaire.eu/documents/dcmi-terms/> ;
+  dc:description """This document is a specification of all metadata terms used or created in providing OpenAIRE LOD services including properties, vocabulary encoding schemes, syntax encoding schemes, and classes.
+                """@en ;
+  xhv:license <http://creativecommons.org/licenses/by/3.0/> .
+
+<http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity>
+  a rdfs:Class ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:label "ResultEntity"@en ;
+  rdfs:comment "Publication or Datasets"@en ;
+  dc:description "A Result is here intended as the (metadata) description of a scientific output (possibly) resulting out of one or more projects. Results has the following sub-entities: Publication and Dataset."@en .
+
+<http: //xmlns.com/foaf/0.1/Person>
+  a rdfs:Class ;
+  rdfs:isDefinedBy dc: ;
+  rdfs:label "Person"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en .
+
+prov:Entity
+  a rdfs:Class ;
+  rdfs:isDefinedBy dc: ;
+  rdfs:label "DataSource"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en .
+
+<http: //xmlns.com/foaf/0.1/Organization>
+  a rdfs:Class ;
+  rdfs:isDefinedBy <http: //xmlns.com/foaf/0.1/Organization> ;
+  rdfs:label "Organization"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en .
+
+<http://www.eurocris.org/ontologies/cerif/1.3#Project>
+  a rdfs:Class ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:label "Project"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en .
+
+rdf:type
+  a rdf:Property ;
+  rdfs:isDefinedBy rdf:type ;
+  rdfs:label "entityType"@en ;
+  rdfs:comment ""@en ;
+  dc:description "rdf:type is an instance of rdf:Property that is used to state that a resource is an instance of a class."@en, ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3/#ResultEntity>, <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/dateOfCollection>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/dateOfCollection> ;
+  rdfs:label "dateOfCollection"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3/#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://www.eurocris.org/ontologies/cerif/1.3#name>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3#name> ;
+  rdfs:label "title"@en ;
+  rdfs:comment "The titles of the Result, each with a typology represented by a Qualifier and Provenance information."@en, ""@en ;
+  dc:description """
+                        The Title of the publication or a dataset.
+                    """@en, ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity>, <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+dc:dateAccepted
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:dateAccepted ;
+  rdfs:label "dateOfAcceptance"@en ;
+  rdfs:comment ""@en ;
+  dc:description """
+                        The date this publication or the dataset got accepted from the publisher.
+                    """@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+dc:publisher
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:publisher ;
+  rdfs:label "publisher"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+dc:identifier
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:identifier ;
+  rdfs:label "pid"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity>, <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity>, <http://www.w3.org/TR/xmlschema-2/#string> .
+
+dc:language
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:language ;
+  rdfs:label "language"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+dc:date
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:date ;
+  rdfs:label "relevantDate"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://lod.openaire.eu/vocab/resultSubject>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/resultSubject> ;
+  rdfs:label "subject"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/externalReference>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/externalReference> ;
+  rdfs:label "externalReference"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+dc:source
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:source ;
+  rdfs:label "source"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+dc:format
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:format ;
+  rdfs:label "format"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/context>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/context> ;
+  rdfs:label "context"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+dc:accessRights
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:accessRights ;
+  rdfs:label "bestLicense"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+dc:description
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:description ;
+  rdfs:label "description"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lsdis.cs.uga.edu/projects/semdis/opus#journal_name>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lsdis.cs.uga.edu/projects/semdis/opus#journal_name> ;
+  rdfs:label "journal"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/dataSourceType>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/dataSourceType> ;
+  rdfs:label "resourceType"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/device>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/device> ;
+  rdfs:label "device"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/size>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/size> ;
+  rdfs:label "size"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/version>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/version> ;
+  rdfs:label "version"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/lastMetadataUpdate>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/lastMetadataUpdate> ;
+  rdfs:label "lastMetadataUpdate"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://lod.openaire.eu/vocab/metadataVersion>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/metadataVersion> ;
+  rdfs:label "metadataVersionNumber"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/year>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/year> ;
+  rdfs:label "year"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/resultType>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/resultType> ;
+  rdfs:label "resultType"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/trust>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/trust> ;
+  rdfs:label "trust"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity>, <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+foaf:firstName
+  a rdf:Property ;
+  rdfs:isDefinedBy foaf:firstName ;
+  rdfs:label "firstName"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+foaf:lastName
+  a rdf:Property ;
+  rdfs:isDefinedBy foaf:lastName ;
+  rdfs:label "Secondnames"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+foaf:name
+  a rdf:Property ;
+  rdfs:isDefinedBy foaf:name ;
+  rdfs:label "fullName"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+schema:faxNumber
+  a rdf:Property ;
+  rdfs:isDefinedBy schema:faxNumber ;
+  rdfs:label "fax"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+foaf:mbox
+  a rdf:Property ;
+  rdfs:isDefinedBy foaf:mbox ;
+  rdfs:label "email"@en, "contactEmail"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Person>, prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+foaf:phone
+  a rdf:Property ;
+  rdfs:isDefinedBy foaf:phone ;
+  rdfs:label "phone"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+schema:nationality
+  a rdf:Property ;
+  rdfs:isDefinedBy schema:nationality ;
+  rdfs:label "nationality"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Person> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/datasourceType>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/datasourceType> ;
+  rdfs:label "datasourceType"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/openAIRECompatibility>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/openAIRECompatibility> ;
+  rdfs:label "Openairecompatibility"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://dbpedia.org/ontology/officialName>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://dbpedia.org/ontology/officialName> ;
+  rdfs:label "officialName"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+schema:url
+  a rdf:Property ;
+  rdfs:isDefinedBy schema:url ;
+  rdfs:label "websiteUrl"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+foaf:logo
+  a rdf:Property ;
+  rdfs:isDefinedBy foaf:logo ;
+  rdfs:label "logoUrl"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://purl.org/vocab/vann/preferredNamespacePrefix>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://purl.org/vocab/vann/preferredNamespacePrefix> ;
+  rdfs:label "namespacePrefix"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+geo:lat
+  a rdf:Property ;
+  rdfs:isDefinedBy geo:lat ;
+  rdfs:label "latitude"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+geo:long
+  a rdf:Property ;
+  rdfs:isDefinedBy geo:long ;
+  rdfs:label "longitude"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/dateOfValidity>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/dateOfValidity> ;
+  rdfs:label "dateOfValidation"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/subjectList>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/subjectList> ;
+  rdfs:label "subjectsList"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://dbpedia.org/ontology/country>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://dbpedia.org/ontology/country> ;
+  rdfs:label "country"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http: //xmlns.com/foaf/0.1/Organization> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://lod.openaire.eu/vocab/projectCode>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/projectCode> ;
+  rdfs:label "code"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://www.eurocris.org/ontologies/cerif/1.3#acronym>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3#acronym> ;
+  rdfs:label "acronym"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#string> .
+
+<http://www.eurocris.org/ontologies/cerif/1.3#startDate>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3#startDate> ;
+  rdfs:label "startDate"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://www.eurocris.org/ontologies/cerif/1.3#endDate>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3#endDate> ;
+  rdfs:label "endDate"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://purl.org/cerif/frapo/hasCallIdentifier>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://purl.org/cerif/frapo/hasCallIdentifier> ;
+  rdfs:label "callIdentifier"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://www.eurocris.org/ontologies/cerif/1.3#keyword>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3#keyword> ;
+  rdfs:label "keywords"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+time:hasDurationDescription
+  a rdf:Property ;
+  rdfs:isDefinedBy time:hasDurationDescription ;
+  rdfs:label "duration"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://lod.openaire.eu/vocab/contractType>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/contractType> ;
+  rdfs:label "contractType"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://lod.openaire.eu/vocab/oaMandatePublications>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/oaMandatePublications> ;
+  rdfs:label "oamanDatePublications"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://lod.openaire.eu/vocab/projectSubjects>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/projectSubjects> ;
+  rdfs:label "subjectsList"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://lod.openaire.eu/vocab/ec_article29-3>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/ec_article29-3> ;
+  rdfs:label "ec_article29-3"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://lod.openaire.eu/vocab/funder>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/funder> ;
+  rdfs:label "funder"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http://www.w3.org/TR/xmlschema-2/#date> .
+
+<http://www.eurocris.org/ontologies/cerif/1.3/#linksToProject>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3/#linksToProject> ;
+  rdfs:label "resultProject"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> ;
+  rdfs:range <http://www.eurocris.org/ontologies/cerif/1.3#Project> .
+
+dc:creator
+  a rdf:Property ;
+  rdfs:isDefinedBy dc:creator ;
+  rdfs:label "resultDatasource"@en, "personResult"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity>, <http: //xmlns.com/foaf/0.1/Person> ;
+  rdfs:range prov:Entity, <http://www.eurocris.org/ontologies/cerif/1.3#ResultEntity> .
+
+<http://lod.openaire.eu/vocab/projectOrganization>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/projectOrganization> ;
+  rdfs:label "projectOrganization"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range foaf:Organization .
+
+<http://lod.openaire.eu/vocab/datasourceOrganization>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://lod.openaire.eu/vocab/datasourceOrganization> ;
+  rdfs:label "datasourceOrganization"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain prov:Entity ;
+  rdfs:range foaf:Organization .
+
+<http://www.eurocris.org/ontologies/cerif/1.3/#linksToPerson>
+  a rdf:Property ;
+  rdfs:isDefinedBy <http://www.eurocris.org/ontologies/cerif/1.3/#linksToPerson> ;
+  rdfs:label "projectPerson"@en ;
+  rdfs:comment ""@en ;
+  dc:description ""@en ;
+  rdfs:domain <http://www.eurocris.org/ontologies/cerif/1.3#Project> ;
+  rdfs:range <http: //xmlns.com/foaf/0.1/Person> .

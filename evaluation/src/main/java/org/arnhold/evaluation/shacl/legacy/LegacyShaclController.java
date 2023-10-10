@@ -17,21 +17,17 @@ import java.util.Comparator;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/legacy")
+@RequestMapping("/api/shacl/legacy")
 public class LegacyShaclController {
 
     @Autowired
     ResourceLoader resourceLoader;
-
     @Autowired
     SemanticService semanticService;
-
     @Autowired
     DcsoJsonTransformer dcsoJsonTransformer;
-
     @Autowired
     ShaclValidationService shaclValidationService;
-
     @Autowired
     ResourcePatternResolver resourcePatternResolver;
 

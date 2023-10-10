@@ -108,7 +108,7 @@
 				<artifactId>jsonschema2pojo-maven-plugin</artifactId>
 				<version>1.2.1</version>
 				<configuration>
-					<sourceDirectory>${basedir}/src/main/resources/openaire-schemas</sourceDirectory>
+					<sourceDirectory>${basedir}/src/main/resources/openaire-schemas/dataset</sourceDirectory>
 					<targetPackage>org.arnhold.evaluation.openaire</targetPackage>
 				</configuration>
 				<executions>
