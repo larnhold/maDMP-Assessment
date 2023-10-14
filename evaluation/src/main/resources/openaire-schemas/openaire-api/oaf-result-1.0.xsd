@@ -1,5 +1,5 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-	xmlns="http://namespace.openaire.eu/oaf" targetNamespace="http://namespace.openaire.eu/oaf">
+		   xmlns="http://namespace.openaire.eu/oaf" targetNamespace="http://namespace.openaire.eu/oaf">
 
 	<xs:annotation>
 		<xs:documentation>This schema describes elements and properties of the OpenAIRE Result entity. For an overview of the model, please check the OpenAIRE Research Graph Data Model at https://doi.org/10.5281/zenodo.2643199</xs:documentation>
@@ -36,14 +36,14 @@
 				<xs:element name="title" type="structuredPropertyElementType">
 					<xs:annotation>
 						<xs:documentation> Title of this research result. <p>Different types of
-								titles are allowed: see http://api.openaire.eu/vocabularies/dnet:dataCite_title</p>
+							titles are allowed: see http://api.openaire.eu/vocabularies/dnet:dataCite_title</p>
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="relevantdate" type="structuredPropertyElementType"/>
-				<xs:element name="description" type="xs:string"/>	
+				<xs:element name="description" type="xs:string"/>
 				<xs:element name="dateofacceptance" type="xs:string"/>
-				<xs:element name="publisher" type="xs:string"/>	
+				<xs:element name="publisher" type="xs:string"/>
 				<xs:element name="embargoenddate" type="xs:string"/>
 				<xs:element name="source" type="xs:string">
 					<xs:annotation>
@@ -70,11 +70,11 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="journal" type="journalType"/>	
+				<xs:element name="journal" type="journalType"/>
 				<xs:element name="pid" type="structuredPropertyElementType">
 					<xs:annotation>
 						<xs:documentation> Persistent identifier. <p>For allowed pid systems check:
-								http://api.openaire.eu/vocabularies/dnet:pid_types </p>
+							http://api.openaire.eu/vocabularies/dnet:pid_types </p>
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
@@ -165,7 +165,7 @@
 				<xs:attribute name="ep" use="optional"/>
 				<xs:attribute name="iss" use="optional"/>
 				<xs:attribute name="sp" use="optional"/>
-				<xs:attribute name="vol" use="optional"/>			
+				<xs:attribute name="vol" use="optional"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -178,7 +178,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="externalreference" type="externalreferenceType" minOccurs="0"
-				maxOccurs="unbounded"/>
+						maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -187,7 +187,7 @@
 			<xs:element name="license" type="fieldType">
 				<xs:annotation>
 					<xs:documentation> License to access this actual manifestation of the
-						result. Typically it is a URL. OpenAIRE does not yet attempt any harmonization and reflect the original values that are available in the collected metadata records. 
+						result. Typically it is a URL. OpenAIRE does not yet attempt any harmonization and reflect the original values that are available in the collected metadata records.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -195,7 +195,7 @@
 			<xs:element name="instancetype" type="qualifierType">
 				<xs:annotation>
 					<xs:documentation> Type of the instance, for example: article, thesis, etc.
-							<p>For allowed values check: http://api.openaire.eu/vocabularies/dnet:publication_resource
+						<p>For allowed values check: http://api.openaire.eu/vocabularies/dnet:publication_resource
 						</p>
 					</xs:documentation>
 				</xs:annotation>
@@ -211,7 +211,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="webresource" type="webresourceType" minOccurs="1"
-				maxOccurs="unbounded"/>
+						maxOccurs="unbounded"/>
 			<xs:element name="distributionlocation" type="xs:string" minOccurs="0"/>
 			<xs:element name="dateofacceptance" type="xs:string" minOccurs="0"/>
 			<xs:element name="processingchargeamount" type="fieldType">

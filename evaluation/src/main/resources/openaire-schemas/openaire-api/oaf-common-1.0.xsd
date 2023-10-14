@@ -38,14 +38,16 @@
                 <xs:documentation>Which algorithm inferred the current property. </xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attributeGroup ref="qualifierAttributeGroup"></xs:attributeGroup>
+        <xs:attributeGroup ref="qualifierAttributeGroup"/>
     </xs:attributeGroup>
 
     <xs:attributeGroup name="qualifierAttributeGroup">
+        <!--
         <xs:attribute name="classid" use="required" type="xs:string"/>
         <xs:attribute name="classname" use="required" type="xs:string"/>
         <xs:attribute name="schemeid" use="required" type="xs:string"/>
         <xs:attribute name="schemename" use="required" type="xs:string"/>
+        -->
     </xs:attributeGroup>
 
     <xs:complexType name="fieldType">
@@ -78,15 +80,6 @@
         <xs:attribute name="label" use="required"/>
     </xs:complexType>
 
-    <!-- <oaf:context id="egi" label="EGI" type="community">
-            <oaf:category id="egi::virtual" label="EGI virtual organizations">
-                <oaf:concept id="egi::virtual::2" label="alice"/>
-            </oaf:category>
-        </oaf:context>
-         <oaf:community id="{@id}" label="{@label}">
-            <xsl:apply-templates/>
-        </oaf:community>
-    -->
     <xs:complexType name="contextType">
         <xs:complexContent>
             <xs:extension base="labeledIdElementType">

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-  xmlns="http://namespace.openaire.eu/oaf"
-  targetNamespace="http://namespace.openaire.eu/oaf">
+           xmlns:dri="http://www.driver-repository.eu/namespace/dri" xmlns="http://namespace.openaire.eu/oaf"
+           targetNamespace="http://namespace.openaire.eu/oaf">
 
   <xs:annotation>
-    <xs:documentation>This schema describes the XML serialization of the OpenAIRE Research Graph. 
+    <xs:documentation>This schema describes the XML serialization of the OpenAIRE Research Graph.
       For an overview of the model, please check the OpenAIRE Research Graph Data Model at https://doi.org/10.5281/zenodo.2643199
     </xs:documentation>
   </xs:annotation>
