@@ -154,6 +154,7 @@
 			<configuration>
 				<sources>
 					<source>${basedir}/src/main/resources/openaire-schemas/openaire-api</source>
+					<source>${basedir}/src/main/resources/re3data</source>
 				</sources>
 				<packageName>org.arnhold.evaluation.openaire.model</packageName>
 			</configuration>
