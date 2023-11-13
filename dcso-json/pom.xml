@@ -48,11 +48,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.arnhold</groupId>
-            <artifactId>common</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>

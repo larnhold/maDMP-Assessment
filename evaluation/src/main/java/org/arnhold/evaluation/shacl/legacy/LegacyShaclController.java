@@ -1,9 +1,9 @@
 package org.arnhold.evaluation.shacl.legacy;
 
 import org.arnhold.evaluation.shacl.ShaclValidationResult;
+import org.arnhold.plugins.MaDMPLoader;
 import org.arnhold.semantic.SemanticService;
 import org.arnhold.semantic.shacl.ShaclValidationService;
-import org.example.dcsojson.DcsoJsonTransformer;
 import org.example.dcsojson.TransformationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
@@ -25,7 +25,7 @@ public class LegacyShaclController {
     @Autowired
     SemanticService semanticService;
     @Autowired
-    DcsoJsonTransformer dcsoJsonTransformer;
+    MaDMPLoader maDMPLoader;
     @Autowired
     ShaclValidationService shaclValidationService;
     @Autowired
@@ -37,7 +37,7 @@ public class LegacyShaclController {
         var shapeModel = semanticService.loadModelFromFile(shapeFile);
 
         var maDMPFile = resourcePatternResolver.getResource(String.format("classpath:/maDMPs/%s.json", maDMP)).getFile();
-        var madmpModel = dcsoJsonTransformer.convertPlainToModel(maDMPFile);
+        var madmpModel = maDMPLoader.fromIdentifier(maDMPFile);
         var validation = shaclValidationService.validateShape(madmpModel, shapeModel);
 
         return new ShaclValidationResult(maDMPFile.getName(), shapeFile.getName(), validation);
@@ -52,10 +52,10 @@ public class LegacyShaclController {
         return Arrays.stream(resourcePatternResolver.getResources("classpath:/maDMPs/original_shacl_dmps/*.json")).map(element -> {
             try {
                 var file = element.getFile();
-                var madmpModel = dcsoJsonTransformer.convertPlainToModel(file);
+                var madmpModel = maDMPLoader.fromIdentifier(file);
                 var validation = shaclValidationService.validateShape(madmpModel, shapeModel);
                 return new ShaclValidationResult(file.getName(), shapeFile.getName(), validation);
-            } catch (IOException | TransformationException e) {
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }).sorted(Comparator.comparing(ShaclValidationResult::getShape)).toList();
@@ -72,7 +72,7 @@ public class LegacyShaclController {
         }).toList();
 
         var maDMPFile = resourcePatternResolver.getResource(String.format("classpath:/maDMPs/%s.json", maDMP)).getFile();
-        var maDmpModel = dcsoJsonTransformer.convertPlainToModel(maDMPFile);
+        var maDmpModel = maDMPLoader.fromIdentifier(maDMPFile);
 
         return shapes.stream().map(x -> {
             var shapeModel = semanticService.loadModelFromFile(x);
