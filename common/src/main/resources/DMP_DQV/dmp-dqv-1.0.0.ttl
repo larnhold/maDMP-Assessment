@@ -1,1 +1,83 @@
-#A vocabulary specifying validation metrics
+@prefix : <https://la/dmpqv/ns/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ex: <https://w3id.org/dcso/id/example/> .
+@prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wot: <http://xmlns.com/wot/0.1/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix daq: <http://purl.org/eis/vocab/daq#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix duv: <http://www.w3.org/ns/duv#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix dcso: <https://w3id.org/dcso/ns/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@base <https://la/dmpqv/ns/core> .
+
+<https://la/dmpqv/ns/core#> rdf:type owl:Ontology ;
+    owl:versionIRI <https://w3id.org/dcso/ns/core/4.0.0> ;
+    terms:contributor "Lukas Arnhold" ;
+    terms:creator "Lukas Arnhold" ;
+    terms:description "A vocabulary specifying validation metrics"@en ;
+    terms:rights "http://creativecommons.org/licenses/by/4.0/" ;
+    terms:title "The DMP Quality Indicator Ontology." ;
+    vann:preferredNamespacePrefix "dcso-dqv" .
+
+# https://www.w3.org/TR/vocab-dqv/#DimensionsOfISOIEC25012
+#see: http://rdfunit.aksw.org/ns/rdqv
+#<#CardinalityMetric> a dqv:Metric .
+
+# definition of categories - equals top level goals
+
+:completeness a dqv:Category ;
+    skos:prefLabel "Inherent Data Quality"@en .
+
+:feasability a dqv:Category ;
+    skos:prefLabel "System-Dependent Data Quality"@en .
+
+:qualityOfActions a dqv:Category ;
+    skos:prefLabel "Inherent and System-Dependent Data Quality"@en .
+
+:guidelineCompliance a dqv:Category ;
+    skos:prefLabel "Inherent and System-Dependent Data Quality"@en .
+
+# definition of dimensions
+:accuracy a dqv:Dimension ;
+    dqv:inCategory :inherentDataQuality ;
+    skos:prefLabel "Accuracy"@en;
+    skos:definition "The degree to which data has attributes that correctly represent
+    the true value of the intended attribute of a concept or event in a specific context
+    of use."@en .
+
+:completeness a dqv:Dimension ;
+    dqv:inCategory :inherentDataQuality ;
+    skos:prefLabel "Completeness"@en ;
+    skos:definition "The degree to which subject data associated with an entity has
+    values for all expected attributes and related entity instances in a specific context
+    of use."@en .
+
+:consistency a dqv:Dimension ;
+    dqv:inCategory :inherentDataQuality ;
+    skos:prefLabel "Consistency"@en;
+    skos:definition "The degree to which data has attributes that are free from
+    contradiction and are coherent with other data in a specific context of use.
+    It can be either or both among data regarding one entity and across similar
+    data for comparable entities."@en .
+
+# definition of metrics
+:downloadURLAvailabilityMetric
+a dqv:Metric ;
+skos:definition "It checks if dcat:downloadURL is available and if its value is
+    dereferenceable."@en ;
+    dqv:inDimension ldqd:availability ;
+    dqv:expectedDataType xsd:boolean .
+
