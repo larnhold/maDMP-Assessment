@@ -1,4 +1,4 @@
-package org.arnhold.casestudy.context.openaire
+package org.arnhold.dmpeval.casestudy.openaire
 
 import org.apache.jena.rdf.model.ModelFactory
 import org.springframework.beans.factory.annotation.Autowired

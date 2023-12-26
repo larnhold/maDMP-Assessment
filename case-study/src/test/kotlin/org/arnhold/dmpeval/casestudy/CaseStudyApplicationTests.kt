@@ -1,4 +1,4 @@
-package org.arnhold.casestudy
+package org.arnhold.dmpeval.casestudy
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

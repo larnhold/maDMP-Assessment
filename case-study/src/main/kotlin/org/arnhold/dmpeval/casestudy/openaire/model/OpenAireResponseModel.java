@@ -1,4 +1,4 @@
-package org.arnhold.casestudy.context.openaire.model;
+package org.arnhold.dmpeval.casestudy.openaire.model;
 
 import jakarta.xml.bind.annotation.*;
 
