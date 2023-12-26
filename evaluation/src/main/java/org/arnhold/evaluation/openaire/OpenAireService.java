@@ -1,4 +1,4 @@
-package org.arnhold.evaluation.openaire.service;
+package org.arnhold.evaluation.openaire;
 
 import org.apache.jena.rdf.model.Model;
 

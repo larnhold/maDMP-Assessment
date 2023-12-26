@@ -1,4 +1,4 @@
-package org.arnhold.semantic;
+package org.arnhold.evaluation.constraints;
 
 import org.apache.jena.rdf.model.Model;
 

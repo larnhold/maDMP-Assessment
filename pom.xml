@@ -13,7 +13,6 @@
         <module>dcso-json</module>
         <module>evaluation</module>
         <module>common</module>
-        <module>semantic</module>
     </modules>
 
     <parent>

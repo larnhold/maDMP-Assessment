@@ -2,8 +2,8 @@ package org.arnhold.evaluation.shacl.legacy;
 
 import org.arnhold.evaluation.shacl.ShaclValidationResult;
 import org.arnhold.plugins.MaDMPLoader;
-import org.arnhold.semantic.SemanticService;
-import org.arnhold.semantic.shacl.ShaclValidationService;
+import org.arnhold.evaluation.constraints.SemanticService;
+import org.arnhold.evaluation.constraints.shacl.ShaclValidationService;
 import org.example.dcsojson.TransformationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;

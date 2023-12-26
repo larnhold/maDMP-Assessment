@@ -1,4 +1,4 @@
-package org.arnhold.semantic.shacl;
+package org.arnhold.evaluation.constraints.shacl;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.shacl.ValidationReport;

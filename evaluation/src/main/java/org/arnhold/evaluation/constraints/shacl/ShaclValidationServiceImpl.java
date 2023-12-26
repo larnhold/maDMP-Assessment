@@ -1,4 +1,4 @@
-package org.arnhold.semantic.shacl;
+package org.arnhold.evaluation.constraints.shacl;
 
 import org.apache.jena.graph.Graph;
 import org.apache.jena.rdf.model.Model;

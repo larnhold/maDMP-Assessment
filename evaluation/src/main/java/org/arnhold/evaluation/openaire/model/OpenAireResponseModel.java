@@ -1,4 +1,4 @@
-package org.arnhold.evaluation.openaire.service.model;
+package org.arnhold.evaluation.openaire.model;
 
 import jakarta.xml.bind.annotation.*;
 

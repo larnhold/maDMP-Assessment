@@ -1,4 +1,4 @@
-package org.arnhold.evaluation.openaire.service;
+package org.arnhold.evaluation.openaire;
 
 
 import jakarta.xml.bind.JAXBContext;
@@ -12,7 +12,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.jena.rdf.model.Model;
 import org.arnhold.evaluation.openaire.model.Entity;
-import org.arnhold.evaluation.openaire.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
