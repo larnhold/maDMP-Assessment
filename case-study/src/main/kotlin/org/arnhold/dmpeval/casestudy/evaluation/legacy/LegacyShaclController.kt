@@ -1,4 +1,4 @@
-package org.arnhold.evaluation.shacl.legacy
+package org.arnhold.dmpeval.casestudy.evaluation.legacy
 
 import at.ac.tuwien.dcsojson.TransformationException
 import org.arnhold.evaluation.constraints.SemanticService

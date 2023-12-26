@@ -5,7 +5,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan(basePackages = ["org.arnhold", "at.ac.tuwien"])
+@ComponentScan(basePackages = ["org.arnhold"])
 class EvaluationApplication
 
 fun main(args: Array<String>) {

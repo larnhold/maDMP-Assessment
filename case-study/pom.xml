@@ -79,6 +79,12 @@
             <version>1.1</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.arnhold.dmpeval</groupId>
+            <artifactId>evaluator</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
