@@ -1,9 +1,9 @@
 package org.arnhold.dmpeval.casestudy.evaluation.legacy
 
 import at.ac.tuwien.dcsojson.TransformationException
-import org.arnhold.evaluation.constraints.SemanticService
-import org.arnhold.evaluation.constraints.shacl.ShaclValidationService
-import org.arnhold.evaluation.shacl.ShaclValidationResult
+import org.arnhold.evaluation.method.constraints.SemanticService
+import org.arnhold.evaluation.method.constraints.shacl.ShaclValidationService
+import org.arnhold.evaluation.method.constraints.shacl.ShaclValidationResult
 import org.arnhold.sdk.dmpLoader.MaDMPLoader
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.Resource

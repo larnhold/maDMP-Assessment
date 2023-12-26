@@ -1,4 +1,4 @@
-package org.arnhold.evaluation.constraints
+package org.arnhold.evaluation.method.constraints
 
 import org.apache.jena.rdf.model.Model
 import org.springframework.stereotype.Component

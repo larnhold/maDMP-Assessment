@@ -1,4 +1,4 @@
-package org.arnhold.evaluation.constraints.shacl
+package org.arnhold.evaluation.method.constraints.shacl
 
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.riot.Lang
@@ -7,7 +7,6 @@ import org.apache.jena.shacl.ShaclValidator
 import org.apache.jena.shacl.Shapes
 import org.apache.jena.shacl.ValidationReport
 import org.apache.jena.shacl.validation.ReportEntry
-import org.arnhold.evaluation.shacl.ShaclValidationResult
 import org.springframework.stereotype.Service
 import java.util.stream.Collectors
 

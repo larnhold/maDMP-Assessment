@@ -1,8 +1,7 @@
-package org.arnhold.evaluation.constraints.shacl
+package org.arnhold.evaluation.method.constraints.shacl
 
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.shacl.ValidationReport
-import org.arnhold.evaluation.shacl.ShaclValidationResult
 
 interface ShaclValidationService {
     fun validateShape(maDMPGraph: Model, shapesGraph: Model): ValidationReport
