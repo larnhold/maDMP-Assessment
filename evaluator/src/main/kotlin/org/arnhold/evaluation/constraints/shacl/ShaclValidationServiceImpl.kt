@@ -1,25 +1,31 @@
-package org.arnhold.evaluation.constraints.shacl;
+package org.arnhold.evaluation.constraints.shacl
 
-import org.apache.jena.graph.Graph;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.shacl.ShaclValidator;
-import org.apache.jena.shacl.Shapes;
-import org.apache.jena.shacl.ValidationReport;
-import org.springframework.stereotype.Service;
+import org.apache.jena.rdf.model.Model
+import org.apache.jena.riot.Lang
+import org.apache.jena.riot.RDFDataMgr
+import org.apache.jena.shacl.ShaclValidator
+import org.apache.jena.shacl.Shapes
+import org.apache.jena.shacl.ValidationReport
+import org.apache.jena.shacl.validation.ReportEntry
+import org.arnhold.evaluation.shacl.ShaclValidationResult
+import org.springframework.stereotype.Service
+import java.util.stream.Collectors
 
 @Service
-public class ShaclValidationServiceImpl implements ShaclValidationService {
+class ShaclValidationServiceImpl : ShaclValidationService {
+    override fun validateShape(maDMPGraph: Model, shapesGraph: Model): ValidationReport {
+        val shapes = Shapes.parse(shapesGraph)
+        val graph = maDMPGraph.graph
 
-    @Override
-    public ValidationReport validateShape(Model maDMPGraph, Model shapesModel) {
+        val result = ShaclValidator.get().validate(shapes, graph)
+        RDFDataMgr.write(System.out, result.model, Lang.TTL)
+        return result
+    }
 
-        Shapes shapes = Shapes.parse(shapesModel);
-        Graph graph = maDMPGraph.getGraph();
+    override fun createValidationResult(maDMP: String, shape: String, report: ValidationReport): ShaclValidationResult {
+        val conforms: Boolean = report.conforms()
+        val messages: List<String> = report.entries.stream().map { obj: ReportEntry -> obj.message() }.collect(Collectors.toList())
 
-        var result = ShaclValidator.get().validate(shapes, graph);
-        RDFDataMgr.write(System.out, result.getModel(), Lang.TTL);
-        return result;
+        return ShaclValidationResult(maDMP, shape, conforms, messages)
     }
 }

@@ -13,10 +13,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>case-study</name>
     <description>case-study</description>
+
     <properties>
         <java.version>17</java.version>
         <kotlin.version>1.9.21</kotlin.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -104,6 +106,7 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -116,7 +119,7 @@
                 <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>xjc</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>xjc</goal>
                         </goals>

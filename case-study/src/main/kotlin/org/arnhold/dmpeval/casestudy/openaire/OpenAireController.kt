@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/openaire")
-class OpenAireController {
-    @Autowired
-    var openAireService: OpenAireService? = null
+class OpenAireController @Autowired constructor(var openAireService: OpenAireService) {
 
     // https://pidforum.org/t/pids-in-openaire/1747/5
     @GetMapping("test")
-    fun test(): String? {
-        return openAireService!!.test(ModelFactory.createDefaultModel())
+    fun test(): String {
+        return openAireService.test(ModelFactory.createDefaultModel())
     }
 }

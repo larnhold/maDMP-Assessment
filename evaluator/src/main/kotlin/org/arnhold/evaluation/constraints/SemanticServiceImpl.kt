@@ -1,16 +1,13 @@
-package org.arnhold.evaluation.constraints;
+package org.arnhold.evaluation.constraints
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.riot.RDFDataMgr;
-import org.springframework.stereotype.Component;
-
-import java.io.File;
+import org.apache.jena.rdf.model.Model
+import org.springframework.stereotype.Component
+import org.apache.jena.riot.RDFDataMgr
+import java.io.File
 
 @Component
-public class SemanticServiceImpl implements SemanticService {
-
-    @Override
-    public Model loadModelFromFile(File file) {
-        return RDFDataMgr.loadModel(file.getAbsolutePath());
+class SemanticServiceImpl : SemanticService {
+    override fun loadModelFromFile(file: File): Model {
+        return RDFDataMgr.loadModel(file.absolutePath)
     }
 }
