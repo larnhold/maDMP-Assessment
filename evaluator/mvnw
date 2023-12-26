@@ -282,7 +282,7 @@ fi
 
 MAVEN_OPTS="$(concat_lines "$MAVEN_PROJECTBASEDIR/.mvn/jvm.config") $MAVEN_OPTS"
 
-# For Cygwin, switch paths to Windows format before running java
+# For Cygwin, switch paths to Windows format before running kotlin
 if $cygwin; then
   [ -n "$JAVA_HOME" ] &&
     JAVA_HOME=$(cygpath --path --windows "$JAVA_HOME")
