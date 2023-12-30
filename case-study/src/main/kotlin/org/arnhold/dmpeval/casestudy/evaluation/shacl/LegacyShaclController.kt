@@ -1,7 +1,7 @@
 package org.arnhold.dmpeval.casestudy.evaluation.shacl
 
 import at.ac.tuwien.dcsojson.TransformationException
-import org.arnhold.sdk.dmpLoader.DmpLoaderService
+import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.Resource
 import org.springframework.core.io.support.ResourcePatternResolver
@@ -17,7 +17,7 @@ import java.util.*
 @RequestMapping("/api/shacl/legacy")
 class LegacyShaclController @Autowired constructor(
         var semanticService: SemanticService,
-        var maDMPLoader: DmpLoaderService,
+        var maDMPLoader: DmpLoaderPlugin,
         var shaclValidationService: ShaclValidationService,
         var resourcePatternResolver: ResourcePatternResolver
 ) {
