@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>case-study</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>.0-SNAPSHOT</version>
     <name>case-study</name>
     <description>case-study</description>
 
@@ -79,12 +79,6 @@
             <version>1.1</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.arnhold.dmpeval</groupId>
-            <artifactId>evaluator</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -120,7 +114,7 @@
                 <version>1.2.1</version>
                 <configuration>
                     <sourceDirectory>${basedir}/src/main/resources/openaire-schemas/dataset</sourceDirectory>
-                    <targetPackage>org.arnhold.dmpeval.casestudy.context.model.schema</targetPackage>
+                    <targetPackage>org.arnhold.dmpeval.casestudy.context.openAire.model.schema</targetPackage>
                 </configuration>
                 <executions>
                     <execution>
@@ -147,7 +141,7 @@
                     <sources>
                         <source>${basedir}/src/main/resources/openaire-schemas/openaire-api</source>
                     </sources>
-                    <packageName>org.arnhold.dmpeval.casestudy.context.model.api</packageName>
+                    <packageName>org.arnhold.dmpeval.casestudy.context.openAire.model.api</packageName>
                 </configuration>
             </plugin>
         </plugins>

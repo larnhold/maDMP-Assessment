@@ -16,7 +16,7 @@
 
     <modules>
         <module>dcso-json</module>
-        <module>evaluator</module>
+        <module>core</module>
         <module>sdk</module>
         <module>case-study</module>
     </modules>
