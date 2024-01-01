@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 class Re3DataContextLoaderPlugin: ContextLoaderPlugin {
 
     override fun getIdentifier(): String {
-        TODO("Not yet implemented")
+        return "re3data"
     }
 
     override fun getRequiredConfigurationProperties(): List<String> {

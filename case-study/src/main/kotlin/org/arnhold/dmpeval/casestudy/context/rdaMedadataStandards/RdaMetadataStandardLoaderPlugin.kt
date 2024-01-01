@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 class RdaMetadataStandardLoaderPlugin: ContextLoaderPlugin {
 
     override fun getIdentifier(): String {
-        TODO("Not yet implemented")
+        return "rda-metadata-standards"
     }
 
     override fun getRequiredConfigurationProperties(): List<String> {

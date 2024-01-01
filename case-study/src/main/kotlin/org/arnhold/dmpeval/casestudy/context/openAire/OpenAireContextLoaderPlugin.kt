@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 class OpenAireContextLoaderPlugin: ContextLoaderPlugin {
 
     override fun getIdentifier(): String {
-        TODO("Not yet implemented")
+        return "openaire"
     }
 
     override fun getRequiredConfigurationProperties(): List<String> {

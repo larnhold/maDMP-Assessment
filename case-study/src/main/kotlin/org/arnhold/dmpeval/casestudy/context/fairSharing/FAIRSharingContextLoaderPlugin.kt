@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 class FAIRSharingContextLoaderPlugin: ContextLoaderPlugin {
 
     override fun getIdentifier(): String {
-        TODO("Not yet implemented")
+        return "fairsharing"
     }
 
     override fun getRequiredConfigurationProperties(): List<String> {

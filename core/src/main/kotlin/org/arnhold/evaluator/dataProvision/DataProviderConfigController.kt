@@ -1,0 +1,25 @@
+package org.arnhold.evaluator.dataProvision
+
+import org.arnhold.evaluator.plugin.PluginLoader
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+@RequestMapping("/api/config")
+class DataProviderConfigController @Autowired constructor(
+    val pluginLoader: PluginLoader
+) {
+
+    @GetMapping("dmp-providers")
+    fun getRegisteredDmpProviders(): List<String> {
+        return pluginLoader.getDMPLoaders().map { it.getIdentifier() }
+    }
+
+    @GetMapping("context-providers")
+    fun getRegisteredContextProviders(): List<String> {
+        return pluginLoader.getContextLoaders().map { it.getIdentifier() }
+    }
+
+}
