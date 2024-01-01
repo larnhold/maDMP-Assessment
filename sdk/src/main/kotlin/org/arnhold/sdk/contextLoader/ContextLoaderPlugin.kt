@@ -1,5 +1,5 @@
 package org.arnhold.sdk.contextLoader
-import org.springframework.plugin.core.Plugin
+import org.arnhold.sdk.plugin.ConfigurablePlugin
 
-interface ContextLoaderPlugin: Plugin<String> {
+interface ContextLoaderPlugin: ConfigurablePlugin<String> {
 }

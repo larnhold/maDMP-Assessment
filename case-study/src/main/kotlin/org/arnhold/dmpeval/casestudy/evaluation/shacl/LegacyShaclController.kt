@@ -28,7 +28,7 @@ class LegacyShaclController @Autowired constructor(
         val shapeModel = semanticService.loadModelFromFile(shapeFile)
 
         val maDMPFile = resourcePatternResolver.getResource(String.format("classpath:/maDMPs/%s.json", maDMP)).file
-        val madmpModel = maDMPLoader.fromIdentifier(maDMPFile)
+        val madmpModel = maDMPLoader.loadDMP(String.format("classpath:/maDMPs/%s.json", maDMP))
         val validation = shaclValidationService.validateShape(madmpModel, shapeModel)
 
         return shaclValidationService.createValidationResult(maDMPFile.name, shapeFile.name, validation)
@@ -41,18 +41,16 @@ class LegacyShaclController @Autowired constructor(
         val shapeFile = ressource.file
         val shapeModel = semanticService.loadModelFromFile(shapeFile)
 
-        val res = Arrays.stream(resourcePatternResolver.getResources("classpath:/maDMPs/zenodo/*.json")).map { element: Resource ->
+        return Arrays.stream(resourcePatternResolver.getResources("classpath:/maDMPs/zenodo/*.json")).map {it ->
+            val filename = it.filename
+            val dmpModel = maDMPLoader.loadDMP(String.format("classpath:/maDMPs/%s.json", filename))
             try {
-                val file = element.file
-                val madmpModel = maDMPLoader.fromIdentifier(file)
-                val validation = shaclValidationService.validateShape(madmpModel, shapeModel)
-                return@map shaclValidationService.createValidationResult(file.name, shapeFile.name, validation)
+                val validation = shaclValidationService.validateShape(dmpModel, shapeModel)
+                return@map filename?.let { itfilename -> shaclValidationService.createValidationResult(itfilename, shapeFile.name, validation) }
             } catch (e: IOException) {
                 throw RuntimeException(e)
             }
         }.sorted(Comparator.comparing(ShaclValidationResult::shape)).toList()
-
-        return res
     }
 
     @GetMapping("validateMadmp/{madmp}")
@@ -66,13 +64,12 @@ class LegacyShaclController @Autowired constructor(
             }
         }.toList()
 
-        val maDMPFile = resourcePatternResolver.getResource(String.format("classpath:/maDMPs/%s.json", maDMP)).file
-        val maDmpModel = maDMPLoader.fromIdentifier(maDMPFile)
+        val maDmpModel = maDMPLoader.loadDMP(String.format("classpath:/maDMPs/%s.json", maDMP))
 
         val results = shapes.stream().map { x: File ->
             val shapeModel = semanticService.loadModelFromFile(x)
             val validation = shaclValidationService.validateShape(maDmpModel, shapeModel)
-            shaclValidationService.createValidationResult(maDMPFile.name, x.name, validation)
+            shaclValidationService.createValidationResult(maDMP, x.name, validation)
         }.toList()
 
         return results
