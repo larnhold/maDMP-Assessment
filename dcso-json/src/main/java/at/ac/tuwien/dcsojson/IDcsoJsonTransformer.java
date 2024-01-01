@@ -1,5 +1,6 @@
 package at.ac.tuwien.dcsojson;
 
+import org.apache.jena.ontology.OntModel;
 import org.apache.jena.rdf.model.Model;
 
 import java.io.File;
@@ -67,5 +68,5 @@ public interface IDcsoJsonTransformer {
      */
     void convertTurtleToJsonLd(Path turtleInputFilePath, Path jsonLdOutputFilePath) throws TransformationException;
 
-    Model convertPlainToModel(File jsonInput) throws TransformationException;
+    Model convertPlainToModel(File jsonInput, OntModel ontology) throws TransformationException;
 }

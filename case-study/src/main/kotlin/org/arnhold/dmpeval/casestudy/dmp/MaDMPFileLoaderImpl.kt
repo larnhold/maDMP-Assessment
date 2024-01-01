@@ -1,6 +1,7 @@
 package org.arnhold.dmpeval.casestudy.dmp
 
 import at.ac.tuwien.dcsojson.DcsoJsonTransformer
+import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.springframework.beans.factory.annotation.Autowired
@@ -23,9 +24,9 @@ class MaDMPFileLoaderImpl @Autowired constructor(
         return file
     }
 
-    override fun loadDMP(identifier: String): Model {
+    override fun loadDMP(identifier: String, dcsOntology: OntModel): Model {
         try {
-            return dcsoJsonTransformer.convertPlainToModel(loadFileFromClassPath(identifier))
+            return dcsoJsonTransformer.convertPlainToModel(loadFileFromClassPath(identifier), dcsOntology)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

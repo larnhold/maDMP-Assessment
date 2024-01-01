@@ -1,15 +1,23 @@
 package org.arnhold.evaluator.dataProvision.dmpProvider
 
+import org.apache.jena.ontology.OntModel
+import org.apache.jena.rdf.model.Model
+import org.arnhold.evaluator.plugin.PluginLoader
+import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class DmpProviderServiceImpl: DmpProviderService {
+class DmpProviderServiceImpl @Autowired constructor(
+    val pluginLoader: PluginLoader
+) : DmpProviderService {
 
-    override fun getProviders(): List<DmpProviderConfiguration> {
-        TODO("Not yet implemented")
+    private fun getDmpLoader(identifier: String): DmpLoaderPlugin {
+        return pluginLoader.getDMPLoader(identifier);
     }
 
-    override fun getProviderConfiguration(identifier: String): DmpProviderConfiguration {
-        TODO("Not yet implemented")
+    override fun loadDMP(loaderId: String, dmpIdentifier: String, dcsOntology: OntModel): Model {
+        val loader = getDmpLoader(loaderId);
+        return loader.loadDMP(dmpIdentifier, dcsOntology);
     }
 }

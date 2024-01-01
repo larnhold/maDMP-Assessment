@@ -1,4 +1,4 @@
-package org.arnhold.dmpeval.casestudy.evaluation.shacl
+package org.arnhold.evaluator.shacl
 
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.shacl.ValidationReport

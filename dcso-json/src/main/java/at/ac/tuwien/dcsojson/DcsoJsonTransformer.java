@@ -6,6 +6,7 @@ import jakarta.json.*;
 import jakarta.json.stream.JsonGenerator;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.jena.ontology.OntModel;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
@@ -67,20 +68,26 @@ public class DcsoJsonTransformer implements IDcsoJsonTransformer {
         convertSemanticToSemantic(jsonLdInputFilePath, turtleOutputFilePath, Representation.JSON_LD, Representation.TURTLE);
     }
 
-    public void convertPlainToSemantic(Path jsonInput, Path outputFilePath, Representation outputLanguage) throws TransformationException {
-        try (var dcsoOutputFile = new FileOutputStream(outputFilePath.toString())) {
-            var jenaModel = dmpJsonToJenaModel(jsonInput.toFile(), jsonLdContext, true);
-            var semanticOutputLanguage = getSemanticLanguage(outputLanguage);
+    private OntModel getDcsOntology() {
+        OntModel dcso = ModelFactory.createOntologyModel();
+        RDFDataMgr.read(dcso, getResourceAsStream(DcsoJsonTransformer.ONTOLOGY_DCSO_TTL), Lang.TURTLE);
+        return dcso;
+    }
 
-            RDFDataMgr.write(dcsoOutputFile, jenaModel, semanticOutputLanguage);
+    public Model convertPlainToModel(File jsonInput, OntModel ontology) throws TransformationException {
+        try {
+           return dmpJsonToJenaModel(jsonInput, jsonLdContext, true, ontology);
         } catch (Exception e) {
             throw new TransformationException("Transformation could not be performed.", e);
         }
     }
 
-    public Model convertPlainToModel(File jsonInput) throws TransformationException {
-        try {
-           return dmpJsonToJenaModel(jsonInput, jsonLdContext, true);
+    public void convertPlainToSemantic(Path jsonInput, Path outputFilePath, Representation outputLanguage) throws TransformationException {
+        try (var dcsoOutputFile = new FileOutputStream(outputFilePath.toString())) {
+            var jenaModel = dmpJsonToJenaModel(jsonInput.toFile(), jsonLdContext, true, getDcsOntology());
+            var semanticOutputLanguage = getSemanticLanguage(outputLanguage);
+
+            RDFDataMgr.write(dcsoOutputFile, jenaModel, semanticOutputLanguage);
         } catch (Exception e) {
             throw new TransformationException("Transformation could not be performed.", e);
         }
@@ -153,10 +160,7 @@ public class DcsoJsonTransformer implements IDcsoJsonTransformer {
         return outputFile;
     }
 
-    private Model dmpJsonToJenaModel(File dmpJsonFile, File contextFile, Boolean adjustDmp) throws JsonLdError {
-        var dcso = ModelFactory.createDefaultModel();
-        RDFDataMgr.read(dcso, getResourceAsStream(ONTOLOGY_DCSO_TTL), Lang.TURTLE);
-
+    private Model dmpJsonToJenaModel(File dmpJsonFile, File contextFile, Boolean adjustDmp, OntModel dcso) throws JsonLdError {
         var model = ModelFactory.createDefaultModel();
         model.setNsPrefixes(dcso.getNsPrefixMap());
         var jsonArray = JsonLd.expand(dmpJsonFile.toURI()).context(contextFile.getAbsolutePath()).get();

@@ -7,6 +7,6 @@ import org.arnhold.sdk.evaluator.EvaluationMethodPlugin
 interface PluginLoader {
     fun getEvaluators(): List<EvaluationMethodPlugin>
     fun getDMPLoaders(): List<DmpLoaderPlugin>
-    fun getDMPLoader(key: String): DmpLoaderPlugin
+    fun getDMPLoader(key: String) : DmpLoaderPlugin
     fun getContextLoaders(): List<ContextLoaderPlugin>
 }

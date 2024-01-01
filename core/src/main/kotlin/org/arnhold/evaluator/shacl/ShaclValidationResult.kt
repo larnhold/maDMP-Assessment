@@ -1,4 +1,4 @@
-package org.arnhold.dmpeval.casestudy.evaluation.shacl
+package org.arnhold.evaluator.shacl
 
 data class ShaclValidationResult(
         var maDMP: String,

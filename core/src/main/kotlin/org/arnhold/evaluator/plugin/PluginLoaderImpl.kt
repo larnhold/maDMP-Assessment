@@ -23,7 +23,11 @@ class PluginLoaderImpl @Autowired constructor(
     }
 
     override fun getDMPLoader(key: String):  DmpLoaderPlugin {
-        return dmpLoaderRegistry.getRequiredPluginFor(key)
+        try {
+            return dmpLoaderRegistry.getRequiredPluginFor(key)
+        } catch (e: Exception) {
+            throw PluginNotFoundException(String.format("No DMP loader with identifier %S found", key))
+        }
     }
 
     override fun getContextLoaders(): List<ContextLoaderPlugin> {
