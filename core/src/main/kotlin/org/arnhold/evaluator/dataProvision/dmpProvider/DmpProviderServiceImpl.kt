@@ -16,8 +16,8 @@ class DmpProviderServiceImpl @Autowired constructor(
         return pluginLoader.getDMPLoader(identifier);
     }
 
-    override fun loadDMP(loaderId: String, dmpIdentifier: String, dcsOntology: OntModel): Model {
-        val loader = getDmpLoader(loaderId);
+    override fun loadDMP(dmploader: String, dmpIdentifier: String, dcsOntology: OntModel): Model {
+        val loader = getDmpLoader(dmploader);
         return loader.loadDMP(dmpIdentifier, dcsOntology);
     }
 }

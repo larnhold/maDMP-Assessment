@@ -5,28 +5,27 @@ import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.core.io.support.ResourcePatternResolver
 import org.springframework.stereotype.Component
 import java.io.File
+import java.nio.file.Path
 
 @Component
 class MaDMPFileLoaderImpl @Autowired constructor(
         var dcsoJsonTransformer: DcsoJsonTransformer,
-        var resourcePatternResolver: ResourcePatternResolver
 ) : DmpLoaderPlugin {
 
     companion object {
         const val IDENTIFIER = "madmpfileloader"
+        val dataDirectory = Path.of("/home/lukasa/Documents/thesis/maDMP-Assesment-lukas/data/case-study/maDMPs")
     }
 
-    private fun loadFileFromClassPath(location: String): File {
-        val file = resourcePatternResolver.getResource(location).file
-        return file
+    private fun getFile(location: String): File {
+        return dataDirectory.resolve(location).toFile()
     }
 
     override fun loadDMP(identifier: String, dcsOntology: OntModel): Model {
         try {
-            return dcsoJsonTransformer.convertPlainToModel(loadFileFromClassPath(identifier), dcsOntology)
+            return dcsoJsonTransformer.convertPlainToModel(getFile(identifier), dcsOntology)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

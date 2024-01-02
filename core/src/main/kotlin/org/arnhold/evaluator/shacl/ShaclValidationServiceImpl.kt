@@ -21,9 +21,9 @@ class ShaclValidationServiceImpl : ShaclValidationService {
         return result
     }
 
-    override fun createValidationResult(maDMP: String, shape: String, report: ValidationReport): ShaclValidationResult {
-        val conforms: Boolean = report.conforms()
-        val messages: List<String> = report.entries.stream().map { obj: ReportEntry -> obj.message() }.collect(Collectors.toList())
+    override fun createValidationResult(maDMP: String, shape: String, report: ValidationReport?): ShaclValidationResult {
+        val conforms: Boolean = report?.conforms() ?: false
+        val messages: List<String> = report!!.entries.stream().map { obj: ReportEntry -> obj.message() }.collect(Collectors.toList())
 
         return ShaclValidationResult(maDMP, shape, conforms, messages)
     }

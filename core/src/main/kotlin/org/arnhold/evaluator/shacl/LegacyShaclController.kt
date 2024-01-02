@@ -34,7 +34,7 @@ class LegacyShaclController @Autowired constructor(
         val shapeModel = semanticService.loadModelFromFile(shapeFile)
 
         val maDMPFile = resourcePatternResolver.getResource(String.format("classpath:/maDMPs/%s.json", maDMP)).file
-        val madmpModel = dataProviderService.loadDMP(LOADER, String.format("classpath:/maDMPs/%s.json", maDMP))
+        val madmpModel = dataProviderService.loadDMP(LOADER, maDMP)
         val validation = shaclValidationService.validateShape(madmpModel, shapeModel)
 
         return shaclValidationService.createValidationResult(maDMPFile.name, shapeFile.name, validation)
@@ -49,9 +49,9 @@ class LegacyShaclController @Autowired constructor(
 
         return Arrays.stream(resourcePatternResolver.getResources("classpath:/maDMPs/zenodo/*.json")).map {it ->
             val filename = it.filename
-            val madmpModel = dataProviderService.loadDMP(LOADER, String.format("classpath:/maDMPs/%s.json", filename))
+            val madmpModel = filename?.let { it1 -> dataProviderService.loadDMP(LOADER, it1) }
             try {
-                val validation = shaclValidationService.validateShape(madmpModel, shapeModel)
+                val validation = madmpModel?.let { it1 -> shaclValidationService.validateShape(it1, shapeModel) }
                 return@map filename?.let { itfilename -> shaclValidationService.createValidationResult(itfilename, shapeFile.name, validation) }
             } catch (e: IOException) {
                 throw RuntimeException(e)
@@ -70,7 +70,7 @@ class LegacyShaclController @Autowired constructor(
             }
         }.toList()
 
-        val madmpModel = dataProviderService.loadDMP(LOADER, String.format("classpath:/maDMPs/%s.json", maDMP))
+        val madmpModel = dataProviderService.loadDMP(LOADER, maDMP)
 
         val results = shapes.stream().map { x: File ->
             val shapeModel = semanticService.loadModelFromFile(x)

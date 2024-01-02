@@ -8,10 +8,12 @@ import org.apache.jena.riot.Lang
 import org.apache.jena.riot.RDFDataMgr
 import org.arnhold.evaluator.dataProvision.contextProvider.ContextProviderService
 import org.arnhold.evaluator.dataProvision.dmpProvider.DmpProviderService
+import org.arnhold.evaluator.evaluation.DMPLoaderParameters
 import org.arnhold.evaluator.tripleStore.TripleStoreService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.io.InputStream
+import java.util.*
 
 @Component
 class DataProviderServiceImpl @Autowired constructor(
@@ -40,6 +42,19 @@ class DataProviderServiceImpl @Autowired constructor(
 
     override fun loadDMP(dmploader: String, dmpIdentifier: String): Model {
         return dmpProviderService.loadDMP(dmploader, dmpIdentifier, getDCSOntology())
+    }
+
+    override fun loadContextualizedDMP(parameters: DMPLoaderParameters): UUID {
+        val loadedDMP = loadDMP(parameters.dmpLoader, parameters.dmpIdentifier)
+        val dmpStoreId = UUID.randomUUID()
+        //TODO save uuid in metadata store
+
+        tripleStoreService.saveModel(dmpStoreId, loadedDMP)
+        return dmpStoreId;
+    }
+
+    override fun getContextualizedDMP(id: UUID): Model {
+        return tripleStoreService.getModel(id)
     }
 
     private fun getResourceAsStream(resourcePath: String): InputStream? {

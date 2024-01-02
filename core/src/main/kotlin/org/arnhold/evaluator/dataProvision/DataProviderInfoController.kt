@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/config")
-class DataProviderConfigController @Autowired constructor(
+@RequestMapping("/api/info")
+class DataProviderInfoController @Autowired constructor(
     val pluginLoader: PluginLoader
 ) {
 
