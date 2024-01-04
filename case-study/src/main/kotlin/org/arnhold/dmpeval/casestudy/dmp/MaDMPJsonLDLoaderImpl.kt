@@ -10,7 +10,7 @@ import java.io.File
 import java.nio.file.Path
 
 @Component
-class MaDMPFileLoaderImpl @Autowired constructor(
+class MaDMPJsonLDLoaderImpl @Autowired constructor(
         var dcsoJsonTransformer: DcsoJsonTransformer,
 ) : DmpLoaderPlugin {
 

@@ -5,4 +5,5 @@ import org.arnhold.sdk.plugin.ConfigurablePlugin
 import org.springframework.plugin.core.Plugin
 
 interface EvaluationMethodPlugin: ConfigurablePlugin<Metric> {
+    fun suitableForMetric(metric: Metric): Boolean
 }

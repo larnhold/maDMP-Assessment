@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component
 @Component
 class FairGuidanceEvaluation: EvaluationMethodPlugin {
 
+    override fun suitableForMetric(metric: Metric): Boolean {
+        TODO("Not yet implemented")
+    }
+
     override fun getIdentifier(): String {
         TODO("Not yet implemented")
     }

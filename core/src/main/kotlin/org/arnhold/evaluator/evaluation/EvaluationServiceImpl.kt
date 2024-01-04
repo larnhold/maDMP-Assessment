@@ -13,6 +13,7 @@ class EvaluationServiceImpl @Autowired constructor(
     override fun createEvaluation(parameters: EvaluationTaskParameters): EvaluationTaskResult {
         val contextDMPId = dataProviderService.loadContextualizedDMP(parameters.dmpLoaderParameters)
         val contextDMP = dataProviderService.getContextualizedDMP(contextDMPId)
+        val metrics = metricProcessingService.produceMeasurements(contextDMP);
         return EvaluationTaskResult()
     }
 }
