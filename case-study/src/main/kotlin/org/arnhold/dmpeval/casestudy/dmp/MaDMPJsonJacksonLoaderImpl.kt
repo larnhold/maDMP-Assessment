@@ -26,7 +26,13 @@ class MaDMPJsonJacksonLoaderImpl: DmpLoaderPlugin {
         try {
             val file = getFile(identifier)
             val dmp = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false).readValue(file, DMPWrapper::class.java)
-            return ModelFactory.createDefaultModel()
+
+            dcsOntology.setNsPrefix("dmp", "http://dmp.tuwien.ac.at#")
+
+            val model = dcsOntology.baseModel
+            dmp.dmp.toResource(model, "dmp0")
+
+            return model;
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

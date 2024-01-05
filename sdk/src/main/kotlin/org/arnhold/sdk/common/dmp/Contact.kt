@@ -12,7 +12,7 @@ data class Contact (
     @JsonProperty("name")
     val name: String?
 ): RdfResourceProvider {
-    override fun toResource(resource: Resource): Resource {
+    override fun toResource(model: Model, name: String): Resource {
         TODO("Not yet implemented")
     }
 }

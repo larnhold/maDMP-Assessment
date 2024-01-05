@@ -8,8 +8,4 @@ import org.arnhold.sdk.common.dmp.RdfResourceProvider
 data class DMPWrapper(
     @JsonProperty("dmp")
     val dmp: DMP
-): RdfResourceProvider {
-    override fun toResource(resource: Resource): Resource {
-        TODO("Not yet implemented")
-    }
-}
+)

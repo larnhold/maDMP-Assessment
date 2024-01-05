@@ -16,7 +16,7 @@ data class Project (
     @JsonProperty("title")
     val title: String?
 ) : RdfResourceProvider {
-    override fun toResource(resource: Resource): Resource {
+    override fun toResource(model: Model, name: String): Resource {
         TODO("Not yet implemented")
     }
 }

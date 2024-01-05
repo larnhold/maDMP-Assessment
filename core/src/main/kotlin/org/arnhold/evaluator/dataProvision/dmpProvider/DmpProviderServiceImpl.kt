@@ -26,7 +26,6 @@ class DmpProviderServiceImpl @Autowired constructor(
         val loader = getDmpLoader(dmploader);
         val model: Model = loader.loadDMP(dmpIdentifier, dcsOntology)
 
-        model.setNsPrefix("dmp", "http://dmp.tuwien.ac.at#")
 
         /*
         val a = model.listSubjects().forEach { it: Resource ->
@@ -34,13 +33,14 @@ class DmpProviderServiceImpl @Autowired constructor(
                 val id = UUID.randomUUID().toString()
                 model.createResource(String.format("http://dmp.tuwien.ac.at#%s", id), it)
             }
-        }
-         */
+        }*/
 
         val reasoner: Reasoner = ReasonerRegistry.getOWLReasoner()
         reasoner.bindSchema(dcsOntology)
 
+
         val reaonsedModel = ModelFactory.createInfModel(reasoner, model)
-        return model
+
+        return reaonsedModel
     }
 }
