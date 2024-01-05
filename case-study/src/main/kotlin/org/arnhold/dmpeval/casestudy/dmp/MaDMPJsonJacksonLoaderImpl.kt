@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
-import org.apache.jena.rdf.model.ModelFactory
 import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.springframework.stereotype.Component
 import java.io.File
@@ -14,8 +13,8 @@ import java.nio.file.Path
 class MaDMPJsonJacksonLoaderImpl: DmpLoaderPlugin {
 
     companion object {
-        const val IDENTIFIER = "madmpjsonloader"
-        val dataDirectory = Path.of("/home/lukasa/Documents/thesis/maDMP-Assesment-lukas/data/case-study/maDMPs")
+        const val IDENTIFIER = ""
+        val dataDirectory: Path = Path.of("./data/case-study/maDMPs")
     }
 
     private fun getFile(location: String): File {

@@ -27,7 +27,6 @@ class DmpProviderServiceImpl @Autowired constructor(
         val reasoner: Reasoner = ReasonerRegistry.getOWLReasoner()
         reasoner.bindSchema(dcsOntology)
 
-
         return ModelFactory.createInfModel(reasoner, model)
     }
 }

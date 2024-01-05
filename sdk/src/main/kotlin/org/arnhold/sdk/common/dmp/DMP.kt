@@ -52,9 +52,9 @@ data class DMP (
             ObjectPropertyDefinition(DCSO.HAS_DMP_ID, dmpId,  name, "dmpID"),
             ObjectPropertyDefinition(DCSO.HAS_CONTACT, contact, name, "contact"),
             ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, contributors, name, "contributor"),
-            ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, costs, name, "cost"),
-            ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, projects, name, "project"),
-            ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, datasets, name, "dataset")
+            ObjectPropertyDefinition(DCSO.HAS_COST, costs, name, "cost"),
+            ObjectPropertyDefinition(DCSO.HAS_PROJECT, projects, name, "project"),
+            ObjectPropertyDefinition(DCSO.HAS_DATASET, datasets, name, "dataset")
         ))
     }
 }

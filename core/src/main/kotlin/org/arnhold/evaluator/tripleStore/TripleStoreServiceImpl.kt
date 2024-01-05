@@ -1,6 +1,5 @@
 package org.arnhold.evaluator.tripleStore
 
-import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.jena.riot.Lang

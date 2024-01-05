@@ -1,6 +1,5 @@
 package org.arnhold.evaluator.dataProvision
 
-import at.ac.tuwien.dcsojson.DcsoJsonTransformer
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.ModelFactory
@@ -23,12 +22,12 @@ class DataProviderServiceImpl @Autowired constructor(
 ) : DataProviderService {
 
     companion object {
-        const val ONTOLOGY_DCSO_TTL = "/ontology/dcso.ttl"
+        const val ONTOLOGY_DCSO_TTL = "/ontology/dcso-4.0.1.ttl"
     }
 
     override fun getDCSOntology(): OntModel {
         val dcso = ModelFactory.createOntologyModel()
-        RDFDataMgr.read(dcso, getResourceAsStream(DcsoJsonTransformer.ONTOLOGY_DCSO_TTL), Lang.TURTLE)
+        RDFDataMgr.read(dcso, getResourceAsStream(ONTOLOGY_DCSO_TTL), Lang.TURTLE)
         return dcso
     }
 
