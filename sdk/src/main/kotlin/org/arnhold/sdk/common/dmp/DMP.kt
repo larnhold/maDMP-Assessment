@@ -2,10 +2,11 @@ package org.arnhold.sdk.common.dmp
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.apache.jena.rdf.model.Model
-import org.apache.jena.rdf.model.ModelFactory
-import org.apache.jena.rdf.model.Property
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.sdk.common.DCSO
+import org.arnhold.sdk.common.dmp.helper.DataPropertyDefinition
+import org.arnhold.sdk.common.dmp.helper.ObjectPropertyDefinition
+import org.arnhold.sdk.common.dmp.helper.RdfResourceProvider
 
 data class DMP (
     @JsonProperty("contact")
@@ -36,47 +37,24 @@ data class DMP (
     val modified: String?,
     @JsonProperty("title")
     val title: String?
-) : RdfResourceProvider {
-
-    companion object {
-        const val PREFIX = "https://w3id.org/dcso/ns/core#"
-    }
+) : RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
-        val dmpResource = model.createResource(String.format("%s%s", PREFIX, name))
-
-        // data properties
-        addDataProperty(dmpResource, DCSO.CREATED, created)
-        addDataProperty(dmpResource, DCSO.DESCRIPTION, description)
-        addDataProperty(dmpResource, DCSO.ETHICAL_ISSUES_DESCRIPTION, ethicalIssuesDescription)
-        addDataProperty(dmpResource, DCSO.ETHICAL_ISSUES_EXIST, ethicalIssuesExist)
-        addDataProperty(dmpResource, DCSO.ETHICAL_ISSUES_REPORT, ethicalIssuesReport)
-        addDataProperty(dmpResource, DCSO.LANGUAGE, language)
-        addDataProperty(dmpResource, DCSO.MODIFIED, modified)
-        addDataProperty(dmpResource, DCSO.TITLE, "test")
-
-        // object properties
-        addObjectProperty(model, dmpResource, DCSO.HAS_DMP_ID, dmpId, "dmpID_0")
-        /*
-        dmpId
-        contact
-        contributors
-        costs
-        projects
-        datasets
-        */
-
-        return dmpResource
-    }
-
-    private fun addDataProperty(subj: Resource, verb: Property, obj: String?) {
-        obj?.let {
-            subj.addProperty(verb, it)
-        }
-    }
-
-    private fun addObjectProperty(model: Model, subj: Resource, verb: Property, obj: RdfResourceProvider?, name: String) {
-        obj?.let {
-            subj.addProperty(verb, obj.toResource(model, name))
-        }
+        return super.toResource(model, name, listOf(
+            DataPropertyDefinition(DCSO.CREATED, created),
+            DataPropertyDefinition(DCSO.DESCRIPTION, description),
+            DataPropertyDefinition(DCSO.ETHICAL_ISSUES_DESCRIPTION, ethicalIssuesDescription),
+            DataPropertyDefinition(DCSO.ETHICAL_ISSUES_EXIST, ethicalIssuesExist),
+            DataPropertyDefinition(DCSO.ETHICAL_ISSUES_REPORT, ethicalIssuesReport),
+            DataPropertyDefinition(DCSO.LANGUAGE, language),
+            DataPropertyDefinition(DCSO.MODIFIED, modified),
+            DataPropertyDefinition(DCSO.TITLE, title),
+        ), listOf(
+            ObjectPropertyDefinition(DCSO.HAS_DMP_ID, dmpId, name + "_dmpID"),
+            ObjectPropertyDefinition(DCSO.HAS_CONTACT, contact, name + "_contact"),
+            ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, contributors, name + "_contributor"),
+            ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, costs, name + "_cost"),
+            ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, projects, name + "_project"),
+            ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, datasets, name + "_dataset"),
+        ))
     }
 }

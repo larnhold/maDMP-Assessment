@@ -30,7 +30,7 @@ class MaDMPJsonJacksonLoaderImpl: DmpLoaderPlugin {
             dcsOntology.setNsPrefix("dmp", "http://dmp.tuwien.ac.at#")
 
             val model = dcsOntology.baseModel
-            dmp.dmp.toResource(model, "dmp0")
+            dmp.dmp.toResource(model, "dmp_0")
 
             return model;
         } catch (e: Exception) {
