@@ -3,6 +3,8 @@ package org.arnhold.sdk.common.dmp
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
+import org.arnhold.sdk.common.DCSO
+import org.arnhold.sdk.common.dmp.helper.DataPropertyDefinition
 import org.arnhold.sdk.common.dmp.helper.RdfResourceProvider
 
 data class Host (
@@ -11,7 +13,7 @@ data class Host (
     @JsonProperty("backup_frequency")
     val backupFrequency: String?,
     @JsonProperty("backup_type")
-    val backupTypes: String?,
+    val backupType: String?,
     @JsonProperty("certified_with")
     val certifiedWith: String?,
     @JsonProperty("description")
@@ -19,7 +21,7 @@ data class Host (
     @JsonProperty("geo_location")
     val geoLocaction: String?,
     @JsonProperty("pid_system")
-    val pidSystems: List<String>?,
+    val pidSystem: List<String>?,
     @JsonProperty("storage_type")
     val storageType: String?,
     @JsonProperty("support_versioning")
@@ -30,6 +32,18 @@ data class Host (
     val url: String?
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
-        TODO("Not yet implemented")
+        return super.toResource(model, name, listOf(
+            DataPropertyDefinition(DCSO.AVAILABILITY, availability),
+            DataPropertyDefinition(DCSO.BACKUP_FREQUENCY, backupFrequency),
+            DataPropertyDefinition(DCSO.BACKUP_TYPE, backupType),
+            DataPropertyDefinition(DCSO.CERTIFIED_WITH, certifiedWith),
+            DataPropertyDefinition(DCSO.DESCRIPTION, description),
+            DataPropertyDefinition(DCSO.GEOLOCATION, geoLocaction),
+            DataPropertyDefinition(DCSO.PID_SYSTEM, pidSystem),
+            DataPropertyDefinition(DCSO.STORAGE_TYPE, storageType),
+            DataPropertyDefinition(DCSO.SUPPORT_VERSIONING, supportVersioning),
+            DataPropertyDefinition(DCSO.TITLE, title),
+            DataPropertyDefinition(DCSO.URL, url)
+        ), listOf())
     }
 }

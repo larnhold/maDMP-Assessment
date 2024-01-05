@@ -17,7 +17,7 @@ abstract class RdfResourceProvider {
     ): Resource {
         val resource = model.createResource(String.format("%s%s", PREFIX, name))
         dataProperties.forEach { addDataProperties(resource, it.predicate, it.values) }
-        objectProperties.forEach { addObjectProperties(model, resource, it.predicate, it.objects, it.objName) }
+        objectProperties.forEach { addObjectProperties(model, resource, it.predicate, it.objects, name, it.objName) }
         return resource
     }
 
@@ -29,9 +29,9 @@ abstract class RdfResourceProvider {
         }
     }
 
-    private fun addObjectProperties(model: Model, subj: Resource, verb: Property, objects: List<RdfResourceProvider?>?, name: String) {
+    private fun addObjectProperties(model: Model, subj: Resource, verb: Property, objects: List<RdfResourceProvider?>?, rootObjName: String, name: String) {
         objects?.let {
-            objects.forEachIndexed { index, obj -> addObjectProperty(model, subj, verb, obj, name + "_" + index) }
+            objects.forEachIndexed { index, obj -> addObjectProperty(model, subj, verb, obj, rootObjName + "_" + name + "_" + index) }
         }
     }
 

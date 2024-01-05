@@ -3,6 +3,9 @@ package org.arnhold.sdk.common.dmp
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
+import org.arnhold.sdk.common.DCSO
+import org.arnhold.sdk.common.dmp.helper.DataPropertyDefinition
+import org.arnhold.sdk.common.dmp.helper.ObjectPropertyDefinition
 import org.arnhold.sdk.common.dmp.helper.RdfResourceProvider
 
 data class Distribution (
@@ -28,6 +31,17 @@ data class Distribution (
     val title: String?
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
-        TODO("Not yet implemented")
+        return super.toResource(model, name, listOf(
+            DataPropertyDefinition(DCSO.ACCESS_URL, accessUrl),
+            DataPropertyDefinition(DCSO.AVAILABLE_UNTIL, availableUntil),
+            DataPropertyDefinition(DCSO.BYTE_SIZE, byteSize.toString()),
+            DataPropertyDefinition(DCSO.DATA_ACCESS, dataAccess),
+            DataPropertyDefinition(DCSO.DESCRIPTION, description),
+            DataPropertyDefinition(DCSO.DOWNLOAD_URL, downloadUrl),
+            DataPropertyDefinition(DCSO.FORMAT, formats),
+            DataPropertyDefinition(DCSO.TITLE, title)
+        ), listOf(
+            ObjectPropertyDefinition(DCSO.HAS_LICENSE, licenses, name, "license")
+        ))
     }
 }

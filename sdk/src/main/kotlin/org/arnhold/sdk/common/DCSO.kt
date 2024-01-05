@@ -35,6 +35,7 @@ class DCSO {
         val STORAGE_TYPE: Property = m.createProperty(String.format("%sstorageType", uri))
         val START_DATE: Property = m.createProperty(String.format("%sstartDate", uri))
         val START: Property = m.createProperty(String.format("%sstart", uri))
+        val END: Property = m.createProperty(String.format("%send", uri))
         val SENSITIVE_DATA: Property = m.createProperty(String.format("%ssensitiveData", uri))
         val ROLE: Property = m.createProperty(String.format("%srole", uri))
         val REPORT: Property = m.createProperty(String.format("%sreport", uri))

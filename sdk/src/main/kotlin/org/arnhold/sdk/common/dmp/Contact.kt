@@ -20,9 +20,9 @@ data class Contact (
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(
             DataPropertyDefinition(DCSO.MBOX, mbox),
-            DataPropertyDefinition(DCSO.NAME, name)
+            DataPropertyDefinition(DCSO.NAME, this.name)
         ), listOf(
-            ObjectPropertyDefinition(DCSO.HAS_DMP_ID, contactId, String.format("%s_contact_id", name))
+            ObjectPropertyDefinition(DCSO.HAS_CONTACT_ID, contactId, name,  "contactId")
         ))
     }
 }
