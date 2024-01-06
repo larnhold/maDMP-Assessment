@@ -7,7 +7,7 @@ import org.apache.jena.riot.Lang
 import org.apache.jena.riot.RDFDataMgr
 import org.arnhold.evaluator.dataProvision.contextProvider.ContextProviderService
 import org.arnhold.evaluator.dataProvision.dmpProvider.DmpProviderService
-import org.arnhold.evaluator.evaluation.DMPLoaderParameters
+import org.arnhold.evaluator.evaluationManager.DMPLoaderParameters
 import org.arnhold.evaluator.tripleStore.TripleStoreService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -22,6 +22,7 @@ class DataProviderServiceImpl @Autowired constructor(
 ) : DataProviderService {
 
     companion object {
+        //TODO load ontology from config
         const val ONTOLOGY_DCSO_TTL = "/ontology/dcso-4.0.1.ttl"
     }
 

@@ -1,4 +1,4 @@
-package org.arnhold.evaluator.evaluation
+package org.arnhold.evaluator.evaluationManager
 
 data class DMPLoaderParameters (
         val dmpLoader: String = "madmpfileloader",

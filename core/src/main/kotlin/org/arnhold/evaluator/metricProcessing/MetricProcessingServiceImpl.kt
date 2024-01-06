@@ -1,7 +1,7 @@
 package org.arnhold.evaluator.metricProcessing
 
 import org.apache.jena.rdf.model.Model
-import org.arnhold.evaluator.methodProvision.EvaluationProviderService
+import org.arnhold.evaluator.evaluationProvider.EvaluationProviderService
 import org.arnhold.sdk.common.dqv.Dimension
 import org.arnhold.sdk.common.dqv.Measurement
 import org.arnhold.sdk.common.dqv.Metric

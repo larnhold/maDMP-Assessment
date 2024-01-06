@@ -1,4 +1,4 @@
-package org.arnhold.evaluator.evaluation
+package org.arnhold.evaluator.evaluationManager
 
 import org.arnhold.sdk.common.constants.DataLifecycle
 

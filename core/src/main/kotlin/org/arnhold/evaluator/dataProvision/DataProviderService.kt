@@ -2,7 +2,7 @@ package org.arnhold.evaluator.dataProvision
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
-import org.arnhold.evaluator.evaluation.DMPLoaderParameters
+import org.arnhold.evaluator.evaluationManager.DMPLoaderParameters
 import java.util.UUID
 
 interface DataProviderService {

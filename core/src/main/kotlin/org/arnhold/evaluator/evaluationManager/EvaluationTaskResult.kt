@@ -1,4 +1,4 @@
-package org.arnhold.evaluator.evaluation
+package org.arnhold.evaluator.evaluationManager
 
 data class EvaluationTaskResult(
         val success: Boolean? = null,

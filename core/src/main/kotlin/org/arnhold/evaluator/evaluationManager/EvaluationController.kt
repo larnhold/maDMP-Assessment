@@ -1,4 +1,4 @@
-package org.arnhold.evaluator.evaluation
+package org.arnhold.evaluator.evaluationManager
 
 import org.arnhold.sdk.common.dqv.Measurement
 import org.springframework.beans.factory.annotation.Autowired
@@ -13,15 +13,20 @@ import java.util.UUID
 @RestController
 @RequestMapping("/api/evaluation")
 class EvaluationController @Autowired constructor(
-    val evaluationService: EvaluationService
+    val evaluationManagerService: EvaluationManagerService
 ) {
     @PostMapping("create")
     fun createEvaluation(@RequestBody parameters: EvaluationTaskParameters): EvaluationTaskResult {
-        return evaluationService.createEvaluation(parameters)
+        return evaluationManagerService.createEvaluation(parameters)
     }
 
     @GetMapping("{id}/measurements")
     fun getMeasurements(@PathVariable(name = "id") id: UUID): List<Measurement<String>> {
         return listOf()
+    }
+
+    @GetMapping("/evaluators")
+    fun getEvaluatorInformation(): List<EvaluatorInformationDTO> {
+        return evaluationManagerService.getEvaluatorInformation().map { EvaluatorInformationDTO(it.key.title, it.value.map { it2 -> it2.title }) }
     }
 }
