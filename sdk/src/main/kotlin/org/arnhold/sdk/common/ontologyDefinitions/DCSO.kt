@@ -1,8 +1,7 @@
-package org.arnhold.sdk.common
+package org.arnhold.sdk.common.ontologyDefinitions
 
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.jena.rdf.model.Property
-import org.apache.jena.vocabulary.VCARD
 
 class DCSO {
     companion object {
@@ -17,17 +16,14 @@ class DCSO {
         val DESCRIPTION: Property = m.createProperty(String.format("%sdescription", terms))
         val ETHICAL_ISSUES_DESCRIPTION: Property = m.createProperty(String.format("%sethicalIssueDescription", uri))
         val ETHICAL_ISSUES_EXIST: Property = m.createProperty(String.format("%sethicalIssuesExist", uri))
-        val ETHICAL_ISSUES_REPORT: Property = m.createProperty(String.format("%sethicalIssuesExist", uri))
+        val ETHICAL_ISSUES_REPORT: Property = m.createProperty(String.format("%ethicalIssuesReport", uri))
         val LANGUAGE: Property = m.createProperty(String.format("%slanguage", uri))
         val MODIFIED: Property = m.createProperty(String.format("%smodified", uri))
         val TITLE: Property = m.createProperty(String.format("%stitle", terms))
-
         val IDENTIFIER: Property = m.createProperty(String.format("%sidentifier", uri))
         val TYPE: Property = m.createProperty(String.format("%sidentifierType", uri))
         val MBOX = m.createProperty(String.format("%smbox", foaf))
         val NAME = m.createProperty(String.format("%sname", foaf))
-
-
         val HAS_DMP_ID: Property = m.createProperty(String.format("%shasDMPId", uri))
         val URL: Property = m.createProperty(String.format("%surl", uri))
         val VALUE: Property = m.createProperty(String.format("%svalue", uri))
@@ -38,14 +34,12 @@ class DCSO {
         val END: Property = m.createProperty(String.format("%send", uri))
         val SENSITIVE_DATA: Property = m.createProperty(String.format("%ssensitiveData", uri))
         val ROLE: Property = m.createProperty(String.format("%srole", uri))
-        val REPORT: Property = m.createProperty(String.format("%sreport", uri))
         val PRESERVATION_STATEMENT: Property = m.createProperty(String.format("%spreservationStatement", uri))
         val PID_SYSTEM: Property = m.createProperty(String.format("%spidSystem", uri))
         val PERSONAL_DATA: Property = m.createProperty(String.format("%spersonalData", uri))
         val LICENSE_REF: Property = m.createProperty(String.format("%slicenseRef", uri))
         val GEOLOCATION: Property = m.createProperty(String.format("%sgeoLocation", uri))
         val FUNDING_STATUS: Property = m.createProperty(String.format("%sfundingStatus", uri))
-        val ETHICAL_ISSUE_DESCRIPTION: Property = m.createProperty(String.format("%sethicalIssueDescription", uri))
         val DATASET_TYPE: Property = m.createProperty(String.format("%sdatasetType", uri))
         val DATA_QUALITY_ASSURANCE: Property = m.createProperty(String.format("%sdataQualityAssurance", uri))
         val DATA_ACCESS: Property = m.createProperty(String.format("%sdataAccess", uri))

@@ -1,6 +1,6 @@
 package org.arnhold.evaluator
 
-import org.arnhold.sdk.contextLoader.ContextLoaderPlugin
+import org.arnhold.sdk.context.ContextLoaderPlugin
 import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.arnhold.sdk.evaluator.EvaluationMethodPlugin
 import org.springframework.boot.autoconfigure.SpringBootApplication

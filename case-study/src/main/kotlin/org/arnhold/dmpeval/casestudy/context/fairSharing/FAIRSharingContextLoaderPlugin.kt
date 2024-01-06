@@ -1,10 +1,15 @@
 package org.arnhold.dmpeval.casestudy.context.fairSharing
 
-import org.arnhold.sdk.contextLoader.ContextLoaderPlugin
+import org.apache.jena.rdf.model.Model
+import org.arnhold.sdk.context.ContextLoaderPlugin
 import org.springframework.stereotype.Component
 
 @Component
 class FAIRSharingContextLoaderPlugin: ContextLoaderPlugin {
+
+    override fun addContext(dmpModel: Model) {
+        TODO("Not yet implemented")
+    }
 
     override fun getIdentifier(): String {
         return "fairsharing"

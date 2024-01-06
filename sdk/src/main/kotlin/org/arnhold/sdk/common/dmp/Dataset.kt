@@ -3,7 +3,7 @@ package org.arnhold.sdk.common.dmp
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
-import org.arnhold.sdk.common.DCSO
+import org.arnhold.sdk.common.ontologyDefinitions.DCSO
 import org.arnhold.sdk.common.dmp.helper.DataPropertyDefinition
 import org.arnhold.sdk.common.dmp.helper.ObjectPropertyDefinition
 import org.arnhold.sdk.common.dmp.helper.RdfResourceProvider
@@ -51,7 +51,7 @@ data class Dataset (
             DataPropertyDefinition(DCSO.PRESERVATION_STATEMENT, preservationStatement),
             DataPropertyDefinition(DCSO.SENSITIVE_DATA, sensitiveData),
             DataPropertyDefinition(DCSO.TITLE, title),
-            DataPropertyDefinition(DCSO.TYPE, type)
+            DataPropertyDefinition(DCSO.DATASET_TYPE, type)
         ), listOf(
             ObjectPropertyDefinition(DCSO.HAS_DISTRIBUTION, distributions, name, "distribution"),
             ObjectPropertyDefinition(DCSO.HAS_SECURITY_AND_PRIVACY, securityAndPrivacy, name, "securityAndPrivacy"),
