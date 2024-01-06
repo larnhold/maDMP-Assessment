@@ -29,8 +29,8 @@ public class DcsoJsonTransformer implements IDcsoJsonTransformer {
     private static final Property HAS_DMP = ResourceFactory.createProperty("https://w3id.org/dcso/ns/core#", "hasDMP");
     private static final Resource CLS_DMP = ResourceFactory.createResource("https://w3id.org/dcso/ns/core#DMP");
     private static final Resource NAMED_INDIVIDUAL = ResourceFactory.createResource(OWL.NS + "NamedIndividual");
-    public static final String ONTOLOGY_DCSO_TTL = "/ontology/dcso.ttl";
-    public static final String ONTOLOGY_DCSO_JSONLD = "/ontology/dcso.jsonld";
+    public static final String ONTOLOGY_DCSO_TTL = "data/ontologies/dcso-4.0.1.ttl";
+    public static final String ONTOLOGY_DCSO_JSONLD = "data/ontologies/dcso.jsonld";
 
     private final File jsonLdContext;
 

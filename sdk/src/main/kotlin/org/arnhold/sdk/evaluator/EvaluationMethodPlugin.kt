@@ -1,9 +1,11 @@
 package org.arnhold.sdk.evaluator
 
+import org.arnhold.sdk.common.dqv.Dimension
 import org.arnhold.sdk.common.dqv.Metric
 import org.arnhold.sdk.plugin.ConfigurablePlugin
-import org.springframework.plugin.core.Plugin
 
-interface EvaluationMethodPlugin: ConfigurablePlugin<Metric> {
+interface EvaluationMethodPlugin: ConfigurablePlugin<String> {
+
+    fun suitableForDimension(dimension: Dimension): Boolean
     fun suitableForMetric(metric: Metric): Boolean
 }

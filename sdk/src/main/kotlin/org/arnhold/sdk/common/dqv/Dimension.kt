@@ -1,4 +1,8 @@
 package org.arnhold.sdk.common.dqv
 
-class Dimension {
-}
+data class Dimension(
+    val inCategory: Category?,
+    val inDimension: Dimension?,
+    val title: String?,
+    val description: String?
+)

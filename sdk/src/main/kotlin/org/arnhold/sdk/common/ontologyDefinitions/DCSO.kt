@@ -16,7 +16,7 @@ class DCSO {
         val DESCRIPTION: Property = m.createProperty(String.format("%sdescription", terms))
         val ETHICAL_ISSUES_DESCRIPTION: Property = m.createProperty(String.format("%sethicalIssueDescription", uri))
         val ETHICAL_ISSUES_EXIST: Property = m.createProperty(String.format("%sethicalIssuesExist", uri))
-        val ETHICAL_ISSUES_REPORT: Property = m.createProperty(String.format("%ethicalIssuesReport", uri))
+        val ETHICAL_ISSUES_REPORT: Property = m.createProperty(String.format("%sethicalIssuesReport", uri))
         val LANGUAGE: Property = m.createProperty(String.format("%slanguage", uri))
         val MODIFIED: Property = m.createProperty(String.format("%smodified", uri))
         val TITLE: Property = m.createProperty(String.format("%stitle", terms))

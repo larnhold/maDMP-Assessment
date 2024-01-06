@@ -1,7 +1,6 @@
 package org.arnhold.evaluator.plugin
 
-import org.arnhold.sdk.common.dqv.Metric
-import org.arnhold.sdk.contextLoader.ContextLoaderPlugin
+import org.arnhold.sdk.context.ContextLoaderPlugin
 import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.arnhold.sdk.evaluator.EvaluationMethodPlugin
 import org.springframework.beans.factory.annotation.Autowired
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class PluginLoaderImpl @Autowired constructor(
-        val evaluationMethodRegistry: PluginRegistry<EvaluationMethodPlugin, Metric>,
+        val evaluationMethodRegistry: PluginRegistry<EvaluationMethodPlugin, String>,
         val dmpLoaderRegistry: PluginRegistry<DmpLoaderPlugin, String>,
         val contextLoaderRegistry: PluginRegistry<ContextLoaderPlugin, String>
 ): PluginLoader  {

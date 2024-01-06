@@ -1,5 +1,6 @@
 package org.arnhold.dmpeval.casestudy.evaluation.accesibilityEvaluator
 
+import org.arnhold.sdk.common.dqv.Dimension
 import org.arnhold.sdk.common.dqv.Metric
 import org.arnhold.sdk.evaluator.EvaluationMethodPlugin
 import org.springframework.stereotype.Component
@@ -11,6 +12,10 @@ class AccesibilityEvaluation: EvaluationMethodPlugin {
         TODO("Not yet implemented")
     }
 
+    override fun suitableForDimension(dimension: Dimension): Boolean {
+        TODO("Not yet implemented")
+    }
+
     override fun getIdentifier(): String {
         TODO("Not yet implemented")
     }
@@ -19,7 +24,7 @@ class AccesibilityEvaluation: EvaluationMethodPlugin {
         TODO("Not yet implemented")
     }
 
-    override fun supports(p0: Metric): Boolean {
+    override fun supports(p0: String): Boolean {
         TODO("Not yet implemented")
     }
 }

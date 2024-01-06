@@ -1,5 +1,11 @@
 package org.arnhold.sdk.common.dqv
 
-abstract class Measurement(
-    val hasMetric: Metric
+import org.arnhold.sdk.common.enum.DataLifecycle
+
+data class Measurement<T>(
+    val lifeCycleStage: DataLifecycle,
+    val metric: Metric,
+    val guidance: Guidance,
+    val computedOn: String,
+    val value: T
 )

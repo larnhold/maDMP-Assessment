@@ -1,5 +1,9 @@
 package org.arnhold.sdk.common.dqv
 
-class Metric {
+import org.arnhold.sdk.common.enum.DataLifecycle
 
-}
+class Metric (
+    val description: String,
+    val inDimension: Dimension,
+    val applicableDMPLifeCycles: List<DataLifecycle>
+)
