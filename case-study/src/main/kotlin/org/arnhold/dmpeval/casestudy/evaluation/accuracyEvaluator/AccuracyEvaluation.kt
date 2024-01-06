@@ -3,6 +3,7 @@ package org.arnhold.dmpeval.casestudy.evaluation.accuracyEvaluator
 import org.arnhold.sdk.common.dqv.Dimension
 import org.arnhold.sdk.common.dqv.Metric
 import org.arnhold.sdk.evaluator.EvaluationMethodPlugin
+import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.springframework.stereotype.Component
 
 @Component
@@ -16,11 +17,11 @@ class AccuracyEvaluation : EvaluationMethodPlugin {
         TODO("Not yet implemented")
     }
 
-    override fun getIdentifier(): String {
+    override fun getPluginIdentifier(): String {
         TODO("Not yet implemented")
     }
 
-    override fun getRequiredConfigurationProperties(): List<String> {
+    override fun getPluginInformation(): EvaluatorInformation {
         TODO("Not yet implemented")
     }
 

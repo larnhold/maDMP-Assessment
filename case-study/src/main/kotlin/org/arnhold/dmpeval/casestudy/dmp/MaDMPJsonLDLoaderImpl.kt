@@ -3,6 +3,7 @@ package org.arnhold.dmpeval.casestudy.dmp
 import at.ac.tuwien.dcsojson.DcsoJsonTransformer
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
+import org.arnhold.sdk.dmpLoader.DmpLoaderInformation
 import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -19,6 +20,14 @@ class MaDMPJsonLDLoaderImpl @Autowired constructor(
         val dataDirectory = Path.of("/home/lukasa/Documents/thesis/maDMP-Assesment-lukas/data/case-study/maDMPs")
     }
 
+    override fun getPluginIdentifier(): String {
+        return IDENTIFIER
+    }
+
+    override fun getPluginInformation(): DmpLoaderInformation {
+        TODO("Not yet implemented")
+    }
+
     private fun getFile(location: String): File {
         return dataDirectory.resolve(location).toFile()
     }
@@ -29,14 +38,6 @@ class MaDMPJsonLDLoaderImpl @Autowired constructor(
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
-    }
-
-    override fun getIdentifier(): String {
-        return IDENTIFIER
-    }
-
-    override fun getRequiredConfigurationProperties(): List<String> {
-        return listOf()
     }
 
     override fun supports(p0: String): Boolean {

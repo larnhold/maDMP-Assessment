@@ -11,7 +11,7 @@ class DataProviderController @Autowired constructor(
 
     @GetMapping("dcso")
     fun getDCSOntology(): String {
-        val test = dataProviderService.getDCSOntology();
+        val test = dataProviderService.getDCSOntology()
         return ""
     }
 

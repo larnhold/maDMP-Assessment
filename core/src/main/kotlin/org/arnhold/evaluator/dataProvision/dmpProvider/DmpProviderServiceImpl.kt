@@ -17,11 +17,11 @@ class DmpProviderServiceImpl @Autowired constructor(
 ) : DmpProviderService {
 
     private fun getDmpLoader(identifier: String): DmpLoaderPlugin {
-        return pluginLoader.getDMPLoader(identifier);
+        return pluginLoader.getDMPLoader(identifier)
     }
 
     override fun loadDMP(dmploader: String, dmpIdentifier: String, dcsOntology: OntModel): Model {
-        val loader = getDmpLoader(dmploader);
+        val loader = getDmpLoader(dmploader)
         val model: Model = loader.loadDMP(dmpIdentifier, dcsOntology)
 
         val reasoner: Reasoner = ReasonerRegistry.getOWLReasoner()

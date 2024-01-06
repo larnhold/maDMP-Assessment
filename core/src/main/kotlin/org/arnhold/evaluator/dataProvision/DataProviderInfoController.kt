@@ -14,12 +14,12 @@ class DataProviderInfoController @Autowired constructor(
 
     @GetMapping("dmp-providers")
     fun getRegisteredDmpProviders(): List<String> {
-        return pluginLoader.getDMPLoaders().map { it.getIdentifier() }
+        return pluginLoader.getDMPLoaders().map { it.getPluginIdentifier() }
     }
 
     @GetMapping("context-providers")
     fun getRegisteredContextProviders(): List<String> {
-        return pluginLoader.getContextLoaders().map { it.getIdentifier() }
+        return pluginLoader.getContextLoaders().map { it.getPluginIdentifier() }
     }
 
 }

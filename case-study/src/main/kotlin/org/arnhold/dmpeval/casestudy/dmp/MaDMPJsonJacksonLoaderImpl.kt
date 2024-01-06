@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
+import org.arnhold.sdk.dmpLoader.DmpLoaderInformation
 import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.springframework.stereotype.Component
 import java.io.File
@@ -15,6 +16,14 @@ class MaDMPJsonJacksonLoaderImpl: DmpLoaderPlugin {
     companion object {
         const val IDENTIFIER = ""
         val dataDirectory: Path = Path.of("./data/case-study/maDMPs")
+    }
+
+    override fun getPluginIdentifier(): String {
+        return IDENTIFIER
+    }
+
+    override fun getPluginInformation(): DmpLoaderInformation {
+        TODO("Not yet implemented")
     }
 
     private fun getFile(location: String): File {
@@ -33,14 +42,6 @@ class MaDMPJsonJacksonLoaderImpl: DmpLoaderPlugin {
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
-    }
-
-    override fun getIdentifier(): String {
-        return IDENTIFIER
-    }
-
-    override fun getRequiredConfigurationProperties(): List<String> {
-        return listOf()
     }
 
     override fun supports(p0: String): Boolean {
