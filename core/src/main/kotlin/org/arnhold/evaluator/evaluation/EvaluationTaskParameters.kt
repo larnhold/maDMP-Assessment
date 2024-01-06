@@ -1,6 +1,6 @@
 package org.arnhold.evaluator.evaluation
 
-import org.arnhold.sdk.common.enum.DataLifecycle
+import org.arnhold.sdk.common.constants.DataLifecycle
 
 data class EvaluationTaskParameters (
         val dmpLoaderParameters: DMPLoaderParameters,

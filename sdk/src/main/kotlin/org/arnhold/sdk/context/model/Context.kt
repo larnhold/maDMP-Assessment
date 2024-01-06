@@ -1,4 +1,4 @@
-package org.arnhold.sdk.context
+package org.arnhold.sdk.context.model
 
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource

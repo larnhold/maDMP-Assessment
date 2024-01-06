@@ -1,0 +1,3 @@
+package org.arnhold.evaluator.methodProvision
+
+interface EvaluationProviderService

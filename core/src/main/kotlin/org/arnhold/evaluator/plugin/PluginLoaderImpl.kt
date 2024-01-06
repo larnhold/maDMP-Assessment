@@ -2,18 +2,18 @@ package org.arnhold.evaluator.plugin
 
 import org.arnhold.sdk.context.ContextLoaderPlugin
 import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
-import org.arnhold.sdk.evaluator.EvaluationMethodPlugin
+import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.plugin.core.PluginRegistry
 import org.springframework.stereotype.Component
 
 @Component
 class PluginLoaderImpl @Autowired constructor(
-        val evaluationMethodRegistry: PluginRegistry<EvaluationMethodPlugin, String>,
-        val dmpLoaderRegistry: PluginRegistry<DmpLoaderPlugin, String>,
-        val contextLoaderRegistry: PluginRegistry<ContextLoaderPlugin, String>
+    val evaluationMethodRegistry: PluginRegistry<DimensionEvaluatorPlugin, String>,
+    val dmpLoaderRegistry: PluginRegistry<DmpLoaderPlugin, String>,
+    val contextLoaderRegistry: PluginRegistry<ContextLoaderPlugin, String>
 ): PluginLoader  {
-    override fun getEvaluators(): List<EvaluationMethodPlugin> {
+    override fun getEvaluators(): List<DimensionEvaluatorPlugin> {
         return evaluationMethodRegistry.plugins
     }
 

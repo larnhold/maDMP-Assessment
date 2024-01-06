@@ -1,6 +1,6 @@
 package org.arnhold.sdk.common.dqv
 
-import org.arnhold.sdk.common.enum.DataLifecycle
+import org.arnhold.sdk.common.constants.DataLifecycle
 
 data class Measurement<T>(
     val lifeCycleStage: DataLifecycle,

@@ -1,4 +1,4 @@
-package org.arnhold.sdk.common.enum
+package org.arnhold.sdk.common.constants
 
 enum class DataLifecycle(lifecycle: String) {
     PLANNING("planning"),
