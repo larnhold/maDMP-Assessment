@@ -5,30 +5,29 @@ import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.jena.riot.Lang
 import org.apache.jena.riot.RDFDataMgr
+import org.arnhold.evaluator.configuration.OntologyConfig
 import org.arnhold.evaluator.dataProvision.contextProvider.ContextProviderService
 import org.arnhold.evaluator.dataProvision.dmpProvider.DmpProviderService
 import org.arnhold.evaluator.evaluationManager.DMPLoaderParameters
 import org.arnhold.evaluator.tripleStore.TripleStoreService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import java.io.InputStream
+import java.io.FileInputStream
+import java.nio.file.Path
 import java.util.*
 
 @Component
 class DataProviderServiceImpl @Autowired constructor(
     val tripleStoreService: TripleStoreService,
     val dmpProviderService: DmpProviderService,
-    val contextProviderService: ContextProviderService
+    val contextProviderService: ContextProviderService,
+    val ontologyConfig: OntologyConfig
 ) : DataProviderService {
-
-    companion object {
-        //TODO load ontology from config
-        const val ONTOLOGY_DCSO_TTL = "/ontology/dcso-4.0.1.ttl"
-    }
 
     override fun getDCSOntology(): OntModel {
         val dcso = ModelFactory.createOntologyModel()
-        RDFDataMgr.read(dcso, getResourceAsStream(ONTOLOGY_DCSO_TTL), Lang.TURTLE)
+        val dcsoInputStream = FileInputStream(Path.of(ontologyConfig.DCSLocation).toFile())
+        RDFDataMgr.read(dcso, dcsoInputStream, Lang.TURTLE)
         return dcso
     }
 
@@ -50,14 +49,10 @@ class DataProviderServiceImpl @Autowired constructor(
         //TODO save uuid in metadata store
 
         tripleStoreService.saveModel(dmpStoreId, loadedDMP)
-        return dmpStoreId;
+        return dmpStoreId
     }
 
     override fun getContextualizedDMP(id: UUID): Model {
         return tripleStoreService.getModel(id)
-    }
-
-    private fun getResourceAsStream(resourcePath: String): InputStream? {
-        return javaClass.getResourceAsStream(resourcePath)
     }
 }
