@@ -7,10 +7,8 @@ import org.apache.jena.riot.RDFDataMgr
 import org.arnhold.evaluator.configuration.TripleStoreConfig
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
-import java.io.InputStream
 import java.nio.file.Path
 import java.util.*
 
@@ -32,7 +30,6 @@ class TripleStoreServiceImpl @Autowired constructor(
 
     override fun getModel(id: UUID): Model {
         val model: Model = ModelFactory.createDefaultModel()
-        val inputStream: InputStream = FileInputStream(Path.of(tripleStoreConfig.directory, String.format("%s.ttl", id.toString())).toFile())
         return model.read(Path.of(tripleStoreConfig.directory, String.format("%s.ttl", id.toString())).toFile().absolutePath)
     }
 

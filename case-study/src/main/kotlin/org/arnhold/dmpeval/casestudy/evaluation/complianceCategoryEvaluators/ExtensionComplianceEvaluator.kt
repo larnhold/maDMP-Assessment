@@ -1,7 +1,10 @@
 package org.arnhold.dmpeval.casestudy.evaluation.complianceCategoryEvaluators
 
+import org.apache.jena.rdf.model.Model
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
+import org.arnhold.sdk.common.constants.DataLifecycle
+import org.arnhold.sdk.common.dqv.Measurement
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.springframework.stereotype.Component
@@ -16,8 +19,13 @@ class ExtensionComplianceEvaluator : DimensionEvaluatorPlugin {
     override fun getPluginInformation(): EvaluatorInformation {
         return EvaluatorInformation(
             CategoryDimmensionModels.EXTENSION_COMPLIANCE_DIMENSION,
-            CategoryDimmensionModels.COMPLIANCE_CATEGORY
+            CategoryDimmensionModels.COMPLIANCE_CATEGORY,
+            listOf()
         )
+    }
+
+    override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
+        return listOf()
     }
 
     override fun supports(p0: String): Boolean {

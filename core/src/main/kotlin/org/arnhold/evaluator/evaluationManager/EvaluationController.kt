@@ -21,7 +21,7 @@ class EvaluationController @Autowired constructor(
     }
 
     @GetMapping("{id}/measurements")
-    fun getMeasurements(@PathVariable(name = "id") id: UUID): List<Measurement<String>> {
+    fun getMeasurements(@PathVariable(name = "id") id: UUID): List<Measurement> {
         return listOf()
     }
 

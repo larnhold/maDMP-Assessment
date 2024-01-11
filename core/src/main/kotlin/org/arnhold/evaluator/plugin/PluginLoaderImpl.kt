@@ -18,7 +18,7 @@ class PluginLoaderImpl @Autowired constructor(
     }
 
     override fun getDMPLoaders(): List<DmpLoaderPlugin> {
-        return dmpLoaderRegistry.plugins;
+        return dmpLoaderRegistry.plugins
     }
 
     override fun getDMPLoader(key: String):  DmpLoaderPlugin {

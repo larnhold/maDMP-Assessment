@@ -38,7 +38,7 @@ class MaDMPJsonJacksonLoaderImpl: DmpLoaderPlugin {
             val model = dcsOntology.baseModel
             dmp.dmp.toResource(model, "dmp_0")
 
-            return model;
+            return model
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
