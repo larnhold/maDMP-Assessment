@@ -367,7 +367,14 @@ Suggested values:
 dcso:created rdf:type owl:DatatypeProperty ;
              rdfs:domain dcso:DMP ;
              rdfs:range xsd:dateTime ;
-             rdfs:comment "The of creation for the DMP" ;
+             rdfs:comment "The time of creation for the DMP" ;
+             rdfs:label "created" .
+
+###  https://w3id.org/dcso/ns/core#created
+dcso:validated rdf:type owl:DatatypeProperty ;
+             rdfs:domain dcso:DMP ;
+             rdfs:range xsd:dateTime ;
+             rdfs:comment "The time of validation for the DMP" ;
              rdfs:label "created" .
 
 

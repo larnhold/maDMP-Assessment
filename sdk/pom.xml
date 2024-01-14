@@ -59,6 +59,10 @@
             <version>4.2.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.microutils</groupId>
+            <artifactId>kotlin-logging-jvm</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
