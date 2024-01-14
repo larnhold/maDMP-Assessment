@@ -1,0 +1,7 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+select ?root ?license ?ref ?startDate  where {
+    ?root dcso:hasLicense ?license .
+    ?license dcso:licenseRef ?ref .
+    ?license dcso:startDate ?startDate .
+}

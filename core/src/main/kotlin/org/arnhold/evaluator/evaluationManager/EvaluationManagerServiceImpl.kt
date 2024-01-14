@@ -7,6 +7,7 @@ import org.arnhold.sdk.common.dqv.Category
 import org.arnhold.sdk.common.dqv.Dimension
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
+import java.util.UUID
 
 @Component
 class EvaluationManagerServiceImpl @Autowired constructor(
@@ -18,7 +19,12 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         val contextDMPId = dataProviderService.loadContextualizedDMP(parameters.dmpLoaderParameters)
         val contextDMP = dataProviderService.getContextualizedDMP(contextDMPId)
         val measurements = metricProcessingService.produceAllMeasurements(contextDMP, parameters.dataLifecycle)
-        return EvaluationTaskResult(measurements = measurements)
+        return EvaluationTaskResult(
+            success = true,
+            message = "no messages yet",
+            evaluationId = UUID.randomUUID().toString(),
+            measurements = measurements
+        )
     }
 
     override fun getEvaluatorInformation(): Map<Category, List<Dimension>> {

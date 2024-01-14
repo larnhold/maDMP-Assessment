@@ -1,0 +1,7 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+select ?root ?id ?value ?type  where {
+    ?root dcso:hasId ?id .
+    ?id dcso:identifier ?value .
+    ?id dcso:identifierType ?type .
+}
