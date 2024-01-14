@@ -1,0 +1,16 @@
+PREFIX dmpdqv: <https://w3id.org/dmpdqv/ns/core#>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX terms: <http://purl.org/dc/terms/>
+
+select * where {
+    ?dmp dmpdqv:hasQualityMeasurement ?measurement .
+    ?measurement dqv:computedOn ?computedOn .
+    ?measurement dqv:isCheckingMeasurementOf ?metric .
+    ?measurement dqv:value ?value .
+    ?measurement dmpdqv:appliedAtDMPLifecycle ?lifecycle .
+    ?metric terms:description ?description .
+    ?metric dqv:expectedDataType ?dataType .
+    ?metric dqv:inDimension ?dimension .
+    ?metric dqv:metricType ?type .
+    ?dimension dqv:inCategory ?category
+}

@@ -1,0 +1,5 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+select ?subject where {
+    ?subject rdf:type dcso:DMP .
+}

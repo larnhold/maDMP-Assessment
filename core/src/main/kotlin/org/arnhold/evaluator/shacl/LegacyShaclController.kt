@@ -2,7 +2,6 @@ package org.arnhold.evaluator.shacl
 
 import at.ac.tuwien.dcsojson.TransformationException
 import org.arnhold.evaluator.dataProvision.DataProviderService
-import org.arnhold.sdk.dmpLoader.DmpLoaderPlugin
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.Resource
 import org.springframework.core.io.support.ResourcePatternResolver

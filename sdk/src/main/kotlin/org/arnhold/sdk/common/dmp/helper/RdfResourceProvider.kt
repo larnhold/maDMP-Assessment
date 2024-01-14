@@ -13,12 +13,22 @@ abstract class RdfResourceProvider {
     fun toResource(model: Model,
                    name:String,
                    dataProperties: List<DataPropertyDefinition>,
-                   objectProperties: List<ObjectPropertyDefinition>
+                   objectProperties: List<ObjectPropertyDefinition>,
+                   resourceProperties: List<ResourcePropertyDefinition>?
     ): Resource {
-        val resource = model.createResource(String.format("%s%s", PREFIX, name))
-        dataProperties.forEach { addDataProperties(resource, it.predicate, it.values) }
-        objectProperties.forEach { addObjectProperties(model, resource, it.predicate, it.objects, name, it.objName) }
-        return resource
+        val subject = model.createResource(String.format("%s%s", PREFIX, name))
+        dataProperties.forEach { addDataProperties(subject, it.predicate, it.values) }
+        objectProperties.forEach { addObjectProperties(model, subject, it.predicate, it.objects, it.rootObjName, it.objName) }
+        resourceProperties?.forEach { addResourceProperties(subject, it.predicate, it.objects) }
+        return subject
+    }
+
+    fun toResource(model: Model,
+                   name:String,
+                   dataProperties: List<DataPropertyDefinition>,
+                   objectProperties: List<ObjectPropertyDefinition>,
+    ): Resource {
+        return toResource(model, name, dataProperties, objectProperties, listOf())
     }
 
     abstract fun toResource(model: Model, name: String): Resource
@@ -35,6 +45,12 @@ abstract class RdfResourceProvider {
         }
     }
 
+    private fun addResourceProperties(subj: Resource, verb: Property, objects: List<Resource?>?) {
+        objects?.let {
+            objects.forEach { obj -> addResourceAsProperty(subj, verb, obj) }
+        }
+    }
+
     private fun addDataProperty(subj: Resource, verb: Property, obj: String?) {
         obj?.let {
             subj.addProperty(verb, it)
@@ -44,6 +60,12 @@ abstract class RdfResourceProvider {
     private fun addObjectProperty(model: Model, subj: Resource, verb: Property, obj: RdfResourceProvider?, name: String) {
         obj?.let {
             subj.addProperty(verb, obj.toResource(model, name))
+        }
+    }
+
+    private fun addResourceAsProperty(subj: Resource, verb: Property, obj: Resource?) {
+        obj?.let {
+            subj.addProperty(verb, obj)
         }
     }
 }

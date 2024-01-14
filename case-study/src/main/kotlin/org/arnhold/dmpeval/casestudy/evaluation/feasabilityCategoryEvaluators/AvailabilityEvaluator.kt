@@ -8,6 +8,7 @@ import org.apache.jena.rdf.model.Resource
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
 import org.arnhold.sdk.common.constants.DataLifecycle
+import org.arnhold.sdk.common.dqv.DmpLifecycle
 import org.arnhold.sdk.common.dqv.Guidance
 import org.arnhold.sdk.common.dqv.Measurement
 import org.arnhold.sdk.common.dqv.Metric
@@ -29,7 +30,7 @@ class AvailabilityEvaluator @Autowired constructor(
     private val logger = KotlinLogging.logger {}
 
     companion object {
-        const val SPARQL_DIRECTORY = "data/case-study/evaluation/availability/selectors/"
+        const val SPARQL_DIRECTORY = "data/selectors/"
     }
 
     override fun getPluginIdentifier(): String {
@@ -49,13 +50,14 @@ class AvailabilityEvaluator @Autowired constructor(
     override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
         logger.info { "Get all measurements" }
         val allMeasurements = idEntityMeasurements(dmp) + licenseEntityMeasurements(dmp)
-        return allMeasurements
+        return allMeasurements.filterNotNull()
     }
 
-    private fun idEntityMeasurements(dmp: Model): List<Measurement> {
+    private fun idEntityMeasurements(dmp: Model): List<Measurement?> {
         logger.info { "Get identity measurements" }
         val query = Path.of(SPARQL_DIRECTORY + "ids.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
+        logger.info { "Found ${selected.size} IDs"}
         return selected.map {
             getAvailabilityMeasurement(
                 it.resources.get("id"),
@@ -65,10 +67,11 @@ class AvailabilityEvaluator @Autowired constructor(
         }
     }
 
-    private fun licenseEntityMeasurements(dmp: Model): List<Measurement> {
+    private fun licenseEntityMeasurements(dmp: Model): List<Measurement?> {
         logger.info { "Get license measurements" }
         val query = Path.of(SPARQL_DIRECTORY + "licenses.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
+        logger.info { "Found ${selected.size} licenses"}
         return selected.map {
             getAvailabilityMeasurement(
                 it.resources.get("license"),
@@ -104,6 +107,7 @@ class AvailabilityEvaluator @Autowired constructor(
     }
 
     private fun doiCheck(id: String): Boolean {
+        logger.info { "Check doi of $id"}
         try {
             URL(id)
             return httpCheck(id)
@@ -113,6 +117,7 @@ class AvailabilityEvaluator @Autowired constructor(
     }
 
     private fun orcidCheck(id: String): Boolean {
+        logger.info { "Check orcid of $id"}
         try {
             URL(id)
             return httpCheck(id)
@@ -122,13 +127,15 @@ class AvailabilityEvaluator @Autowired constructor(
     }
 
     private fun httpCheck(urlString: String): Boolean {
+        logger.info { "Check response of $urlString"}
+
         val request = Request.Builder()
             .url(urlString)
             .build()
 
         return okHttpClient.newCall(request).execute().use { response ->
+            logger.info { "$urlString HTTP ${response.code}" }
             if (response.code == 200) {
-                logger.info {  }
                 return@use true
             } else {
                 logger.info {  }
@@ -137,11 +144,11 @@ class AvailabilityEvaluator @Autowired constructor(
         }
     }
 
-    private fun getAvailabilityMeasurement(computedOn: Resource?, available: Boolean, metric: Metric): Measurement {
+    private fun getAvailabilityMeasurement(computedOn: Resource?, available: Boolean, metric: Metric): Measurement? {
         return if (computedOn != null) {
-            Measurement(DataLifecycle.PUBLISHED, metric, Guidance("", ""), computedOn.uri, available.toString())
+            Measurement(DmpLifecycle(DataLifecycle.PUBLISHED), metric, Guidance("", ""), computedOn, available.toString())
         } else {
-            Measurement(DataLifecycle.PUBLISHED, metric, Guidance("", ""), "", available.toString())
+            null
         }
     }
 

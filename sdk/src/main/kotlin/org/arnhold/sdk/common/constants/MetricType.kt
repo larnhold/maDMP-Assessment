@@ -4,5 +4,6 @@ enum class MetricType(type: String) {
     EXTRACTING("extracting"),
     MEASURING("measuring"),
     SCORING("scoring"),
-    CHECKING("checking")
+    CHECKING("checking"),
+    UNDEFINED("undefined")
 }

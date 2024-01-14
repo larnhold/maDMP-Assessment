@@ -2,3 +2,4 @@ triplestore:
   directory: "./data/triple"
 ontology:
   DCSLocation: "./data/ontologies/dcso-4.0.1.ttl"
+  DMPDQVLocation: "./data/ontologies/dmp-dqv.ttl"

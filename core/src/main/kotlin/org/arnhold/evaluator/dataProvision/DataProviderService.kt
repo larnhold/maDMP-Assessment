@@ -8,6 +8,8 @@ import java.util.UUID
 interface DataProviderService {
 
     fun getDCSOntology(): OntModel
+
+    fun getDMPDQVOntology(): OntModel
     fun getExtensions(): Map<String, OntModel>
 
     fun getContextOntologies(): Map<String, OntModel>
@@ -17,5 +19,9 @@ interface DataProviderService {
     fun loadContextualizedDMP(parameters: DMPLoaderParameters): UUID
 
     fun getContextualizedDMP(id: UUID): Model
+
+    fun updateStoredDMP(id: UUID, dmp: Model)
+
+    fun saveModel(model: Model): UUID
 
 }

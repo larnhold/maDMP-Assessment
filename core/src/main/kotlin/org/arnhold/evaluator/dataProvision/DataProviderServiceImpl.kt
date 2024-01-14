@@ -31,6 +31,13 @@ class DataProviderServiceImpl @Autowired constructor(
         return dcso
     }
 
+    override fun getDMPDQVOntology(): OntModel {
+        val dmpdqv = ModelFactory.createOntologyModel()
+        val dmpdqvInputStream = FileInputStream(Path.of(ontologyConfig.DMPDQVLocation).toFile())
+        RDFDataMgr.read(dmpdqv, dmpdqvInputStream, Lang.TURTLE)
+        return dmpdqv
+    }
+
     override fun getExtensions(): Map<String, OntModel> {
         TODO("Not yet implemented")
     }
@@ -45,14 +52,21 @@ class DataProviderServiceImpl @Autowired constructor(
 
     override fun loadContextualizedDMP(parameters: DMPLoaderParameters): UUID {
         val loadedDMP = loadDMP(parameters.dmpLoader, parameters.dmpIdentifier)
-        val dmpStoreId = UUID.randomUUID()
-        //TODO save uuid in metadata store
-
-        tripleStoreService.saveModel(dmpStoreId, loadedDMP)
-        return dmpStoreId
+        return saveModel(loadedDMP)
     }
 
     override fun getContextualizedDMP(id: UUID): Model {
         return tripleStoreService.getModel(id)
+    }
+
+    override fun updateStoredDMP(id: UUID, dmp: Model) {
+        tripleStoreService.updateModel(id, dmp)
+    }
+
+    override fun saveModel(model: Model): UUID {
+        val storeId = UUID.randomUUID()
+        //TODO save uuid in metadata store
+        tripleStoreService.saveModel(storeId, model)
+        return storeId
     }
 }
