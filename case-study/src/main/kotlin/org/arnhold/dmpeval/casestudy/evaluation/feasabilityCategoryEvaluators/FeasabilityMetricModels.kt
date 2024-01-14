@@ -9,10 +9,10 @@ import org.arnhold.sdk.common.dqv.Metric
 
 class FeasabilityMetricModels {
     companion object {
-        val ID_AVAILABLE_METRIC = Metric("Avilability of an id", "IdAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
-        val LICENSE_AVAILABLE_METRIC = Metric("Avilability of a license", "LicenseAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
-        val ACCESS_URL_AVAILABLE_METRIC = Metric("Avilability of an access url", "AccessUrlAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
-        val DOWNLOAD_URL_AVAILABLE_METRIC = Metric("Avilability of a download url", "DownloadUrlAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
-        val HOST_URL_AVAILABLE_METRIC = Metric("Avilability of a host url", "HostUrlAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
+        val ID_AVAILABLE_METRIC = Metric("Availability of an id", "IdAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
+        val LICENSE_AVAILABLE_METRIC = Metric("Availability of a license", "LicenseAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
+        val ACCESS_URL_AVAILABLE_METRIC = Metric("Availability of an access url", "AccessUrlAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
+        val DOWNLOAD_URL_AVAILABLE_METRIC = Metric("Availability of a download url", "DownloadUrlAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
+        val HOST_URL_AVAILABLE_METRIC = Metric("Availability of a host url", "HostUrlAvailable", CategoryDimmensionModels.AVAILABILITY_DIMENSION, listOf(DmpLifecycle(DataLifecycle.PUBLISHED)), XSD.xboolean, MetricType.CHECKING)
     }
 }

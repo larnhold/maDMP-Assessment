@@ -48,7 +48,7 @@ class AvailabilityEvaluator @Autowired constructor(
     }
 
     override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
-        logger.info { "Get all measurements" }
+        logger.info { "Get all availability measurements" }
         val allMeasurements = idEntityMeasurements(dmp) + licenseEntityMeasurements(dmp)
         return allMeasurements.filterNotNull()
     }
@@ -97,6 +97,7 @@ class AvailabilityEvaluator @Autowired constructor(
     }
 
     private fun isAvailable(id: String, type: String): Boolean {
+        logger.info { "Check if $id is available" }
         return when (IdType.from(type)) {
             IdType.DOI -> doiCheck(id)
             IdType.ORCID -> orcidCheck(id)

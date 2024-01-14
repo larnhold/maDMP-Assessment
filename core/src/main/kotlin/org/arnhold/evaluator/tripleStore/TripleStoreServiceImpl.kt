@@ -1,5 +1,6 @@
 package org.arnhold.evaluator.tripleStore
 
+import mu.KotlinLogging
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.jena.riot.Lang
@@ -18,22 +19,30 @@ class TripleStoreServiceImpl @Autowired constructor(
     val tripleStoreConfig: TripleStoreConfig
 ) : TripleStoreService {
 
+    private val logger = KotlinLogging.logger {}
+
     override fun saveModel(id: UUID, model: Model) {
         try {
-            FileOutputStream(Path.of(tripleStoreConfig.directory, String.format("%s.ttl", id.toString())).toFile(), false).use { fileWriter ->
+            val savePath = Path.of(tripleStoreConfig.directory, String.format("%s.ttl", id.toString()))
+            logger.info { "Save model with id $id to $savePath" }
+            FileOutputStream(savePath.toFile(), false).use { fileWriter ->
                 RDFDataMgr.write(fileWriter, model, Lang.TURTLE)
             }
         } catch (e: IOException) {
+            logger.info { "Error saving model with id $id: Error $e" }
             throw e
         }
     }
 
     override fun getModel(id: UUID): Model {
+        val getFromPath = Path.of(tripleStoreConfig.directory, String.format("%s.ttl", id.toString()))
+        logger.info { "Get model with id $id from path $getFromPath" }
         val model: Model = ModelFactory.createDefaultModel()
-        return model.read(Path.of(tripleStoreConfig.directory, String.format("%s.ttl", id.toString())).toFile().absolutePath)
+        return model.read(getFromPath.toFile().absolutePath)
     }
 
     override fun updateModel(id: UUID, model: Model) {
+        logger.info { "Update model with id $id" }
         saveModel(id, model)
     }
 
