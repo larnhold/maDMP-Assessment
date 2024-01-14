@@ -3,6 +3,7 @@ package org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators
 import mu.KotlinLogging
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.apache.commons.validator.routines.UrlValidator
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
@@ -24,7 +25,8 @@ import java.nio.file.Path
 @Component
 class AvailabilityEvaluator @Autowired constructor(
     val sparqlSelector: SparqlSelector,
-    val okHttpClient: OkHttpClient
+    val okHttpClient: OkHttpClient,
+    val urlValidator: UrlValidator
 ) : DimensionEvaluatorPlugin {
 
     private val logger = KotlinLogging.logger {}
@@ -129,6 +131,11 @@ class AvailabilityEvaluator @Autowired constructor(
 
     private fun httpCheck(urlString: String): Boolean {
         logger.info { "Check response of $urlString"}
+
+        if (!urlValidator.isValid(urlString)) {
+            logger.info { "Invalid url $urlString" }
+            return false
+        }
 
         val request = Request.Builder()
             .url(urlString)

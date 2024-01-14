@@ -27,6 +27,7 @@ class TripleStoreServiceImpl @Autowired constructor(
             logger.info { "Save model with id $id to $savePath" }
             FileOutputStream(savePath.toFile(), false).use { fileWriter ->
                 RDFDataMgr.write(fileWriter, model, Lang.TURTLE)
+                fileWriter.flush()
             }
         } catch (e: IOException) {
             logger.info { "Error saving model with id $id: Error $e" }
