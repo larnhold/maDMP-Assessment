@@ -117,7 +117,7 @@ class AvailabilityEvaluator @Autowired constructor(
             URL(id)
             return httpCheck(id)
         } catch (e: Exception) {
-            return httpCheck("http://doi.org/$id")
+            return httpCheck("https://doi.org/$id")
         }
     }
 
