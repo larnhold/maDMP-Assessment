@@ -61,6 +61,7 @@ class AvailabilityEvaluator @Autowired constructor(
         return selected.map {
             getAvailabilityMeasurement(
                 it.resources.get("id"),
+                dmp,
                 isAvailable(it.literals.get("value").toString(), it.literals.get("type").toString()),
                 FeasabilityMetricModels.ID_AVAILABLE_METRIC
             )
@@ -75,6 +76,7 @@ class AvailabilityEvaluator @Autowired constructor(
         return selected.map {
             getAvailabilityMeasurement(
                 it.resources.get("license"),
+                dmp,
                 isAvailable(it.literals.get("ref").toString(), ""),
                 FeasabilityMetricModels.LICENSE_AVAILABLE_METRIC
             )
@@ -145,12 +147,19 @@ class AvailabilityEvaluator @Autowired constructor(
         }
     }
 
-    private fun getAvailabilityMeasurement(computedOn: Resource?, available: Boolean, metric: Metric): Measurement? {
-        return if (computedOn != null) {
-            Measurement(DmpLifecycle(DataLifecycle.PUBLISHED), metric, Guidance("", ""), computedOn, available.toString())
+    private fun getAvailabilityMeasurement(computedOn: Resource?, dmp:Model, available: Boolean, metric: Metric): Measurement? {
+        val dmpRes: Resource? = getDMPResource(dmp)
+        return if (computedOn != null && dmpRes != null) {
+            Measurement(DmpLifecycle(DataLifecycle.PUBLISHED), metric, Guidance("", ""), computedOn, dmpRes, available.toString())
         } else {
             null
         }
+    }
+
+    private fun getDMPResource(dmp: Model): Resource? {
+        val query = Path.of(SPARQL_DIRECTORY + "dmps.sparql").toFile().readText(Charsets.UTF_8)
+        val selected = sparqlSelector.getSelectResults(dmp, query)
+        return selected.get(0).resources.get("subject")
     }
 
     override fun supports(p0: String): Boolean {

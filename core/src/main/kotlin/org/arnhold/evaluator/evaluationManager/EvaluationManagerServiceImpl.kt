@@ -31,6 +31,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         val contextDMP = dataProviderService.getContextualizedDMP(contextDMPId)
         
         val measurements = metricProcessingService.produceAllMeasurements(contextDMP, parameters.dataLifecycle)
+        logger.info { "Created ${measurements.size} measurements" }
         val measurementsModel = measurementsToModel(dataProviderService.getDMPDQVOntology(), measurements)
 
         //After adding measurements to contextDMP save and run reasoner over dmpdqv to get correct rdf types from predicate relations

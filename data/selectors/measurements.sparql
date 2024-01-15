@@ -3,14 +3,14 @@ PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX terms: <http://purl.org/dc/terms/>
 
 select * where {
-    ?dmp dmpdqv:hasQualityMeasurement ?measurement .
     ?measurement dqv:computedOn ?computedOn .
-    ?measurement dqv:isCheckingMeasurementOf ?metric .
+    ?measurement dqv:isMeasurementOf ?metric .
     ?measurement dqv:value ?value .
     ?measurement dmpdqv:appliedAtDMPLifecycle ?lifecycle .
     ?metric terms:description ?description .
-    ?metric dqv:expectedDataType ?dataType .
+    ?metric dqv:expectedDataType ?dataTypea .
     ?metric dqv:inDimension ?dimension .
     ?metric dqv:metricType ?type .
-    ?dimension dqv:inCategory ?category
+    ?dimension dqv:inCategory ?category .
+    ?measurement dmpdqv:measurementFor ?measurementFor .
 }

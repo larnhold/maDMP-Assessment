@@ -20,12 +20,8 @@ class DMPDQV {
         val VALUE: Property = m.createProperty("${DQV_PREFIX}value")
         val METRIC_TYPE: Property = m.createProperty("${DQV_PREFIX}metricType")
 
-        val IS_MEASUREMENT_OF: Property = DMPDQV.m.createProperty("${DQV_PREFIX}isMeasurementOf")
-        val IS_CHECKING_MEASUREMENT_OF: Property = m.createProperty("${DQV_PREFIX}isCheckingMeasurementOf")
-        val IS_SCORING_MEASUREMENT_OF: Property = m.createProperty("${DQV_PREFIX}isScoringMeasurementOf")
-        val IS_MEASURING_MEASUREMENT_OF: Property = m.createProperty("${DQV_PREFIX}isMeasuringMeasurementOf")
-        val IS_EXTRACTING_MEASUREMENT_OF: Property = m.createProperty("${DQV_PREFIX}isExtractingMeasurementOf")
-
+        val IS_MEASUREMENT_OF: Property = m.createProperty("${DQV_PREFIX}isMeasurementOf")
+        val IS_MEASUREMENT_FOR: Property = m.createProperty("${URI_PREFIX}measurementFor")
 
         val COMPUTED_ON: Property = m.createProperty("${DQV_PREFIX}computedOn")
         val APPLIED_AT_DMP_lifecycle: Property = m.createProperty("${URI_PREFIX}appliedAtDMPLifecycle")

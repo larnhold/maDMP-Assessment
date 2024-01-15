@@ -21,8 +21,20 @@
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/dc/terms/contributor
+terms:contributor rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/terms/created
 terms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+terms:description rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/modified
@@ -33,8 +45,16 @@ terms:modified rdf:type owl:AnnotationProperty .
 terms:publisher rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/terms/type
 terms:type rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
@@ -59,6 +79,10 @@ terms:type rdf:type owl:AnnotationProperty .
 
 ###  http://xmlns.com/foaf/0.1/homepage
 <http://xmlns.com/foaf/0.1/homepage> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -175,32 +199,10 @@ dmpdqv:hasQualityMeasurement rdf:type owl:ObjectProperty ;
                              rdfs:range dqv:QualityMeasurement .
 
 
-###  https://w3id.org/dmpdqv/ns/core#isCheckingMeasurementOf
-dmpdqv:isCheckingMeasurementOf rdf:type owl:ObjectProperty ;
-                               rdfs:subPropertyOf dqv:isMeasurementOf ;
-                               rdfs:domain dmpdqv:CheckingQualityMeasurement ;
-                               rdfs:range dmpdqv:CheckingMetric .
-
-
-###  https://w3id.org/dmpdqv/ns/core#isExtractingMeasurementOf
-dmpdqv:isExtractingMeasurementOf rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf dqv:isMeasurementOf ;
-                                 rdfs:domain dmpdqv:ExtractingQualityMeasurement ;
-                                 rdfs:range dmpdqv:ExtractingMetric .
-
-
-###  https://w3id.org/dmpdqv/ns/core#isMeasuringMeasurementOf
-dmpdqv:isMeasuringMeasurementOf rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf dqv:isMeasurementOf ;
-                                rdfs:domain dmpdqv:MeasuringQualityMeasurement ;
-                                rdfs:range dmpdqv:MeasuringMetric .
-
-
-###  https://w3id.org/dmpdqv/ns/core#isScoringMeasurementOf
-dmpdqv:isScoringMeasurementOf rdf:type owl:ObjectProperty ;
-                              rdfs:subPropertyOf dqv:isMeasurementOf ;
-                              rdfs:domain dmpdqv:ScoringQualityMeasurement ;
-                              rdfs:range dmpdqv:ScoringMetric .
+###  https://w3id.org/dmpdqv/ns/core#measurementFor
+dmpdqv:measurementFor rdf:type owl:ObjectProperty ;
+                      rdfs:domain dqv:QualityMeasurement ;
+                      rdfs:range rdfs:Resource .
 
 
 #################################################################
@@ -374,52 +376,16 @@ dqv:UserQualityFeedback rdf:type owl:Class ;
 <http://www.w3.org/ns/oa#Motivation> rdf:type owl:Class .
 
 
-###  https://w3id.org/dmpdqv/ns/core#CheckingMetric
-dmpdqv:CheckingMetric rdf:type owl:Class ;
-                      rdfs:subClassOf dqv:Metric .
-
-
-###  https://w3id.org/dmpdqv/ns/core#CheckingQualityMeasurement
-dmpdqv:CheckingQualityMeasurement rdf:type owl:Class ;
-                                  rdfs:subClassOf dqv:QualityMeasurement .
+###  https://w3id.org/dcso/ns/core#DMP
+dcso:DMP rdf:type owl:Class .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#DMPLifeCycle
 dmpdqv:DMPLifeCycle rdf:type owl:Class .
 
 
-###  https://w3id.org/dmpdqv/ns/core#ExtractingMetric
-dmpdqv:ExtractingMetric rdf:type owl:Class ;
-                        rdfs:subClassOf dqv:Metric .
-
-
-###  https://w3id.org/dmpdqv/ns/core#ExtractingQualityMeasurement
-dmpdqv:ExtractingQualityMeasurement rdf:type owl:Class ;
-                                    rdfs:subClassOf dqv:QualityMeasurement .
-
-
 ###  https://w3id.org/dmpdqv/ns/core#Guidance
 dmpdqv:Guidance rdf:type owl:Class .
-
-
-###  https://w3id.org/dmpdqv/ns/core#MeasuringMetric
-dmpdqv:MeasuringMetric rdf:type owl:Class ;
-                       rdfs:subClassOf dqv:Metric .
-
-
-###  https://w3id.org/dmpdqv/ns/core#MeasuringQualityMeasurement
-dmpdqv:MeasuringQualityMeasurement rdf:type owl:Class ;
-                                   rdfs:subClassOf dqv:QualityMeasurement .
-
-
-###  https://w3id.org/dmpdqv/ns/core#ScoringMetric
-dmpdqv:ScoringMetric rdf:type owl:Class ;
-                     rdfs:subClassOf dqv:Metric .
-
-
-###  https://w3id.org/dmpdqv/ns/core#ScoringQualityMeasurement
-dmpdqv:ScoringQualityMeasurement rdf:type owl:Class ;
-                                 rdfs:subClassOf dqv:QualityMeasurement .
 
 
 #################################################################
@@ -442,9 +408,9 @@ dmpdqv:ScoringQualityMeasurement rdf:type owl:Class ;
                                              [ <http://xmlns.com/foaf/0.1/name> "Deirdre Lee"
                                              ] ;
                            terms:created "2015-12-17"^^xsd:date ;
-                           terms:creator [ <http://xmlns.com/foaf/0.1/name> "Riccardo Albertoni"
+                           terms:creator [ <http://xmlns.com/foaf/0.1/name> "Antoine Isaac"
                                          ] ,
-                                         [ <http://xmlns.com/foaf/0.1/name> "Antoine Isaac"
+                                         [ <http://xmlns.com/foaf/0.1/name> "Riccardo Albertoni"
                                          ] ;
                            terms:description "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers."@en ;
                            terms:modified "2016-08-26"^^xsd:date ,
