@@ -16,13 +16,13 @@ data class Contributor(
     @JsonProperty("name")
     val name: String?,
     @JsonProperty("role")
-    val role: String?
+    val roles: List<String?>?
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(
             DataPropertyDefinition(DCSO.MBOX, mbox),
             DataPropertyDefinition(DCSO.NAME, this.name),
-            DataPropertyDefinition(DCSO.ROLE, role)
+            DataPropertyDefinition(DCSO.ROLE, roles)
         ), listOf(
             ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR_ID, contributorId, name, "contributorId")
         ))

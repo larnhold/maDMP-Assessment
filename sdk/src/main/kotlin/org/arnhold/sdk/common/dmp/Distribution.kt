@@ -7,6 +7,7 @@ import org.arnhold.sdk.common.ontologyDefinitions.DCSO
 import org.arnhold.sdk.common.dmp.helper.DataPropertyDefinition
 import org.arnhold.sdk.common.dmp.helper.ObjectPropertyDefinition
 import org.arnhold.sdk.common.dmp.helper.RdfResourceProvider
+import java.math.BigInteger
 
 data class Distribution (
     @JsonProperty("license")
@@ -18,7 +19,7 @@ data class Distribution (
     @JsonProperty("available_until")
     val availableUntil: String?,
     @JsonProperty("byte_size")
-    val byteSize: Int?,
+    val byteSize: BigInteger?,
     @JsonProperty("data_access")
     val dataAccess: String?,
     @JsonProperty("description")

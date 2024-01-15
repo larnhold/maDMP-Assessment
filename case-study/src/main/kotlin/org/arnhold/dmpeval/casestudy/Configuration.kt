@@ -1,6 +1,7 @@
 package org.arnhold.dmpeval.casestudy
 
 import okhttp3.OkHttpClient
+import org.apache.commons.validator.routines.UrlValidator
 import org.arnhold.dmpeval.casestudy.configuration.CaseStudyConfig
 import org.springframework.boot.SpringBootConfiguration
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -17,6 +18,11 @@ class Configuration {
     @Bean
     fun caseStudyConfig(): CaseStudyConfig {
         return CaseStudyConfig()
+    }
+
+    @Bean
+    fun urlValidator(): UrlValidator {
+        return UrlValidator()
     }
 
     @Bean
