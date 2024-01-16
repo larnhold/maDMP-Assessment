@@ -35,15 +35,9 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         val measurements = runBlocking(Dispatchers.Default) {
             return@runBlocking metricProcessingService.produceAllMeasurements(contextDMP, parameters.dataLifecycle)
         }
-        logger.info { "Created ${measurements.size} measurements" }
-        val measurementsModel = measurementsToModel(dataProviderService.getDMPDQVOntology(), measurements)
 
-        //After adding measurements to contextDMP save and run reasoner over dmpdqv to get correct rdf types from predicate relations
-        logger.info { "Reason over measurements" }
-        val reasoner: Reasoner = ReasonerRegistry.getOWLReasoner()
-        reasoner.bindSchema(dataProviderService.getDMPDQVOntology())
-        val reasonedMeasurementsModel = ModelFactory.createInfModel(reasoner, measurementsModel)
-        dataProviderService.saveModel(reasonedMeasurementsModel)
+        logger.info { "Created ${measurements.size} measurements" }
+        saveMeasurements(measurements)
 
         logger.info { "Return evaluation results" }
         return EvaluationTaskResult(
@@ -52,6 +46,15 @@ class EvaluationManagerServiceImpl @Autowired constructor(
             evaluationId = UUID.randomUUID().toString(),
             measurements = measurements
         )
+    }
+
+    private fun saveMeasurements(measurements: List<Measurement>) {
+        val measurementsModel = measurementsToModel(dataProviderService.getDMPDQVOntology(), measurements)
+        logger.info { "Reason over measurements" }
+        val reasoner: Reasoner = ReasonerRegistry.getOWLReasoner()
+        reasoner.bindSchema(dataProviderService.getDMPDQVOntology())
+        val reasonedMeasurementsModel = ModelFactory.createInfModel(reasoner, measurementsModel)
+        dataProviderService.saveModel(reasonedMeasurementsModel)
     }
 
     override fun getEvaluatorInformation(): Map<Category, List<Dimension>> {
