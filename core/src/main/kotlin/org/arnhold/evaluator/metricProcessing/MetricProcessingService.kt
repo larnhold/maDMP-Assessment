@@ -8,5 +8,5 @@ import org.arnhold.sdk.common.dqv.Measurement
 
 interface MetricProcessingService {
     fun produceMeasurementsForDimension(dmp: Model, dimension: Dimension): List<Measurement>
-    fun produceAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement>
+    suspend fun produceAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement>
 }

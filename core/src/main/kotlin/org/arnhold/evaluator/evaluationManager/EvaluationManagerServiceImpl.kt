@@ -1,5 +1,7 @@
 package org.arnhold.evaluator.evaluationManager
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import mu.KotlinLogging
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
@@ -29,8 +31,10 @@ class EvaluationManagerServiceImpl @Autowired constructor(
 
         val contextDMPId = dataProviderService.loadContextualizedDMP(parameters.dmpLoaderParameters)
         val contextDMP = dataProviderService.getContextualizedDMP(contextDMPId)
-        
-        val measurements = metricProcessingService.produceAllMeasurements(contextDMP, parameters.dataLifecycle)
+
+        val measurements = runBlocking(Dispatchers.Default) {
+            return@runBlocking metricProcessingService.produceAllMeasurements(contextDMP, parameters.dataLifecycle)
+        }
         logger.info { "Created ${measurements.size} measurements" }
         val measurementsModel = measurementsToModel(dataProviderService.getDMPDQVOntology(), measurements)
 

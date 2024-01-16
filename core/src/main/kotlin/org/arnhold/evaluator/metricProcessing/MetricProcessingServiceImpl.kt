@@ -1,5 +1,6 @@
 package org.arnhold.evaluator.metricProcessing
 
+import kotlinx.coroutines.*
 import mu.KotlinLogging
 import org.apache.jena.rdf.model.Model
 import org.arnhold.evaluator.evaluationProvider.EvaluationProviderService
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class MetricProcessingServiceImpl @Autowired constructor(
-    val evaluationProviderService: EvaluationProviderService
+    val evaluationProviderService: EvaluationProviderService,
 ) : MetricProcessingService {
 
     private val logger = KotlinLogging.logger {}
@@ -20,8 +21,10 @@ class MetricProcessingServiceImpl @Autowired constructor(
         TODO("Not yet implemented")
     }
 
-    override fun produceAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
+    override suspend fun produceAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
         logger.info { "Produce all available metrics for lifecycle $lifecycle" }
-        return evaluationProviderService.getAllEvaluators().flatMap { it.getAllMeasurements(dmp, lifecycle) }
+        return coroutineScope {
+            return@coroutineScope evaluationProviderService.getAllEvaluators().map { async { it.getAllMeasurements(dmp, lifecycle) } }.awaitAll().flatten()
+        }
     }
 }
