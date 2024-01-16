@@ -7,10 +7,13 @@ import org.arnhold.sdk.common.constants.DataLifecycle
 import org.arnhold.sdk.common.dqv.Measurement
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class FAIREvaluationEvaluator : DimensionEvaluatorPlugin {
+class FAIREvaluationEvaluator @Autowired constructor(
+    val fujiService: FujiService
+) : DimensionEvaluatorPlugin {
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.FAIR_EVALUATION.toString()
@@ -25,6 +28,7 @@ class FAIREvaluationEvaluator : DimensionEvaluatorPlugin {
     }
 
     override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
+        fujiService.evaluateResource("10.5281/zenodo.4685759")
         return listOf()
     }
 
