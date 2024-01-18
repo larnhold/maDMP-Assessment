@@ -39,7 +39,6 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         logger.info { "Created ${measurements.size} measurements" }
         saveMeasurements(measurements)
 
-        logger.info { "Return evaluation results" }
         return EvaluationTaskResult(
             success = true,
             message = "no messages yet",

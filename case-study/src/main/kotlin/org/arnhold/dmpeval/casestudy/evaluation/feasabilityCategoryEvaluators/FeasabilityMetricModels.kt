@@ -16,16 +16,6 @@ class FeasabilityMetricModels {
             CategoryDimmensionModels.AVAILABILITY_DIMENSION,
             listOf(DmpLifecycle(DataLifecycle.PUBLISHED)),
             XSD.xboolean,
-            listOf()
-        )
-
-        val LICENSE_AVAILABLE_METRIC = Metric(
-            "Availability of a license",
-            "LicenseAvailable",
-            CategoryDimmensionModels.AVAILABILITY_DIMENSION,
-            listOf(DmpLifecycle(DataLifecycle.PUBLISHED)),
-            XSD.xboolean,
-            listOf()
         )
 
         fun getUriAvailableMetric(verb: Resource): Metric {

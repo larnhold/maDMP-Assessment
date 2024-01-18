@@ -181,6 +181,12 @@ dmpdqv:appliedAtDMPLifecycle rdf:type owl:ObjectProperty ;
                              rdfs:range dmpdqv:DMPLifeCycle .
 
 
+###  https://w3id.org/dmpdqv/ns/core#derivedFrom
+dmpdqv:derivedFrom rdf:type owl:ObjectProperty ;
+                   rdfs:domain <http://purl.org/eis/vocab/daq#Dimension> ;
+                   rdfs:range <http://purl.org/eis/vocab/daq#Dimension> .
+
+
 ###  https://w3id.org/dmpdqv/ns/core#hasApplicableDMPLifecycle
 dmpdqv:hasApplicableDMPLifecycle rdf:type owl:ObjectProperty ;
                                  rdfs:domain dqv:Metric ;
@@ -210,13 +216,32 @@ dmpdqv:hasSubDimension rdf:type owl:ObjectProperty ;
                        rdfs:range <http://purl.org/eis/vocab/daq#Dimension> .
 
 
+###  https://w3id.org/dmpdqv/ns/core#hasTestDefinition
+dmpdqv:hasTestDefinition rdf:type owl:ObjectProperty ;
+                         rdfs:domain <http://purl.org/eis/vocab/daq#Metric> ;
+                         rdfs:range dmpdqv:TestDefinition .
+
+
+###  https://w3id.org/dmpdqv/ns/core#hasTestResult
+dmpdqv:hasTestResult rdf:type owl:ObjectProperty ;
+                     rdfs:domain dqv:QualityMeasurement ;
+                     rdfs:range dmpdqv:TestResult .
+
+
+###  https://w3id.org/dmpdqv/ns/core#usedVariable
+dmpdqv:usedVariable rdf:type owl:ObjectProperty ;
+                    rdfs:domain dqv:Metric ;
+                    rdfs:range owl:DatatypeProperty .
+
+
 #################################################################
 #    Data properties
 #################################################################
 
 ###  http://www.w3.org/ns/dqv#expectedDataType
 dqv:expectedDataType rdf:type owl:DatatypeProperty ;
-                     rdfs:domain dqv:Metric ;
+                     rdfs:domain dqv:Metric ,
+                                 dmpdqv:TestDefinition ;
                      rdfs:range xsd:anySimpleType ;
                      rdfs:comment "Represents the expected data type for metric's observed value (e.g. xsd:boolean, xsd:double etc...)"@en ;
                      rdfs:label "expected data type"@en .
@@ -224,13 +249,19 @@ dqv:expectedDataType rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3.org/ns/dqv#value
 dqv:value rdf:type owl:DatatypeProperty ;
-          rdfs:domain dqv:QualityMeasurement .
+          rdfs:domain dqv:QualityMeasurement ,
+                      dmpdqv:TestResult .
+
+
+###  https://w3id.org/dmpdqv/ns/core#expectedValue
+dmpdqv:expectedValue rdf:type owl:DatatypeProperty ;
+                     rdfs:domain <http://purl.org/eis/vocab/daq#Metric> ,
+                                 dmpdqv:TestDefinition .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#usedVariable
 dmpdqv:usedVariable rdf:type owl:DatatypeProperty ;
-                    rdfs:domain dqv:Metric ;
-                    rdfs:range owl:DatatypeProperty .
+                    rdfs:domain <http://purl.org/eis/vocab/daq#Metric> .
 
 
 #################################################################
@@ -284,6 +315,10 @@ dmpdqv:usedVariable rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3.org/2000/01/rdf-schema#Resource
 rdfs:Resource rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#DatatypeProperty
+owl:DatatypeProperty rdf:type owl:Class .
 
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
@@ -393,6 +428,14 @@ dmpdqv:DMPLifeCycle rdf:type owl:Class .
 dmpdqv:Guidance rdf:type owl:Class .
 
 
+###  https://w3id.org/dmpdqv/ns/core#TestDefinition
+dmpdqv:TestDefinition rdf:type owl:Class .
+
+
+###  https://w3id.org/dmpdqv/ns/core#TestResult
+dmpdqv:TestResult rdf:type owl:Class .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -400,13 +443,13 @@ dmpdqv:Guidance rdf:type owl:Class .
 ###  http://www.w3.org/ns/dqv
 <http://www.w3.org/ns/dqv> rdf:type owl:NamedIndividual ,
                                     <http://purl.org/vocommons/voaf#Vocabulary> ;
-                           terms:contributor [ <http://xmlns.com/foaf/0.1/name> "Nandana Mihindukulasooriya"
-                                             ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Christophe Guéret"
-                                             ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Amrapali Zaveri"
+                           terms:contributor [ <http://xmlns.com/foaf/0.1/name> "Amrapali Zaveri"
                                              ] ,
                                              [ <http://xmlns.com/foaf/0.1/name> "Jeremy Debattista"
+                                             ] ,
+                                             [ <http://xmlns.com/foaf/0.1/name> "Nandana Mihindukulasooriya"
+                                             ] ,
+                                             [ <http://xmlns.com/foaf/0.1/name> "Christophe Guéret"
                                              ] ,
                                              [ <http://xmlns.com/foaf/0.1/name> "Deirdre Lee"
                                              ] ,

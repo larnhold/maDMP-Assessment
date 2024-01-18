@@ -14,10 +14,15 @@ class CategoryDimmensionModels {
         val EXTENSION_COMPLETENESS_DIMENSION = Dimension(COMPLETENSS_CATEGORY, EvaluationDimensionConstants.EXTENSION_COMPLETENESS.toString(), "")
         val ACCURACY_DIMENSION = Dimension(FEASABILITY_CATEGORY, EvaluationDimensionConstants.ACCURACY.toString(), "")
         val AVAILABILITY_DIMENSION = Dimension(FEASABILITY_CATEGORY, EvaluationDimensionConstants.AVAILABILITY.toString(), "")
-        val FAIR_GUIDANCE_DIMENSION = Dimension(QUALITY_OF_ACTIONS_CATEGORY, EvaluationDimensionConstants.FAIR_GUIDANCE.toString(), "")
-        val FAIR_EVALUATION_DIMENSION = Dimension(QUALITY_OF_ACTIONS_CATEGORY, EvaluationDimensionConstants.FAIR_EVALUATION.toString(), "")
         val GUIDELINE_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.GUIDELINE_COMPLIANCE.toString(), "")
         val DCS_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.DCS_COMPLIANCE.toString(), "")
         val EXTENSION_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.EXTENSION_COMPLIANCE.toString(), "")
+
+        val FAIR_DIMENSION = Dimension(QUALITY_OF_ACTIONS_CATEGORY, EvaluationDimensionConstants.FAIR.toString(), "")
+
+        val FINDABLE_DIMENSION = Dimension(QUALITY_OF_ACTIONS_CATEGORY, EvaluationDimensionConstants.FINDABLE.toString(), "", FAIR_DIMENSION)
+        val ACCESSIBLE_DIMENSION = Dimension(QUALITY_OF_ACTIONS_CATEGORY, EvaluationDimensionConstants.ACCESSIBLE.toString(), "", FAIR_DIMENSION)
+        val INTEROPERABLE_DIMENSION = Dimension(QUALITY_OF_ACTIONS_CATEGORY, EvaluationDimensionConstants.INTEROPERABLE.toString(), "", FAIR_DIMENSION)
+        val REUSABLE_DIMENSION = Dimension(QUALITY_OF_ACTIONS_CATEGORY, EvaluationDimensionConstants.REUSABLE.toString(), "", FAIR_DIMENSION)
     }
 }

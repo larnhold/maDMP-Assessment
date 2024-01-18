@@ -1,0 +1,64 @@
+package org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators
+
+import org.apache.jena.rdf.model.Resource
+import org.apache.jena.vocabulary.XSD
+import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
+import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
+import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
+import org.arnhold.sdk.common.constants.DataLifecycle
+import org.arnhold.sdk.common.dqv.Dimension
+import org.arnhold.sdk.common.dqv.DmpLifecycle
+import org.arnhold.sdk.common.dqv.Metric
+import org.arnhold.sdk.common.dqv.MetricTestDefinition
+
+
+class QualityOfActionsMetricModels {
+    companion object {
+
+        fun metricFromFujiResult(datasetIdType: Resource, result: FujiResult): Metric {
+            return Metric(
+                result.metricName,
+                result.metricIdentifier,
+                fujiResultToDimension(result),
+                listOf(DmpLifecycle(DataLifecycle.PUBLISHED)),
+                XSD.integer,
+                listOf(datasetIdType),
+                result.metricTests.map { (key, value) -> metricTestFromFujiMetricTest(key, value) },
+                result.score.total.toString()
+            )
+        }
+
+        private fun fujiResultToDimension(result: FujiResult): Dimension {
+            return when(result.metricIdentifier) {
+                "FsF-F1-01D" -> CategoryDimmensionModels.FINDABLE_DIMENSION
+                "FsF-F1-02D" -> CategoryDimmensionModels.FINDABLE_DIMENSION
+                "FsF-F2-01M" -> CategoryDimmensionModels.FINDABLE_DIMENSION
+                "FsF-F3-01M" -> CategoryDimmensionModels.FINDABLE_DIMENSION
+                "FsF-F4-01M" -> CategoryDimmensionModels.FINDABLE_DIMENSION
+                "FsF-I1-01M" -> CategoryDimmensionModels.INTEROPERABLE_DIMENSION
+                "FsF-I2-01M" -> CategoryDimmensionModels.INTEROPERABLE_DIMENSION
+                "FsF-I3-01M" -> CategoryDimmensionModels.INTEROPERABLE_DIMENSION
+                "FsF-R1-01MD" -> CategoryDimmensionModels.REUSABLE_DIMENSION
+                "FsF-R1.1-01M" -> CategoryDimmensionModels.REUSABLE_DIMENSION
+                "FsF-A1-01M" -> CategoryDimmensionModels.ACCESSIBLE_DIMENSION
+                "FsF-R1.2-01M" -> CategoryDimmensionModels.REUSABLE_DIMENSION
+                "FsF-R1.3-01M" -> CategoryDimmensionModels.REUSABLE_DIMENSION
+                "FsF-R1.3-02D" -> CategoryDimmensionModels.REUSABLE_DIMENSION
+                "FsF-A1-03D" -> CategoryDimmensionModels.ACCESSIBLE_DIMENSION
+                "FsF-A1-02M" -> CategoryDimmensionModels.ACCESSIBLE_DIMENSION
+                else -> {
+                    CategoryDimmensionModels.FAIR_DIMENSION
+                }
+            }
+        }
+
+        private fun metricTestFromFujiMetricTest(title: String, test: FujiMetricTest): MetricTestDefinition {
+            return MetricTestDefinition(
+                title,
+                test.name,
+                test.metricTestScore.total.toString(),
+                XSD.integer
+            )
+        }
+    }
+}

@@ -17,16 +17,20 @@ class Metric (
     @JsonIgnore
     val expectedDataType: Resource,
     @JsonIgnore
-    val usedVariables: List<Resource?>?
+    val usedVariables: List<Resource?>? = null,
+    val metricTests: List<MetricTestDefinition?>? = null,
+    val expextedValue: Any? = null
 ): RdfResourceProvider() {
 
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, title + "_Metric", listOf(
             DataPropertyDefinition(DMPDQV.DESCRIPTION, description),
-            DataPropertyDefinition(DMPDQV.TITLE, title)
+            DataPropertyDefinition(DMPDQV.TITLE, title),
+            DataPropertyDefinition(DMPDQV.EXPECTED_VALUE, expextedValue.toString())
         ), listOf(
             ObjectPropertyDefinition(DMPDQV.IN_DIMENSION, inDimension, "", ""),
             ObjectPropertyDefinition(DMPDQV.HAS_APPLICABLE_DMP_LIFECYCLE, applicableDMPLifeCycles, "", ""),
+            ObjectPropertyDefinition(DMPDQV.HAS_TEST_DEFINITION, metricTests, title, ""),
         ), listOf(
             ResourcePropertyDefinition(DMPDQV.EXPEXTED_DATA_TYPE, expectedDataType),
             ResourcePropertyDefinition(DMPDQV.USED_VARIABLE, usedVariables)

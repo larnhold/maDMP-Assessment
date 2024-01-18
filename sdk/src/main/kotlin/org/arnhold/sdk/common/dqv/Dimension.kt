@@ -10,7 +10,8 @@ import org.arnhold.sdk.common.ontologyDefinitions.DMPDQV
 data class Dimension(
     val inCategory: Category?,
     val title: String?,
-    val description: String?
+    val description: String?,
+    var derivedFrom: Dimension? = null
 ): RdfResourceProvider() {
 
     override fun toResource(model: Model, name: String): Resource {
@@ -18,7 +19,8 @@ data class Dimension(
             DataPropertyDefinition(DMPDQV.DESCRIPTION, description),
             DataPropertyDefinition(DMPDQV.TITLE, title)
         ), listOf(
-            ObjectPropertyDefinition(DMPDQV.IN_CATEGORY, inCategory, "", "")
+            ObjectPropertyDefinition(DMPDQV.IN_CATEGORY, inCategory),
+            ObjectPropertyDefinition(DMPDQV.DERIVED_FROM, derivedFrom)
         ))
     }
 
@@ -39,4 +41,10 @@ data class Dimension(
         result = 31 * result + (title?.hashCode() ?: 0)
         return result
     }
+
+    override fun toString(): String {
+        return "Dimension(inCategory=$inCategory, title=$title, description=$description)"
+    }
+
+
 }

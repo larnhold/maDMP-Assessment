@@ -1,5 +1,6 @@
 package org.arnhold.evaluator.evaluationManager
 
+import mu.KotlinLogging
 import org.arnhold.sdk.common.dqv.Measurement
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -15,9 +16,14 @@ import java.util.UUID
 class EvaluationController @Autowired constructor(
     val evaluationManagerService: EvaluationManagerService
 ) {
+
+    private val logger = KotlinLogging.logger {}
+
     @PostMapping("create")
     fun createEvaluation(@RequestBody parameters: EvaluationTaskParameters): EvaluationTaskResult {
-        return evaluationManagerService.createEvaluation(parameters)
+        val measurements = evaluationManagerService.createEvaluation(parameters)
+        logger.info { "Return ${measurements.measurements?.size} measurements" }
+        return measurements
     }
 
     @GetMapping("{id}/measurements")
