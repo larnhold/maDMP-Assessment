@@ -41,7 +41,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
 
         return EvaluationTaskResult(
             success = true,
-            message = "no messages yet",
+            message = "",
             evaluationId = UUID.randomUUID().toString(),
             measurements = measurements
         )

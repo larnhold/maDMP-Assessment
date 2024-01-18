@@ -1,4 +1,4 @@
-package org.arnhold.evaluator.shacl
+package org.arnhold.sdk.tools.shacl
 
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.riot.Lang
