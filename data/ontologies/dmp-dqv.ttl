@@ -193,16 +193,21 @@ dmpdqv:hasGuidance rdf:type owl:ObjectProperty ;
                    rdfs:range dmpdqv:Guidance .
 
 
+###  https://w3id.org/dmpdqv/ns/core#hasParentDimension
+dmpdqv:hasParentDimension rdf:type owl:ObjectProperty ;
+                          owl:inverseOf dmpdqv:hasSubDimension .
+
+
 ###  https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement
 dmpdqv:hasQualityMeasurement rdf:type owl:ObjectProperty ;
                              rdfs:domain dcso:DMP ;
                              rdfs:range dqv:QualityMeasurement .
 
 
-###  https://w3id.org/dmpdqv/ns/core#measurementFor
-dmpdqv:measurementFor rdf:type owl:ObjectProperty ;
-                      rdfs:domain dqv:QualityMeasurement ;
-                      rdfs:range rdfs:Resource .
+###  https://w3id.org/dmpdqv/ns/core#hasSubDimension
+dmpdqv:hasSubDimension rdf:type owl:ObjectProperty ;
+                       rdfs:domain <http://purl.org/eis/vocab/daq#Dimension> ;
+                       rdfs:range <http://purl.org/eis/vocab/daq#Dimension> .
 
 
 #################################################################
@@ -222,10 +227,10 @@ dqv:value rdf:type owl:DatatypeProperty ;
           rdfs:domain dqv:QualityMeasurement .
 
 
-###  https://w3id.org/dmpdqv/ns/core#metricType
-dmpdqv:metricType rdf:type owl:DatatypeProperty ;
-                  rdfs:domain dqv:Metric ;
-                  rdfs:range xsd:string .
+###  https://w3id.org/dmpdqv/ns/core#usedVariable
+dmpdqv:usedVariable rdf:type owl:DatatypeProperty ;
+                    rdfs:domain dqv:Metric ;
+                    rdfs:range owl:DatatypeProperty .
 
 
 #################################################################
@@ -395,22 +400,22 @@ dmpdqv:Guidance rdf:type owl:Class .
 ###  http://www.w3.org/ns/dqv
 <http://www.w3.org/ns/dqv> rdf:type owl:NamedIndividual ,
                                     <http://purl.org/vocommons/voaf#Vocabulary> ;
-                           terms:contributor [ <http://xmlns.com/foaf/0.1/name> "Christophe Guéret"
+                           terms:contributor [ <http://xmlns.com/foaf/0.1/name> "Nandana Mihindukulasooriya"
                                              ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Nandana Mihindukulasooriya"
-                                             ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Jeremy Debattista"
+                                             [ <http://xmlns.com/foaf/0.1/name> "Christophe Guéret"
                                              ] ,
                                              [ <http://xmlns.com/foaf/0.1/name> "Amrapali Zaveri"
                                              ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Makx Dekkers"
+                                             [ <http://xmlns.com/foaf/0.1/name> "Jeremy Debattista"
                                              ] ,
                                              [ <http://xmlns.com/foaf/0.1/name> "Deirdre Lee"
+                                             ] ,
+                                             [ <http://xmlns.com/foaf/0.1/name> "Makx Dekkers"
                                              ] ;
                            terms:created "2015-12-17"^^xsd:date ;
-                           terms:creator [ <http://xmlns.com/foaf/0.1/name> "Antoine Isaac"
+                           terms:creator [ <http://xmlns.com/foaf/0.1/name> "Riccardo Albertoni"
                                          ] ,
-                                         [ <http://xmlns.com/foaf/0.1/name> "Riccardo Albertoni"
+                                         [ <http://xmlns.com/foaf/0.1/name> "Antoine Isaac"
                                          ] ;
                            terms:description "The Data Quality Vocabulary (DQV) is seen as an extension to DCAT to cover the quality of the data, how frequently is it updated, whether it accepts user corrections, persistence commitments etc. When used by publishers, this vocabulary will foster trust in the data amongst developers."@en ;
                            terms:modified "2016-08-26"^^xsd:date ,

@@ -51,12 +51,41 @@ class AvailabilityEvaluator @Autowired constructor(
 
     override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
         logger.info { "Get all availability measurements" }
-        val allMeasurements = idEntityMeasurements(dmp) + licenseEntityMeasurements(dmp)
+        val allMeasurements = getAllIdentifiermeasurements(dmp)+allURIsMeasurements(dmp)
         return allMeasurements.filterNotNull()
     }
 
-    private fun idEntityMeasurements(dmp: Model): List<Measurement?> {
-        logger.info { "Get identity measurements" }
+    /**
+     * getting all URIs in one select is possible but it is not possible to select the next Resource to use as assesedObject
+     * so when selecting the URIs to be checked there has to be knowledge on the location in the graph which is only available by writing individual queries
+     */
+    private fun allURIsMeasurements(dmp: Model): List<Measurement?> {
+        logger.info { "Get measurements of al urls" }
+        val query = Path.of(SPARQL_DIRECTORY + "allUris.sparql").toFile().readText(Charsets.UTF_8)
+        val selected = sparqlSelector.getSelectResults(dmp, query)
+        logger.info { "Found ${selected.size} URIs in DMP"}
+
+        return selected.map {
+            val computedOn = it.resources.get("subject")
+            val verb = it.resources.get("verb")
+            val urlValue = it.literals.get("value").toString()
+
+            if (verb !== null) {
+                val metric = FeasabilityMetricModels.getUriAvailableMetric(verb)
+                getAvailabilityMeasurement(
+                    computedOn,
+                    dmp,
+                    httpCheck(urlValue),
+                    metric
+                )
+            } else {
+                null
+            }
+        }.filterNotNull()
+    }
+
+    private fun getAllIdentifiermeasurements(dmp: Model): List<Measurement?> {
+        logger.info { "Get measurements of al identifiers" }
         val query = Path.of(SPARQL_DIRECTORY + "ids.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} IDs"}
@@ -64,12 +93,16 @@ class AvailabilityEvaluator @Autowired constructor(
             getAvailabilityMeasurement(
                 it.resources.get("id"),
                 dmp,
-                isAvailable(it.literals.get("value").toString(), it.literals.get("type").toString()),
+                isIDAvailable(it.literals.get("value").toString(), it.literals.get("type").toString()),
                 FeasabilityMetricModels.ID_AVAILABLE_METRIC
             )
         }
     }
 
+
+    /**
+     * Covered with all URIs
+     */
     private fun licenseEntityMeasurements(dmp: Model): List<Measurement?> {
         logger.info { "Get license measurements" }
         val query = Path.of(SPARQL_DIRECTORY + "licenses.sparql").toFile().readText(Charsets.UTF_8)
@@ -79,28 +112,32 @@ class AvailabilityEvaluator @Autowired constructor(
             getAvailabilityMeasurement(
                 it.resources.get("license"),
                 dmp,
-                isAvailable(it.literals.get("ref").toString(), ""),
+                isIDAvailable(it.literals.get("ref").toString(), ""),
                 FeasabilityMetricModels.LICENSE_AVAILABLE_METRIC
             )
         }
     }
 
-    private fun accessUrlEntityMeasurements(): List<Measurement> {
-        logger.info { "Get access url measurements" }
+    /**
+     * Covered with all URIs
+     */
+    private fun distributionMeasurements(): List<Measurement> {
+        //hostUrlMeasurements
+        //downloadUrlMeasurements
+        //accessUrlMeasurements
         return listOf()
     }
 
-    private fun downloadUrlEntityMeasurements(): List<Measurement> {
-        logger.info { "Get download url measurements" }
+    /**
+     * Covered with all URIs
+     */
+    private fun dmpMeasurements(): List<Measurement> {
+        //reportUrlMeasurements
+        //ethicalIssuesUrlMeasurements
         return listOf()
     }
 
-    private fun hostUrlEntityMeasurements(): List<Measurement> {
-        logger.info { "Get host url measurements" }
-        return listOf()
-    }
-
-    private fun isAvailable(id: String, type: String): Boolean {
+    private fun isIDAvailable(id: String, type: String): Boolean {
         logger.info { "Check if $id is available" }
         return when (IdType.from(type)) {
             IdType.DOI -> doiCheck(id)
@@ -155,9 +192,8 @@ class AvailabilityEvaluator @Autowired constructor(
     }
 
     private fun getAvailabilityMeasurement(computedOn: Resource?, dmp:Model, available: Boolean, metric: Metric): Measurement? {
-        val dmpRes: Resource? = getDMPResource(dmp)
-        return if (computedOn != null && dmpRes != null) {
-            Measurement(DmpLifecycle(DataLifecycle.PUBLISHED), metric, Guidance("", ""), computedOn, dmpRes, available.toString())
+        return if (computedOn != null) {
+            Measurement(DmpLifecycle(DataLifecycle.PUBLISHED), metric, Guidance("", ""), computedOn, available.toString())
         } else {
             null
         }

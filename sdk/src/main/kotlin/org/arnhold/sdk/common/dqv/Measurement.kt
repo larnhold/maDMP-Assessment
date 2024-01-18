@@ -15,8 +15,6 @@ data class Measurement(
     val guidance: Guidance,
     @JsonIgnore
     val computedOn: Resource,
-    @JsonIgnore
-    val measurementFor: Resource,
     val value: Any
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
@@ -28,7 +26,6 @@ data class Measurement(
             ObjectPropertyDefinition(DMPDQV.IS_MEASUREMENT_OF, isMeasurementOf, "", ""),
         ), listOf(
             ResourcePropertyDefinition(DMPDQV.COMPUTED_ON, computedOn),
-            ResourcePropertyDefinition(DMPDQV.IS_MEASUREMENT_FOR, measurementFor)
         ))
     }
 }

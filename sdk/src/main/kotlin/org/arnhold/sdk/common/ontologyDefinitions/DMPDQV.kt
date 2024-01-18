@@ -18,10 +18,9 @@ class DMPDQV {
         val EXPEXTED_DATA_TYPE: Property = m.createProperty("${DQV_PREFIX}expectedDataType")
         val HAS_APPLICABLE_DMP_LIFECYCLE: Property = m.createProperty("${URI_PREFIX}hasApplicableDMPLifecycle")
         val VALUE: Property = m.createProperty("${DQV_PREFIX}value")
-        val METRIC_TYPE: Property = m.createProperty("${DQV_PREFIX}metricType")
+        val USED_VARIABLE: Property = m.createProperty("${URI_PREFIX}usedVariable")
 
         val IS_MEASUREMENT_OF: Property = m.createProperty("${DQV_PREFIX}isMeasurementOf")
-        val IS_MEASUREMENT_FOR: Property = m.createProperty("${URI_PREFIX}measurementFor")
 
         val COMPUTED_ON: Property = m.createProperty("${DQV_PREFIX}computedOn")
         val APPLIED_AT_DMP_lifecycle: Property = m.createProperty("${URI_PREFIX}appliedAtDMPLifecycle")

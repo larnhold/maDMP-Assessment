@@ -10,7 +10,7 @@ select * where {
     ?metric terms:description ?description .
     ?metric dqv:expectedDataType ?dataTypea .
     ?metric dqv:inDimension ?dimension .
-    ?metric dqv:metricType ?type .
-    ?dimension dqv:inCategory ?category .
-    ?measurement dmpdqv:measurementFor ?measurementFor .
+    ?metric terms:title ?title .
+    OPTIONAL { ?metric dmpdqv:usedVariable ?variable . }
+    ?dimension dqv:inCategory ?category
 }
