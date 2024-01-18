@@ -16,7 +16,7 @@ import org.arnhold.sdk.common.dqv.Measurement
 import org.arnhold.sdk.common.dqv.Metric
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
-import org.arnhold.sdk.tools.SparqlSelector
+import org.arnhold.sdk.tools.SparqlSelector.SparqlSelector
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.net.URL

@@ -1,4 +1,4 @@
-package org.arnhold.sdk.tools
+package org.arnhold.sdk.tools.SparqlSelector
 
 import mu.KotlinLogging
 import org.apache.jena.query.*

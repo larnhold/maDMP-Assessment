@@ -1,4 +1,4 @@
-package org.arnhold.sdk.tools
+package org.arnhold.sdk.tools.SparqlSelector
 
 import org.apache.jena.rdf.model.Literal
 import org.apache.jena.rdf.model.Resource
