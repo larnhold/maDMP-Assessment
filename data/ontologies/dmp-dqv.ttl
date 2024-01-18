@@ -5,6 +5,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcso: <https://w3id.org/dcso/ns/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix dmpdqv: <https://w3id.org/dmpdqv/ns/core#> .
@@ -175,6 +176,12 @@ dqv:isMeasurementOf rdf:type owl:ObjectProperty ;
 <http://www.w3.org/ns/oa#motivation> rdf:type owl:ObjectProperty .
 
 
+###  http://www.w3.org/ns/prov#wasAttributedTo
+prov:wasAttributedTo rdf:type owl:ObjectProperty ;
+                     rdfs:domain dqv:QualityMeasurement ;
+                     rdfs:range prov:SoftwareAgent .
+
+
 ###  https://w3id.org/dmpdqv/ns/core#appliedAtDMPLifecycle
 dmpdqv:appliedAtDMPLifecycle rdf:type owl:ObjectProperty ;
                              rdfs:domain dqv:QualityMeasurement ;
@@ -230,7 +237,8 @@ dmpdqv:hasTestResult rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/dmpdqv/ns/core#usedVariable
 dmpdqv:usedVariable rdf:type owl:ObjectProperty ;
-                    rdfs:domain dqv:Metric ;
+                    rdfs:domain <http://purl.org/eis/vocab/daq#Metric> ,
+                                dqv:Metric ;
                     rdfs:range owl:DatatypeProperty .
 
 
@@ -260,8 +268,7 @@ dmpdqv:expectedValue rdf:type owl:DatatypeProperty ;
 
 
 ###  https://w3id.org/dmpdqv/ns/core#usedVariable
-dmpdqv:usedVariable rdf:type owl:DatatypeProperty ;
-                    rdfs:domain <http://purl.org/eis/vocab/daq#Metric> .
+dmpdqv:usedVariable rdf:type owl:DatatypeProperty .
 
 
 #################################################################
@@ -416,6 +423,10 @@ dqv:UserQualityFeedback rdf:type owl:Class ;
 <http://www.w3.org/ns/oa#Motivation> rdf:type owl:Class .
 
 
+###  http://www.w3.org/ns/prov#SoftwareAgent
+prov:SoftwareAgent rdf:type owl:Class .
+
+
 ###  https://w3id.org/dcso/ns/core#DMP
 dcso:DMP rdf:type owl:Class .
 
@@ -443,17 +454,17 @@ dmpdqv:TestResult rdf:type owl:Class .
 ###  http://www.w3.org/ns/dqv
 <http://www.w3.org/ns/dqv> rdf:type owl:NamedIndividual ,
                                     <http://purl.org/vocommons/voaf#Vocabulary> ;
-                           terms:contributor [ <http://xmlns.com/foaf/0.1/name> "Amrapali Zaveri"
-                                             ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Jeremy Debattista"
-                                             ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Nandana Mihindukulasooriya"
-                                             ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Christophe Guéret"
+                           terms:contributor [ <http://xmlns.com/foaf/0.1/name> "Makx Dekkers"
                                              ] ,
                                              [ <http://xmlns.com/foaf/0.1/name> "Deirdre Lee"
                                              ] ,
-                                             [ <http://xmlns.com/foaf/0.1/name> "Makx Dekkers"
+                                             [ <http://xmlns.com/foaf/0.1/name> "Jeremy Debattista"
+                                             ] ,
+                                             [ <http://xmlns.com/foaf/0.1/name> "Amrapali Zaveri"
+                                             ] ,
+                                             [ <http://xmlns.com/foaf/0.1/name> "Christophe Guéret"
+                                             ] ,
+                                             [ <http://xmlns.com/foaf/0.1/name> "Nandana Mihindukulasooriya"
                                              ] ;
                            terms:created "2015-12-17"^^xsd:date ;
                            terms:creator [ <http://xmlns.com/foaf/0.1/name> "Riccardo Albertoni"

@@ -16,6 +16,7 @@ data class Measurement(
     @JsonIgnore
     val computedOn: Resource,
     val value: Any,
+    val softwareAgent: SoftwareAgent?=SoftwareAgent("maDMP Evaluator", ""),
     val testResults: List<TestResult?>?=null
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
@@ -25,7 +26,8 @@ data class Measurement(
             ObjectPropertyDefinition(DMPDQV.APPLIED_AT_DMP_lifecycle, lifeCycleStage),
             ObjectPropertyDefinition(DMPDQV.HAS_GUIDANCE, guidance, name, "guidance"),
             ObjectPropertyDefinition(DMPDQV.IS_MEASUREMENT_OF, isMeasurementOf),
-            ObjectPropertyDefinition(DMPDQV.HAS_TEST_RESULT, testResults, name, "")
+            ObjectPropertyDefinition(DMPDQV.HAS_TEST_RESULT, testResults, name, ""),
+            ObjectPropertyDefinition(DMPDQV.WAS_ATTRIBUTED_TO, softwareAgent)
         ), listOf(
             ResourcePropertyDefinition(DMPDQV.COMPUTED_ON, computedOn),
         ))

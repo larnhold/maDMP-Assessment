@@ -8,6 +8,7 @@ class DMPDQV {
         const val URI_PREFIX = "https://w3id.org/dmpdqv/ns/core#"
         const val DQV_PREFIX = "http://www.w3.org/ns/dqv#"
         const val TERMS_PREFIX = "http://purl.org/dc/terms/"
+        const val PROV_PREFIX = "http://www.w3.org/ns/prov#"
 
         private val m = ModelFactory.createDefaultModel()
 
@@ -32,5 +33,7 @@ class DMPDQV {
         val EXPECTED_VALUE: Property = m.createProperty("${URI_PREFIX}expectedValue")
 
         val HAS_QUALITY_MEASUREMENT: Property = m.createProperty("${URI_PREFIX}hasQualityMeasurement")
+
+        val WAS_ATTRIBUTED_TO: Property = m.createProperty("${PROV_PREFIX}wasAttributedTo")
     }
 }

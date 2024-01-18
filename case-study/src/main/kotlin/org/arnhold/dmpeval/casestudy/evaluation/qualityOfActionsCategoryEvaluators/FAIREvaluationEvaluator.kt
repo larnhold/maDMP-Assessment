@@ -83,7 +83,8 @@ class FAIREvaluationEvaluator @Autowired constructor(
             Guidance("", ""),
             dataset,
             result.score.earned,
-            metric.metricTests?.map { testResultFrom(it, result.metricTests) }
+            softwareAgent = SoftwareAgent("F-UJI", "F-UJI is a web service to programatically assess FAIRness of research data objects at the dataset level based on the FAIRsFAIR Data Object Assessment Metrics"),
+            testResults =  metric.metricTests?.map { testResultFrom(it, result.metricTests) }
         )
     }
 
