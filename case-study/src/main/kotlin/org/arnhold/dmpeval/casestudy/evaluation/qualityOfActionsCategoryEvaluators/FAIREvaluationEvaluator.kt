@@ -5,6 +5,7 @@ import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
+import org.arnhold.dmpeval.casestudy.evaluation.SoftareAgents
 import org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators.AvailabilityEvaluator
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
@@ -83,7 +84,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
             Guidance("", ""),
             dataset,
             result.score.earned,
-            softwareAgent = SoftwareAgent("F-UJI", "F-UJI is a web service to programatically assess FAIRness of research data objects at the dataset level based on the FAIRsFAIR Data Object Assessment Metrics"),
+            softwareAgent = SoftareAgents.FUJI,
             testResults =  metric.metricTests?.map { testResultFrom(it, result.metricTests) }
         )
     }

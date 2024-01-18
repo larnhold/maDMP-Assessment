@@ -8,6 +8,7 @@ import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
+import org.arnhold.dmpeval.casestudy.evaluation.SoftareAgents
 import org.arnhold.sdk.common.constants.DataLifecycle
 import org.arnhold.sdk.common.dqv.DmpLifecycle
 import org.arnhold.sdk.common.dqv.Guidance
@@ -154,7 +155,14 @@ class AvailabilityEvaluator @Autowired constructor(
 
     private fun getAvailabilityMeasurement(computedOn: Resource?, available: Boolean, metric: Metric): Measurement? {
         return if (computedOn != null) {
-            Measurement(DmpLifecycle(DataLifecycle.PUBLISHED), metric, Guidance("", ""), computedOn, available.toString())
+            Measurement(
+                DmpLifecycle(DataLifecycle.PUBLISHED),
+                metric,
+                Guidance("", ""),
+                computedOn,
+                available.toString(),
+                softwareAgent=SoftareAgents.DMPEVAL,
+            )
         } else {
             null
         }

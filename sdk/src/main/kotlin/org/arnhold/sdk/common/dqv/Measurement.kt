@@ -16,7 +16,7 @@ data class Measurement(
     @JsonIgnore
     val computedOn: Resource,
     val value: Any,
-    val softwareAgent: SoftwareAgent?=SoftwareAgent("maDMP Evaluator", ""),
+    val softwareAgent: SoftwareAgent?,
     val testResults: List<TestResult?>?=null
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
