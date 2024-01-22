@@ -20,7 +20,7 @@ class MetricTestDefinition (
         return super.toResource(model, title, listOf(
             DataPropertyDefinition(DMPDQV.TITLE, title),
             DataPropertyDefinition(DMPDQV.DESCRIPTION, description),
-            DataPropertyDefinition(DMPDQV.EXPECTED_VALUE, expectedValue.toString())
+            DataPropertyDefinition(DMPDQV.VALUE_UPPER_BOUND, expectedValue.toString())
         ), listOf(), listOf(
             ResourcePropertyDefinition(DMPDQV.EXPEXTED_DATA_TYPE, expectedDataType),
         ))

@@ -23,7 +23,7 @@ data class Measurement(
         return super.toResource(model, name, listOf(
             DataPropertyDefinition(DMPDQV.VALUE, value.toString())
         ), listOf(
-            ObjectPropertyDefinition(DMPDQV.APPLIED_AT_DMP_lifecycle, lifeCycleStage),
+            ObjectPropertyDefinition(DMPDQV.APPLIED_AT_DMP_LIFECYCLE, lifeCycleStage),
             ObjectPropertyDefinition(DMPDQV.HAS_GUIDANCE, guidance, name, "guidance"),
             ObjectPropertyDefinition(DMPDQV.IS_MEASUREMENT_OF, isMeasurementOf),
             ObjectPropertyDefinition(DMPDQV.HAS_TEST_RESULT, testResults, name, ""),

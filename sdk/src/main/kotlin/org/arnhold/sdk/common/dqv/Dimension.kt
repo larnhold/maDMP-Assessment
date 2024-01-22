@@ -11,7 +11,7 @@ data class Dimension(
     val inCategory: Category?,
     val title: String?,
     val description: String?,
-    var derivedFrom: Dimension? = null
+    var hasParentDimension: Dimension? = null
 ): RdfResourceProvider() {
 
     override fun toResource(model: Model, name: String): Resource {
@@ -20,7 +20,7 @@ data class Dimension(
             DataPropertyDefinition(DMPDQV.TITLE, title)
         ), listOf(
             ObjectPropertyDefinition(DMPDQV.IN_CATEGORY, inCategory),
-            ObjectPropertyDefinition(DMPDQV.DERIVED_FROM, derivedFrom)
+            ObjectPropertyDefinition(DMPDQV.HAS_PARENT_DIMENSION, hasParentDimension)
         ))
     }
 

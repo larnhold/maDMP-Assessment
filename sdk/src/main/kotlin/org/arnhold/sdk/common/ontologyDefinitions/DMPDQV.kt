@@ -16,21 +16,26 @@ class DMPDQV {
         val TITLE: Property = m.createProperty("${TERMS_PREFIX}title")
         val IN_CATEGORY: Property = m.createProperty("${DQV_PREFIX}inCategory")
         val IN_DIMENSION: Property = m.createProperty("${DQV_PREFIX}inDimension")
+        val HAS_METRIC: Property = m.createProperty("${DQV_PREFIX}hasMetric")
         val EXPEXTED_DATA_TYPE: Property = m.createProperty("${DQV_PREFIX}expectedDataType")
-        val HAS_APPLICABLE_DMP_LIFECYCLE: Property = m.createProperty("${URI_PREFIX}hasApplicableDMPLifecycle")
+        val HAS_APPLICABLE_LIFECYCLE: Property = m.createProperty("${URI_PREFIX}hasApplicableLifecycle")
+        val APPLIED_AT_LIFECYCLE: Property = m.createProperty("${URI_PREFIX}appliedAtLifecycle")
         val VALUE: Property = m.createProperty("${DQV_PREFIX}value")
-        val USED_VARIABLE: Property = m.createProperty("${URI_PREFIX}usedVariable")
+        val USES: Property = m.createProperty("${URI_PREFIX}uses")
 
         val IS_MEASUREMENT_OF: Property = m.createProperty("${DQV_PREFIX}isMeasurementOf")
 
-        val DERIVED_FROM: Property = m.createProperty("${DQV_PREFIX}derivedFrom")
+        val HAS_PARENT_DIMENSION: Property = m.createProperty("${DQV_PREFIX}hasParentDimension")
+        val HAS_SUB_DIMENSION: Property = m.createProperty("${DQV_PREFIX}hasSubDimension")
 
         val COMPUTED_ON: Property = m.createProperty("${DQV_PREFIX}computedOn")
-        val APPLIED_AT_DMP_lifecycle: Property = m.createProperty("${URI_PREFIX}appliedAtDMPLifecycle")
+        val APPLIED_AT_DMP_LIFECYCLE: Property = m.createProperty("${URI_PREFIX}appliedAtDMPLifecycle")
         val HAS_GUIDANCE: Property = m.createProperty("${URI_PREFIX}hasGuidance")
         val HAS_TEST_DEFINITION: Property = m.createProperty("${URI_PREFIX}hasTestDefinition")
         val HAS_TEST_RESULT: Property = m.createProperty("${URI_PREFIX}hasTestResult")
-        val EXPECTED_VALUE: Property = m.createProperty("${URI_PREFIX}expectedValue")
+        val VALUE_UPPER_BOUND: Property = m.createProperty("${URI_PREFIX}valueUpperBound")
+        val VALUE_LOWER_BOUND: Property = m.createProperty("${URI_PREFIX}valueLowerBound")
+        val IN_METRIC_GROUP: Property = m.createProperty("${URI_PREFIX}inMetricGroup")
 
         val HAS_QUALITY_MEASUREMENT: Property = m.createProperty("${URI_PREFIX}hasQualityMeasurement")
 
