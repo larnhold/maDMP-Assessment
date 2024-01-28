@@ -7,10 +7,17 @@ import org.arnhold.sdk.common.constants.DataLifecycle
 import org.arnhold.sdk.common.dqv.Measurement
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
+import org.arnhold.sdk.tools.shacl.ShaclValidationService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
+import java.nio.file.Path
 
 @Component
-class DCSComplianceEvaluator : DimensionEvaluatorPlugin {
+class DCSComplianceEvaluator @Autowired constructor(
+    val shaclValidationService: ShaclValidationService
+) : DimensionEvaluatorPlugin {
+
+    val allowedValueLocation: Path = Path.of("./data/case-study/evaluation/compliance/dcs-allowed-values.shacl")
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.DCS_COMPLIANCE.toString()
