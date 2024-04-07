@@ -3,10 +3,10 @@ package org.arnhold.sdk.common.dqv
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
-import org.arnhold.sdk.common.dmp.helper.DataPropertyDefinition
-import org.arnhold.sdk.common.dmp.helper.ObjectPropertyDefinition
-import org.arnhold.sdk.common.dmp.helper.RdfResourceProvider
-import org.arnhold.sdk.common.dmp.helper.ResourcePropertyDefinition
+import org.arnhold.sdk.common.rdf.parsing.DataPropertyDefinition
+import org.arnhold.sdk.common.rdf.parsing.ObjectPropertyDefinition
+import org.arnhold.sdk.common.rdf.parsing.RdfResourceProvider
+import org.arnhold.sdk.common.rdf.parsing.ResourcePropertyDefinition
 import org.arnhold.sdk.common.ontologyDefinitions.DMPDQV
 
 class Metric (

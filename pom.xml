@@ -15,7 +15,6 @@
     </properties>
 
     <modules>
-        <module>dcso-json</module>
         <module>core</module>
         <module>sdk</module>
         <module>case-study</module>

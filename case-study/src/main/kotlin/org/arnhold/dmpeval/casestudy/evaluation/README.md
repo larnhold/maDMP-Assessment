@@ -1,1 +1,0 @@
-Every evaluator working with shacl can just read the whole shapes file, validate it and then map the report to DQV
