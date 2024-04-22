@@ -10,7 +10,6 @@ import org.apache.jena.reasoner.Reasoner
 import org.apache.jena.reasoner.ReasonerRegistry
 import org.arnhold.evaluator.harvester.dataProvider.DataProviderService
 import org.arnhold.evaluator.indicator.evaluationProvider.EvaluationProviderService
-import org.arnhold.evaluator.indicator.metricProcessing.MetricProcessingService
 import org.arnhold.sdk.vocab.dqv.Category
 import org.arnhold.sdk.vocab.dqv.Dimension
 import org.arnhold.sdk.vocab.dqv.Measurement
@@ -21,8 +20,7 @@ import java.util.UUID
 @Component
 class EvaluationManagerServiceImpl @Autowired constructor(
     val evaluationProviderService: EvaluationProviderService,
-    val dataProviderService: DataProviderService,
-    val metricProcessingService: MetricProcessingService
+    val dataProviderService: DataProviderService
 ) : EvaluationManagerService {
 
     private val logger = KotlinLogging.logger {}
@@ -33,7 +31,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         val contextDMP = dataProviderService.getContextualizedDMP(contextDMPId)
 
         val measurements = runBlocking(Dispatchers.Default) {
-            return@runBlocking metricProcessingService.produceAllMeasurements(contextDMP, parameters.dataLifecycle)
+            return@runBlocking evaluationProviderService.produceAllMeasurements(contextDMP, parameters.dataLifecycle)
         }
 
         logger.info { "Created ${measurements.size} measurements" }
