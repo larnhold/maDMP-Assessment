@@ -11,9 +11,9 @@ import org.apache.jena.reasoner.ReasonerRegistry
 import org.arnhold.evaluator.harvester.dataProvider.DataProviderService
 import org.arnhold.evaluator.indicator.evaluationProvider.EvaluationProviderService
 import org.arnhold.evaluator.indicator.metricProcessing.MetricProcessingService
-import org.arnhold.sdk.common.dqv.Category
-import org.arnhold.sdk.common.dqv.Dimension
-import org.arnhold.sdk.common.dqv.Measurement
+import org.arnhold.sdk.vocab.dqv.Category
+import org.arnhold.sdk.vocab.dqv.Dimension
+import org.arnhold.sdk.vocab.dqv.Measurement
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.util.UUID

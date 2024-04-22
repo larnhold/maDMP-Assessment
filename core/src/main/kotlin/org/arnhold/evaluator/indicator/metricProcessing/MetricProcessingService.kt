@@ -1,9 +1,9 @@
 package org.arnhold.evaluator.indicator.metricProcessing
 
 import org.apache.jena.rdf.model.Model
-import org.arnhold.sdk.common.constants.DataLifecycle
-import org.arnhold.sdk.common.dqv.Dimension
-import org.arnhold.sdk.common.dqv.Measurement
+import org.arnhold.sdk.vocab.constants.DataLifecycle
+import org.arnhold.sdk.vocab.dqv.Dimension
+import org.arnhold.sdk.vocab.dqv.Measurement
 
 
 interface MetricProcessingService {

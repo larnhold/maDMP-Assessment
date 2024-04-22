@@ -30,7 +30,7 @@
           "Consistency and correctness checks will be performed on a sample basis, as well as code refactorings."
         ],
         "dataset_id": {
-          "identifier": "https://doi.org/10.5281/zenodo.4662040",
+          "identifier": "10.5281/zenodo.4662040",
           "type": "doi"
         },
         "description": "Shows the progression of the gross revenue in the USA and the IMDb user score of movies which have won the Oscar in the category \"Best Picture\" and were released between 1986 and 2016 in the form of a raw dataset (CSV) and a visualization (PNG chart).",
@@ -140,16 +140,8 @@
             "description": "Provides a vocabulary for documenting research data, along with an XML serialization. It specializes in earth and environmental sciences, but is well-suites for other discplines, too.",
             "language": "eng",
             "metadata_standard_id": {
-              "identifier": "https://eml.ecoinformatics.org/",
-              "type": "url"
-            }
-          },
-          {
-            "description": "Collection of common metadata elements about digital images, especially for PNG images such as IHDR, tEXt, pHYs.",
-            "language": "eng",
-            "metadata_standard_id": {
-              "identifier": "Generic Image Metadata",
-              "type": "url"
+              "identifier": "10.25504/FAIRsharing.r3vtvx",
+              "type": "doi"
             }
           }
         ],
@@ -183,16 +175,10 @@
       }
     ],
     "dmp_id": {
-      "identifier": "https://doi.org/10.5281/zenodo.4664032",
+      "identifier": "10.5281/zenodo.4664032",
       "type": "doi"
     },
     "ethical_issues_exist": "no",
-    "extensions": [
-      {
-        "name": "funder-extension",
-        "uri": "http://funder/extension/test"
-      }
-    ],
     "language": "eng",
     "modified": "2021-04-07T02:21:53Z",
     "project": [

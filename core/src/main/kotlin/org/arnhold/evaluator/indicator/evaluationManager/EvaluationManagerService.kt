@@ -1,7 +1,7 @@
 package org.arnhold.evaluator.indicator.evaluationManager
 
-import org.arnhold.sdk.common.dqv.Category
-import org.arnhold.sdk.common.dqv.Dimension
+import org.arnhold.sdk.vocab.dqv.Category
+import org.arnhold.sdk.vocab.dqv.Dimension
 
 interface EvaluationManagerService {
     fun createEvaluation(parameters: EvaluationTaskParameters): EvaluationTaskResult

@@ -1,6 +1,6 @@
 package org.arnhold.dmpeval.casestudy.evaluation
 
-import org.arnhold.sdk.common.dqv.SoftwareAgent
+import org.arnhold.sdk.vocab.dqv.SoftwareAgent
 
 class SoftareAgents {
     companion object {

@@ -1,7 +1,7 @@
 package org.arnhold.dmpeval.casestudy.evaluation
 
-import org.arnhold.sdk.common.dqv.Category
-import org.arnhold.sdk.common.dqv.Dimension
+import org.arnhold.sdk.vocab.dqv.Category
+import org.arnhold.sdk.vocab.dqv.Dimension
 
 class CategoryDimmensionModels {
     companion object {

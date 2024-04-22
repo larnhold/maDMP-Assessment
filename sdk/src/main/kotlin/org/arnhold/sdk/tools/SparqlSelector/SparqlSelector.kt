@@ -4,7 +4,7 @@ import mu.KotlinLogging
 import org.apache.jena.query.*
 import org.springframework.stereotype.Component
 import org.apache.jena.rdf.model.Model
-import org.arnhold.sdk.common.ontologyDefinitions.DCSO
+import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 
 @Component
 class SparqlSelector {

@@ -3,8 +3,8 @@ package org.arnhold.dmpeval.casestudy.evaluation.complianceCategoryEvaluators
 import org.apache.jena.rdf.model.Model
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
-import org.arnhold.sdk.common.constants.DataLifecycle
-import org.arnhold.sdk.common.dqv.Measurement
+import org.arnhold.sdk.vocab.constants.DataLifecycle
+import org.arnhold.sdk.vocab.dqv.Measurement
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.springframework.stereotype.Component

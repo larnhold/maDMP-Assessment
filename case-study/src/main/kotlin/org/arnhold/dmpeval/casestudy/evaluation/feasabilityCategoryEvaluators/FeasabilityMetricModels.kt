@@ -3,10 +3,10 @@ package org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators
 import org.apache.jena.rdf.model.Resource
 import org.apache.jena.vocabulary.XSD
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
-import org.arnhold.sdk.common.constants.DataLifecycle
-import org.arnhold.sdk.common.dqv.DmpLifecycle
-import org.arnhold.sdk.common.dqv.Metric
-import org.arnhold.sdk.common.ontologyDefinitions.DCSO
+import org.arnhold.sdk.vocab.constants.DataLifecycle
+import org.arnhold.sdk.vocab.dqv.DmpLifecycle
+import org.arnhold.sdk.vocab.dqv.Metric
+import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 
 class FeasabilityMetricModels {
     companion object {

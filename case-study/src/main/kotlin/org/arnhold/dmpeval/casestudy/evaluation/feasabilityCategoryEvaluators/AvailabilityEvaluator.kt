@@ -9,11 +9,11 @@ import org.apache.jena.rdf.model.Resource
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
 import org.arnhold.dmpeval.casestudy.evaluation.SoftareAgents
-import org.arnhold.sdk.common.constants.DataLifecycle
-import org.arnhold.sdk.common.dqv.DmpLifecycle
-import org.arnhold.sdk.common.dqv.Guidance
-import org.arnhold.sdk.common.dqv.Measurement
-import org.arnhold.sdk.common.dqv.Metric
+import org.arnhold.sdk.vocab.constants.DataLifecycle
+import org.arnhold.sdk.vocab.dqv.DmpLifecycle
+import org.arnhold.sdk.vocab.dqv.Guidance
+import org.arnhold.sdk.vocab.dqv.Measurement
+import org.arnhold.sdk.vocab.dqv.Metric
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.tools.SparqlSelector.SparqlSelector

@@ -5,11 +5,11 @@ import org.apache.jena.vocabulary.XSD
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
-import org.arnhold.sdk.common.constants.DataLifecycle
-import org.arnhold.sdk.common.dqv.Dimension
-import org.arnhold.sdk.common.dqv.DmpLifecycle
-import org.arnhold.sdk.common.dqv.Metric
-import org.arnhold.sdk.common.dqv.MetricTestDefinition
+import org.arnhold.sdk.vocab.constants.DataLifecycle
+import org.arnhold.sdk.vocab.dqv.Dimension
+import org.arnhold.sdk.vocab.dqv.DmpLifecycle
+import org.arnhold.sdk.vocab.dqv.Metric
+import org.arnhold.sdk.vocab.dqv.MetricTestDefinition
 
 
 class QualityOfActionsMetricModels {

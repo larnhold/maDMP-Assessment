@@ -10,8 +10,8 @@ import org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators.Av
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiRoot
-import org.arnhold.sdk.common.constants.DataLifecycle
-import org.arnhold.sdk.common.dqv.*
+import org.arnhold.sdk.vocab.constants.DataLifecycle
+import org.arnhold.sdk.vocab.dqv.*
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.tools.SparqlSelector.SparqlSelector
