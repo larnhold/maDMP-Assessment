@@ -1,98 +1,44 @@
 package org.arnhold.dmpeval.casestudy.context.openAire
 
+import generated.Response
 import jakarta.xml.bind.JAXBContext
 import jakarta.xml.bind.JAXBException
-import org.apache.http.client.methods.HttpGet
-import org.apache.http.impl.client.HttpClients
-import org.apache.http.util.EntityUtils
-import org.apache.jena.rdf.model.Model
-import org.arnhold.dmpeval.casestudy.context.openAire.model.api.Entity
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.arnhold.sdk.context.schema.Dataset
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import org.w3c.dom.Document
-import org.xml.sax.SAXException
-import java.io.ByteArrayInputStream
-import java.io.IOException
 import java.io.StringReader
-import java.io.StringWriter
-import java.nio.charset.StandardCharsets
-import javax.xml.parsers.DocumentBuilderFactory
-import javax.xml.parsers.ParserConfigurationException
-import javax.xml.transform.TransformerException
-import javax.xml.transform.TransformerFactory
-import javax.xml.transform.dom.DOMSource
-import javax.xml.transform.stream.StreamResult
 
 
 @Service
-class OpenAireServiceImpl: OpenAireService {
-    // https://graph.openaire.eu/develop/api.html#projects
-    // https://api.openaire.eu/vocabularies/
-    // file:///home/lukas/Downloads/OpenAIRE2020%20D8.2%20-%20LOD%20Services.pdf
+class OpenAireServiceImpl @Autowired constructor(
+    val okHttpClient: OkHttpClient,
+    val openAireMapperService: OpenAireMapperService
+) : OpenAireService {
 
-    override fun test(madmp: Model): String {
-        return this.getResearchData(madmp)
-    }
-
-    override fun getPublications(madmp: Model) {
-    }
-
-    override fun getResearchData(madmp: Model): String {
-        val url = "http://api.openaire.eu/search/researchProducts?doi=10.5281/zenodo.4701612&format=xml"
-
-        val httpClient = HttpClients.createDefault()
-        val httpGet = HttpGet(url)
-        var xmlResponse: String
+    override fun findDatasetByDoi(doi: String): Dataset? {
+        val request = Request.Builder()
+            .url("http://api.openaire.eu/search/datasets?doi=$doi&format=xml")
+            .get().build()
 
         try {
-            httpClient.execute(httpGet).use { response ->
-                val entity = response.entity
-                xmlResponse = EntityUtils.toString(entity)
+            val result = okHttpClient.newCall(request).execute().use { response ->
+                if (response.isSuccessful) {
+                    val responseBodyString = response.body!!.string()
+                    val responseEntity: Response = parseXmlToDto(responseBodyString, Response::class.java)
+                    val mapped = openAireMapperService.mapAtoB(doi, responseEntity, Dataset())
 
-                val factory = DocumentBuilderFactory.newInstance()
-                val builder = factory.newDocumentBuilder()
-
-                val doc = builder.parse(ByteArrayInputStream(xmlResponse.toByteArray(StandardCharsets.UTF_8)))
-                val test = doc.getElementsByTagName("oaf:entity")
-                val node = test.item(0)
-
-                val newXml = builder.newDocument()
-                val importedNode = newXml.importNode(node, true)
-                newXml.appendChild(importedNode)
-                val entityString = getStringFromDocument(newXml)!!
-
-                val resultEntity: Entity = parseXmlToDto(entityString, Entity::class.java)
-                return entityString
+                    return@use mapped
+                } else {
+                    return@use null
+                }
             }
-        } catch (e: IOException) {
-            throw RuntimeException(e)
-        } catch (e: ParserConfigurationException) {
-            throw RuntimeException(e)
-        } catch (e: SAXException) {
-            throw RuntimeException(e)
-        } catch (e: JAXBException) {
-            throw RuntimeException(e)
-        }
-    }
 
-    private fun getStringFromDocument(doc: Document): String? {
-        try {
-            val domSource = DOMSource(doc)
-            val writer = StringWriter()
-            val result = StreamResult(writer)
-            val tf = TransformerFactory.newInstance()
-            val transformer = tf.newTransformer()
-            transformer.transform(domSource, result)
-            return writer.toString()
-        } catch (ex: TransformerException) {
-            ex.printStackTrace()
+            return result
+        } catch (e: Exception) {
             return null
         }
-    }
-
-    override fun getResearchSoftware(madmp: Model) {
-    }
-
-    override fun getResearchProducts(madmp: Model) {
     }
 
     @Throws(JAXBException::class)

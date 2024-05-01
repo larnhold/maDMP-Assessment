@@ -41,11 +41,6 @@
             <artifactId>kotlin-stdlib</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents.client5</groupId>
-            <artifactId>httpclient5</artifactId>
-            <version>5.2.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.jena</groupId>
             <artifactId>jena-core</artifactId>
             <version>4.0.0</version>
@@ -58,21 +53,24 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.14</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>at.ac.tuwien.dmp</groupId>
-            <artifactId>dcso-json</artifactId>
-            <version>1.1</version>
-            <scope>compile</scope>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>4.0.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.1.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.plugin</groupId>
@@ -147,7 +145,6 @@
                 <executions>
                     <execution>
                         <id>xjc</id>
-                        <phase>generate-sources</phase>
                         <goals>
                             <goal>xjc</goal>
                         </goals>
@@ -155,9 +152,9 @@
                 </executions>
                 <configuration>
                     <sources>
-                        <source>${basedir}/src/main/resources/openaire-schemas/openaire-api</source>
+                        <source>${basedir}/src/main/resources/re3data/re3dataV4-0.xsd</source>
+                        <source>${basedir}/src/main/resources/openaire-schemas/openaire-api/oaf-response-1.0.xsd</source>
                     </sources>
-                    <packageName>org.arnhold.dmpeval.casestudy.context.openAire.model.api</packageName>
                 </configuration>
             </plugin>
         </plugins>

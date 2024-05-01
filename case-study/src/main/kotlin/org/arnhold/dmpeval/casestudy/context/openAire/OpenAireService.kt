@@ -1,12 +1,7 @@
 package org.arnhold.dmpeval.casestudy.context.openAire
 
-import org.apache.jena.rdf.model.Model
+import org.arnhold.sdk.context.schema.Dataset
 
 interface OpenAireService {
-    fun test(madmp: Model): String
-
-    fun getPublications(madmp: Model)
-    fun getResearchData(madmp: Model): String
-    fun getResearchSoftware(madmp: Model)
-    fun getResearchProducts(madmp: Model)
+    fun findDatasetByDoi(doi: String): Dataset?
 }

@@ -10,9 +10,8 @@ interface DataProviderService {
     fun getDCSOntology(): OntModel
 
     fun getDMPDQVOntology(): OntModel
-    fun getExtensions(): Map<String, OntModel>
 
-    fun getContextOntologies(): Map<String, OntModel>
+    fun getExtensions(): Map<String, OntModel>
 
     fun loadDMP(dmploader: String, dmpIdentifier: String): Model
 

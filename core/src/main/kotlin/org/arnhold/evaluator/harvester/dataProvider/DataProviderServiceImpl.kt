@@ -47,10 +47,6 @@ class DataProviderServiceImpl @Autowired constructor(
         TODO("Not yet implemented")
     }
 
-    override fun getContextOntologies(): Map<String, OntModel> {
-        TODO("Not yet implemented")
-    }
-
     override fun loadDMP(dmploader: String, dmpIdentifier: String): Model {
         logger.info { "Load DMP $dmpIdentifier from DMPLoader $dmploader" }
         return dmpProviderService.loadDMP(dmploader, dmpIdentifier, getDCSOntology())
