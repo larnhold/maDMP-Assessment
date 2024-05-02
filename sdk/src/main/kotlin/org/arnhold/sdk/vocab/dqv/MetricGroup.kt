@@ -6,21 +6,17 @@ import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
 import org.arnhold.sdk.vocab.ontologyDefinitions.DMPDQV
 
-class MetricTestDefinition (
+data class MetricGroup (
     val identifier: String,
-    val title: String,
-    val description: String,
-    val expectedValue: Any,
-    val expectedDataType: String,
+    val title: String?,
+    val description: String?
 ): RdfResourceProvider() {
 
     override fun toResource(model: Model, name: String): Resource {
-        return super.toResource(model, title, listOf(
+        return super.toResource(model, name, listOf(
             DataPropertyDefinition(DMPDQV.IDENTIFIER, identifier),
             DataPropertyDefinition(DMPDQV.TITLE, title),
-            DataPropertyDefinition(DMPDQV.DESCRIPTION, description),
-            DataPropertyDefinition(DMPDQV.VALUE_UPPER_BOUND, expectedValue.toString()),
-            DataPropertyDefinition(DMPDQV.EXPEXTED_DATA_TYPE, expectedDataType),
-        ), listOf(), listOf())
+            DataPropertyDefinition(DMPDQV.DESCRIPTION, description)
+        ), listOf())
     }
 }

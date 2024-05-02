@@ -47,30 +47,20 @@ class DataProviderServiceImpl @Autowired constructor(
         TODO("Not yet implemented")
     }
 
-    override fun loadDMP(dmploader: String, dmpIdentifier: String): Model {
-        logger.info { "Load DMP $dmpIdentifier from DMPLoader $dmploader" }
-        return dmpProviderService.loadDMP(dmploader, dmpIdentifier, getDCSOntology())
-    }
-
-    override fun loadContextualizedDMP(parameters: DMPLoaderParameters): UUID {
-        val loadedDMP = loadDMP(parameters.dmpLoader, parameters.dmpIdentifier)
+    override fun loadDMP(parameters: DMPLoaderParameters): UUID {
+        logger.info { "Load DMP $parameters.dmpIdentifier from DMPLoader $parameters.dmploader" }
+        val loadedDMP = dmpProviderService.loadDMP(parameters.dmpLoader, parameters.dmpIdentifier, getDCSOntology())
         return saveModel(loadedDMP)
     }
 
-    override fun getContextualizedDMP(id: UUID): Model {
+    override fun getDMP(id: UUID): Model {
         logger.info { "Get DMP from store" }
         return dataStoreService.getModel(id)
-    }
-
-    override fun updateStoredDMP(id: UUID, dmp: Model) {
-        logger.info { "Update DMP in Store" }
-        dataStoreService.updateModel(id, dmp)
     }
 
     override fun saveModel(model: Model): UUID {
         logger.info { "Update model in store" }
         val storeId = UUID.randomUUID()
-        //TODO save uuid in metadata store
         dataStoreService.saveModel(storeId, model)
         return storeId
     }

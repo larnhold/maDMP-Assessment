@@ -17,12 +17,12 @@ class QualityOfActionsMetricModels {
 
         fun metricFromFujiResult(datasetIdType: Resource, result: FujiResult): Metric {
             return Metric(
+                "fuji-result-metric",
                 result.metricName,
                 result.metricIdentifier,
                 fujiResultToDimension(result),
                 listOf(DmpLifecycle(DataLifecycle.PUBLISHED)),
-                XSD.integer,
-                listOf(datasetIdType),
+                XSD.integer.toString(),
                 result.metricTests.map { (key, value) -> metricTestFromFujiMetricTest(key, value) },
                 result.score.total.toString()
             )
@@ -54,10 +54,11 @@ class QualityOfActionsMetricModels {
 
         private fun metricTestFromFujiMetricTest(title: String, test: FujiMetricTest): MetricTestDefinition {
             return MetricTestDefinition(
+                "fuji-test-result",
                 title,
                 test.name,
                 test.metricTestScore.total.toString(),
-                XSD.integer
+                XSD.integer.toString()
             )
         }
     }

@@ -103,7 +103,7 @@ xsd:date rdf:type rdfs:Datatype .
 dqv:computedOn rdf:type owl:ObjectProperty ;
                owl:inverseOf dqv:hasQualityMeasurement ;
                rdfs:domain dqv:QualityMeasurement ;
-               rdfs:range rdfs:Resource ;
+               rdfs:range dmpdqv:DMPLocation ;
                rdfs:comment "Refers to the resource (e.g., a dataset, a linkset, a graph, a set of triples) on which the quality measurement is performed. In the DQV context, this property is generally expected to be used in statements in which objects are instances of dcat:Dataset or dcat:Distribution."@en ;
                rdfs:label "computed on"@en .
 
@@ -160,14 +160,20 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle
 dmpdqv:appliedAtLifecycle rdf:type owl:ObjectProperty ;
-                             rdfs:domain dqv:QualityMeasurement ;
-                             rdfs:range dmpdqv:LifecycleStage .
+                          rdfs:domain dqv:QualityMeasurement ;
+                          rdfs:range dmpdqv:LifecycleStage .
+
+
+###  https://w3id.org/dmpdqv/ns/core#entity
+dmpdqv:entity rdf:type owl:ObjectProperty ;
+              rdfs:domain dmpdqv:DMPLocation ;
+              rdfs:range rdfs:Resource .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle
 dmpdqv:hasApplicableLifecycle rdf:type owl:ObjectProperty ;
-                                 rdfs:domain dqv:Metric ;
-                                 rdfs:range dmpdqv:LifecycleStage .
+                              rdfs:domain dqv:Metric ;
+                              rdfs:range dmpdqv:LifecycleStage .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasGuidance
@@ -212,10 +218,10 @@ dmpdqv:inMetricGroup rdf:type owl:ObjectProperty ;
                      rdfs:range dmpdqv:MetricGroup .
 
 
-###  https://w3id.org/dmpdqv/ns/core#uses
-dmpdqv:uses rdf:type owl:ObjectProperty ;
-            rdfs:domain dqv:Metric ;
-            rdfs:range rdfs:Resource .
+###  https://w3id.org/dmpdqv/ns/core#property
+dmpdqv:property rdf:type owl:ObjectProperty ;
+                rdfs:domain dmpdqv:DMPLocation ;
+                rdfs:range rdfs:Resource .
 
 
 #################################################################
@@ -237,6 +243,14 @@ dqv:value rdf:type owl:DatatypeProperty ;
                       dmpdqv:TestResult ;
           rdfs:comment "Refers to values computed by metric."@en ;
           rdfs:label "value"@en .
+
+
+###  https://w3id.org/dmpdqv/ns/core#entity
+dmpdqv:entity rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/dmpdqv/ns/core#property
+dmpdqv:property rdf:type owl:DatatypeProperty .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#valueLowerBound
@@ -284,6 +298,7 @@ dqv:Metric rdf:type owl:Class ;
 ###  http://www.w3.org/ns/dqv#QualityMeasurement
 dqv:QualityMeasurement rdf:type owl:Class ;
                        rdfs:subClassOf <http://purl.org/linked-data/cube#Observation> ;
+                       owl:disjointWith dmpdqv:TestResult ;
                        <http://purl.org/vocab/vann/usageNote> "The unit of measure in quality measurement should be specified through the property sdmx-attribute:unitMeasure as recommended by RDF Data Cube. The Ontology of units of Measure (OM) by Rijgersberg Et Al provides a list of HTTP dereferenceable unit of measures, which can be exploited as values for sdmx-attribute:unitMeasure."@en ;
                        rdfs:comment "Represents the evaluation of a given dataset (or dataset distribution) against a specific quality metric."@en ;
                        rdfs:label "Quality Measurement"@en .
@@ -293,12 +308,16 @@ dqv:QualityMeasurement rdf:type owl:Class ;
 prov:SoftwareAgent rdf:type owl:Class .
 
 
-###  https://w3id.org/dmpdqv/ns/core#LifecycleStage
-dmpdqv:LifecycleStage rdf:type owl:Class .
+###  https://w3id.org/dmpdqv/ns/core#DMPLocation
+dmpdqv:DMPLocation rdf:type owl:Class .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#Guidance
 dmpdqv:Guidance rdf:type owl:Class .
+
+
+###  https://w3id.org/dmpdqv/ns/core#LifecycleStage
+dmpdqv:LifecycleStage rdf:type owl:Class .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#MetricGroup

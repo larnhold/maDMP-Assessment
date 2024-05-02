@@ -13,13 +13,9 @@ interface DataProviderService {
 
     fun getExtensions(): Map<String, OntModel>
 
-    fun loadDMP(dmploader: String, dmpIdentifier: String): Model
+    fun loadDMP(parameters: DMPLoaderParameters): UUID
 
-    fun loadContextualizedDMP(parameters: DMPLoaderParameters): UUID
-
-    fun getContextualizedDMP(id: UUID): Model
-
-    fun updateStoredDMP(id: UUID, dmp: Model)
+    fun getDMP(id: UUID): Model
 
     fun saveModel(model: Model): UUID
 

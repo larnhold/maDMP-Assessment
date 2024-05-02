@@ -82,7 +82,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
             DmpLifecycle(DataLifecycle.PUBLISHED),
             metric,
             Guidance("", ""),
-            dataset,
+            DMPLocation("", dataset, null),
             result.score.earned,
             softwareAgent = SoftareAgents.FUJI,
             testResults =  metric.metricTests?.map { testResultFrom(it, result.metricTests) }

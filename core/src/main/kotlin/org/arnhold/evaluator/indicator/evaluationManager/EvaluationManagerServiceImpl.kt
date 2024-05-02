@@ -27,11 +27,11 @@ class EvaluationManagerServiceImpl @Autowired constructor(
     override fun createEvaluation(parameters: EvaluationTaskParameters): EvaluationTaskResult {
         logger.info { "Create evaluation with parameters $parameters" }
 
-        val contextDMPId = dataProviderService.loadContextualizedDMP(parameters.dmpLoaderParameters)
-        val contextDMP = dataProviderService.getContextualizedDMP(contextDMPId)
+        val dmpStoreId = dataProviderService.loadDMP(parameters.dmpLoaderParameters)
+        val dmp = dataProviderService.getDMP(dmpStoreId)
 
         val measurements = runBlocking(Dispatchers.Default) {
-            return@runBlocking evaluationProviderService.produceAllMeasurements(contextDMP, parameters.dataLifecycle)
+            return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, parameters.dataLifecycle)
         }
 
         logger.info { "Created ${measurements.size} measurements" }
@@ -59,7 +59,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
     }
 
     private fun measurementsToModel(dmpdqv: OntModel, measurements: List<Measurement>): Model {
-        logger.info { "Integrate measurements into semantic DMP model" }
+        logger.info { "Convert measurements to DMPQV" }
         val model = dmpdqv.baseModel
         measurements.mapIndexed {index, measurement -> measurement.toResource(dmpdqv, "Measurement_$index")}
         return model

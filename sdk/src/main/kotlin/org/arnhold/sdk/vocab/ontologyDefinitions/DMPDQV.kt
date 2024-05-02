@@ -14,6 +14,7 @@ class DMPDQV {
 
         val DESCRIPTION: Property = m.createProperty("${TERMS_PREFIX}description")
         val TITLE: Property = m.createProperty("${TERMS_PREFIX}title")
+        val IDENTIFIER: Property = m.createProperty("${TERMS_PREFIX}identifier")
         val IN_CATEGORY: Property = m.createProperty("${DQV_PREFIX}inCategory")
         val IN_DIMENSION: Property = m.createProperty("${DQV_PREFIX}inDimension")
         val HAS_METRIC: Property = m.createProperty("${DQV_PREFIX}hasMetric")
@@ -29,6 +30,9 @@ class DMPDQV {
         val HAS_SUB_DIMENSION: Property = m.createProperty("${DQV_PREFIX}hasSubDimension")
 
         val COMPUTED_ON: Property = m.createProperty("${DQV_PREFIX}computedOn")
+        val ENTITY: Property = m.createProperty("${DQV_PREFIX}entity")
+        val PROPERTY: Property = m.createProperty("${DQV_PREFIX}property")
+
         val APPLIED_AT_DMP_LIFECYCLE: Property = m.createProperty("${URI_PREFIX}appliedAtDMPLifecycle")
         val HAS_GUIDANCE: Property = m.createProperty("${URI_PREFIX}hasGuidance")
         val HAS_TEST_DEFINITION: Property = m.createProperty("${URI_PREFIX}hasTestDefinition")

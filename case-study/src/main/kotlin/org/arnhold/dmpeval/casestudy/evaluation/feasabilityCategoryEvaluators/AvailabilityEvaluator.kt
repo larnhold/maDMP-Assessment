@@ -5,18 +5,16 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.apache.commons.validator.routines.UrlValidator
 import org.apache.jena.rdf.model.Model
+import org.apache.jena.rdf.model.Property
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
 import org.arnhold.dmpeval.casestudy.evaluation.SoftareAgents
 import org.arnhold.sdk.vocab.constants.DataLifecycle
-import org.arnhold.sdk.vocab.dqv.DmpLifecycle
-import org.arnhold.sdk.vocab.dqv.Guidance
-import org.arnhold.sdk.vocab.dqv.Measurement
-import org.arnhold.sdk.vocab.dqv.Metric
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
+import org.arnhold.sdk.vocab.dqv.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.net.URL
@@ -67,22 +65,25 @@ class AvailabilityEvaluator @Autowired constructor(
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} URIs in DMP"}
 
-        return selected.map {
-            val computedOn = it.resources.get("subject")
+        return selected.mapNotNull {
+            val subject = it.resources.get("subject")
             val verb = it.resources.get("verb")
             val urlValue = it.literals.get("value").toString()
 
             if (verb !== null) {
                 val metric = FeasabilityMetricModels.getUriAvailableMetric(verb)
-                getAvailabilityMeasurement(
-                    computedOn,
+                val measurement = getAvailabilityMeasurement(
+                    subject,
+                    verb,
                     httpCheck(urlValue),
                     metric
                 )
+
+                return@mapNotNull measurement
             } else {
-                null
+                return@mapNotNull null
             }
-        }.filterNotNull()
+        }
     }
 
     private fun getAllIdentifiermeasurements(dmp: Model): List<Measurement?> {
@@ -92,6 +93,7 @@ class AvailabilityEvaluator @Autowired constructor(
         logger.info { "Found ${selected.size} IDs"}
         return selected.map {
             getAvailabilityMeasurement(
+                it.resources.get("root"),
                 it.resources.get("id"),
                 isIDAvailable(it.literals.get("value").toString(), it.literals.get("type").toString()),
                 FeasabilityMetricModels.ID_AVAILABLE_METRIC
@@ -153,19 +155,15 @@ class AvailabilityEvaluator @Autowired constructor(
         }
     }
 
-    private fun getAvailabilityMeasurement(computedOn: Resource?, available: Boolean, metric: Metric): Measurement? {
-        return if (computedOn != null) {
-            Measurement(
-                DmpLifecycle(DataLifecycle.PUBLISHED),
-                metric,
-                Guidance("", ""),
-                computedOn,
-                available.toString(),
-                softwareAgent=SoftareAgents.DMPEVAL,
-            )
-        } else {
-            null
-        }
+    private fun getAvailabilityMeasurement(entity: Resource?, property: Resource?, available: Boolean, metric: Metric): Measurement {
+        return Measurement(
+            DmpLifecycle(DataLifecycle.PUBLISHED),
+            metric,
+            Guidance("", ""),
+            DMPLocation("", entity, property),
+            available.toString(),
+            softwareAgent=SoftareAgents.DMPEVAL,
+        )
     }
 
     override fun supports(p0: String): Boolean {
