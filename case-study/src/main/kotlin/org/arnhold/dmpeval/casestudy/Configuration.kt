@@ -2,6 +2,7 @@ package org.arnhold.dmpeval.casestudy
 
 import okhttp3.OkHttpClient
 import org.apache.commons.validator.routines.UrlValidator
+import org.arnhold.sdk.tools.XMLParser
 import org.springframework.boot.SpringBootConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
@@ -19,5 +20,10 @@ class Configuration {
     @Bean
     fun okHttpCLient(): OkHttpClient {
         return OkHttpClient().newBuilder().followRedirects(true).build()
+    }
+
+    @Bean
+    fun xmlParser(): XMLParser {
+        return XMLParser()
     }
 }

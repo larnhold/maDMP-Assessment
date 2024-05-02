@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- re3data.org Metadata Schema for the Description of Research Data Repositories. Version 4.0, August 2023. https://doi.org/10.48440/re3.014 -->
-<xs:schema elementFormDefault="qualified" attributeFormDefault="qualified"  targetNamespace="http://www.re3data.org/schema/4-0" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.re3data.org/schema/4-0" id="re3data.org">
+<xs:schema elementFormDefault="qualified" attributeFormDefault="qualified" targetNamespace="http://www.re3data.org/schema/2-2" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.re3data.org/schema/2-2" id="re3data.org">
   <xs:simpleType name="dateFormat">
     <xs:union>
       <xs:simpleType>
@@ -21,661 +20,304 @@
           <xs:maxInclusive value="2999-12-31" />
         </xs:restriction>
       </xs:simpleType>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:pattern value="[1-2]\d{3}(-[01]\d(-[0-3]\d(T[0-2]\d:[0-5]\d(:[0-5]\d|:60)?(\.\d+)?(([+-][0-1]\d:[0-5]\d)|Z))?)?)?"></xs:pattern>
-          <!-- RegEx for the W3C DateTime Formats ( https://www.w3.org/TR/NOTE-datetime ), limited to between the years 1000 and 2999,  -->
-        </xs:restriction>
-      </xs:simpleType>
     </xs:union>
   </xs:simpleType>
-  <xs:simpleType name="dateFormatEmpty">
-    <xs:union>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:enumeration value="" /> 
-        </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType>
-        <xs:restriction base="xs:gYear">
-          <xs:minInclusive value="1000" />
-          <xs:maxInclusive value="2999" />
-        </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType>
-        <xs:restriction base="xs:gYearMonth">
-          <xs:minInclusive value="1000-01" />
-          <xs:maxInclusive value="2999-12" />
-        </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType>
-        <xs:restriction base="xs:date">
-          <xs:minInclusive value="1000-01-01" />
-          <xs:maxInclusive value="2999-12-31" />
-        </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:pattern value="[1-2]\d{3}(-[01]\d(-[0-3]\d(T[0-2]\d:[0-5]\d(:[0-5]\d|:60)?(\.\d+)?(([+-][0-1]\d:[0-5]\d)|Z))?)?)?"></xs:pattern>
-          <!-- RegEx for the W3C DateTime Formats ( https://www.w3.org/TR/NOTE-datetime ), limited to between the years 1000 and 2999,  -->
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:union>
-  </xs:simpleType>
-  <xs:simpleType name="subjectIds">
+  <xs:simpleType name="subject_text">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="1" />
-      <xs:enumeration value="11" />
-      <xs:enumeration value="101" />
-      <xs:enumeration value="10101" />
-      <xs:enumeration value="10102" />
-      <xs:enumeration value="10103" />
-      <xs:enumeration value="10104" />
-      <xs:enumeration value="10105" />
-      <xs:enumeration value="102" />
-      <xs:enumeration value="10201" />
-      <xs:enumeration value="10202" />
-      <xs:enumeration value="10203" />
-      <xs:enumeration value="10204" />
-      <xs:enumeration value="103" />
-      <xs:enumeration value="10301" />
-      <xs:enumeration value="10302" />
-      <xs:enumeration value="10303" />
-      <xs:enumeration value="104" />
-      <xs:enumeration value="10401" />
-      <xs:enumeration value="10402" />
-      <xs:enumeration value="10403" />
-      <xs:enumeration value="10404" />
-      <xs:enumeration value="105" />
-      <xs:enumeration value="10501" />
-      <xs:enumeration value="10502" />
-      <xs:enumeration value="10503" />
-      <xs:enumeration value="10504" />
-      <xs:enumeration value="106" />
-      <xs:enumeration value="10601" />
-      <xs:enumeration value="10602" />
-      <xs:enumeration value="10603" />
-      <xs:enumeration value="10604" />
-      <xs:enumeration value="10605" />
-      <xs:enumeration value="107" />
-      <xs:enumeration value="10701" />
-      <xs:enumeration value="10702" />
-      <xs:enumeration value="108" />
-      <xs:enumeration value="10801" />
-      <xs:enumeration value="10802" />
-      <xs:enumeration value="10803" />
-      <xs:enumeration value="12" />
-      <xs:enumeration value="109" />
-      <xs:enumeration value="10901" />
-      <xs:enumeration value="10902" />
-      <xs:enumeration value="10903" />
-      <xs:enumeration value="10904" />
-      <xs:enumeration value="110" />
-      <xs:enumeration value="11001" />
-      <xs:enumeration value="11002" />
-      <xs:enumeration value="11003" />
-      <xs:enumeration value="11004" />
-      <xs:enumeration value="11005" />
-      <xs:enumeration value="111" />
-      <xs:enumeration value="11101" />
-      <xs:enumeration value="11102" />
-      <xs:enumeration value="11103" />
-      <xs:enumeration value="11104" />
-      <xs:enumeration value="112" />
-      <xs:enumeration value="11201" />
-      <xs:enumeration value="11202" />
-      <xs:enumeration value="11203" />
-      <xs:enumeration value="11204" />
-      <xs:enumeration value="11205" />
-      <xs:enumeration value="113" />
-      <xs:enumeration value="11301" />
-      <xs:enumeration value="11302" />
-      <xs:enumeration value="11303" />
-      <xs:enumeration value="11304" />
-      <xs:enumeration value="11305" />
-      <xs:enumeration value="2" />
-      <xs:enumeration value="21" />
-      <xs:enumeration value="201" />
-      <xs:enumeration value="20101" />
-      <xs:enumeration value="20102" />
-      <xs:enumeration value="20103" />
-      <xs:enumeration value="20104" />
-      <xs:enumeration value="20105" />
-      <xs:enumeration value="20106" />
-      <xs:enumeration value="20107" />
-      <xs:enumeration value="202" />
-      <xs:enumeration value="20201" />
-      <xs:enumeration value="20202" />
-      <xs:enumeration value="20203" />
-      <xs:enumeration value="20204" />
-      <xs:enumeration value="20205" />
-      <xs:enumeration value="20206" />
-      <xs:enumeration value="20207" />
-      <xs:enumeration value="203" />
-      <xs:enumeration value="20301" />
-      <xs:enumeration value="20302" />
-      <xs:enumeration value="20303" />
-      <xs:enumeration value="20304" />
-      <xs:enumeration value="20305" />
-      <xs:enumeration value="20306" />
-      <xs:enumeration value="22" />
-      <xs:enumeration value="204" />
-      <xs:enumeration value="20401" />
-      <xs:enumeration value="20402" />
-      <xs:enumeration value="20403" />
-      <xs:enumeration value="20404" />
-      <xs:enumeration value="20405" />
-      <xs:enumeration value="20406" />
-      <xs:enumeration value="205" />
-      <xs:enumeration value="20501" />
-      <xs:enumeration value="20502" />
-      <xs:enumeration value="20503" />
-      <xs:enumeration value="20504" />
-      <xs:enumeration value="20505" />
-      <xs:enumeration value="20506" />
-      <xs:enumeration value="20507" />
-      <xs:enumeration value="20508" />
-      <xs:enumeration value="20509" />
-      <xs:enumeration value="20510" />
-      <xs:enumeration value="20511" />
-      <xs:enumeration value="20512" />
-      <xs:enumeration value="20513" />
-      <xs:enumeration value="20514" />
-      <xs:enumeration value="20515" />
-      <xs:enumeration value="20516" />
-      <xs:enumeration value="20517" />
-      <xs:enumeration value="20518" />
-      <xs:enumeration value="20519" />
-      <xs:enumeration value="20520" />
-      <xs:enumeration value="20521" />
-      <xs:enumeration value="20522" />
-      <xs:enumeration value="20523" />
-      <xs:enumeration value="20524" />
-      <xs:enumeration value="20525" />
-      <xs:enumeration value="20526" />
-      <xs:enumeration value="20527" />
-      <xs:enumeration value="20528" />
-      <xs:enumeration value="20529" />
-      <xs:enumeration value="20530" />
-      <xs:enumeration value="20531" />
-      <xs:enumeration value="20532" />
-      <xs:enumeration value="20533" />
-      <xs:enumeration value="206" />
-      <xs:enumeration value="20601" />
-      <xs:enumeration value="20602" />
-      <xs:enumeration value="20603" />
-      <xs:enumeration value="20604" />
-      <xs:enumeration value="20605" />
-      <xs:enumeration value="20606" />
-      <xs:enumeration value="20607" />
-      <xs:enumeration value="20608" />
-      <xs:enumeration value="20609" />
-      <xs:enumeration value="20610" />
-      <xs:enumeration value="20611" />
-      <xs:enumeration value="23" />
-      <xs:enumeration value="207" />
-      <xs:enumeration value="20701" />
-      <xs:enumeration value="20702" />
-      <xs:enumeration value="20703" />
-      <xs:enumeration value="20704" />
-      <xs:enumeration value="20705" />
-      <xs:enumeration value="20706" />
-      <xs:enumeration value="20707" />
-      <xs:enumeration value="20708" />
-      <xs:enumeration value="3" />
-      <xs:enumeration value="31" />
-      <xs:enumeration value="307" />
-      <xs:enumeration value="30701" />
-      <xs:enumeration value="30702" />
-      <xs:enumeration value="308" />
-      <xs:enumeration value="30801" />
-      <xs:enumeration value="309" />
-      <xs:enumeration value="30901" />
-      <xs:enumeration value="310" />
-      <xs:enumeration value="31001" />
-      <xs:enumeration value="311" />
-      <xs:enumeration value="31101" />
-      <xs:enumeration value="32" />
-      <xs:enumeration value="312" />
-      <xs:enumeration value="31201" />
-      <xs:enumeration value="33" />
-      <xs:enumeration value="313" />
-      <xs:enumeration value="31301" />
-      <xs:enumeration value="31302" />
-      <xs:enumeration value="314" />
-      <xs:enumeration value="31401" />
-      <xs:enumeration value="315" />
-      <xs:enumeration value="31501" />
-      <xs:enumeration value="31502" />
-      <xs:enumeration value="316" />
-      <xs:enumeration value="31601" />
-      <xs:enumeration value="317" />
-      <xs:enumeration value="31701" />
-      <xs:enumeration value="31702" />
-      <xs:enumeration value="318" />
-      <xs:enumeration value="31801" />
-      <xs:enumeration value="34" />
-      <xs:enumeration value="321" />
-      <xs:enumeration value="32101" />
-      <xs:enumeration value="32102" />
-      <xs:enumeration value="322" />
-      <xs:enumeration value="32201" />
-      <xs:enumeration value="32202" />
-      <xs:enumeration value="323" />
-      <xs:enumeration value="32301" />
-      <xs:enumeration value="324" />
-      <xs:enumeration value="32401" />
-      <xs:enumeration value="325" />
-      <xs:enumeration value="32501" />
-      <xs:enumeration value="32502" />
-      <xs:enumeration value="326" />
-      <xs:enumeration value="32601" />
-      <xs:enumeration value="32602" />
-      <xs:enumeration value="32603" />
-      <xs:enumeration value="327" />
-      <xs:enumeration value="32701" />
-      <xs:enumeration value="32702" />
-      <xs:enumeration value="4" />
-      <xs:enumeration value="41" />
-      <xs:enumeration value="401" />
-      <xs:enumeration value="40101" />
-      <xs:enumeration value="40102" />
-      <xs:enumeration value="40103" />
-      <xs:enumeration value="40104" />
-      <xs:enumeration value="40105" />
-      <xs:enumeration value="40106" />
-      <xs:enumeration value="402" />
-      <xs:enumeration value="40201" />
-      <xs:enumeration value="40202" />
-      <xs:enumeration value="40203" />
-      <xs:enumeration value="40204" />
-      <xs:enumeration value="42" />
-      <xs:enumeration value="403" />
-      <xs:enumeration value="40301" />
-      <xs:enumeration value="40302" />
-      <xs:enumeration value="40303" />
-      <xs:enumeration value="40304" />
-      <xs:enumeration value="404" />
-      <xs:enumeration value="40401" />
-      <xs:enumeration value="40402" />
-      <xs:enumeration value="40403" />
-      <xs:enumeration value="40404" />
-      <xs:enumeration value="43" />
-      <xs:enumeration value="405" />
-      <xs:enumeration value="40501" />
-      <xs:enumeration value="40502" />
-      <xs:enumeration value="40503" />
-      <xs:enumeration value="40504" />
-      <xs:enumeration value="40505" />
-      <xs:enumeration value="40506" />
-      <xs:enumeration value="406" />
-      <xs:enumeration value="40601" />
-      <xs:enumeration value="40602" />
-      <xs:enumeration value="40603" />
-      <xs:enumeration value="40604" />
-      <xs:enumeration value="44" />
-      <xs:enumeration value="407" />
-      <xs:enumeration value="40701" />
-      <xs:enumeration value="40702" />
-      <xs:enumeration value="40703" />
-      <xs:enumeration value="40704" />
-      <xs:enumeration value="40705" />
-      <xs:enumeration value="40706" />
-      <xs:enumeration value="408" />
-      <xs:enumeration value="40801" />
-      <xs:enumeration value="40802" />
-      <xs:enumeration value="40803" />
-      <xs:enumeration value="409" />
-      <xs:enumeration value="40901" />
-      <xs:enumeration value="40902" />
-      <xs:enumeration value="40903" />
-      <xs:enumeration value="40904" />
-      <xs:enumeration value="40905" />
-      <xs:enumeration value="40906" />
-      <xs:enumeration value="40907" />
-      <xs:enumeration value="40908" />
-      <xs:enumeration value="45" />
-      <xs:enumeration value="410" />
-      <xs:enumeration value="41001" />
-      <xs:enumeration value="41002" />
-      <xs:enumeration value="41003" />
-      <xs:enumeration value="41004" />
-      <xs:enumeration value="41005" />
-      <xs:enumeration value="41006" />
+      <xs:enumeration value="1 Humanities and Social Sciences" />
+      <xs:enumeration value="11 Humanities" />
+      <xs:enumeration value="101 Ancient Cultures" />
+      <xs:enumeration value="10101 Prehistory" />
+      <xs:enumeration value="10102 Classical Philology" />
+      <xs:enumeration value="10103 Ancient History" />
+      <xs:enumeration value="10104 Classical Archaeology" />
+      <xs:enumeration value="10105 Egyptology and Ancient Near Eastern Studies" />
+      <xs:enumeration value="102 History" />
+      <xs:enumeration value="10201 Medieval History" />
+      <xs:enumeration value="10202 Early Modern History" />
+      <xs:enumeration value="10203 Modern and Current History" />
+      <xs:enumeration value="10204 History of Science" />
+      <xs:enumeration value="103 Fine Arts, Music, Theatre and Media Studies" />
+      <xs:enumeration value="10301 Art History" />
+      <xs:enumeration value="10302 Musicology" />
+      <xs:enumeration value="10303 Theatre and Media Studies" />
+      <xs:enumeration value="104 Linguistics" />
+      <xs:enumeration value="10401 General and Applied Linguistics" />
+      <xs:enumeration value="10402 Individual Linguistics" />
+      <xs:enumeration value="10403 Typology, Non-European Languages, Historical Linguistics" />
+      <xs:enumeration value="105 Literary Studies" />
+      <xs:enumeration value="10501 Medieval German Literature" />
+      <xs:enumeration value="10502 Modern German Literature" />
+      <xs:enumeration value="10503 European and American Literature" />
+      <xs:enumeration value="10504 General and Comparative Literature and Cultural Studies" />
+      <xs:enumeration value="106 Non-European Languages and Cultures, Social and Cultural Anthropology, Jewish Studies and Religious Studies" />
+      <xs:enumeration value="10601 Social and Cultural Anthropology and Ethnology/Folklore" />
+      <xs:enumeration value="10602 Asian Studies" />
+      <xs:enumeration value="10603 African, American and Oceania Studies" />
+      <xs:enumeration value="10604 Islamic Studies, Arabian Studies, Semitic Studies" />
+      <xs:enumeration value="10605 Religious Studies and Jewish Studies" />
+      <xs:enumeration value="107 Theology" />
+      <xs:enumeration value="10701 Protestant Theology" />
+      <xs:enumeration value="10702 Roman Catholic Theology" />
+      <xs:enumeration value="108 Philosophy" />
+      <xs:enumeration value="10801 History of Philosophy" />
+      <xs:enumeration value="10802 Theoretical Philosophy" />
+      <xs:enumeration value="10803 Practical Philosophy" />
+      <xs:enumeration value="12 Social and Behavioural Sciences" />
+      <xs:enumeration value="109 Education Sciences" />
+      <xs:enumeration value="10901 General Education and History of Education" />
+      <xs:enumeration value="10902 Research on Teaching, Learning and Training" />
+      <xs:enumeration value="10903 Research on Socialization and Educational Institutions and Professions" />
+      <xs:enumeration value="110 Psychology" />
+      <xs:enumeration value="11001 General, Biological and Mathematical Psychology" />
+      <xs:enumeration value="11002 Developmental and Educational Psychology" />
+      <xs:enumeration value="11003 Social Psychology, Industrial and Organisational Psychology" />
+      <xs:enumeration value="11004 Differential Psychology, Clinical Psychology, Medical Psychology, Methodology" />
+      <xs:enumeration value="111 Social Sciences" />
+      <xs:enumeration value="11101 Sociological Theory" />
+      <xs:enumeration value="11102 Empirical Social Research" />
+      <xs:enumeration value="11103 Communication Science" />
+      <xs:enumeration value="11104 Political Science" />
+      <xs:enumeration value="112 Economics" />
+      <xs:enumeration value="11201 Economic Theory" />
+      <xs:enumeration value="11202 Economic and Social Policy" />
+      <xs:enumeration value="11203 Public Finance" />
+      <xs:enumeration value="11204 Business Administration" />
+      <xs:enumeration value="11205 Statistics and Econometrics" />
+      <xs:enumeration value="11206 Economic and Social History" />
+      <xs:enumeration value="113 Jurisprudence" />
+      <xs:enumeration value="11301 Legal and Political Philosophy, Legal History, Legal Theory" />
+      <xs:enumeration value="11302 Private Law" />
+      <xs:enumeration value="11303 Public Law" />
+      <xs:enumeration value="11304 Criminal Law and Law of Criminal Procedure" />
+      <xs:enumeration value="11305 Criminology" />
+      <xs:enumeration value="2 Life Sciences" />
+      <xs:enumeration value="21 Biology" />
+      <xs:enumeration value="201 Basic Biological and Medical Research" />
+      <xs:enumeration value="20101 Biochemistry" />
+      <xs:enumeration value="20102 Biophysics" />
+      <xs:enumeration value="20103 Cell Biology" />
+      <xs:enumeration value="20104 Structural Biology" />
+      <xs:enumeration value="20105 General Genetics" />
+      <xs:enumeration value="20106 Developmental Biology" />
+      <xs:enumeration value="20107 Bioinformatics and Theoretical Biology" />
+      <xs:enumeration value="20108 Anatomy" />
+      <xs:enumeration value="202 Plant Sciences" />
+      <xs:enumeration value="20201 Plant Systematics and Evolution" />
+      <xs:enumeration value="20202 Plant Ecology and Ecosystem Analysis" />
+      <xs:enumeration value="20203 Inter-organismic Interactions of Plants" />
+      <xs:enumeration value="20204 Plant Physiology" />
+      <xs:enumeration value="20205 Plant Biochemistry and Biophysics" />
+      <xs:enumeration value="20206 Plant Cell and Developmental Biology" />
+      <xs:enumeration value="20207 Plant Genetics" />
+      <xs:enumeration value="203 Zoology" />
+      <xs:enumeration value="20301 Systematics and Morphology" />
+      <xs:enumeration value="20302 Evolution, Anthropology" />
+      <xs:enumeration value="20303 Animal Ecology, Biodiversity and Ecosystem Research" />
+      <xs:enumeration value="20304 Sensory and Behavioural Biology" />
+      <xs:enumeration value="20305 Biochemistry and Animal Physiology" />
+      <xs:enumeration value="20306 Animal Genetics, Cell and Developmental Biology" />
+      <xs:enumeration value="22 Medicine" />
+      <xs:enumeration value="204 Microbiology, Virology and Immunology" />
+      <xs:enumeration value="20401 Metabolism, Biochemistry and Genetics of Microorganisms" />
+      <xs:enumeration value="20402 Microbial Ecology and Applied Microbiology" />
+      <xs:enumeration value="20403 Medical Microbiology, Molecular Infection Biology" />
+      <xs:enumeration value="20404 Virology" />
+      <xs:enumeration value="20405 Immunology" />
+      <xs:enumeration value="205 Medicine" />
+      <xs:enumeration value="20501 Epidemiology, Medical Biometry, Medical Informatics" />
+      <xs:enumeration value="20502 Public Health, Health Services Research, Social Medicine" />
+      <xs:enumeration value="20503 Human Genetics" />
+      <xs:enumeration value="20504 Physiology" />
+      <xs:enumeration value="20505 Nutritional Sciences" />
+      <xs:enumeration value="20506 Pathology and Forensic Medicine" />
+      <xs:enumeration value="20507 Clinical Chemistry and Pathobiochemistry" />
+      <xs:enumeration value="20508 Pharmacy" />
+      <xs:enumeration value="20509 Pharmacology" />
+      <xs:enumeration value="20510 Toxicology and Occupational Medicine" />
+      <xs:enumeration value="20511 Anaesthesiology" />
+      <xs:enumeration value="20512 Cardiology, Angiology" />
+      <xs:enumeration value="20513 Pneumology, Clinical Infectiology Intensive Care Medicine" />
+      <xs:enumeration value="20514 Hematology, Oncology, Transfusion Medicine" />
+      <xs:enumeration value="20515 Gastroenterology, Metabolism" />
+      <xs:enumeration value="20516 Nephrology" />
+      <xs:enumeration value="20517 Endocrinology, Diabetology" />
+      <xs:enumeration value="20518 Rheumatology, Clinical Immunology, Allergology" />
+      <xs:enumeration value="20519 Dermatology" />
+      <xs:enumeration value="20520 Pediatric and Adolescent Medicine" />
+      <xs:enumeration value="20521 Gynaecology and Obstetrics" />
+      <xs:enumeration value="20522 Reproductive Medicine/Biology" />
+      <xs:enumeration value="20523 Urology" />
+      <xs:enumeration value="20524 Gerontology and Geriatric Medicine" />
+      <xs:enumeration value="20525 Vascular and Visceral Surgery" />
+      <xs:enumeration value="20526 Cardiothoracic Surgery" />
+      <xs:enumeration value="20527 Traumatology and Orthopaedics" />
+      <xs:enumeration value="20528 Dentistry, Oral Surgery" />
+      <xs:enumeration value="20529 Otolaryngology" />
+      <xs:enumeration value="20530 Radiology and Nuclear Medicine" />
+      <xs:enumeration value="20531 Radiation Oncology and Radiobiology" />
+      <xs:enumeration value="20532 Biomedical Technology and Medical Physics" />
+      <xs:enumeration value="206 Neurosciences" />
+      <xs:enumeration value="20601 Molecular Neuroscience and Neurogenetics" />
+      <xs:enumeration value="20602 Cellular Neuroscience" />
+      <xs:enumeration value="20603 Developmental Neurobiology" />
+      <xs:enumeration value="20604 Systemic Neuroscience, Computational Neuroscience, Behaviour" />
+      <xs:enumeration value="20605 Comparative Neurobiology" />
+      <xs:enumeration value="20606 Cognitive Neuroscience and Neuroimaging" />
+      <xs:enumeration value="20607 Molecular Neurology" />
+      <xs:enumeration value="20608 Clinical Neurosciences I - Neurology, Neurosurgery" />
+      <xs:enumeration value="20609 Biological Psychiatry" />
+      <xs:enumeration value="20610 Clinical Neurosciences II - Psychiatry, Psychotherapy, Psychosomatic Medicine" />
+      <xs:enumeration value="20611 Clinical Neurosciences III - Ophthalmology" />
+      <xs:enumeration value="23 Agriculture, Forestry, Horticulture and Veterinary Medicine" />
+      <xs:enumeration value="207 Agriculture, Forestry, Horticulture and Veterinary Medicine" />
+      <xs:enumeration value="20701 Soil Sciences" />
+      <xs:enumeration value="20702 Plant Cultivation" />
+      <xs:enumeration value="20703 Plant Nutrition" />
+      <xs:enumeration value="20704 Ecology of Agricultural Landscapes" />
+      <xs:enumeration value="20705 Plant Breeding" />
+      <xs:enumeration value="20706 Phytomedicine" />
+      <xs:enumeration value="20707 Agricultural and Food Process Engineering" />
+      <xs:enumeration value="20708 Agricultural Economics and Sociology" />
+      <xs:enumeration value="20709 Inventory Control and Use of Forest Resources" />
+      <xs:enumeration value="20710 Basic Forest Research" />
+      <xs:enumeration value="20711 Animal Husbandry, Breeding and Hygiene" />
+      <xs:enumeration value="20712 Animal Nutrition and Nutrition Physiology" />
+      <xs:enumeration value="20713 Basic Veterinary Medical Science" />
+      <xs:enumeration value="20714 Basic Research on Pathogenesis, Diagnostics and Therapy and Clinical Veterinary Medicine" />
+      <xs:enumeration value="3 Natural Sciences" />
+      <xs:enumeration value="31 Chemistry" />
+      <xs:enumeration value="301 Molecular Chemistry" />
+      <xs:enumeration value="30101 Inorganic Molecular Chemistry" />
+      <xs:enumeration value="30102 Organic Molecular Chemistry" />
+      <xs:enumeration value="302 Chemical Solid State and Surface Research" />
+      <xs:enumeration value="30201 Solid State and Surface Chemistry, Material Synthesis" />
+      <xs:enumeration value="30202 Physical Chemistry of Solids and Surfaces, Material Characterisation" />
+      <xs:enumeration value="30203 Theory and Modelling" />
+      <xs:enumeration value="303 Physical and Theoretical Chemistry" />
+      <xs:enumeration value="30301 Physical Chemistry of Molecules, Interfaces and Liquids - Spectroscopy, Kinetics" />
+      <xs:enumeration value="30302 General Theoretical Chemistry" />
+      <xs:enumeration value="304 Analytical Chemistry, Method Development (Chemistry)" />
+      <xs:enumeration value="30401 Analytical Chemistry, Method Development (Chemistry)" />
+      <xs:enumeration value="305 Biological Chemistry and Food Chemistry" />
+      <xs:enumeration value="30501 Biological and Biomimetic Chemistry" />
+      <xs:enumeration value="30502 Food Chemistry" />
+      <xs:enumeration value="306 Polymer Research" />
+      <xs:enumeration value="30601 Preparatory and Physical Chemistry of Polymers" />
+      <xs:enumeration value="30602 Experimental and Theoretical Physics of Polymers" />
+      <xs:enumeration value="30603 Polymer Materials" />
+      <xs:enumeration value="32 Physics" />
+      <xs:enumeration value="307 Condensed Matter Physics" />
+      <xs:enumeration value="30701 Experimental Condensed Matter Physics" />
+      <xs:enumeration value="30702 Theoretical Condensed Matter Physics" />
+      <xs:enumeration value="308 Optics, Quantum Optics and Physics of Atoms, Molecules and Plasmas" />
+      <xs:enumeration value="30801 Optics, Quantum Optics, Atoms, Molecules, Plasmas" />
+      <xs:enumeration value="309 Particles, Nuclei and Fields" />
+      <xs:enumeration value="30901 Particles, Nuclei and Fields" />
+      <xs:enumeration value="310 Statistical Physics, Soft Matter, Biological Physics, Nonlinear Dynamics" />
+      <xs:enumeration value="31001 Statistical Physics, Soft Matter, Biological Physics, Nonlinear Dynamics" />
+      <xs:enumeration value="311 Astrophysics and Astronomy" />
+      <xs:enumeration value="31101 Astrophysics and Astronomy" />
+      <xs:enumeration value="33 Mathematics" />
+      <xs:enumeration value="312 Mathematics" />
+      <xs:enumeration value="31201 Mathematics" />
+      <xs:enumeration value="34 Geosciences (including Geography)" />
+      <xs:enumeration value="313 Atmospheric Science and Oceanography" />
+      <xs:enumeration value="31301 Atmospheric Science" />
+      <xs:enumeration value="31302 Oceanography" />
+      <xs:enumeration value="314 Geology and Palaeontology" />
+      <xs:enumeration value="31401 Geology and Palaeontology" />
+      <xs:enumeration value="315 Geophysics and Geodesy" />
+      <xs:enumeration value="31501 Geophysics" />
+      <xs:enumeration value="31502 Geodesy, Photogrammetry, Remote Sensing, Geoinformatics, Cartogaphy" />
+      <xs:enumeration value="316 Geochemistry, Mineralogy and Crystallography" />
+      <xs:enumeration value="31601 Geochemistry, Mineralogy and Crystallography" />
+      <xs:enumeration value="317 Geography" />
+      <xs:enumeration value="31701 Physical Geography" />
+      <xs:enumeration value="31702 Human Geography" />
+      <xs:enumeration value="318 Water Research" />
+      <xs:enumeration value="31801 Hydrogeology, Hydrology, Limnology, Urban Water Management, Water Chemistry, Integrated Water Resources Management" />
+      <xs:enumeration value="4 Engineering Sciences" />
+      <xs:enumeration value="41 Mechanical and industrial Engineering" />
+      <xs:enumeration value="401 Production Technology" />
+      <xs:enumeration value="40101 Metal-Cutting Manufacturing Engineering" />
+      <xs:enumeration value="40102 Primary Shaping and Reshaping Technology" />
+      <xs:enumeration value="40103 Micro-, Precision, Mounting, Joining, Separation Technology" />
+      <xs:enumeration value="40104 Plastics Engineering" />
+      <xs:enumeration value="40105 Production Automation, Factory Operation, Operations Manangement" />
+      <xs:enumeration value="402 Mechanics and Constructive Mechanical Engineering" />
+      <xs:enumeration value="40201 Construction, Machine Elements" />
+      <xs:enumeration value="40202 Mechanics" />
+      <xs:enumeration value="40203 Lightweight Construction, Textile Technology" />
+      <xs:enumeration value="40204 Acoustics" />
+      <xs:enumeration value="42 Thermal Engineering/Process Engineering" />
+      <xs:enumeration value="403 Process Engineering, Technical Chemistry" />
+      <xs:enumeration value="40301 Chemical and Thermal Process Engineering" />
+      <xs:enumeration value="40302 Technical Chemistry" />
+      <xs:enumeration value="40303 Mechanical Process Engineering" />
+      <xs:enumeration value="40304 Biological Process Engineering" />
+      <xs:enumeration value="404 Heat Energy Technology, Thermal Machines, Fluid Mechanics" />
+      <xs:enumeration value="40401 Energy Process Engineering" />
+      <xs:enumeration value="40402 Technical Thermodynamics" />
+      <xs:enumeration value="40403 Fluid Mechanics" />
+      <xs:enumeration value="40404 Hydraulic and Turbo Engines and Piston Engines" />
+      <xs:enumeration value="43 Materials Science and Engineering" />
+      <xs:enumeration value="405 Materials Engineering" />
+      <xs:enumeration value="40501 Metallurgical and Thermal Processes, Thermomechanical Treatment of Materials" />
+      <xs:enumeration value="40502 Sintered Metallic and Ceramic Materials" />
+      <xs:enumeration value="40503 Composite Materials" />
+      <xs:enumeration value="40504 Mechanical Behaviour of Construction Materials" />
+      <xs:enumeration value="40505 Coating and Surface Technology" />
+      <xs:enumeration value="406 Materials Science" />
+      <xs:enumeration value="40601 Thermodynamics and Kinetics of Materials" />
+      <xs:enumeration value="40602 Synthesis and Properties of Functional Materials" />
+      <xs:enumeration value="40603 Microstructural Mechanical Properties of Materials" />
+      <xs:enumeration value="40604 Structuring and Functionalisation" />
+      <xs:enumeration value="40605 Biomaterials" />
+      <xs:enumeration value="44 Computer Science, Electrical and System Engineering" />
+      <xs:enumeration value="407 Systems Engineering" />
+      <xs:enumeration value="40701 Automation, Control Systems, Robotics, Mechatronics" />
+      <xs:enumeration value="40702 Measurement Systems" />
+      <xs:enumeration value="40703 Microsystems" />
+      <xs:enumeration value="40704 Traffic and Transport Systems, Logistics" />
+      <xs:enumeration value="40705 Human Factors, Ergonomics, Human-Machine Systems" />
+      <xs:enumeration value="408 Electrical Engineering" />
+      <xs:enumeration value="40801 Electronic Semiconductors, Components, Circuits, Systems" />
+      <xs:enumeration value="40802 Communication, High-Frequency and Network Technology, Theoretical Electrical Engineering" />
+      <xs:enumeration value="40803 Electrical Energy Generation, Distribution, Application" />
+      <xs:enumeration value="409 Computer Science" />
+      <xs:enumeration value="40901 Theoretical Computer Science" />
+      <xs:enumeration value="40902 Software Technology" />
+      <xs:enumeration value="40903 Operating, Communication and Information Systems" />
+      <xs:enumeration value="40904 Artificial Intelligence, Image and Language Processing" />
+      <xs:enumeration value="40905 Computer Architecture and Embedded Systems" />
+      <xs:enumeration value="45 Construction Engineering and Architecture" />
+      <xs:enumeration value="410 Construction Engineering and Architecture" />
+      <xs:enumeration value="41001 Architecture, Building and Construction History, Sustainable Building Technology, Building Design" />
+      <xs:enumeration value="41002 Urbanism, Spatial Planning, Transportation and Infrastructure Planning, Landscape Planning" />
+      <xs:enumeration value="41003 Construction Material Sciences, Chemistry, Building Physics" />
+      <xs:enumeration value="41004 Structural Engineering, Building Informatics, Construction Operation" />
+      <xs:enumeration value="41005 Applied Mechanics, Statics and Dynamics" />
+      <xs:enumeration value="41006 Geotechnics, Hydraulic Engineering" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="subjectNames">
+  <xs:simpleType name="contentType_Text">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Humanities and Social Sciences" />
-      <xs:enumeration value="Humanities" />
-      <xs:enumeration value="Ancient Cultures" />
-      <xs:enumeration value="Prehistory and World Archaeology" />
-      <xs:enumeration value="Classical Philology" />
-      <xs:enumeration value="Ancient History" />
-      <xs:enumeration value="Classical Archaeology" />
-      <xs:enumeration value="Egyptology and Ancient Near Eastern Studies" />
-      <xs:enumeration value="History" />
-      <xs:enumeration value="Medieval History" />
-      <xs:enumeration value="Early Modern History" />
-      <xs:enumeration value="Modern and Current History" />
-      <xs:enumeration value="History of Science" />
-      <xs:enumeration value="Art History, Music, Theatre and Media Studies" />
-      <xs:enumeration value="Art History" />
-      <xs:enumeration value="Musicology" />
-      <xs:enumeration value="Theatre and Media Studies" />
-      <xs:enumeration value="Linguistics" />
-      <xs:enumeration value="General and Comparative Linguistics, Typology, Non-European Languages" />
-      <xs:enumeration value="Individual Linguistics" />
-      <xs:enumeration value="Historical Linguistics" />
-      <xs:enumeration value="Applied Linguistics, Experimental Linguistics, Computational Linguistics" />
-      <xs:enumeration value="Literary Studies" />
-      <xs:enumeration value="Medieval German Literature" />
-      <xs:enumeration value="Modern German Literature" />
-      <xs:enumeration value="European and American Literature" />
-      <xs:enumeration value="General and Comparative Literature and Cultural Studies" />
-      <xs:enumeration value="Social and Cultural Anthropology, Non-European Cultures, Jewish Studies and Religious Studies" />
-      <xs:enumeration value="Social and Cultural Anthropology and Ethnology" />
-      <xs:enumeration value="Asian Studies" />
-      <xs:enumeration value="African, American and Oceania Studies" />
-      <xs:enumeration value="Islamic Studies, Arabian Studies, Semitic Studies" />
-      <xs:enumeration value="Religious Studies and Jewish Studies" />
-      <xs:enumeration value="Theology" />
-      <xs:enumeration value="Protestant Theology" />
-      <xs:enumeration value="Roman Catholic Theology" />
-      <xs:enumeration value="Philosophy" />
-      <xs:enumeration value="History of Philosophy" />
-      <xs:enumeration value="Theoretical Philosophy" />
-      <xs:enumeration value="Practical Philosophy" />
-      <xs:enumeration value="Social and Behavioural Sciences" />
-      <xs:enumeration value="Educational Research" />
-      <xs:enumeration value="General Education and History of Education" />
-      <xs:enumeration value="General and Domain-Specific Teaching and Learning" />
-      <xs:enumeration value="Education Systems and Educational Institutions" />
-      <xs:enumeration value="Educational Research on Socialisation, Welfare and Professionalism Research" />
-      <xs:enumeration value="Psychology" />
-      <xs:enumeration value="General, Cognitive and Mathematical Psychology" />
-      <xs:enumeration value="Biological Psychology and Cognitive Neuroscience" />
-      <xs:enumeration value="Developmental and Educational Psychology" />
-      <xs:enumeration value="Social Psychology, Industrial and Organisational Psychology" />
-      <xs:enumeration value="Differential, Clinical and Medical Psychology, Methodology" />
-      <xs:enumeration value="Social Sciences" />
-      <xs:enumeration value="Sociological Theory" />
-      <xs:enumeration value="Empirical Social Research" />
-      <xs:enumeration value="Communication Sciences" />
-      <xs:enumeration value="Political Science" />
-      <xs:enumeration value="Economics" />
-      <xs:enumeration value="Economic Theory" />
-      <xs:enumeration value="Economic Policy, Applied Economics" />
-      <xs:enumeration value="Business Administration" />
-      <xs:enumeration value="Statistics and Econometrics" />
-      <xs:enumeration value="Economic and Social History" />
-      <xs:enumeration value="Jurisprudence" />
-      <xs:enumeration value="Principles of Law and Jurisprudence" />
-      <xs:enumeration value="Private Law" />
-      <xs:enumeration value="Public Law" />
-      <xs:enumeration value="Criminal Law" />
-      <xs:enumeration value="Criminology" />
-      <xs:enumeration value="Life Sciences" />
-      <xs:enumeration value="Biology" />
-      <xs:enumeration value="Basic Research in Biology and Medicine" />
-      <xs:enumeration value="Biochemistry" />
-      <xs:enumeration value="Biophysics" />
-      <xs:enumeration value="Cell Biology" />
-      <xs:enumeration value="Structural Biology" />
-      <xs:enumeration value="General Genetics and Functional Genome Biology" />
-      <xs:enumeration value="Developmental Biology" />
-      <xs:enumeration value="Bioinformatics and Theoretical Biology" />
-      <xs:enumeration value="Plant Sciences" />
-      <xs:enumeration value="Evolution and Systematics of Plants and Fungi" />
-      <xs:enumeration value="Ecology and Biodiversity of Plants and Ecosystems" />
-      <xs:enumeration value="Organismic Interactions, Chemical Ecology and Microbiomes of Plant Systems" />
-      <xs:enumeration value="Plant Physiology" />
-      <xs:enumeration value="Plant Biochemistry and Biophysics" />
-      <xs:enumeration value="Plant Cell and Developmental Biology" />
-      <xs:enumeration value="Plant Genetics" />
-      <xs:enumeration value="Zoology" />
-      <xs:enumeration value="Systematics and Morphology (Zoology)" />
-      <xs:enumeration value="Evolution, Anthropology" />
-      <xs:enumeration value="Ecology and Biodiversity of Animals and Ecosystems, Organismic Interactions" />
-      <xs:enumeration value="Sensory and Behavioural Biology" />
-      <xs:enumeration value="Animal Physiology and Biochemistry" />
-      <xs:enumeration value="Evolutionary Cell and Developmental Biology (Zoology)" />
-      <xs:enumeration value="Medicine" />
-      <xs:enumeration value="Microbiology, Virology and Immunology" />
-      <xs:enumeration value="Metabolism, Biochemistry and Genetics of Microorganisms" />
-      <xs:enumeration value="Microbial Ecology and Applied Microbiology" />
-      <xs:enumeration value="Medical Microbiology and Mycology, Hygiene, Molecular Infection Biology" />
-      <xs:enumeration value="Virology" />
-      <xs:enumeration value="Immunology" />
-      <xs:enumeration value="Parasitology and Biology of Tropical Infectious Disease Pathogens" />
-      <xs:enumeration value="Medicine" />
-      <xs:enumeration value="Epidemiology and Medical Biometry/Statistics" />
-      <xs:enumeration value="Public Health, Health Services Research, Social Medicine" />
-      <xs:enumeration value="Human Genetics" />
-      <xs:enumeration value="Physiology" />
-      <xs:enumeration value="Nutritional Sciences" />
-      <xs:enumeration value="Pathology" />
-      <xs:enumeration value="Medical Informatics and Medical Bioinformatics" />
-      <xs:enumeration value="Pharmacy" />
-      <xs:enumeration value="Pharmacology" />
-      <xs:enumeration value="Toxicology, Occupational Medicine, Clinical Chemistry" />
-      <xs:enumeration value="Anaesthesiology" />
-      <xs:enumeration value="Cardiology, Angiology" />
-      <xs:enumeration value="Pneumology, Thoracic Surgery" />
-      <xs:enumeration value="Hematology, Oncology" />
-      <xs:enumeration value="Gastroenterology" />
-      <xs:enumeration value="Nephrology" />
-      <xs:enumeration value="Endocrinology, Diabetology, Metabolism" />
-      <xs:enumeration value="Rheumatology" />
-      <xs:enumeration value="Dermatology" />
-      <xs:enumeration value="Pediatric and Adolescent Medicine" />
-      <xs:enumeration value="Gynaecology and Obstetrics" />
-      <xs:enumeration value="Clinical Immunology and Allergology" />
-      <xs:enumeration value="Reproductive Medicine, Urology" />
-      <xs:enumeration value="Biogerontology and Geriatric Medicine" />
-      <xs:enumeration value="General and Visceral Surgery" />
-      <xs:enumeration value="Cardiac and Vascular Surgery" />
-      <xs:enumeration value="Orthopaedics, Traumatology, Reconstructive Surgery" />
-      <xs:enumeration value="Dentistry, Oral Surgery" />
-      <xs:enumeration value="Otolaryngology" />
-      <xs:enumeration value="Radiology, Nuclear Medicine, Radiotherapy, Radiobiology" />
-      <xs:enumeration value="Clinical Infectiology and Tropical Medicine" />
-      <xs:enumeration value="Medical Physics, Biomedical Technology" />
-      <xs:enumeration value="Anatomy" />
-      <xs:enumeration value="Neurosciences" />
-      <xs:enumeration value="Developmental Neurobiology" />
-      <xs:enumeration value="Molecular Biology and Physiology of Neurons and Glial Cells" />
-      <xs:enumeration value="Experimental and Theoretical Network Neuroscience" />
-      <xs:enumeration value="Cognitive, Systems and Behavioural Neurobiology" />
-      <xs:enumeration value="Experimental Models for the Understanding of Nervous System Diseases" />
-      <xs:enumeration value="Molecular and Cellular Neurology and Neuropathology" />
-      <xs:enumeration value="Clinical Neurology; Neurosurgery and Neuroradiology" />
-      <xs:enumeration value="Human Cognitive and Systems Neuroscience" />
-      <xs:enumeration value="Biological Psychiatry" />
-      <xs:enumeration value="Clinical Psychiatry, Psychotherapy, Child and Adolescent Psychiatry" />
-      <xs:enumeration value="Ophthalmology" />
-      <xs:enumeration value="Agriculture, Forestry and Veterinary Medicine" />
-      <xs:enumeration value="Agriculture, Forestry and Veterinary Medicine" />
-      <xs:enumeration value="Soil Sciences" />
-      <xs:enumeration value="Plant Breeding and Plant Pathology" />
-      <xs:enumeration value="Plant Cultivation, Plant Nutrition, Agricultural Technology" />
-      <xs:enumeration value="Ecology of Land Use" />
-      <xs:enumeration value="Agricultural Economics, Agricultural Policy, Agricultural Sociology" />
-      <xs:enumeration value="Forestry" />
-      <xs:enumeration value="Animal Breeding, Animal Nutrition, Animal Husbandry" />
-      <xs:enumeration value="Veterinary Medical Science" />
-      <xs:enumeration value="Natural Sciences" />
-      <xs:enumeration value="Physics" />
-      <xs:enumeration value="Condensed Matter Physics" />
-      <xs:enumeration value="Experimental Condensed Matter Physics" />
-      <xs:enumeration value="Theoretical Condensed Matter Physics" />
-      <xs:enumeration value="Optics, Quantum Optics and Physics of Atoms, Molecules and Plasmas" />
-      <xs:enumeration value="Optics, Quantum Optics, Atoms, Molecules, Plasmas" />
-      <xs:enumeration value="Particles, Nuclei and Fields" />
-      <xs:enumeration value="Nuclear and Elementary Particle Physics, Quantum Mechanics, Relativity, Fields" />
-      <xs:enumeration value="Statistical Physics, Soft Matter, Biological Physics, Nonlinear Dynamics" />
-      <xs:enumeration value="Statistical Physics, Soft Matter, Biological Physics, Nonlinear Dynamics" />
-      <xs:enumeration value="Astrophysics and Astronomy" />
-      <xs:enumeration value="Astrophysics and Astronomy" />
-      <xs:enumeration value="Mathematics" />
-      <xs:enumeration value="Mathematics" />
-      <xs:enumeration value="Mathematics" />
-      <xs:enumeration value="Geosciences (including Geography)" />
-      <xs:enumeration value="Atmospheric Science, Oceanography and Climate Research" />
-      <xs:enumeration value="Atmospheric Science" />
-      <xs:enumeration value="Oceanography" />
-      <xs:enumeration value="Geology and Palaeontology" />
-      <xs:enumeration value="Geology and Palaeontology" />
-      <xs:enumeration value="Geophysics and Geodesy" />
-      <xs:enumeration value="Geophysics" />
-      <xs:enumeration value="Geodesy, Photogrammetry, Remote Sensing, Geoinformatics, Cartography" />
-      <xs:enumeration value="Mineralogy, Petrology and Geochemistry" />
-      <xs:enumeration value="Mineralogy, Petrology and Geochemistry" />
-      <xs:enumeration value="Geography" />
-      <xs:enumeration value="Physical Geography" />
-      <xs:enumeration value="Human Geography" />
-      <xs:enumeration value="Water Research" />
-      <xs:enumeration value="Hydrogeology, Hydrology, Limnology, Urban Water Management, Water Chemistry, Integrated Water Resources Management" />
-      <xs:enumeration value="Chemistry" />
-      <xs:enumeration value="Molecular Chemistry" />
-      <xs:enumeration value="Inorganic Molecular Chemistry - Synthesis and Characterisation" />
-      <xs:enumeration value="Organic Molecular Chemistry - Synthesis and Characterisation" />
-      <xs:enumeration value="Chemical Solid State and Surface Research" />
-      <xs:enumeration value="Solid State and Surface Chemistry, Material Synthesis" />
-      <xs:enumeration value="Physical Chemistry of Solids and Surfaces, Material Characterisation" />
-      <xs:enumeration value="Physical Chemistry" />
-      <xs:enumeration value="Physical Chemistry of Molecules, Liquids and Interfaces, Biophysical Chemistry" />
-      <xs:enumeration value="Analytical Chemistry" />
-      <xs:enumeration value="Analytical Chemistry" />
-      <xs:enumeration value="Biological Chemistry and Food Chemistry" />
-      <xs:enumeration value="Biological and Biomimetic Chemistry" />
-      <xs:enumeration value="Food Chemistry" />
-      <xs:enumeration value="Polymer Research" />
-      <xs:enumeration value="Preparatory and Physical Chemistry of Polymers" />
-      <xs:enumeration value="Experimental and Theoretical Physics of Polymers" />
-      <xs:enumeration value="Polymer Materials" />
-      <xs:enumeration value="Theoretical Chemistry" />
-      <xs:enumeration value="Theoretical Chemistry: Electron Structure, Dynamics, Simulation" />
-      <xs:enumeration value="Theoretical Chemistry: Molecules, Materials, Surfaces" />
-      <xs:enumeration value="Engineering Sciences" />
-      <xs:enumeration value="Mechanical and industrial Engineering" />
-      <xs:enumeration value="Production Technology" />
-      <xs:enumeration value="Metal-Cutting and Abrasive Manufacturing Engineering" />
-      <xs:enumeration value="Primary Shaping and Reshaping Technology, Additive Manufacturing" />
-      <xs:enumeration value="Joining and Separation Technology" />
-      <xs:enumeration value="Plastics Engineering" />
-      <xs:enumeration value="Production Systems, Operations Management, Quality Management and Factory Planning" />
-      <xs:enumeration value="Production Automation" />
-      <xs:enumeration value="Mechanics and Constructive Mechanical Engineering" />
-      <xs:enumeration value="Engineering Design, Machine Elements, Product Development" />
-      <xs:enumeration value="Mechanics" />
-      <xs:enumeration value="Lightweight Construction, Textile Technology" />
-      <xs:enumeration value="Acoustics" />
-      <xs:enumeration value="Thermal Engineering/Process Engineering" />
-      <xs:enumeration value="Process Engineering, Technical Chemistry" />
-      <xs:enumeration value="Chemical and Thermal Process Engineering" />
-      <xs:enumeration value="Technical Chemistry" />
-      <xs:enumeration value="Mechanical Process Engineering" />
-      <xs:enumeration value="Biological Process Engineering" />
-      <xs:enumeration value="Fluid Mechanics, Technical Thermodynamics and Thermal Energy Engineering" />
-      <xs:enumeration value="Energy Process Engineering" />
-      <xs:enumeration value="Technical Thermodynamics" />
-      <xs:enumeration value="Fluid Mechanics" />
-      <xs:enumeration value="Hydraulic and Turbo Engines and Piston Engines" />
-      <xs:enumeration value="Materials Science and Engineering" />
-      <xs:enumeration value="Materials Engineering" />
-      <xs:enumeration value="Metallurgical, Thermal and Thermomechanical Treatment of Materials" />
-      <xs:enumeration value="Materials in Sintering Processes and Generative Manufacturing Processes" />
-      <xs:enumeration value="Coating and Surface Technology" />
-      <xs:enumeration value="Mechanical Properties of Metallic Materials and their Microstructural Origins" />
-      <xs:enumeration value="Glass, Ceramics and Derived Composites" />
-      <xs:enumeration value="Polymeric and Biogenic Materials and Derived Composites" />
-      <xs:enumeration value="Materials Science" />
-      <xs:enumeration value="Synthesis and Properties of Functional Materials" />
-      <xs:enumeration value="Biomaterials" />
-      <xs:enumeration value="Thermodynamics and Kinetics as well as Properties of Phases and Microstructure of Materials" />
-      <xs:enumeration value="Computer-Aided Design of Materials and Simulation of Materials Behaviour from Atomic to Microscopic Scale" />
-      <xs:enumeration value="Computer Science, Electrical and System Engineering" />
-      <xs:enumeration value="Systems Engineering" />
-      <xs:enumeration value="Automation, Control Systems, Robotics, Mechatronics, Cyber Physical Systems" />
-      <xs:enumeration value="Measurement Systems" />
-      <xs:enumeration value="Microsystems" />
-      <xs:enumeration value="Traffic and Transport Systems, Intelligent and Automated Traffic" />
-      <xs:enumeration value="Human Factors, Ergonomics, Human-Machine Systems" />
-      <xs:enumeration value="Biomedical Systems Technology" />
-      <xs:enumeration value="Electrical Engineering and Information Technology" />
-      <xs:enumeration value="Electronic Semiconductors, Components, Circuits, Systems" />
-      <xs:enumeration value="Communications, High-Frequency and Network Technology, Theoretical Electrical Engineering" />
-      <xs:enumeration value="Electrical Energy Generation, Distribution, Application" />
-      <xs:enumeration value="Computer Science" />
-      <xs:enumeration value="Theoretical Computer Science" />
-      <xs:enumeration value="Software Engineering and Programming Languages" />
-      <xs:enumeration value="Security and Dependability" />
-      <xs:enumeration value="Operating, Communication, Database and Distributed Systems" />
-      <xs:enumeration value="Interactive and Intelligent Systems, Image and Language Processing, Computer Graphics and Visualisation" />
-      <xs:enumeration value="Information Systems, Process and Knowledge Management" />
-      <xs:enumeration value="Computer Architecture and Embedded Systems" />
-      <xs:enumeration value="Massively Parallel and Data-Intensive Systems" />
-      <xs:enumeration value="Construction Engineering and Architecture" />
-      <xs:enumeration value="Construction Engineering and Architecture" />
-      <xs:enumeration value="Architecture, Building and Construction History, Construction Research, Sustainable Building Technology" />
-      <xs:enumeration value="Urbanism, Spatial Planning, Transportation and Infrastructure Planning, Landscape Planning" />
-      <xs:enumeration value="Construction Material Sciences, Chemistry, Building Physics" />
-      <xs:enumeration value="Structural Engineering, Building Informatics and Construction Operation" />
-      <xs:enumeration value="Applied Mechanics, Statics and Dynamics" />
-      <xs:enumeration value="Geotechnics, Hydraulic Engineering" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="contentTypeNames">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="dataset" />
-      <xs:enumeration value="aggregated data" />
-      <xs:enumeration value="clinical trial data" />
-      <xs:enumeration value="compiled data" />
-      <xs:enumeration value="encoded data" />
-      <xs:enumeration value="experimental data" />
-      <xs:enumeration value="genomic data" />
-      <xs:enumeration value="geospatial data" />
-      <xs:enumeration value="laboratory notebook" />
-      <xs:enumeration value="measurement and test data" />
-      <xs:enumeration value="observational data" />
-      <xs:enumeration value="recorded data" />
-      <xs:enumeration value="simulation data" />
-      <xs:enumeration value="survey data" />
-      <xs:enumeration value="image" />
-      <xs:enumeration value="moving image" />
-      <xs:enumeration value="still image" />
-      <xs:enumeration value="software" />
-      <xs:enumeration value="research software" />
-      <xs:enumeration value="source code" />
-      <xs:enumeration value="text" />
+      <xs:enumeration value="Standard office documents" />
+      <xs:enumeration value="Networkbased data" />
+      <xs:enumeration value="Databases" />
+      <xs:enumeration value="Images" />
+      <xs:enumeration value="Structured graphics" />
+      <xs:enumeration value="Audiovisual data" />
+      <xs:enumeration value="Scientific and statistical data formats" />
+      <xs:enumeration value="Raw data" />
+      <xs:enumeration value="Plain text" />
+      <xs:enumeration value="Structured text" />
+      <xs:enumeration value="Archived data" />
+      <xs:enumeration value="Software applications" />
+      <xs:enumeration value="Source code" />
+      <xs:enumeration value="Configuration data" />
       <xs:enumeration value="other" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="contentTypeIds">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_ddb1" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/ACF7-8YT9" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_cb28" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/FXF3-D3G7" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/AM6W-6QAW" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/63NG-B465" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/A8F1-NPV9" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/2H0M-X761" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/H41Y-FW7B" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/DD58-GFSX" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/FF4C-28RK" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/CQMR-7K63" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/W2XT-7017" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/NHD0-W6SY" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_c513" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_8a7e" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_ecc8" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_5ce6" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_c950" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/QH80-2R4E" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_18cf" />
-      <xs:enumeration value="http://purl.org/coar/resource_type/c_1843" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="languages">
@@ -1856,7 +1498,7 @@
       </xs:enumeration>
       <xs:enumeration value="CPV">
         <xs:annotation>
-          <xs:documentation>Cabo Verde</xs:documentation>
+          <xs:documentation>Cape Verde</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="CRI">
@@ -1891,7 +1533,7 @@
       </xs:enumeration>
       <xs:enumeration value="CZE">
         <xs:annotation>
-          <xs:documentation>Czechia</xs:documentation>
+          <xs:documentation>Czech Republic</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="DEU">
@@ -2321,7 +1963,7 @@
       </xs:enumeration>
       <xs:enumeration value="MKD">
         <xs:annotation>
-          <xs:documentation>North Macedonia</xs:documentation>
+          <xs:documentation>Macedonia, the former Yugoslav Republic of</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="MLI">
@@ -2656,7 +2298,7 @@
       </xs:enumeration>
       <xs:enumeration value="SWZ">
         <xs:annotation>
-          <xs:documentation>Eswatini</xs:documentation>
+          <xs:documentation>Swaziland</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="SXM">
@@ -2741,7 +2383,7 @@
       </xs:enumeration>
       <xs:enumeration value="TWN">
         <xs:annotation>
-          <xs:documentation>Taiwan</xs:documentation>
+          <xs:documentation>Taiwan, Province of China</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="TZA">
@@ -2771,7 +2413,7 @@
       </xs:enumeration>
       <xs:enumeration value="USA">
         <xs:annotation>
-          <xs:documentation>United States of America</xs:documentation>
+          <xs:documentation>United States</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="UZB">
@@ -2856,13 +2498,6 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="databaseAccessTypes">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="open" />
-      <xs:enumeration value="restricted" />
-      <xs:enumeration value="closed" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:simpleType name="dataAccessTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="open" />
@@ -2871,48 +2506,41 @@
       <xs:enumeration value="closed" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="dataUploadTypes">
+  <xs:simpleType name="accessTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="open" />
       <xs:enumeration value="restricted" />
       <xs:enumeration value="closed" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="databaseAccessRestrictions">
+  <xs:simpleType name="accessRestrictions">
     <xs:restriction base="xs:string">
       <xs:enumeration value="feeRequired" />
       <xs:enumeration value="registration" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="dataAccessRestrictions">
     <xs:restriction base="xs:string">
       <xs:enumeration value="feeRequired" />
-      <xs:enumeration value="institutionalMembership" />
+      <xs:enumeration value="institutional membership" />
       <xs:enumeration value="registration" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="dataUploadRestrictions">
     <xs:restriction base="xs:string">
       <xs:enumeration value="feeRequired" />
-      <xs:enumeration value="institutionalMembership" />
+      <xs:enumeration value="institutional membership" />
       <xs:enumeration value="registration" />
-      <xs:enumeration value="storageLimit" />
+      <xs:enumeration value="other" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="repositoryTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="disciplinary" />
-      <xs:enumeration value="governmental" />
       <xs:enumeration value="institutional" />
-      <xs:enumeration value="multidisciplinary" />
-      <xs:enumeration value="project-related" />
       <xs:enumeration value="other" />
-    </xs:restriction>
-  </xs:simpleType>
-    <xs:simpleType name="relatedRepositoryTypes">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="predecessor" />
-      <xs:enumeration value="successor" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="providerTypes">
@@ -2925,6 +2553,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="funding" />
       <xs:enumeration value="general" />
+      <xs:enumeration value="sponsoring" />
       <xs:enumeration value="technical" />
     </xs:restriction>
   </xs:simpleType>
@@ -2934,10 +2563,467 @@
       <xs:enumeration value="non-profit" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="databaseLicenseNames">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Apache License 2.0" />
+      <xs:enumeration value="BSD" />
+      <xs:enumeration value="CC" />
+      <xs:enumeration value="CC0" />
+      <xs:enumeration value="Copyrights" />
+      <xs:enumeration value="ODC" />
+      <xs:enumeration value="Public Domain" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="dataLicenseNames">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Apache License 2.0" />
+      <xs:enumeration value="BSD" />
+      <xs:enumeration value="CC" />
+      <xs:enumeration value="CC0" />
+      <xs:enumeration value="Copyrights" />
+      <xs:enumeration value="ODC" />
+      <xs:enumeration value="OGL" />
+      <xs:enumeration value="OGLC" />
+      <xs:enumeration value="Public Domain" />
+      <xs:enumeration value="RL" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="none" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="softwareNames">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CKAN" />
+      <xs:enumeration value="DataVerse" />
+      <xs:enumeration value="DigitalCommons" />
+      <xs:enumeration value="dLibra" />
+      <xs:enumeration value="DSpace" />
+      <xs:enumeration value="EPrints" />
+      <xs:enumeration value="eSciDoc" />
+      <xs:enumeration value="Fedora" />
+      <xs:enumeration value="MySQL" />
+      <xs:enumeration value="Nesstar" />
+      <xs:enumeration value="Opus" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="unknown" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="apiTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FTP" />
+      <xs:enumeration value="NetCDF" />
+      <xs:enumeration value="OAI-PMH" />
+      <xs:enumeration value="OpenDAP" />
+      <xs:enumeration value="REST" />
+      <xs:enumeration value="SOAP" />
+      <xs:enumeration value="SPARQL" />
+      <xs:enumeration value="SWORD" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="pidSystems">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ARK" />
+      <xs:enumeration value="DOI" />
+      <xs:enumeration value="hdl" />
+      <xs:enumeration value="PURL" />
+      <xs:enumeration value="URN" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="none" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="aidSystems">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AuthorClaim" />
+      <xs:enumeration value="ISNI" />
+      <xs:enumeration value="ORCID" />
+      <xs:enumeration value="ResearcherID" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="none" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="certificates">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CLARIN certificate B" />
+      <xs:enumeration value="DIN 31644" />
+      <xs:enumeration value="DINI Certificate" />
+      <xs:enumeration value="DRAMBORA" />
+      <xs:enumeration value="DSA" />
+      <xs:enumeration value="ISO 16363" />
+      <xs:enumeration value="ISO 16919" />
+      <xs:enumeration value="RatSWD" />
+      <xs:enumeration value="TRAC" />
+      <xs:enumeration value="Trusted Digital Repository" />
+      <xs:enumeration value="WDS" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="metadataStandardDCCNames">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ABCD - Access to Biological Collection Data">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/abcd-access-biological-collection-data</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AgMES - Agricultural Metadata Element Set">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/agmes-agricultural-metadata-element-set</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AVM - Astronomy Visualization Metadata">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/avm-astronomy-visualization-metadata</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CF (Climate and Forecast) Metadata Conventions">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/cf-climate-and-forecast-metadata-conventions</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CIF - Crystallographic Information Framework">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/cif-crystallographic-information-framework</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CIM - Common Information Model">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/cim-common-information-model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CSMD-CCLRC Core Scientific Metadata Model">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/csmd-cclrc-core-scientific-metadata-model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Darwin Core">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/darwin-core</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DataCite Metadata Schema">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/datacite-metadata-schema</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DCAT - Data Catalog Vocabulary">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/dcat-data-catalog-vocabulary</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DDI - Data Documentation Initiative">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/ddi-data-documentation-initiative</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DIF - Directory Interchange Format">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/dif-directory-interchange-format</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Dublin Core">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/dublin-core</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EML - Ecological Metadata Language">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/eml-ecological-metadata-language</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FGDC/CSDGM - Federal Geographic Data Committee Content Standard for Digital Geospatial Metadata">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/fgdccsdgm-federal-geographic-data-committee-content-standard-digital-ge</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FITS - Flexible Image Transport System">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/fits-flexible-image-transport-system</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Genome Metadata">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/genome-metadata</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="International Virtual Observatory Alliance Technical Specifications">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/international-virtual-observatory-alliance-technical-specifications</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ISA-Tab">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/isa-tab</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ISO 19115">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/iso-19115</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MIBBI - Minimum Information for Biological and Biomedical Investigations">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/mibbi-minimum-information-biological-and-biomedical-investigations</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MIDAS-Heritage">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/midas-heritage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OAI-ORE - Open Archives Initiative Object Reuse and Exchange">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/oai-ore-open-archives-initiative-object-reuse-and-exchange</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Observ-OM">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/observ-om</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Observations and Measurements">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/observations-and-measurements</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OME-XML - Open Microscopy Environment XML">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/ome-xml-open-microscopy-environment-xml</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Protocol Data Element Definitions">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/protocol-data-element-definitions</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PROV">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/prov</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="QuDEx - Qualitative Data Exchange Format">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/qudex-qualitative-data-exchange-format</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RDF Data Cube Vocabulary">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/rdf-data-cube-vocabulary</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Repository-Developed Metadata Schemas">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/repository-developed-metadata-schemas</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SDMX - Statistical Data and Metadata Exchange">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/sdmx-statistical-data-and-metadata-exchange</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SPASE Data Model">
+        <xs:annotation>
+          <xs:documentation>http://www.dcc.ac.uk/resources/metadata-standards/spase-data-model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="other">
+        <xs:annotation>
+          <xs:documentation>other</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="metadataStandardDCCURLs">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/abcd-access-biological-collection-data">
+        <xs:annotation>
+          <xs:documentation>ABCD - Access to Biological Collection Data</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/agmes-agricultural-metadata-element-set">
+        <xs:annotation>
+          <xs:documentation>AgMES - Agricultural Metadata Element Set</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/avm-astronomy-visualization-metadata">
+        <xs:annotation>
+          <xs:documentation>AVM - Astronomy Visualization Metadata</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/cf-climate-and-forecast-metadata-conventions">
+        <xs:annotation>
+          <xs:documentation>CF (Climate and Forecast) Metadata Conventions</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/cif-crystallographic-information-framework">
+        <xs:annotation>
+          <xs:documentation>CIF - Crystallographic Information Framework</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/cim-common-information-model">
+        <xs:annotation>
+          <xs:documentation>CIM - Common Information Model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/csmd-cclrc-core-scientific-metadata-model">
+        <xs:annotation>
+          <xs:documentation>CSMD-CCLRC Core Scientific Metadata Model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/darwin-core">
+        <xs:annotation>
+          <xs:documentation>Darwin Core</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/datacite-metadata-schema">
+        <xs:annotation>
+          <xs:documentation>DataCite Metadata Schema</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/dcat-data-catalog-vocabulary">
+        <xs:annotation>
+          <xs:documentation>DCAT - Data Catalog Vocabulary</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/ddi-data-documentation-initiative">
+        <xs:annotation>
+          <xs:documentation>DDI - Data Documentation Initiative</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/dif-directory-interchange-format">
+        <xs:annotation>
+          <xs:documentation>DIF - Directory Interchange Format</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/dublin-core">
+        <xs:annotation>
+          <xs:documentation>Dublin Core</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/eml-ecological-metadata-language">
+        <xs:annotation>
+          <xs:documentation>EML - Ecological Metadata Language</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/fgdccsdgm-federal-geographic-data-committee-content-standard-digital-ge">
+        <xs:annotation>
+          <xs:documentation>FGDC/CSDGM - Federal Geographic Data Committee Content Standard for Digital Geospatial Metadata</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/fits-flexible-image-transport-system">
+        <xs:annotation>
+          <xs:documentation>FITS - Flexible Image Transport System</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/genome-metadata">
+        <xs:annotation>
+          <xs:documentation>Genome Metadata</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/international-virtual-observatory-alliance-technical-specifications">
+        <xs:annotation>
+          <xs:documentation>International Virtual Observatory Alliance Technical Specifications</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/isa-tab">
+        <xs:annotation>
+          <xs:documentation>ISA-Tab</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/iso-19115">
+        <xs:annotation>
+          <xs:documentation>ISO 19115</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/mibbi-minimum-information-biological-and-biomedical-investigations">
+        <xs:annotation>
+          <xs:documentation>MIBBI - Minimum Information for Biological and Biomedical Investigations</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/midas-heritage">
+        <xs:annotation>
+          <xs:documentation>MIDAS-Heritage</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/oai-ore-open-archives-initiative-object-reuse-and-exchange">
+        <xs:annotation>
+          <xs:documentation>OAI-ORE - Open Archives Initiative Object Reuse and Exchange</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/observ-om">
+        <xs:annotation>
+          <xs:documentation>Observ-OM</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/observations-and-measurements">
+        <xs:annotation>
+          <xs:documentation>Observations and Measurements</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/ome-xml-open-microscopy-environment-xml">
+        <xs:annotation>
+          <xs:documentation>OME-XML - Open Microscopy Environment XML</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/protocol-data-element-definitions">
+        <xs:annotation>
+          <xs:documentation>Protocol Data Element Definitions</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/prov">
+        <xs:annotation>
+          <xs:documentation>PROV</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/qudex-qualitative-data-exchange-format">
+        <xs:annotation>
+          <xs:documentation>QuDEx - Qualitative Data Exchange Format</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/rdf-data-cube-vocabulary">
+        <xs:annotation>
+          <xs:documentation>RDF Data Cube Vocabulary</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/repository-developed-metadata-schemas">
+        <xs:annotation>
+          <xs:documentation>Repository-Developed Metadata Schemas</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/sdmx-statistical-data-and-metadata-exchange">
+        <xs:annotation>
+          <xs:documentation>SDMX - Statistical Data and Metadata Exchange</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://www.dcc.ac.uk/resources/metadata-standards/spase-data-model">
+        <xs:annotation>
+          <xs:documentation>SPASE Data Model</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="other">
+        <xs:annotation>
+          <xs:documentation>other</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="syndicationTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ATOM" />
+      <xs:enumeration value="RSS" />
+      <xs:enumeration value="other" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="yesno">
     <xs:restriction base="xs:string">
       <xs:enumeration value="yes" />
       <xs:enumeration value="no" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="yesnoun">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="yes" />
+      <xs:enumeration value="no" />
+      <xs:enumeration value="unknown" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="StringL1000">
@@ -2945,41 +3031,27 @@
       <xs:maxLength value="1000"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="re3data" msdata:prefix="r3d">
+  <xs:element name="re3data" msdata:Prefix="r3d">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="repository" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="identifiers" msdata:Prefix="r3d" minOccurs="1" maxOccurs="1">
+              <xs:element name="re3data.orgIdentifier" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The identifiers provided by re3data (wrapper element).</xs:documentation>
+                  <xs:documentation>A globally unique and persistent identifier that refers to the research data repository entry in re3data.dorg. The ID is assigned by re3data.org.</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="re3data" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>A unique string to identify the RDR metadata entry. The internal identifier is assigned by re3data.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="doi" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The DOI assigned to the re3data metadata entry of the RDR to make the metadata entries citable.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
               </xs:element>
               <xs:element name="repositoryName" msdata:Prefix="r3d" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The full name of the RDR.</xs:documentation>
+                  <xs:documentation>The full name of the research data repository.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
                       <xs:attribute name="language" msdata:Prefix="r3d" type="languages" form="unqualified" use="required">
                         <xs:annotation>
-                          <xs:documentation>The language of the RDR name.</xs:documentation>
+                          <xs:documentation>Language of the research data repository name.</xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
                     </xs:extension>
@@ -2988,198 +3060,132 @@
               </xs:element>
               <xs:element name="additionalName" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The alternative name of or acronym for the RDR.</xs:documentation>
+                  <xs:documentation>The alternative name or acronym for the research data repository.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
                       <xs:attribute name="language" msdata:Prefix="r3d" type="languages" form="unqualified" use="required">
                         <xs:annotation>
-                          <xs:documentation>The language of the RDR additional name.</xs:documentation>
+                          <xs:documentation>Language of the research data repository additional name.</xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="repositoryUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
+              <xs:element name="repositoryURL" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The URL of the RDR.</xs:documentation>
+                  <xs:documentation>The URL, which gives reference to the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="repositoryIdentifier" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="repositoryIdentifier" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>An identifier that refers to the RDR or a record describing the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>A globally unique identifier (identifier in form of a link) that refers to the research data repository (e.g. DOI, URN, VIAF, GND).</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="repositoryIdentifierType" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The provider of the identifier (e.g., DOI, RRID, handle).</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="repositoryIdentifierValue" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                     <xs:annotation>
-                      <xs:documentation>A globally unique identifier that refers to the RDR or a record describing the RDR (e.g., DOI, RRID, handle).</xs:documentation>
-                     </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
               </xs:element>
-              <xs:element name="description" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="description" msdata:Prefix="r3d" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>A textual description providing additional information about the RDR (first description  must be provided in English, descriptions in other languages are optional). </xs:documentation>
+                  <xs:documentation>A textual description containing additional information about the data repository (primary language is English).</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="StringL1000">
                       <xs:attribute name="language" msdata:Prefix="r3d" type="languages" form="unqualified" use="required">
                         <xs:annotation>
-                          <xs:documentation>The language of the RDR description.</xs:documentation>
+                          <xs:documentation>Language of the research data repository description.</xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="repositoryContact" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="repositoryContact" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>Contact information for the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>Email address of the contact or an URL of an online contact form of the repository.</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="repositoryContactInformation" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>Email address of the contact or an URL of an online contact form of the RDR.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="repositoryContactType" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>Type of contact information.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
               </xs:element>
               <xs:element name="type" msdata:Prefix="r3d" type="repositoryTypes" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The type of the RDR.</xs:documentation>
+                  <xs:documentation>The type of the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="size" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="1">
+              <xs:element name="size" msdata:Prefix="r3d" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The number of items contained in the RDR.</xs:documentation>
+                  <xs:documentation>The number of items contained in the research data repository.</xs:documentation>
                 </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="updated" msdata:Prefix="r3d" type="dateFormat" use="required" form="unqualified">
+                        <xs:annotation>
+                          <xs:documentation>The date of the last update of the research data repository size.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
               </xs:element>
               <xs:element name="startDate" msdata:Prefix="r3d" type="dateFormat" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The date the RDR was launched.</xs:documentation>
+                  <xs:documentation>Releasing date of the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="endDate" msdata:Prefix="r3d" minOccurs="0" maxOccurs="1">
+              <xs:element name="endDate" msdata:Prefix="r3d" type="dateFormat" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The RDR ceased ingesting new research data and/or providing it ; the date may lie in the future if it is expected in advance (wrapper element).</xs:documentation>
+                  <xs:documentation>Date when the research data repository went offline or stopped ingesting new research data (still making the research data available).</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="closed" msdata:Prefix="r3d" type="dateFormatEmpty" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The date the RDR stopped ingesting new research data to its database. The database and its research data are still available.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="offline" msdata:Prefix="r3d" type="dateFormatEmpty" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The date the RDR went offline. The database and/or the website are no longer available.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="relatedRepository" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
-                <xs:annotation>
-                  <xs:documentation>A RDR related to this RDR (wrapper element).</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                 <xs:sequence>
-                    <xs:element name="relatedRepositoryId" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The re3data identifier identifying the related RDR.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="relatedRepositoryType" msdata:Prefix="r3d" type="relatedRepositoryTypes" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The type of relationship between this RDR and the related RDR.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>   
-                 </xs:sequence>
-                </xs:complexType>
               </xs:element>
               <xs:element name="repositoryLanguage" msdata:Prefix="r3d" type="languages" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The language of the user interface of the RDR.</xs:documentation>
+                  <xs:documentation>The user interface language of the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="subject" msdata:Prefix="r3d" nillable="true" minOccurs="1" maxOccurs="unbounded">
+              <xs:element name="subject" msdata:Prefix="r3d" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The disciplinary focus of the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>The subject(s) of the research data repository.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
-                 <xs:sequence>
-                    <xs:element name="subjectId" msdata:Prefix="r3d" type="subjectIds" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The ID/notation of the subject classification.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="subjectName" msdata:Prefix="r3d" type="subjectNames" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The subject(s) of the RDR.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>   
-                 </xs:sequence>
-                    <xs:attribute name="subjectScheme" form="unqualified" use="required">
+                  <xs:simpleContent>
+                    <xs:extension base="subject_text">
+                      <xs:attribute name="subjectScheme" form="unqualified" use="required">
                         <xs:annotation>
-                          <xs:documentation>The subject scheme according to which the subject of the RDR is described.</xs:documentation>
+                          <xs:documentation>The subject scheme according to which the subject (see ID 13 subject) of the research data repository described.</xs:documentation>
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
                             <xs:enumeration value="DFG" />
                           </xs:restriction>
                         </xs:simpleType>
-                      </xs:attribute>  
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="missionStatementUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="1">
+              <xs:element name="missionStatementURL" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The URL of a mission statement describing the designated community of the RDR.</xs:documentation>
+                  <xs:documentation>The URL of a mission statement describing the designated community of the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="contentType" msdata:Prefix="r3d" nillable="true" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="contentType" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>All types of resources available in the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>All types of resources available in the research data repository.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
-                 <xs:sequence>
-                    <xs:element name="contentTypeId" msdata:Prefix="r3d" type="contentTypeIds" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The URI of the content type.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="contentTypeName" msdata:Prefix="r3d" type="contentTypeNames" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The name of the content type.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>   
-                 </xs:sequence>
+                  <xs:simpleContent>
+                    <xs:extension base="contentType_Text">
                       <xs:attribute name="contentTypeScheme" form="unqualified" use="required">
                         <xs:annotation>
-                          <xs:documentation>The name of the content type scheme.</xs:documentation>
+                          <xs:documentation>The name and/or URL of the subject scheme or classification code (e.g.parse).</xs:documentation>
                         </xs:annotation>
                         <xs:simpleType>
                           <xs:restriction base="xs:string">
-                            <xs:enumeration value="COAR" />
+                            <xs:enumeration value="parse" />
                           </xs:restriction>
                         </xs:simpleType>
-                      </xs:attribute>  
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
               <xs:element name="providerType" msdata:Prefix="r3d" type="providerTypes" minOccurs="1" maxOccurs="2">
@@ -3189,25 +3195,25 @@
               </xs:element>
               <xs:element name="keyword" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>English keyword(s) describing the subject focus of the RDR.</xs:documentation>
+                  <xs:documentation>English keyword(s) describing the subject focus of the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name="institution" msdata:Prefix="r3d" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>All institutions being responsible for funding, creating and/or running the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>All institutions being responsible for funding, creating and/or running the research data repository (wrapper element).</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="institutionName" msdata:Prefix="r3d" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The name of the responsible institution.</xs:documentation>
+                        <xs:documentation>Name of the responsible institution.</xs:documentation>
                       </xs:annotation>
                       <xs:complexType>
                         <xs:simpleContent>
                           <xs:extension base="xs:string">
                             <xs:attribute name="language" msdata:Prefix="r3d" type="languages" form="unqualified" use="required">
                               <xs:annotation>
-                                <xs:documentation>The language of the institution name.</xs:documentation>
+                                <xs:documentation>Language of the institution name.</xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
                           </xs:extension>
@@ -3223,7 +3229,7 @@
                           <xs:extension base="xs:string">
                             <xs:attribute name="language" msdata:Prefix="r3d" type="languages" form="unqualified" use="required">
                               <xs:annotation>
-                                <xs:documentation>The language of the institution's additional name.</xs:documentation>
+                                <xs:documentation>Language of the institution additional name.</xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
                           </xs:extension>
@@ -3232,51 +3238,42 @@
                     </xs:element>
                     <xs:element name="institutionCountry" msdata:Prefix="r3d" type="countries" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The location of the responsible institution.</xs:documentation>
+                        <xs:documentation>Location of the responsible institution.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="responsibilityType" msdata:Prefix="r3d" type="responsibilityTypes" minOccurs="0" maxOccurs="unbounded">
                       <xs:annotation>
-                        <xs:documentation>The type of responsibility for each responsible institution.</xs:documentation>
+                        <xs:documentation>Type of responsibility for each responsible institution.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="institutionType" msdata:Prefix="r3d" type="institutionTypes" minOccurs="0" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The type of responsible institution.</xs:documentation>
+                        <xs:documentation>Type of responsible institution.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="institutionUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="1">
+                    <xs:element name="institutionURL" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The URL of the responsible institution.</xs:documentation>
+                        <xs:documentation>URL of the responsible institution.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="institutionIdentifier" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="institutionIdentifier" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded">
                       <xs:annotation>
-                        <xs:documentation>The identifier for the responsible institution (wrapper element).</xs:documentation>
+                        <xs:documentation>A globally unique identifier that refers to the institution (e.g. ISNI, VIAF, GND).</xs:documentation>
                       </xs:annotation>
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="institutionIdentifierType" msdata:Prefix="r3d" minOccurs="1" maxOccurs="1">
-                            <xs:annotation>
-                              <xs:documentation>The provider name of the identifier for the responsible institution (e.g. ROR, ISNI, VIAF, FundRef, DataCite).</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                          <xs:element name="institutionIdentifierUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
-                            <xs:annotation>
-                              <xs:documentation>A globally unique identifier that refers to the responsible institution.</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
                     </xs:element>
                     <xs:element name="responsibilityStartDate" msdata:Prefix="r3d" type="dateFormat" minOccurs="0" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The start date of the period of responsibility.</xs:documentation>
+                        <xs:documentation>Start date of period of responsibility.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="responsibilityEndDate" msdata:Prefix="r3d" type="dateFormat" minOccurs="0" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The end date of the period of responsibility.</xs:documentation>
+                        <xs:documentation>End date of period of responsibility.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="institutionContact" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:documentation>Email address of the contact or an URL of an online contact form of the institution.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                   </xs:sequence>
@@ -3284,56 +3281,18 @@
               </xs:element>
               <xs:element name="policy" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>Policies providing information concerning the usage of the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>Any kind of policy (e.g. data policy, etc.) provided by the research data repository to clarify legal aspects (wrapper element).</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="policyName" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The name of the policy.</xs:documentation>
+                        <xs:documentation>Name of the policy.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="policyUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
+                    <xs:element name="policyURL" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The URL of the policy.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="fundingInformation" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
-                <xs:annotation>
-                  <xs:documentation>Information on funding for the RDR, current and historic (wrapper element).</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="funderName" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>Name of the funder funding the RDR.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="funderIdentifier" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>Identifier of the funder funding the RDR (wrapper element).</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="funderIdentifierType" msdata:Prefix="r3d" minOccurs="1" maxOccurs="1">
-                            <xs:annotation>
-                              <xs:documentation>Type of identifier identifying the funder.</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                          <xs:element name="funderIdentifierValue" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
-                            <xs:annotation>
-                              <xs:documentation>A globally unique identifier that refers to the funder.</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="grantIdentifier" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>Identifier of the grant funding the RDR</xs:documentation>
+                        <xs:documentation>URL of the policy.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                   </xs:sequence>
@@ -3341,18 +3300,18 @@
               </xs:element>
               <xs:element name="databaseAccess" msdata:Prefix="r3d" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The access regulation to the RDR metadata (wrapper element).</xs:documentation>
+                  <xs:documentation>(wrapper element)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="databaseAccessType" msdata:Prefix="r3d" type="databaseAccessTypes" minOccurs="1" maxOccurs="1">
+                    <xs:element name="databaseAccessType" msdata:Prefix="r3d" type="accessTypes" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The type of access to the RDR.</xs:documentation>
+                        <xs:documentation>Type of access to the research data repository.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="databaseAccessRestriction" msdata:Prefix="r3d" type="databaseAccessRestrictions" minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="databaseAccessRestriction" msdata:Prefix="r3d" type="accessRestrictions" minOccurs="0" maxOccurs="unbounded">
                       <xs:annotation>
-                        <xs:documentation>All existing access restrictions to the RDR (required if restricted is chosen).</xs:documentation>
+                        <xs:documentation>All existing access restrictions to the research data repository. (Required if restricted is chosen).</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                   </xs:sequence>
@@ -3360,18 +3319,18 @@
               </xs:element>
               <xs:element name="databaseLicense" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The license of the RDR metadata (wrapper element).</xs:documentation>
+                  <xs:documentation>Database license of the research data repository (wrapper element).</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="databaseLicenseName" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:element name="databaseLicenseName" msdata:Prefix="r3d" type="databaseLicenseNames" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The name of the database license.</xs:documentation>
+                        <xs:documentation>Name of database license.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="databaseLicenseUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
+                    <xs:element name="databaseLicenseURL" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The database license URL.</xs:documentation>
+                        <xs:documentation>Database license URL.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                   </xs:sequence>
@@ -3379,18 +3338,18 @@
               </xs:element>
               <xs:element name="dataAccess" msdata:Prefix="r3d" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The access regulation to the research data provided by the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>(wrapper element)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="dataAccessType" msdata:Prefix="r3d" type="dataAccessTypes" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The type of access to research data.</xs:documentation>
+                        <xs:documentation>Type of access to data.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="dataAccessRestriction" msdata:Prefix="r3d" type="dataAccessRestrictions" minOccurs="0" maxOccurs="unbounded">
                       <xs:annotation>
-                        <xs:documentation>All existing access restrictions to the research data (required if restricted is chosen).</xs:documentation>
+                        <xs:documentation>All existing access restrictions to the research data. (Required if restricted is chosen).</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                   </xs:sequence>
@@ -3398,18 +3357,18 @@
               </xs:element>
               <xs:element name="dataLicense" msdata:Prefix="r3d" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The license of the research data provided by the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>License of the data, existing in the research data repository. (wrapper element)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="dataLicenseName" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:element name="dataLicenseName" msdata:Prefix="r3d" type="dataLicenseNames" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The name of the data license.</xs:documentation>
+                        <xs:documentation>Name of the data license.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="dataLicenseUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
+                    <xs:element name="dataLicenseURL" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The data license URL.</xs:documentation>
+                        <xs:documentation>Data license URL.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                   </xs:sequence>
@@ -3417,18 +3376,18 @@
               </xs:element>
               <xs:element name="dataUpload" msdata:Prefix="r3d" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The regulation for submitting research data to the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>(wrapper element)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="dataUploadType" msdata:Prefix="r3d" type="dataUploadTypes" minOccurs="1" maxOccurs="1">
+                    <xs:element name="dataUploadType" msdata:Prefix="r3d" type="accessTypes" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The type of data upload.</xs:documentation>
+                        <xs:documentation>Type of data upload.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element name="dataUploadRestriction" msdata:Prefix="r3d" type="dataUploadRestrictions" minOccurs="0" maxOccurs="unbounded">
                       <xs:annotation>
-                        <xs:documentation>All existing restrictions to the data upload (required if restricted is chosen).</xs:documentation>
+                        <xs:documentation>All existing restrictions to the data upload. (Required if restricted is chosen).</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                   </xs:sequence>
@@ -3442,179 +3401,110 @@
                   <xs:sequence>
                     <xs:element name="dataUploadLicenseName" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The name of the data upload license.</xs:documentation>
+                        <xs:documentation>Name of the license for data upload.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="dataUploadLicenseUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
+                    <xs:element name="dataUploadLicenseURL" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The data upload license URL.</xs:documentation>
+                        <xs:documentation>Data upload license URL.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="software" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="software" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The name of the software that is used to run the RDR.</xs:documentation>
+                  <xs:documentation>The software that is used to run the research data repository (wrapper element).</xs:documentation>
                 </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="softwareName" msdata:Prefix="r3d" type="softwareNames" minOccurs="1" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>Name of the research data repository software.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
               </xs:element>
               <xs:element name="versioning" msdata:Prefix="r3d" type="yesno" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The RDR supports versioning of research data.</xs:documentation>
+                  <xs:documentation>The research data repository supports versioning of research data.</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name="api" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The API supported by the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>API URL.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="apiType" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The type of the API.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="apiUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The URL of the API for machine processing of data or metadata.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="apiDocumentation" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>A link referring to the API documentation, a website that states its availability and other information for using the API.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:anyURI">
+                      <xs:attribute name="apiType" msdata:Prefix="r3d" type="apiTypes" form="unqualified" use="required">
+                        <xs:annotation>
+                          <xs:documentation>Type of API.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="pidSystem" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="pidSystem" msdata:Prefix="r3d" type="pidSystems" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The persistent identifier system that is used/provided by the RDR for items within its collection.</xs:documentation>
+                  <xs:documentation>The persistent identifier system that is used by the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="citationReference" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="citationGuidelineURL" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The RDR is covered by citation databases.</xs:documentation>
+                  <xs:documentation>The URL of the research data repository providing information on how to cite its research data. The DataCite citation format is recommended (http://www.datacite.org/whycitedata).</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="metrics" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="aidSystem" msdata:Prefix="r3d" type="aidSystems" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>Any service, tool etc. that is used by the RDR to track, measure, and visualize the usage of provided research data.</xs:documentation>
+                  <xs:documentation>The author identifier system that is used by the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="citationGuidelineUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="1">
+              <xs:element name="enhancedPublication" msdata:Prefix="r3d" type="yesnoun" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The URL outlining how to cite research data provided by the RDR.</xs:documentation>
+                  <xs:documentation>The research data repository offers the interlinking between publications and data.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="aidSystem" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="qualityManagement" msdata:Prefix="r3d" type="yesnoun" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The author identifier system that is used by the RDR.</xs:documentation>
-                </xs:annotation>
-              </xs:element>   
-              <xs:element name="enhancedPublication" msdata:Prefix="r3d" type="yesno" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                  <xs:documentation>The RDR offers the interlinking between publications and data.</xs:documentation>
+                  <xs:documentation>Any form of quality management concerning the data or metadata of the research data repository.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="qualityManagement" msdata:Prefix="r3d" minOccurs="0" maxOccurs="1">
+              <xs:element name="certificate" msdata:Prefix="r3d" type="certificates" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>Information on quality management at the RDR (wrapper element).</xs:documentation>
+                  <xs:documentation>The certificate, seal or standard the research data repository complies with.</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                 <xs:sequence>
-                    <xs:element name="qualityManagementStatus" msdata:Prefix="r3d" type="yesno" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>Any form of quality management concerning the research data or metadata of the RDR.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="qualityManagementMeasure" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>Documents outlining measures the RDR implemented to ensure the quality of research data or metadata (wrapper element).</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="qualityManagementMeasureName" msdata:Prefix="r3d" type = "xs:string" minOccurs="1" maxOccurs="1">
-                            <xs:annotation>
-                              <xs:documentation>The title of the document outlining quality management measures at the RDR..</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                          <xs:element name="qualityManagementMeasureUrl" msdata:Prefix="r3d" type = "xs:string" minOccurs="1" maxOccurs="1">
-                            <xs:annotation>
-                              <xs:documentation>The URL of the document outlining quality management measures at the RDR.</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>   
-                 </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="certificate" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
-                <xs:annotation>
-                  <xs:documentation>The certificate, seal or standard the RDR complies with (wrapper element).</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="certificateName" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The name of the certificate.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="certificateStartDate" msdata:Prefix="r3d" type="dateFormat" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The start date of the certification period or the date the certificate was issued, in case certification does not expire.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="certificateEndDate" msdata:Prefix="r3d" type="dateFormat" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The end date of the certification period.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="certificateUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The URL to a source outlining details of the certification.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="certificateWidget" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="0" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The URL supporting the display of widgets/badges.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="profile" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
-                <xs:annotation>
-                  <xs:documentation>The community profile the RDR is associated with: a selection of repositories based on a set of community-developed criteria (wrapper element).</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="profileName" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The name of the community profile the RDR is associated with.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="profileUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The URL to a source naming the entity creating the profile and outlining the profile / describing the selection criteria.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
               </xs:element>
               <xs:element name="metadataStandard" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The metadata standard the RDR complies with (wrapper element).</xs:documentation>
+                  <xs:documentation>(wrapper element)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="metadataStandardName" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:element name="metadataStandardName" msdata:Prefix="r3d" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>The name of the metadata standard.</xs:documentation>
+                        <xs:documentation>Metadata standards the research data repository complies with.</xs:documentation>
                       </xs:annotation>
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="metadataStandardDCCNames">
+                            <xs:attribute name="metadataStandardScheme" form="unqualified" use="required">
+                              <xs:annotation>
+                                <xs:documentation>The scheme of the metadata standards.</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:enumeration value="DCC" />
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
                     </xs:element>
-                    <xs:element name="metadataStandardUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
+                    <xs:element name="metadataStandardURL" msdata:Prefix="r3d" type="metadataStandardDCCURLs" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
                         <xs:documentation>The URL of the metadata standard.</xs:documentation>
                       </xs:annotation>
@@ -3624,36 +3514,33 @@
               </xs:element>
               <xs:element name="syndication" msdata:Prefix="r3d" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>The alerting service the RDR offers (wrapper element).</xs:documentation>
+                  <xs:documentation>URL of the alerting service(s) provided by the research data repository.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="syndicationType" msdata:Prefix="r3d" type="xs:string" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The type of alerting service.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="syndicationUrl" msdata:Prefix="r3d" type="xs:anyURI" minOccurs="1" maxOccurs="1">
-                      <xs:annotation>
-                        <xs:documentation>The URL of the alerting service provided by the RDR.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                  </xs:sequence>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:anyURI">
+                      <xs:attribute name="syndicationType" msdata:Prefix="r3d" type="syndicationTypes" form="unqualified" use="required">
+                        <xs:annotation>
+                          <xs:documentation>Type of alerting service.</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                    </xs:extension>
+                  </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
               <xs:element name="remarks" msdata:Prefix="r3d" type="xs:string" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>Additional remarks.</xs:documentation>
+                  <xs:documentation>Additional remarks that are visible to all users.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="entryDate" msdata:Prefix="r3d" type="xs:date" minOccurs="1" maxOccurs="1">
+              <xs:element name="entryDate" msdata:Prefix="r3d" type="dateFormat" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The date the RDR was first indexed in re3data.</xs:documentation>
+                  <xs:documentation>The date the research data repository was indexed in re3data.org.</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="lastUpdate" msdata:Prefix="r3d" type="xs:date" minOccurs="1" maxOccurs="1">
+              <xs:element name="lastUpdate" msdata:Prefix="r3d" type="dateFormat" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>The date the metadata of the RDR was updated.</xs:documentation>
+                  <xs:documentation>The date the metadata of the research data repository was updated.</xs:documentation>
                 </xs:annotation>
               </xs:element>
             </xs:sequence>

@@ -152,7 +152,7 @@
                 </executions>
                 <configuration>
                     <sources>
-                        <source>${basedir}/src/main/resources/re3data/re3dataV4-0.xsd</source>
+                        <source>${basedir}/src/main/resources/re3data/re3dataV2-2.xsd</source>
                         <source>${basedir}/src/main/resources/openaire-schemas/openaire-api/oaf-response-1.0.xsd</source>
                     </sources>
                 </configuration>
