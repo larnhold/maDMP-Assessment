@@ -3,9 +3,9 @@ package org.arnhold.sdk.vocab.dqv
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
-import org.arnhold.sdk.vocab.rdf.parsing.DataPropertyDefinition
-import org.arnhold.sdk.vocab.rdf.parsing.RdfResourceProvider
-import org.arnhold.sdk.vocab.rdf.parsing.ResourcePropertyDefinition
+import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
+import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
 import org.arnhold.sdk.vocab.ontologyDefinitions.DMPDQV
 
 class MetricTestDefinition (

@@ -1,4 +1,4 @@
-package org.arnhold.sdk.context.model
+package org.arnhold.sdk.vocab.context
 
 data class ContextResult(
     val key: String,

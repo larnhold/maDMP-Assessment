@@ -4,7 +4,7 @@ import org.apache.jena.rdf.model.Model
 import org.arnhold.dmpeval.casestudy.context.ContextLoaderIdentifier
 import org.arnhold.sdk.context.ContextLoaderPlugin
 import org.arnhold.sdk.context.ContextProviderInformation
-import org.arnhold.sdk.context.model.ContextResult
+import org.arnhold.sdk.vocab.context.ContextResult
 import org.springframework.stereotype.Component
 
 @Component

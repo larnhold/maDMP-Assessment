@@ -1,4 +1,4 @@
-package org.arnhold.sdk.vocab.rdf.parsing
+package org.arnhold.sdk.tools.rdfParsing
 
 import org.apache.jena.rdf.model.Property
 
