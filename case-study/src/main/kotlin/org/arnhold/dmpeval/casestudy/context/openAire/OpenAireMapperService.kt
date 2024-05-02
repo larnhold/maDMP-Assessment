@@ -14,14 +14,17 @@ import java.util.*
 
 @Component
 class OpenAireMapperService {
-    fun mapAtoB(doi: String?, openaireResponse: Response, dataset: Dataset): Dataset? {
+    fun toNormalizedDataset(doi: String?, openaireResponse: Response, dataset: Dataset): Dataset? {
         var datasetCopy = dataset
         datasetCopy.source = EDataSource.REUSED
         try {
             val result = openaireResponse.results.result.metadata.entity.result
             val elements: List<JAXBElement<*>> = result.getCreatorOrResulttypeOrLanguage()
             for (element in elements) {
-                if (element.declaredType === StructuredPropertyElementType::class.java) {
+                if (element.name.localPart == "subject") {
+                    val tmpValue = element.value as StructuredPropertyElementType
+                    datasetCopy = addStringProperties(element.name.localPart, tmpValue.value, datasetCopy)
+                } else if (element.declaredType === StructuredPropertyElementType::class.java) {
                     datasetCopy = addStructuresProperties(element.name.localPart, element.value as StructuredPropertyElementType, datasetCopy)
                 } else if (element.declaredType === QualifierType::class.java) {
                     datasetCopy = addQualifierTypeProperties(element.name.localPart, element.value as QualifierType, datasetCopy)
@@ -86,6 +89,14 @@ class OpenAireMapperService {
                 } catch (ignored: ParseException) {
                     // Ignore
                 }
+            }
+
+            "subject" -> {
+                dataset.subject.add(string)
+            }
+
+            "publisher" -> {
+                dataset.publusher.add(string)
             }
 
             else -> {}

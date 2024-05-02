@@ -26,7 +26,7 @@ class OpenAireServiceImpl @Autowired constructor(
                 if (response.isSuccessful) {
                     val responseBodyString = response.body!!.string()
                     val responseEntity: Response = xmlParser.parseXmlToDto(responseBodyString, Response::class.java)
-                    val mapped = openAireMapperService.mapAtoB(doi, responseEntity, Dataset())
+                    val mapped = openAireMapperService.toNormalizedDataset(doi, responseEntity, Dataset())
 
                     return@use mapped
                 } else {
