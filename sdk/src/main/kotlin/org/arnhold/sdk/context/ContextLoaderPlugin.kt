@@ -4,5 +4,5 @@ import org.arnhold.sdk.vocab.context.DMPContext
 import org.arnhold.sdk.plugin.ConfigurablePlugin
 
 interface ContextLoaderPlugin: ConfigurablePlugin<String, ContextProviderInformation> {
-    fun getContext(dmpModel: Model): DMPContext
+    fun getContext(dmpModel: Model): List<DMPContext>
 }

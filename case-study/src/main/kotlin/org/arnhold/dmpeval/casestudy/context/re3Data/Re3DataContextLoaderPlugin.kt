@@ -15,10 +15,10 @@ class Re3DataContextLoaderPlugin: ContextLoaderPlugin {
     }
 
     override fun getPluginInformation(): ContextProviderInformation {
-        TODO("Not yet implemented")
+        return ContextProviderInformation()
     }
 
-    override fun getContext(dmpModel: Model): DMPContext {
+    override fun getContext(dmpModel: Model): List<DMPContext> {
         TODO("Not yet implemented")
     }
 
