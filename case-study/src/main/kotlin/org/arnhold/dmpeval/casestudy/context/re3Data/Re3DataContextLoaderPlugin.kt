@@ -19,7 +19,7 @@ class Re3DataContextLoaderPlugin: ContextLoaderPlugin {
     }
 
     override fun getContext(dmpModel: Model): List<DMPContext> {
-        TODO("Not yet implemented")
+        return ArrayList()
     }
 
     override fun supports(p0: String): Boolean {

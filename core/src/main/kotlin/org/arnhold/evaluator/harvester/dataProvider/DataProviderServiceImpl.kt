@@ -11,6 +11,7 @@ import org.arnhold.evaluator.harvester.contextProvider.ContextProviderService
 import org.arnhold.evaluator.harvester.dmpProvider.DmpProviderService
 import org.arnhold.evaluator.indicator.evaluationManager.DMPLoaderParameters
 import org.arnhold.sdk.store.DataStoreService
+import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.io.FileInputStream
@@ -33,6 +34,10 @@ class DataProviderServiceImpl @Autowired constructor(
         val dcsoInputStream = FileInputStream(Path.of(ontologyConfig.DCSLocation).toFile())
         RDFDataMgr.read(dcso, dcsoInputStream, Lang.TURTLE)
         return dcso
+    }
+
+    override fun loadContext(model: Model): List<DMPContext> {
+        return contextProviderService.getAvailableContext(model)
     }
 
     override fun getDMPDQVOntology(): OntModel {
@@ -63,5 +68,8 @@ class DataProviderServiceImpl @Autowired constructor(
         val storeId = UUID.randomUUID()
         dataStoreService.saveModel(storeId, model)
         return storeId
+    }
+
+    override fun saveAsJson() {
     }
 }

@@ -1,9 +1,7 @@
 package org.arnhold.sdk.context.schema
 
-import org.apache.jena.tdb.store.Hash
 import org.arnhold.sdk.context.schema.enums.*
 import java.util.*
-import javax.security.auth.Subject
 import kotlin.collections.HashSet
 
 /**

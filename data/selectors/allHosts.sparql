@@ -1,9 +1,10 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+PREFIX terms: <http://purl.org/dc/terms/>
 select * where {
     ?dmp dcso:hasDataset ?dataset .
     ?dataset rdf:type dcso:Dataset .
-    ?dataset dcso:hasDatasetId ?datasetId .
-    ?datasetId dcso:identifier ?idValue .
-    ?datasetId dcso:identifierType ?idType .
+    ?dataset dcso:hasDistribution ?distribution .
+    ?distribution dcso:hasHost ?host .
+    ?host terms:title ?title
 }

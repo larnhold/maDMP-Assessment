@@ -1,10 +1,10 @@
 package org.arnhold.sdk.vocab.context
 
-import org.arnhold.sdk.vocab.dqv.DMPLocation
+import org.arnhold.sdk.vocab.constants.ContextSchema
 
 data class DMPContext(
-    val dmpLocation: DMPLocation,
+    val dmpLocation: ContextDMPLocation,
     val sourceIdentifier: String,
     val value: String,
-    val vocabularyIdentifier: String
+    val vocabularyIdentifier: ContextSchema
 )
