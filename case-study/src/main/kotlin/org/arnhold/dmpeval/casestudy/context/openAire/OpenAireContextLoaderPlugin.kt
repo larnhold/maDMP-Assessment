@@ -34,7 +34,7 @@ class OpenAireContextLoaderPlugin @Autowired constructor(
     }
 
     override fun getContext(dmpModel: Model): List<DMPContext> {
-        logger.info { "Get context for all datasets" }
+        logger.info { "Get OpenAire context for all datasets" }
         val query = Path.of(AvailabilityEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmpModel, query)
         logger.info { "Found ${selected.size} Datasets with identifiers"}
@@ -46,7 +46,7 @@ class OpenAireContextLoaderPlugin @Autowired constructor(
             val dmp = it.resources.get("dmp").toString()
             val id = it.literals.get("idValue").toString()
             val dataset = it.resources.get("dataset").toString()
-            logger.info { "Requesting context for $dataset" }
+            logger.info { "Requesting context for dataset $dataset" }
             val context = openAireService.findDatasetByDoi(id)
             return@map packageIntoDMPContext(dmp, dataset, context)
         }

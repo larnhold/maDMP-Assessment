@@ -1,5 +1,8 @@
 package org.arnhold.evaluator.harvester.contextProvider
 
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import org.apache.jena.rdf.model.Model
 import org.arnhold.evaluator.plugin.PluginLoader
 import org.arnhold.sdk.context.ContextProviderInformation
@@ -11,8 +14,10 @@ import org.springframework.stereotype.Component
 class ContextProviderServiceImpl @Autowired constructor(
     val pluginLoader: PluginLoader
 ): ContextProviderService {
-    override fun getAvailableContext(model: Model): List<DMPContext> {
-        return pluginLoader.getContextLoaders().flatMap { it.getContext(model) }
+    override suspend fun getAvailableContext(model: Model): List<DMPContext> {
+        return coroutineScope {
+            return@coroutineScope pluginLoader.getContextLoaders().map { async { it.getContext(model) } }.awaitAll().flatten()
+        }
     }
 
     override fun getContextFromLoader(identifier: String, model: Model): List<DMPContext> {

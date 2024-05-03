@@ -29,7 +29,10 @@ class EvaluationManagerServiceImpl @Autowired constructor(
 
         val dmpStoreId = dataProviderService.loadDMP(parameters.dmpLoaderParameters)
         val dmp = dataProviderService.getDMP(dmpStoreId)
-        val context = dataProviderService.loadContext(dmp)
+
+        val context = runBlocking(Dispatchers.Default) {
+            return@runBlocking dataProviderService.loadContext(dmp)
+        }
 
         val measurements = runBlocking(Dispatchers.Default) {
             return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, parameters.dataLifecycle)

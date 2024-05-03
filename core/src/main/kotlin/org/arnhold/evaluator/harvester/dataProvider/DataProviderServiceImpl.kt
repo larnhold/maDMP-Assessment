@@ -36,7 +36,7 @@ class DataProviderServiceImpl @Autowired constructor(
         return dcso
     }
 
-    override fun loadContext(model: Model): List<DMPContext> {
+    override suspend fun loadContext(model: Model): List<DMPContext> {
         return contextProviderService.getAvailableContext(model)
     }
 

@@ -5,7 +5,7 @@ import org.arnhold.sdk.context.ContextProviderInformation
 import org.arnhold.sdk.vocab.context.DMPContext
 
 interface ContextProviderService {
-    fun getAvailableContext(model: Model): List<DMPContext>
+    suspend fun getAvailableContext(model: Model): List<DMPContext>
     fun getContextFromLoader(identifier: String, model: Model): List<DMPContext>
     fun getContextProviderIdentifiers(): List<String>
     fun getContextProviderInformation(identifier: String): ContextProviderInformation
