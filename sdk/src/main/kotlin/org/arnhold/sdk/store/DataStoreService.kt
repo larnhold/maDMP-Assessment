@@ -9,10 +9,6 @@ interface DataStoreService {
 
     fun getModel(id: UUID): Model
 
-    fun updateModel(id: UUID, model: Model)
-
-    fun getAllModels(): List<UUID>
-
-    fun removeModel(id: UUID)
+    fun <T> saveAsJson(id: UUID, data: Any)
 
 }

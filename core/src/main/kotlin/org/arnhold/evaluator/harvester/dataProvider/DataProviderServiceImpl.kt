@@ -64,12 +64,16 @@ class DataProviderServiceImpl @Autowired constructor(
     }
 
     override fun saveModel(model: Model): UUID {
-        logger.info { "Update model in store" }
+        logger.info { "Save model in store" }
         val storeId = UUID.randomUUID()
         dataStoreService.saveModel(storeId, model)
         return storeId
     }
 
-    override fun saveAsJson() {
+    override fun <T> saveAsJson(data: Any, uuid: UUID?): UUID {
+        logger.info { "Save model as JSON" }
+        val storeId: UUID = uuid ?: UUID.randomUUID()
+        dataStoreService.saveAsJson<T>(storeId, data)
+        return storeId
     }
 }

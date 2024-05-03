@@ -1,7 +1,5 @@
 package org.arnhold.dmpeval.casestudy
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.ObjectWriter
 import okhttp3.OkHttpClient
 import org.apache.commons.validator.routines.UrlValidator
 import org.arnhold.sdk.tools.XMLParser
@@ -27,10 +25,5 @@ class Configuration {
     @Bean
     fun xmlParser(): XMLParser {
         return XMLParser()
-    }
-
-    @Bean
-    fun objectWriter(): ObjectWriter {
-        return ObjectMapper().writerWithDefaultPrettyPrinter().withDefaultPrettyPrinter()
     }
 }

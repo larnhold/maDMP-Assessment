@@ -22,7 +22,6 @@ interface DataProviderService {
 
     fun saveModel(model: Model): UUID
 
-    //TODO save as json
-    fun saveAsJson()
+    fun <T> saveAsJson(data: Any, uuid: UUID?): UUID
 
 }
