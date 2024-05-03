@@ -7,5 +7,4 @@ data class EvaluationTaskParameters (
     val contextLoaderParameters: String,
     val evaluatorParameters: String,
     val dataLifecycle: DataLifecycle
-) {
-}
+)

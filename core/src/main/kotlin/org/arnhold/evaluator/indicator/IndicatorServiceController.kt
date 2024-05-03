@@ -26,7 +26,7 @@ class IndicatorServiceController @Autowired constructor(
     @PostMapping("evaluate")
     fun createEvaluation(@RequestBody parameters: EvaluationTaskParameters): EvaluationTaskResult {
         val measurements = evaluationManagerService.createEvaluation(parameters)
-        logger.info { "Return ${measurements.measurements?.size} measurements" }
+        logger.info { "Return ${measurements.measurements.size} measurements" }
         return measurements
     }
 

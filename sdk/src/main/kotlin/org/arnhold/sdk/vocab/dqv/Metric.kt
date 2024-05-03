@@ -12,9 +12,9 @@ class Metric (
     val description: String,
     val title: String,
     val inDimension: Dimension,
-    val applicableDMPLifeCycles: List<DmpLifecycle?>?,
+    val applicableDMPLifeCycles: List<DmpLifecycle> = ArrayList(),
     val expectedDataType: String,
-    val metricTests: List<MetricTestDefinition?>? = null,
+    val metricTests: List<MetricTestDefinition> = ArrayList(),
     val valueUpperBound: Any? = null,
     val metricGroup: MetricGroup? = null,
 ): RdfResourceProvider() {

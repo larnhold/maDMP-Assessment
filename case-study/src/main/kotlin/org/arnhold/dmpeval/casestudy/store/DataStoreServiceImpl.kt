@@ -1,5 +1,6 @@
 package org.arnhold.dmpeval.casestudy.store
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.ObjectWriter
 import mu.KotlinLogging
 import org.apache.jena.rdf.model.Model
@@ -9,7 +10,6 @@ import org.apache.jena.riot.RDFDataMgr
 import org.arnhold.dmpeval.casestudy.configuration.DataStoreConfig
 import org.arnhold.sdk.store.DataStoreService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Component
 import java.io.FileOutputStream
 import java.io.FileWriter

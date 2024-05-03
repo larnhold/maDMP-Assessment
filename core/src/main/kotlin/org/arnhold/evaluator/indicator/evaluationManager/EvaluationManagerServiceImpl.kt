@@ -39,23 +39,26 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         }
 
         logger.info { "Created ${measurements.size} measurements" }
-        saveMeasurements(measurements)
 
-        return EvaluationTaskResult(
+        val result = EvaluationTaskResult(
             success = true,
             message = "",
             evaluationId = UUID.randomUUID().toString(),
             measurements = measurements
         )
+
+        saveMeasurements(result)
+        return result
     }
 
-    private fun saveMeasurements(measurements: List<Measurement>) {
-        val measurementsModel = measurementsToModel(dataProviderService.getDMPDQVOntology(), measurements)
+    private fun saveMeasurements(result: EvaluationTaskResult) {
+        val measurementsModel = measurementsToModel(dataProviderService.getDMPDQVOntology(), result.measurements)
         logger.info { "Reason over measurements" }
         val reasoner: Reasoner = ReasonerRegistry.getOWLReasoner()
         reasoner.bindSchema(dataProviderService.getDMPDQVOntology())
         val reasonedMeasurementsModel = ModelFactory.createInfModel(reasoner, measurementsModel)
-        dataProviderService.saveModel(reasonedMeasurementsModel)
+        val uuid = dataProviderService.saveModel(reasonedMeasurementsModel)
+        dataProviderService.saveAsJson<EvaluationTaskResult>(result, uuid)
     }
 
     override fun getEvaluatorInformation(): Map<Category, List<Dimension>> {

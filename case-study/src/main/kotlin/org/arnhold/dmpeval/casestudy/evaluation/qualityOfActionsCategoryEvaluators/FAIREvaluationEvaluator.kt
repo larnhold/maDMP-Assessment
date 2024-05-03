@@ -78,7 +78,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
 
     private fun fujiResultToMeasurement(dataset: Resource, datasetIdType: Resource, result: FujiResult): Measurement {
         logger.info { "Convert metric ${result.metricIdentifier} from F-UJI to DQV" }
-        val metric = QualityOfActionsMetricModels.metricFromFujiResult(datasetIdType, result)
+        val metric: Metric = QualityOfActionsMetricModels.metricFromFujiResult(datasetIdType, result)
         return Measurement(
             DmpLifecycle(DataLifecycle.PUBLISHED),
             metric,
@@ -86,7 +86,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
             DMPLocation(null, dataset, null),
             result.score.earned,
             softwareAgent = SoftareAgents.FUJI,
-            testResults =  metric.metricTests?.map { testResultFrom(it, result.metricTests) }
+            testResults =  metric.metricTests.mapNotNull { testResultFrom(it, result.metricTests) }
         )
     }
 
