@@ -7,7 +7,7 @@ import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
 import org.arnhold.sdk.vocab.ontologyDefinitions.DMPDQV
 
-class Metric (
+data class Metric (
     val identifier: String,
     val description: String,
     val title: String,

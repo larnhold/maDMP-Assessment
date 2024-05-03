@@ -1,4 +1,4 @@
-package org.arnhold.evaluator.indicator.evaluationManager
+package org.arnhold.sdk.model
 
 import org.arnhold.sdk.vocab.dqv.Measurement
 

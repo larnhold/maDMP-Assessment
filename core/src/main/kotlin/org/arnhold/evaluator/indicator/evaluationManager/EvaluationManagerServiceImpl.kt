@@ -10,6 +10,7 @@ import org.apache.jena.reasoner.Reasoner
 import org.apache.jena.reasoner.ReasonerRegistry
 import org.arnhold.evaluator.harvester.dataProvider.DataProviderService
 import org.arnhold.evaluator.indicator.evaluationProvider.EvaluationProviderService
+import org.arnhold.sdk.model.EvaluationTaskResult
 import org.arnhold.sdk.vocab.dqv.Category
 import org.arnhold.sdk.vocab.dqv.Dimension
 import org.arnhold.sdk.vocab.dqv.Measurement

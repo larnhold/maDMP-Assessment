@@ -1,6 +1,5 @@
 package org.arnhold.dmpeval.casestudy.store
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.ObjectWriter
 import mu.KotlinLogging
 import org.apache.jena.rdf.model.Model
@@ -48,15 +47,14 @@ class DataStoreServiceImpl @Autowired constructor(
     }
 
     override fun <T> saveAsJson(id: UUID, data: Any) {
-        val jsonData = objectWriter.writeValueAsString(data as T)
-        
         try {
+            val jsonData = objectWriter.writeValueAsString(data as T)
             val savePath = Path.of(dataStoreConfig.directory, String.format("%s.json", id.toString()))
             logger.info { "Save object with id $id to $savePath as JSON"}
             FileWriter(savePath.toFile()).use { fileWriter ->
                 fileWriter.write(jsonData)
             }
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             logger.info { "Error saving object with id $id as JSON: Error $e" }
             throw e
         }
