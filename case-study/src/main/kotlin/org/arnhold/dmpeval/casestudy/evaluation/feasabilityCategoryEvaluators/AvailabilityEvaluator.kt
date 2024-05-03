@@ -5,15 +5,15 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.apache.commons.validator.routines.UrlValidator
 import org.apache.jena.rdf.model.Model
-import org.apache.jena.rdf.model.Property
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
 import org.arnhold.dmpeval.casestudy.evaluation.SoftareAgents
 import org.arnhold.sdk.vocab.constants.DataLifecycle
-import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
+import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
+import org.arnhold.sdk.vocab.context.DMPContext
 import org.arnhold.sdk.vocab.dqv.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -26,7 +26,7 @@ class AvailabilityEvaluator @Autowired constructor(
     val sparqlSelector: SparqlSelector,
     val okHttpClient: OkHttpClient,
     val urlValidator: UrlValidator
-) : DimensionEvaluatorPlugin {
+) : EvaluatorPlugin {
 
     private val logger = KotlinLogging.logger {}
 
@@ -48,17 +48,13 @@ class AvailabilityEvaluator @Autowired constructor(
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
+    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, lifecycle: DataLifecycle): List<Measurement> {
         logger.info { "Get all availability measurements" }
         val allMeasurements = getAllIdentifiermeasurements(dmp)+allURIsMeasurements(dmp)
         logger.info { "All Availability measurements calculated: ${allMeasurements.size} results" }
         return allMeasurements.filterNotNull()
     }
 
-    /**
-     * getting all URIs in one select is possible but it is not possible to select the next Resource to use as assesedObject
-     * so when selecting the URIs to be checked there has to be knowledge on the location in the graph which is only available by writing individual queries
-     */
     private fun allURIsMeasurements(dmp: Model): List<Measurement?> {
         logger.info { "Get measurements of al urls" }
         val query = Path.of(SPARQL_DIRECTORY + "allUris.sparql").toFile().readText(Charsets.UTF_8)

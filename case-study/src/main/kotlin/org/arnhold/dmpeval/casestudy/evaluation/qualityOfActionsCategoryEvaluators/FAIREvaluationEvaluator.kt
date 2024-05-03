@@ -12,9 +12,10 @@ import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluato
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiRoot
 import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.vocab.dqv.*
-import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
+import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
+import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.nio.file.Path
@@ -23,7 +24,7 @@ import java.nio.file.Path
 class FAIREvaluationEvaluator @Autowired constructor(
     val fujiService: FujiService,
     val sparqlSelector: SparqlSelector,
-) : DimensionEvaluatorPlugin {
+) : EvaluatorPlugin {
 
     private val logger = KotlinLogging.logger {}
 
@@ -39,7 +40,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
+    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, lifecycle: DataLifecycle): List<Measurement> {
         logger.info { "Get measurements for all datasets" }
         val query = Path.of(AvailabilityEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)

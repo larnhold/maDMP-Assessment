@@ -5,9 +5,10 @@ import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.vocab.dqv.Measurement
-import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
+import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.tools.shacl.ShaclValidationService
+import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.nio.file.Path
@@ -15,7 +16,7 @@ import java.nio.file.Path
 @Component
 class DCSComplianceEvaluator @Autowired constructor(
     val shaclValidationService: ShaclValidationService
-) : DimensionEvaluatorPlugin {
+) : EvaluatorPlugin {
 
     val allowedValueLocation: Path = Path.of("./data/case-study/evaluation/compliance/dcs-allowed-values.shacl")
 
@@ -31,7 +32,7 @@ class DCSComplianceEvaluator @Autowired constructor(
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
+    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, lifecycle: DataLifecycle): List<Measurement> {
         return listOf()
     }
 

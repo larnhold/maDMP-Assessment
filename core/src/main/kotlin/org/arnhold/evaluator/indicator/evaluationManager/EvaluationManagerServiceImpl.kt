@@ -35,7 +35,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         }
 
         val measurements = runBlocking(Dispatchers.Default) {
-            return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, parameters.dataLifecycle)
+            return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, context, parameters.dataLifecycle)
         }
 
         logger.info { "Created ${measurements.size} measurements" }

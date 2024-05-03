@@ -5,12 +5,13 @@ import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.vocab.dqv.Measurement
-import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
+import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
+import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.stereotype.Component
 
 @Component
-class DCSCompletenessEvaluator : DimensionEvaluatorPlugin {
+class DCSCompletenessEvaluator : EvaluatorPlugin {
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.DCS_COMPLETENESS.toString()
@@ -24,7 +25,7 @@ class DCSCompletenessEvaluator : DimensionEvaluatorPlugin {
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, lifecycle: DataLifecycle): List<Measurement> {
+    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, lifecycle: DataLifecycle): List<Measurement> {
         return listOf()
     }
 
