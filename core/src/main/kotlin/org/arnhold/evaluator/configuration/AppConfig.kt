@@ -7,11 +7,16 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-@EnableConfigurationProperties(OntologyConfig::class)
+@EnableConfigurationProperties(OntologyConfig::class, ExtensionConfig::class)
 class AppConfig {
     @Bean
     fun ontologyConfig(): OntologyConfig {
         return OntologyConfig()
+    }
+
+    @Bean
+    fun extensionConfig(): ExtensionConfig {
+        return ExtensionConfig()
     }
 
     @Bean

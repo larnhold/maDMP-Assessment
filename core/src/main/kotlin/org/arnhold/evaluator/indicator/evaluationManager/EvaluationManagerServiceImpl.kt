@@ -29,7 +29,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         logger.info { "Create evaluation with parameters $parameters" }
 
         val dmpStoreId = dataProviderService.loadDMP(parameters.dmpLoaderParameters)
-        val dmp = dataProviderService.getDMP(dmpStoreId)
+        val dmp = dataProviderService.getModel(dmpStoreId)
 
         val context = runBlocking(Dispatchers.Default) {
             return@runBlocking dataProviderService.loadContext(dmp)

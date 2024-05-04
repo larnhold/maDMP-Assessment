@@ -3,3 +3,7 @@ store:
 ontology:
   DCSLocation: "./data/ontologies/dcso-4.0.1.ttl"
   DMPDQVLocation: "./data/ontologies/dmp-dqv.ttl"
+extension:
+  ontologies:
+    - name: "FunderExtension"
+      location: "./data/ontologies/dcs-funder-1.0.ttl"

@@ -6,7 +6,9 @@ import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.jena.riot.Lang
 import org.apache.jena.riot.RDFDataMgr
+import org.arnhold.evaluator.configuration.ExtensionConfig
 import org.arnhold.evaluator.configuration.OntologyConfig
+import org.arnhold.evaluator.configuration.OntologyInfo
 import org.arnhold.evaluator.harvester.contextProvider.ContextProviderService
 import org.arnhold.evaluator.harvester.dmpProvider.DmpProviderService
 import org.arnhold.evaluator.indicator.evaluationManager.DMPLoaderParameters
@@ -23,7 +25,8 @@ class DataProviderServiceImpl @Autowired constructor(
     val dataStoreService: DataStoreService,
     val dmpProviderService: DmpProviderService,
     val contextProviderService: ContextProviderService,
-    val ontologyConfig: OntologyConfig
+    val ontologyConfig: OntologyConfig,
+    val extensionConfig: ExtensionConfig
 ) : DataProviderService {
 
     private val logger = KotlinLogging.logger {}
@@ -49,7 +52,15 @@ class DataProviderServiceImpl @Autowired constructor(
     }
 
     override fun getExtensions(): Map<String, OntModel> {
-        TODO("Not yet implemented")
+        logger.info { "Load Extensions Ontologies" }
+        val extensionInfo: List<OntologyInfo> = extensionConfig.ontologies
+        return extensionInfo.associate { item ->
+            val model = ModelFactory.createOntologyModel()
+            val extensionInputStream = FileInputStream(Path.of(item.location).toFile())
+            RDFDataMgr.read(model, extensionInputStream, Lang.TURTLE)
+
+            return@associate Pair(item.name, model)
+        }
     }
 
     override fun loadDMP(parameters: DMPLoaderParameters): UUID {
@@ -58,7 +69,7 @@ class DataProviderServiceImpl @Autowired constructor(
         return saveModel(loadedDMP)
     }
 
-    override fun getDMP(id: UUID): Model {
+    override fun getModel(id: UUID): Model {
         logger.info { "Get DMP from store" }
         return dataStoreService.getModel(id)
     }

@@ -18,7 +18,7 @@ interface DataProviderService {
 
     fun loadDMP(parameters: DMPLoaderParameters): UUID
 
-    fun getDMP(id: UUID): Model
+    fun getModel(id: UUID): Model
 
     fun saveModel(model: Model): UUID
 
