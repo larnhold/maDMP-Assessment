@@ -11,6 +11,7 @@ import org.arnhold.evaluator.configuration.OntologyConfig
 import org.arnhold.evaluator.configuration.OntologyInfo
 import org.arnhold.evaluator.harvester.contextProvider.ContextProviderService
 import org.arnhold.evaluator.harvester.dmpProvider.DmpProviderService
+import org.arnhold.evaluator.harvester.inferenceEngine.InferenceEngineService
 import org.arnhold.evaluator.indicator.evaluationManager.DMPLoaderParameters
 import org.arnhold.sdk.store.DataStoreService
 import org.arnhold.sdk.vocab.context.DMPContext
@@ -26,7 +27,8 @@ class DataProviderServiceImpl @Autowired constructor(
     val dmpProviderService: DmpProviderService,
     val contextProviderService: ContextProviderService,
     val ontologyConfig: OntologyConfig,
-    val extensionConfig: ExtensionConfig
+    val extensionConfig: ExtensionConfig,
+    val inferenceEngineService: InferenceEngineService
 ) : DataProviderService {
 
     private val logger = KotlinLogging.logger {}
@@ -63,10 +65,19 @@ class DataProviderServiceImpl @Autowired constructor(
         }
     }
 
+    private fun getCombinedDCSExtensionOntology(): OntModel {
+        val dcs = getDCSOntology()
+        val extensions = getExtensions()
+        extensions.forEach { dcs.add(it.value) }
+        return dcs
+    }
+
     override fun loadDMP(parameters: DMPLoaderParameters): UUID {
         logger.info { "Load DMP $parameters.dmpIdentifier from DMPLoader $parameters.dmploader" }
-        val loadedDMP = dmpProviderService.loadDMP(parameters.dmpLoader, parameters.dmpIdentifier, getDCSOntology())
-        return saveModel(loadedDMP)
+        val ontology = getCombinedDCSExtensionOntology()
+        val loadedDMP = dmpProviderService.loadDMP(parameters.dmpLoader, parameters.dmpIdentifier, ontology)
+        val inferredDMP = inferenceEngineService.applyReasoning(ontology, loadedDMP)
+        return saveModel(inferredDMP)
     }
 
     override fun getModel(id: UUID): Model {

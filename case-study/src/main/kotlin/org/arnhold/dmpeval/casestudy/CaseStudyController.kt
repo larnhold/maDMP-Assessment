@@ -16,12 +16,12 @@ class CaseStudyController @Autowired constructor(
     val re3DataService: Re3DataService
 ) {
 
-    @GetMapping("getDataSet")
+    @GetMapping("context/getDataSetFromOpenaire")
     fun getOpenAireDataset(): Dataset? {
         return openaireService.findDatasetByDoi("10.5281/zenodo.4662040")
     }
 
-    @GetMapping("getRepository")
+    @GetMapping("context/getRepositoryFromRe3Data")
     fun getRe3DataRepository(): Repository? {
         return re3DataService.getHostByName("Zenodo")
     }

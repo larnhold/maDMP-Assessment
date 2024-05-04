@@ -5,6 +5,7 @@ import org.arnhold.evaluator.indicator.evaluationManager.EvaluationManagerServic
 import org.arnhold.evaluator.indicator.evaluationManager.EvaluationTaskParameters
 import org.arnhold.sdk.model.EvaluationTaskResult
 import org.arnhold.evaluator.indicator.evaluationManager.EvaluatorInformationDTO
+import org.arnhold.evaluator.indicator.metricAggregation.MetricAggregationService
 import org.arnhold.sdk.vocab.dqv.Measurement
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -18,7 +19,8 @@ import java.util.UUID
 @RestController
 @RequestMapping("/api/evaluation")
 class IndicatorServiceController @Autowired constructor(
-    val evaluationManagerService: EvaluationManagerService
+    val evaluationManagerService: EvaluationManagerService,
+    val metricAggregationService: MetricAggregationService
 ) {
 
     private val logger = KotlinLogging.logger {}
@@ -42,6 +44,6 @@ class IndicatorServiceController @Autowired constructor(
 
     @GetMapping("info/evaluators")
     fun getEvaluatorInformation(): List<EvaluatorInformationDTO> {
-        return evaluationManagerService.getEvaluatorInformation().map { EvaluatorInformationDTO(it.key.title, it.value.map { it2 -> it2.title }) }
+        return evaluationManagerService.getEvaluatorInformation().mapNotNull { EvaluatorInformationDTO(it.key.title, it.value.mapNotNull { it2 -> it2.title }) }
     }
 }

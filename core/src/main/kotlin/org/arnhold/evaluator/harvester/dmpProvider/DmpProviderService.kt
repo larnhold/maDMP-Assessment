@@ -5,6 +5,6 @@ import org.apache.jena.rdf.model.Model
 
 interface DmpProviderService {
 
-    fun loadDMP(dmploader: String, dmpIdentifier: String, dcsOntology: OntModel): Model
+    fun loadDMP(dmploader: String, dmpIdentifier: String, ontology: OntModel): Model
 
 }
