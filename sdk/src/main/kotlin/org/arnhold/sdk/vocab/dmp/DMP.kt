@@ -7,6 +7,7 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.vocab.ontologyDefinitions.DCSX
 
 data class DMP (
     @JsonProperty("contact")
@@ -22,7 +23,7 @@ data class DMP (
     @JsonProperty("created")
     val created: String?,
     @JsonProperty("dmp_id")
-    val dmpId: DmpId?,
+    val dmpId: Id?,
     @JsonProperty("description")
     val description: String?,
     @JsonProperty("ethical_issues_description")
@@ -36,7 +37,9 @@ data class DMP (
     @JsonProperty("modified")
     val modified: String?,
     @JsonProperty("title")
-    val title: String?
+    val title: String?,
+    @JsonProperty("relatedPolicy")
+    val relatedPolicy: RelatedPolicy?
 ) : RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(
@@ -54,7 +57,8 @@ data class DMP (
             ObjectPropertyDefinition(DCSO.HAS_CONTRIBUTOR, contributors, name, "contributor"),
             ObjectPropertyDefinition(DCSO.HAS_COST, costs, name, "cost"),
             ObjectPropertyDefinition(DCSO.HAS_PROJECT, projects, name, "project"),
-            ObjectPropertyDefinition(DCSO.HAS_DATASET, datasets, name, "dataset")
+            ObjectPropertyDefinition(DCSO.HAS_DATASET, datasets, name, "dataset"),
+            ObjectPropertyDefinition(DCSX.HAS_RELATED_POLICY, datasets, name, "dataset")
         ))
     }
 }

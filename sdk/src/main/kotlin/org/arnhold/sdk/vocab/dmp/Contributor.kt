@@ -10,7 +10,7 @@ import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
 
 data class Contributor(
     @JsonProperty("contributor_id")
-    val contributorId: ContributorId?,
+    val contributorId: Id?,
     @JsonProperty("mbox")
     val mbox: String?,
     @JsonProperty("name")

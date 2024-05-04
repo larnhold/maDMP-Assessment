@@ -7,7 +7,7 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
 
-data class GrantId(
+data class Id(
     @JsonProperty("identifier")
     val identifier: String?,
     @JsonProperty("type")

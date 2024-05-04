@@ -8,6 +8,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcso: <https://w3id.org/dcso/ns/core#> .
+@prefix dcsx: <https://w3id.org/dcso/ns/extension#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -64,27 +65,74 @@ terms:title rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  https://w3id.org/dcso/ns/core#hasId
-dcso:hasId rdf:type owl:ObjectProperty .
+dcso:hasId rdf:type owl:ObjectProperty ;
+           rdfs:domain dcso:Dataset ;
+           rdfs:range dcsx:DataRecoveryExplanation .
+
+
+###  https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource
+dcsx:hasDataQualityAssuranceResource rdf:type owl:ObjectProperty ;
+                                     rdfs:domain dcso:DMP ;
+                                     rdfs:range dcsx:DataQualityAssuranceResource .
+
+
+###  https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId
+dcsx:hasDataQualityAssuranceRessourceId rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf dcso:hasId ;
+                                        rdfs:domain dcsx:DataQualityAssuranceResource ;
+                                        rdfs:range dcsx:DataQualityAssuranceResourceId .
+
+
+###  https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation
+dcsx:hasDataRecoveryExplanation rdf:type owl:ObjectProperty ;
+                                rdfs:domain dcso:Host ;
+                                rdfs:range dcsx:DataRecoveryExplanation .
+
+
+###  https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId
+dcsx:hasDataRecoveryExplanationId rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf dcso:hasId ;
+                                  rdfs:domain dcsx:DataRecoveryExplanation ;
+                                  rdfs:range dcsx:DataRecoveryExplanationId .
+
+
+###  https://w3id.org/dcso/ns/extension#hasMethodology
+dcsx:hasMethodology rdf:type owl:ObjectProperty ;
+                    rdfs:domain dcso:Dataset ;
+                    rdfs:range dcsx:Methodology .
 
 
 ###  https://w3id.org/dcso/ns/extension#hasMethodologyId
-:hasMethodologyId rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf dcso:hasId ;
-                  rdfs:domain :Methodology ;
-                  rdfs:range :MethodologyId .
+dcsx:hasMethodologyId rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf dcso:hasId ;
+                      rdfs:domain dcsx:Methodology ;
+                      rdfs:range dcsx:MethodologyId .
+
+
+###  https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation
+dcsx:hasPropertyRightsExplanation rdf:type owl:ObjectProperty ;
+                                  rdfs:domain dcso:Distribution ;
+                                  rdfs:range dcsx:PropertyRightsExplanation .
+
+
+###  https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId
+dcsx:hasPropertyRightsExplanationId rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf dcso:hasId ;
+                                    rdfs:domain dcsx:PropertyRightsExplanation ;
+                                    rdfs:range dcsx:PropertyRightsExplanationId .
 
 
 ###  https://w3id.org/dcso/ns/extension#hasRelatedPolicy
-:hasRelatedPolicy rdf:type owl:ObjectProperty ;
-                  rdfs:domain dcso:DMP ;
-                  rdfs:range :RelatedPolicy .
+dcsx:hasRelatedPolicy rdf:type owl:ObjectProperty ;
+                      rdfs:domain dcso:DMP ;
+                      rdfs:range dcsx:RelatedPolicy .
 
 
 ###  https://w3id.org/dcso/ns/extension#hasRelatedPolicyId
-:hasRelatedPolicyId rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf dcso:hasId ;
-                    rdfs:domain :RelatedPolicy ;
-                    rdfs:range :RelatedPolicyId .
+dcsx:hasRelatedPolicyId rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf dcso:hasId ;
+                        rdfs:domain dcsx:RelatedPolicy ;
+                        rdfs:range dcsx:RelatedPolicyId .
 
 
 #################################################################
@@ -92,25 +140,25 @@ dcso:hasId rdf:type owl:ObjectProperty .
 #################################################################
 
 ###  https://w3id.org/dcso/ns/extension#isReused
-:isReused rdf:type owl:DatatypeProperty ;
-          rdfs:domain dcso:Dataset ;
-          rdfs:range xsd:string ;
-          rdfs:comment """To explicitly indicate whether the
+dcsx:isReused rdf:type owl:DatatypeProperty ;
+              rdfs:domain dcso:Dataset ;
+              rdfs:range xsd:string ;
+              rdfs:comment """To explicitly indicate whether the
 dataset is reused or was produced in
 the course of research. Allowed values
 are: reused, produced.""" .
 
 
 ###  https://w3id.org/dcso/ns/extension#restrictionExplanation
-:restrictionExplanation rdf:type owl:DatatypeProperty ;
-                        rdfs:domain dcso:Distribution ;
-                        rdfs:range xsd:string .
+dcsx:restrictionExplanation rdf:type owl:DatatypeProperty ;
+                            rdfs:domain dcso:Distribution ;
+                            rdfs:range xsd:string .
 
 
 ###  https://w3id.org/dcso/ns/extension#targetAudience
-:targetAudience rdf:type owl:DatatypeProperty ;
-                rdfs:domain dcso:Dataset ;
-                rdfs:range xsd:string .
+dcsx:targetAudience rdf:type owl:DatatypeProperty ;
+                    rdfs:domain dcso:Dataset ;
+                    rdfs:range xsd:string .
 
 
 #################################################################
@@ -133,39 +181,58 @@ dcso:Distribution rdf:type owl:Class .
 dcso:Id rdf:type owl:Class .
 
 
+###  https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource
+dcsx:DataQualityAssuranceResource rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId
+dcsx:DataQualityAssuranceResourceId rdf:type owl:Class ;
+                                    rdfs:subClassOf dcso:Id .
+
+
 ###  https://w3id.org/dcso/ns/extension#DataRecoveryExplanation
-:DataRecoveryExplanation rdf:type owl:Class .
+dcsx:DataRecoveryExplanation rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId
+dcsx:DataRecoveryExplanationId rdf:type owl:Class ;
+                               rdfs:subClassOf dcso:Id .
 
 
 ###  https://w3id.org/dcso/ns/extension#Methodology
-:Methodology rdf:type owl:Class ;
-             terms:description """To describe methodology, procedures,
+dcsx:Methodology rdf:type owl:Class ;
+                 terms:description """To describe methodology, procedures,
 workflows. etc. on how the dataset is
 created, can be recovered, ...""" .
 
 
 ###  https://w3id.org/dcso/ns/extension#MethodologyId
-:MethodologyId rdf:type owl:Class ;
-               rdfs:subClassOf dcso:Id ;
-               terms:description "Identifier for a methodology artifact" .
+dcsx:MethodologyId rdf:type owl:Class ;
+                   rdfs:subClassOf dcso:Id ;
+                   terms:description "Identifier for a methodology artifact" .
 
 
 ###  https://w3id.org/dcso/ns/extension#PropertyRightsExplanation
-:PropertyRightsExplanation rdf:type owl:Class .
+dcsx:PropertyRightsExplanation rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId
+dcsx:PropertyRightsExplanationId rdf:type owl:Class ;
+                                 rdfs:subClassOf dcso:Id .
 
 
 ###  https://w3id.org/dcso/ns/extension#RelatedPolicy
-:RelatedPolicy rdf:type owl:Class ;
-               terms:description """To link to all documents needed to be
+dcsx:RelatedPolicy rdf:type owl:Class ;
+                   terms:description """To link to all documents needed to be
 compliant to requirements within this
 DMP (e.g. legal, ethical, contractual,
 guidelines, procedures, standards,...)""" .
 
 
 ###  https://w3id.org/dcso/ns/extension#RelatedPolicyId
-:RelatedPolicyId rdf:type owl:Class ;
-                 rdfs:subClassOf dcso:Id ;
-                 terms:description "Related policy ID" .
+dcsx:RelatedPolicyId rdf:type owl:Class ;
+                     rdfs:subClassOf dcso:Id ;
+                     terms:description "Related policy ID" .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

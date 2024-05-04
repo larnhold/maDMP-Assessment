@@ -10,7 +10,7 @@ import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
 
 data class Contact (
     @JsonProperty("contact_id")
-    val contactId: ContactID?,
+    val contactId: Id?,
     @JsonProperty("mbox")
     val mbox: String?,
     @JsonProperty("name")

@@ -5,7 +5,9 @@ import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
+import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.vocab.ontologyDefinitions.DCSX
 
 data class Host (
     @JsonProperty("availability")
@@ -29,7 +31,9 @@ data class Host (
     @JsonProperty("title")
     val title: String?,
     @JsonProperty("url")
-    val url: String?
+    val url: String?,
+    @JsonProperty("dataRecoveryExplanation")
+    val dataRecoveryExplanation: DataRecoveryExplanation?
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(
@@ -44,6 +48,8 @@ data class Host (
             DataPropertyDefinition(DCSO.SUPPORT_VERSIONING, supportVersioning),
             DataPropertyDefinition(DCSO.TITLE, title),
             DataPropertyDefinition(DCSO.URL, url)
-        ), listOf())
+        ), listOf(
+            ObjectPropertyDefinition(DCSX.HAS_DATA_RECOVERY_EXPLANATION, dataRecoveryExplanation, name, "dataRecoveryExplanation"),
+        ))
     }
 }

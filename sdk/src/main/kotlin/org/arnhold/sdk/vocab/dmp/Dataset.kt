@@ -7,6 +7,7 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.vocab.ontologyDefinitions.DCSX
 
 data class Dataset (
     @JsonProperty("distribution")
@@ -20,7 +21,7 @@ data class Dataset (
     @JsonProperty("data_quality_assurance")
     val dataQualityAssurance: List<String>?,
     @JsonProperty("dataset_id")
-    val datasetId: DatasetId?,
+    val datasetId: Id?,
     @JsonProperty("description")
     val description: String?,
     @JsonProperty("issued")
@@ -38,7 +39,15 @@ data class Dataset (
     @JsonProperty("title")
     val title: String?,
     @JsonProperty("type")
-    val type: String?
+    val type: String?,
+    @JsonProperty("isReused")
+    val isReused: String?,
+    @JsonProperty("targetAudience")
+    val targetAudience: String?,
+    @JsonProperty("methodology")
+    val methodology: Methodology?,
+    @JsonProperty("dataQualityAssuranceResource")
+    val dataQualityAssuranceResource: DataQualityAssuranceResource?
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(
@@ -51,13 +60,17 @@ data class Dataset (
             DataPropertyDefinition(DCSO.PRESERVATION_STATEMENT, preservationStatement),
             DataPropertyDefinition(DCSO.SENSITIVE_DATA, sensitiveData),
             DataPropertyDefinition(DCSO.TITLE, title),
-            DataPropertyDefinition(DCSO.DATASET_TYPE, type)
+            DataPropertyDefinition(DCSO.DATASET_TYPE, type),
+            DataPropertyDefinition(DCSX.IS_REUSED, isReused),
+            DataPropertyDefinition(DCSX.TARGET_AUDIENCE, targetAudience),
         ), listOf(
             ObjectPropertyDefinition(DCSO.HAS_DISTRIBUTION, distributions, name, "distribution"),
             ObjectPropertyDefinition(DCSO.HAS_SECURITY_AND_PRIVACY, securityAndPrivacy, name, "securityAndPrivacy"),
             ObjectPropertyDefinition(DCSO.HAS_TECHNICAL_RESOURCE, technicalResource, name, "technicalResource"),
             ObjectPropertyDefinition(DCSO.HAS_METADATA, metadata, name, "metadata"),
-            ObjectPropertyDefinition(DCSO.HAS_DATASET_ID, datasetId, name, "datasetId")
+            ObjectPropertyDefinition(DCSO.HAS_DATASET_ID, datasetId, name, "datasetId"),
+            ObjectPropertyDefinition(DCSX.HAS_METHODOLOGY, methodology, name, "methodology"),
+            ObjectPropertyDefinition(DCSX.HAS_DATA_QUALIY_ASSURANCE_RESOURCE, dataQualityAssuranceResource, name, "dataQualityAssuranceResource")
         ))
     }
 }

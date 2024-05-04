@@ -10,11 +10,11 @@ import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
 
 data class Funding (
     @JsonProperty("funder_id")
-    val funderId: FunderId?,
+    val funderId: Id?,
     @JsonProperty("funding_status")
     val fundingStatus: String?,
     @JsonProperty("grant_id")
-    val grantId: GrantId?
+    val grantId: Id?
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(

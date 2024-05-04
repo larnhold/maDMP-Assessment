@@ -145,11 +145,6 @@
             }
           }
         ],
-        "methodology": [
-          {
-            "description": "The data is a result of a Python script aggregating source data into a consolidated CSV format and producing a PNG chart from the raw result data."
-          }
-        ],
         "personal_data": "no",
         "security_and_privacy": [
           {

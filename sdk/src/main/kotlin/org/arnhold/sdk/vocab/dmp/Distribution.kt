@@ -7,6 +7,7 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.vocab.ontologyDefinitions.DCSX
 import java.math.BigInteger
 
 data class Distribution (
@@ -29,7 +30,11 @@ data class Distribution (
     @JsonProperty("format")
     val formats: List<String>?,
     @JsonProperty("title")
-    val title: String?
+    val title: String?,
+    @JsonProperty("restrictionExplanation")
+    val restrictionExplanation: String?,
+    @JsonProperty("propertyRightsExplanation")
+    val propertyRightsExplanation: PropertyRightsExplanation?
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(
@@ -40,10 +45,12 @@ data class Distribution (
             DataPropertyDefinition(DCSO.DESCRIPTION, description),
             DataPropertyDefinition(DCSO.DOWNLOAD_URL, downloadUrl),
             DataPropertyDefinition(DCSO.FORMAT, formats),
-            DataPropertyDefinition(DCSO.TITLE, title)
+            DataPropertyDefinition(DCSO.TITLE, title),
+            DataPropertyDefinition(DCSX.RESTRICTION_EXPLANATION, restrictionExplanation),
         ), listOf(
             ObjectPropertyDefinition(DCSO.HAS_LICENSE, license, name, "license"),
-            ObjectPropertyDefinition(DCSO.HAS_HOST, host, name, "host")
+            ObjectPropertyDefinition(DCSO.HAS_HOST, host, name, "host"),
+            ObjectPropertyDefinition(DCSX.HAS_PROPERTY_RIGHTS_EXPLANATION, propertyRightsExplanation, name, "propertyRightsExplanation"),
         ))
     }
 }
