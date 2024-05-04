@@ -18,7 +18,7 @@ class DCSComplianceEvaluator @Autowired constructor(
     val shaclValidationService: ShaclValidationService
 ) : EvaluatorPlugin {
 
-    val allowedValueLocation: Path = Path.of("./data/case-study/evaluation/compliance/dcs-allowed-values.shacl")
+    val allowedValueLocation: Path = Path.of("./data/case-study/shapes/dcs-whitelist.shacl")
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.DCS_COMPLIANCE.toString()
