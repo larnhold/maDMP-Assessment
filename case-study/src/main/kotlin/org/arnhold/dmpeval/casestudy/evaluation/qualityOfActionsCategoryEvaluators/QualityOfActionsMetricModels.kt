@@ -23,7 +23,7 @@ class QualityOfActionsMetricModels {
                 fujiResultToDimension(result),
                 listOf(DmpLifecycle(DataLifecycle.PUBLISHED)),
                 XSD.integer.toString(),
-                result.metricTests.map { (key, value) -> metricTestFromFujiMetricTest(key, value) },
+                result.metricTests.map { (key, value) -> metricTestFromFujiMetricTest(key, value) }.toMutableList(),
                 result.score.total.toString()
             )
         }

@@ -1,5 +1,6 @@
 package org.arnhold.sdk.vocab.dqv
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
@@ -7,6 +8,7 @@ import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
 import org.arnhold.sdk.vocab.ontologyDefinitions.DMPDQV
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class Measurement(
     val lifeCycleStage: DmpLifecycle,
     val isMeasurementOf: Metric,

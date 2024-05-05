@@ -16,8 +16,22 @@ class CaseStudyFacadeController @Autowired constructor(
     val evaluationManagerService: EvaluationManagerService
 ) {
 
-    @PostMapping("evaluateDCSCompliance")
+    @PostMapping("evaluate")
     fun createEvaluation(): EvaluationTaskResult {
+        val dmploader = DMPLoaderParameters("", "zenodo/12.json")
+
+        val parameters =  EvaluationTaskParameters(
+            dmpLoaderParameters = dmploader,
+            categories = null,
+            dataLifecycle = DataLifecycle.PLANNING,
+            dimensions = null
+        )
+
+        return evaluationManagerService.createEvaluation(parameters)
+    }
+
+    @PostMapping("evaluateDCSCompliance")
+    fun createDCSComplianceEvaluation(): EvaluationTaskResult {
         val dimension = "dcs_compliance"
         val dmploader = DMPLoaderParameters("", "zenodo/12.json")
 

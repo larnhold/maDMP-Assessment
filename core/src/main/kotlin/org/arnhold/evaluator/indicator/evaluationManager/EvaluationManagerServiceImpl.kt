@@ -42,8 +42,6 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         logger.info { "Created ${measurements.size} measurements" }
 
         val result = EvaluationTaskResult(
-            success = true,
-            message = "",
             evaluationId = UUID.randomUUID().toString(),
             measurements = measurements
         )

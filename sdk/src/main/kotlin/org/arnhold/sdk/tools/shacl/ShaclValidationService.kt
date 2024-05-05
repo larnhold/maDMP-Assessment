@@ -8,20 +8,17 @@ import org.apache.jena.shacl.ShaclValidator
 import org.apache.jena.shacl.Shapes
 import org.apache.jena.shacl.ValidationReport
 import org.apache.jena.shacl.validation.ReportEntry
-import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
+import org.apache.jena.vocabulary.XSD
 import org.arnhold.sdk.vocab.dqv.*
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.io.FileInputStream
 import java.nio.file.Path
 
 @Service
-class ShaclValidationService @Autowired constructor(
-    val sparqlSelector: SparqlSelector
-) {
+class ShaclValidationService {
 
     companion object {
-        val SHACL_AGENT = SoftwareAgent("Apache Jena SHACL Validator", "")
+        val SHACL_AGENT = SoftwareAgent("Apache Jena SHACL Validator", null)
     }
 
     fun validateShape(dmp: Model,
@@ -51,6 +48,19 @@ class ShaclValidationService @Autowired constructor(
         val guidance = Guidance("SHACL Report", missingProperty + ": " + report.message())
         val location = DMPLocation(null, report.focusNode().toString(), null)
 
+        val shaclTestDefinition = MetricTestDefinition(
+            identifier = report.source().toString(),
+            title = "SHACL Shape",
+            description = "A reference to the SHACL shape used for evaluation",
+            expectedDataType = XSD.xboolean.toString()
+        )
+        val testResult = TestResult(
+            testDefinition = shaclTestDefinition,
+            value = false
+        )
+
+        metric.metricTests.add(shaclTestDefinition)
+
         return Measurement(
             lifecycle,
             metric,
@@ -58,7 +68,7 @@ class ShaclValidationService @Autowired constructor(
             location,
             false,
             SHACL_AGENT,
-            ArrayList()
+            listOf(testResult)
         )
     }
 }
