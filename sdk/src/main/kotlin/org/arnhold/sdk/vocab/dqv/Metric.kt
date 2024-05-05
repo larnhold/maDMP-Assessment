@@ -9,7 +9,7 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DMPDQV
 
 data class Metric (
     val identifier: String,
-    val description: String,
+    var description: String,
     val title: String,
     val inDimension: Dimension,
     val applicableDMPLifeCycles: List<DmpLifecycle> = ArrayList(),

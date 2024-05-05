@@ -14,6 +14,7 @@ import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.vocab.dqv.*
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
+import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.beans.factory.annotation.Autowired
@@ -40,7 +41,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, lifecycle: DataLifecycle): List<Measurement> {
+    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
         logger.info { "Get measurements for all datasets" }
         val query = Path.of(AvailabilityEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
@@ -82,7 +83,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
         return Measurement(
             DmpLifecycle(DataLifecycle.PUBLISHED),
             metric,
-            Guidance("", ""),
+            null,
             DMPLocation(null, dataset, null),
             result.score.earned,
             softwareAgent = SoftareAgents.FUJI,

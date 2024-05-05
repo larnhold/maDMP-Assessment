@@ -10,7 +10,9 @@ import org.apache.jena.reasoner.Reasoner
 import org.apache.jena.reasoner.ReasonerRegistry
 import org.arnhold.evaluator.harvester.dataProvider.DataProviderService
 import org.arnhold.evaluator.indicator.evaluationProvider.EvaluationProviderService
+import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.model.EvaluationTaskResult
+import org.arnhold.sdk.vocab.context.DMPContext
 import org.arnhold.sdk.vocab.dqv.Category
 import org.arnhold.sdk.vocab.dqv.Dimension
 import org.arnhold.sdk.vocab.dqv.Measurement
@@ -35,9 +37,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
             return@runBlocking dataProviderService.loadContext(dmp)
         }
 
-        val measurements = runBlocking(Dispatchers.Default) {
-            return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, context, parameters.dataLifecycle)
-        }
+        val measurements = getMeasurementsDependingOnParameters(dmp, context, parameters)
 
         logger.info { "Created ${measurements.size} measurements" }
 
@@ -50,6 +50,18 @@ class EvaluationManagerServiceImpl @Autowired constructor(
 
         saveMeasurements(result)
         return result
+    }
+
+    private fun getMeasurementsDependingOnParameters(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
+        return runBlocking(Dispatchers.Default) {
+            if (parameters.dimensions != null) {
+                return@runBlocking evaluationProviderService.produceMeasurementsForDimensions(dmp, context, parameters)
+            } else if (parameters.categories != null) {
+                return@runBlocking evaluationProviderService.produceMeasurementsForCategories(dmp, context, parameters)
+            } else {
+                return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, context, parameters)
+            }
+        }
     }
 
     private fun saveMeasurements(result: EvaluationTaskResult) {

@@ -2,7 +2,7 @@ package org.arnhold.evaluator.indicator
 
 import mu.KotlinLogging
 import org.arnhold.evaluator.indicator.evaluationManager.EvaluationManagerService
-import org.arnhold.evaluator.indicator.evaluationManager.EvaluationTaskParameters
+import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.model.EvaluationTaskResult
 import org.arnhold.evaluator.indicator.evaluationManager.EvaluatorInformationDTO
 import org.arnhold.evaluator.indicator.metricAggregation.MetricAggregationService

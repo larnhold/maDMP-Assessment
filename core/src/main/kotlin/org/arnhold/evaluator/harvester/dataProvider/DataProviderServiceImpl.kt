@@ -12,7 +12,7 @@ import org.arnhold.evaluator.configuration.OntologyInfo
 import org.arnhold.evaluator.harvester.contextProvider.ContextProviderService
 import org.arnhold.evaluator.harvester.dmpProvider.DmpProviderService
 import org.arnhold.evaluator.harvester.inferenceEngine.InferenceEngineService
-import org.arnhold.evaluator.indicator.evaluationManager.DMPLoaderParameters
+import org.arnhold.sdk.model.DMPLoaderParameters
 import org.arnhold.sdk.store.DataStoreService
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.beans.factory.annotation.Autowired

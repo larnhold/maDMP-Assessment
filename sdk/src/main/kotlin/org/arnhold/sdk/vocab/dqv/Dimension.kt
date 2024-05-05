@@ -9,7 +9,7 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DMPDQV
 
 data class Dimension(
     val inCategory: Category?,
-    val title: String?,
+    val title: String,
     val description: String?,
     var hasParentDimension: Dimension? = null
 ): RdfResourceProvider() {
@@ -38,7 +38,7 @@ data class Dimension(
 
     override fun hashCode(): Int {
         var result = inCategory?.hashCode() ?: 0
-        result = 31 * result + (title?.hashCode() ?: 0)
+        result = 31 * result + title.hashCode()
         return result
     }
 

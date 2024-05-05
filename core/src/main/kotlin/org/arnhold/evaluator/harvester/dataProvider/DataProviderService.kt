@@ -2,7 +2,7 @@ package org.arnhold.evaluator.harvester.dataProvider
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
-import org.arnhold.evaluator.indicator.evaluationManager.DMPLoaderParameters
+import org.arnhold.sdk.model.DMPLoaderParameters
 import org.arnhold.sdk.vocab.context.DMPContext
 import java.util.UUID
 

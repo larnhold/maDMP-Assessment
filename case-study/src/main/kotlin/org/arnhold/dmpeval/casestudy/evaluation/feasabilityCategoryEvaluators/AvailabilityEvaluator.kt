@@ -12,6 +12,7 @@ import org.arnhold.dmpeval.casestudy.evaluation.SoftareAgents
 import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
+import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.arnhold.sdk.vocab.dqv.*
@@ -48,7 +49,7 @@ class AvailabilityEvaluator @Autowired constructor(
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, lifecycle: DataLifecycle): List<Measurement> {
+    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
         logger.info { "Get all availability measurements" }
         val allMeasurements = getAllIdentifiermeasurements(dmp)+allURIsMeasurements(dmp)
         logger.info { "All Availability measurements calculated: ${allMeasurements.size} results" }
@@ -155,7 +156,7 @@ class AvailabilityEvaluator @Autowired constructor(
         return Measurement(
             DmpLifecycle(DataLifecycle.PUBLISHED),
             metric,
-            Guidance("", ""),
+            null,
             DMPLocation(null, entity, property),
             available.toString(),
             softwareAgent=SoftareAgents.DMPEVAL,

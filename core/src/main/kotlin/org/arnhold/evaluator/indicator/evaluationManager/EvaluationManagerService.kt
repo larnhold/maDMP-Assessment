@@ -1,5 +1,6 @@
 package org.arnhold.evaluator.indicator.evaluationManager
 
+import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.model.EvaluationTaskResult
 import org.arnhold.sdk.vocab.dqv.Category
 import org.arnhold.sdk.vocab.dqv.Dimension

@@ -1,4 +1,4 @@
-package org.arnhold.evaluator.indicator.evaluationManager
+package org.arnhold.sdk.model
 
 data class DMPLoaderParameters (
         val dmpLoader: String = "",
