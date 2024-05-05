@@ -9,20 +9,17 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DMPDQV
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class DMPLocation(
-    val identifier: String?,
     val entity: String?,
     val property: String?
 ): RdfResourceProvider() {
 
-    constructor(identifier: Resource?, entity: Resource?, property: Resource?) : this(
-        identifier?.toString(),
+    constructor( entity: Resource?, property: Resource?) : this(
         entity?.toString(),
         property?.toString()
     )
 
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(
-            DataPropertyDefinition(DMPDQV.IDENTIFIER, identifier),
             DataPropertyDefinition(DMPDQV.ENTITY, entity),
             DataPropertyDefinition(DMPDQV.PROPERTY, property)
         ), listOf(), listOf())

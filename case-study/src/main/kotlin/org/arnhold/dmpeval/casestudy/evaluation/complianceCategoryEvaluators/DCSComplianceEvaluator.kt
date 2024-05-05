@@ -43,7 +43,7 @@ class DCSComplianceEvaluator @Autowired constructor(
             dmp,
             allowedValueLocation,
             ComplianceMetricModels.DCS_WHITELIST_METRIC,
-            ComplianceMetricModels.getDCSWhitelistConformMeasurement(lifecycle, DMPLocation(dmp.toString(), dmp.toString(), "")),
+            ComplianceMetricModels.getDCSWhitelistConformMeasurement(lifecycle, DMPLocation(dmp.toString(), "")),
             lifecycle
         )
     }

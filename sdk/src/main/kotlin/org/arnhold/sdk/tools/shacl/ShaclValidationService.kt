@@ -46,7 +46,7 @@ class ShaclValidationService {
     fun createNotConfirmMeasurement(dmp: Model, lifecycle: DmpLifecycle, metric: Metric, report: ReportEntry): Measurement {
         val missingProperty = report.resultPath().toString()
         val guidance = Guidance("SHACL Report", missingProperty + ": " + report.message())
-        val location = DMPLocation(null, report.focusNode().toString(), null)
+        val location = DMPLocation(report.focusNode().toString(), null)
 
         val shaclTestDefinition = MetricTestDefinition(
             identifier = report.source().toString(),

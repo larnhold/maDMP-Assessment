@@ -157,7 +157,7 @@ class AvailabilityEvaluator @Autowired constructor(
             DmpLifecycle(DataLifecycle.PUBLISHED),
             metric,
             null,
-            DMPLocation(null, entity, property),
+            DMPLocation(entity, property),
             available.toString(),
             softwareAgent=SoftareAgents.DMPEVAL,
         )
