@@ -20,7 +20,7 @@ class DCSComplianceEvaluator @Autowired constructor(
     val shaclValidationService: ShaclValidationService
 ) : EvaluatorPlugin {
 
-    val allowedValueLocation: Path = Path.of("./data/case-study/shapes/dcs-whitelist.ttl")
+    val dcsMultiplicityShapes: Path = Path.of("./data/case-study/shapes/dcs-multiplicity.ttl")
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.DCS_COMPLIANCE.toString()
@@ -35,15 +35,15 @@ class DCSComplianceEvaluator @Autowired constructor(
     }
 
     override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
-        return getWhiteListValuesMeasurements(dmp, DmpLifecycle(parameters.dataLifecycle))
+        return getMultiplicityComplianceMeasurements(dmp, DmpLifecycle(parameters.dataLifecycle))
     }
 
-    fun getWhiteListValuesMeasurements(dmp: Model, lifecycle: DmpLifecycle): List<Measurement> {
+    fun getMultiplicityComplianceMeasurements(dmp: Model, lifecycle: DmpLifecycle): List<Measurement> {
         return shaclValidationService.validateShape(
             dmp,
-            allowedValueLocation,
-            ComplianceMetricModels.DCS_WHITELIST_METRIC,
-            ComplianceMetricModels.getDCSWhitelistConformMeasurement(lifecycle, DMPLocation(dmp.toString(), "")),
+            dcsMultiplicityShapes,
+            ComplianceMetricModels.DCS_MULTIPLICITY_METRIC,
+            DMPLocation(dmp.toString(), ""),
             lifecycle
         )
     }

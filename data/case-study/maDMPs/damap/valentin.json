@@ -1,0 +1,227 @@
+{
+  "dmp": {
+    "contact": {
+      "mbox": "valentin.futterer@tuwien.ac.at",
+      "name": "Valentin Futterer"
+    },
+    "contributor": [
+      {
+        "mbox": "valentin.futterer@tuwien.ac.at",
+        "name": "Valentin Futterer",
+        "role": [
+          "Project Leader"
+        ]
+      }
+    ],
+    "cost": [],
+    "created": 1702466520326,
+    "dataset": [
+      {
+        "description": "Endproduct of the project, contains data on the popularity of programming languages over the timeframe from 2011 to 2023. The popularity is collected per year.",
+        "distribution": [
+          {
+            "access_url": "https://researchdata.tuwien.at/",
+            "byte_size": 100000000,
+            "data_access": "open",
+            "description": "Endproduct of the project, contains data on the popularity of programming languages over the timeframe from 2011 to 2023. The popularity is collected per year.",
+            "format": [
+              "Structured text"
+            ],
+            "host": {
+              "description": "TU Wien Research Data is an institutional repository of TU Wien to enable storing, sharing and publishing of digital objects, in particular research data. It facilitates the funders' requirements for open access to research data and the FAIR principles by making research output findable, accessible, interoperable, and reusable. A DOI is assigned to each dataset published in TU Wien Research Data. This service is developed by the TU Wien Center for Research Data Management and hosted by TU.it.",
+              "pid_system": [
+                "doi"
+              ],
+              "storage_type": "institutional",
+              "support_versioning": "yes",
+              "title": "TU Wien Research Data",
+              "url": "https://researchdata.tuwien.at/"
+            },
+            "license": [
+              {
+                "license_ref": "http://www.opendatacommons.org/licenses/odbl/1.0/"
+              }
+            ],
+            "title": "usage_of_programming_languages_2011-2023"
+          },
+          {
+            "access_url": "https://www.it.tuwien.ac.at/en/services/cooperation-and-communication/data-storage/tuowncloud-sync-and-share",
+            "byte_size": 100000000,
+            "data_access": "open",
+            "description": "Endproduct of the project, contains data on the popularity of programming languages over the timeframe from 2011 to 2023. The popularity is collected per year.",
+            "format": [
+              "Structured text"
+            ],
+            "host": {
+              "description": "TUownCloud is a sync&share service provided by TU.it for TU Wien members. It runs on TU.it servers and offers features known from public cloud systems such as Dropbox, for example, the exchange of data with authorized persons. Deleted files can be recovered within 180 days.",
+              "title": "TUownCloud",
+              "url": "https://www.it.tuwien.ac.at/en/services/cooperation-and-communication/data-storage/tuowncloud-sync-and-share"
+            },
+            "license": [
+              {
+                "license_ref": "http://www.opendatacommons.org/licenses/odbl/1.0/"
+              }
+            ],
+            "title": "usage_of_programming_languages_2011-2023"
+          },
+          {
+            "byte_size": 100000000,
+            "data_access": "open",
+            "description": "Endproduct of the project, contains data on the popularity of programming languages over the timeframe from 2011 to 2023. The popularity is collected per year.",
+            "format": [
+              "Structured text"
+            ],
+            "host": {
+              "backup_frequency": "Never"
+            },
+            "license": [
+              {
+                "license_ref": "http://www.opendatacommons.org/licenses/odbl/1.0/"
+              }
+            ],
+            "title": "usage_of_programming_languages_2011-2023"
+          }
+        ],
+        "personal_data": "no",
+        "security_and_privacy": [],
+        "sensitive_data": "no",
+        "title": "usage_of_programming_languages_2011-2023",
+        "type": "Structured text"
+      },
+      {
+        "description": "Taken from https://insights.stackoverflow.com/survey. It is licensed under Open Data Commons Open Database License (ODbL) v1.0 https://opendatacommons.org/licenses/odbl/1-0/. It shows from 2011 to 2023 the results of the yearly stackoverflow developer survey. The dataset itself is not changed by any means, but it is used together with other data to to generate a new dataset.",
+        "distribution": [
+          {
+            "access_url": "https://www.it.tuwien.ac.at/en/services/cooperation-and-communication/data-storage/tuowncloud-sync-and-share",
+            "data_access": "open",
+            "description": "Taken from https://insights.stackoverflow.com/survey. It is licensed under Open Data Commons Open Database License (ODbL) v1.0 https://opendatacommons.org/licenses/odbl/1-0/. It shows from 2011 to 2023 the results of the yearly stackoverflow developer survey. The dataset itself is not changed by any means, but it is used together with other data to to generate a new dataset.",
+            "format": [],
+            "host": {
+              "description": "TUownCloud is a sync&share service provided by TU.it for TU Wien members. It runs on TU.it servers and offers features known from public cloud systems such as Dropbox, for example, the exchange of data with authorized persons. Deleted files can be recovered within 180 days.",
+              "title": "TUownCloud",
+              "url": "https://www.it.tuwien.ac.at/en/services/cooperation-and-communication/data-storage/tuowncloud-sync-and-share"
+            },
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/4.0/legalcode"
+              }
+            ],
+            "title": "stack_overflow_developer_survey"
+          },
+          {
+            "data_access": "open",
+            "description": "Taken from https://insights.stackoverflow.com/survey. It is licensed under Open Data Commons Open Database License (ODbL) v1.0 https://opendatacommons.org/licenses/odbl/1-0/. It shows from 2011 to 2023 the results of the yearly stackoverflow developer survey. The dataset itself is not changed by any means, but it is used together with other data to to generate a new dataset.",
+            "format": [],
+            "host": {
+              "backup_frequency": "Never"
+            },
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/4.0/legalcode"
+              }
+            ],
+            "title": "stack_overflow_developer_survey"
+          }
+        ],
+        "personal_data": "no",
+        "security_and_privacy": [],
+        "sensitive_data": "no",
+        "title": "stack_overflow_developer_survey",
+        "type": ""
+      },
+      {
+        "description": "It shows from 2004 to 2023 for each month the share of programming related google searches per language.",
+        "distribution": [
+          {
+            "access_url": "https://www.it.tuwien.ac.at/en/services/cooperation-and-communication/data-storage/tuowncloud-sync-and-share",
+            "data_access": "open",
+            "description": "It shows from 2004 to 2023 for each month the share of programming related google searches per language.",
+            "format": [],
+            "host": {
+              "description": "TUownCloud is a sync&share service provided by TU.it for TU Wien members. It runs on TU.it servers and offers features known from public cloud systems such as Dropbox, for example, the exchange of data with authorized persons. Deleted files can be recovered within 180 days.",
+              "title": "TUownCloud",
+              "url": "https://www.it.tuwien.ac.at/en/services/cooperation-and-communication/data-storage/tuowncloud-sync-and-share"
+            },
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/4.0/legalcode"
+              }
+            ],
+            "title": "PYPL_survey_2004-2023"
+          },
+          {
+            "data_access": "open",
+            "description": "It shows from 2004 to 2023 for each month the share of programming related google searches per language.",
+            "format": [],
+            "host": {
+              "backup_frequency": "Never"
+            },
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/4.0/legalcode"
+              }
+            ],
+            "title": "PYPL_survey_2004-2023"
+          }
+        ],
+        "personal_data": "no",
+        "security_and_privacy": [],
+        "sensitive_data": "no",
+        "title": "PYPL_survey_2004-2023",
+        "type": ""
+      },
+      {
+        "description": "It shows metadata information (no code) of all github repositories with more than 5 stars. This metadata is then used to extract the usage percentage of languages on github by each year from 2011 to 2023.",
+        "distribution": [
+          {
+            "access_url": "https://www.it.tuwien.ac.at/en/services/cooperation-and-communication/data-storage/tuowncloud-sync-and-share",
+            "data_access": "open",
+            "description": "It shows metadata information (no code) of all github repositories with more than 5 stars. This metadata is then used to extract the usage percentage of languages on github by each year from 2011 to 2023.",
+            "format": [],
+            "host": {
+              "description": "TUownCloud is a sync&share service provided by TU.it for TU Wien members. It runs on TU.it servers and offers features known from public cloud systems such as Dropbox, for example, the exchange of data with authorized persons. Deleted files can be recovered within 180 days.",
+              "title": "TUownCloud",
+              "url": "https://www.it.tuwien.ac.at/en/services/cooperation-and-communication/data-storage/tuowncloud-sync-and-share"
+            },
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/4.0/legalcode"
+              }
+            ],
+            "title": "github_metadata"
+          },
+          {
+            "data_access": "open",
+            "description": "It shows metadata information (no code) of all github repositories with more than 5 stars. This metadata is then used to extract the usage percentage of languages on github by each year from 2011 to 2023.",
+            "format": [],
+            "host": {
+              "backup_frequency": "Never"
+            },
+            "license": [
+              {
+                "license_ref": "https://creativecommons.org/licenses/by/4.0/legalcode"
+              }
+            ],
+            "title": "github_metadata"
+          }
+        ],
+        "personal_data": "no",
+        "security_and_privacy": [],
+        "sensitive_data": "no",
+        "title": "github_metadata",
+        "type": ""
+      }
+    ],
+    "ethical_issues_exist": "no",
+    "modified": 1712219111490,
+    "project": [
+      {
+        "description": "This project aims at getting an accurate overview, of how the popularity of programming languages shifted over the last 12 years. It aims to analyze puplicy available data to generate a final dataset, that puts information from different sources together.",
+        "end": "2023-12-13 23:00:00.0",
+        "funding": [],
+        "start": "2023-11-13 23:00:00.0",
+        "title": "Programming Language Ecosystem Project"
+      }
+    ]
+  }
+}

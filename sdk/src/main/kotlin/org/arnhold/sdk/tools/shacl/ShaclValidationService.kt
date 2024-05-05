@@ -24,7 +24,7 @@ class ShaclValidationService {
     fun validateShape(dmp: Model,
                       shapesPath: Path,
                       metric: Metric,
-                      conformsMeasurement: Measurement,
+                      dmpRoot: DMPLocation,
                       lifecycle: DmpLifecycle
     ): List<Measurement> {
         val shapesModel = ModelFactory.createOntologyModel()
@@ -37,10 +37,22 @@ class ShaclValidationService {
         val report: ValidationReport = ShaclValidator.get().validate(shapes, graph)
 
         return if (report.conforms()) {
-            listOf(conformsMeasurement)
+            listOf(getConformsMetric(lifecycle, dmpRoot, metric))
         } else {
             report.entries.map { createNotConfirmMeasurement(dmp, lifecycle, metric, it)}
         }
+    }
+
+    fun getConformsMetric(lifecycle: DmpLifecycle, dmpRoot: DMPLocation, metric: Metric): Measurement {
+        return Measurement(
+            lifecycle,
+            metric,
+            null,
+            dmpRoot,
+            true,
+            SHACL_AGENT,
+            ArrayList()
+        )
     }
 
     fun createNotConfirmMeasurement(dmp: Model, lifecycle: DmpLifecycle, metric: Metric, report: ReportEntry): Measurement {
@@ -59,7 +71,7 @@ class ShaclValidationService {
             value = false
         )
 
-        metric.metricTests.add(shaclTestDefinition)
+        //metric.metricTests.add(shaclTestDefinition)
 
         return Measurement(
             lifecycle,
@@ -68,7 +80,7 @@ class ShaclValidationService {
             location,
             false,
             SHACL_AGENT,
-            listOf(testResult)
+            null
         )
     }
 }

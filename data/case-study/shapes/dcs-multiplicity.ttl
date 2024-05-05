@@ -1,0 +1,364 @@
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix dcso: <https://w3id.org/dcso/ns/core#>.
+@prefix : <https://w3id.org/validation/ns/core#>.
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+:DMPCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:DMP ;
+    sh:property [
+                    sh:path dcso:hasContact ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:created ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:hasId ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:ethicalIssuesExist ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:ethicalIssuesReport ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:ethicalIssuesDescription ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:language ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:modified ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:title ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:ContactCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Contact ;
+    sh:property [
+                    sh:path dcso:hasId ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path foaf:mbox ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path foaf:name ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:IdCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Id ;
+    sh:property [
+                    sh:path dcso:dentifier ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:type ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:ContributorCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Contributor ;
+    sh:property [
+                    sh:path dcso:hasContributorId ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path foaf:mbox ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path foaf:name ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:role ;
+                    sh:minCount 1 ;
+                ] .
+
+####################################
+
+:CostCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Cost ;
+    sh:property [
+                    sh:path dcso:curencyCode ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:description ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:value ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:title ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:DatasetCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Dataset ;
+    sh:property [
+                    sh:path dcso:hasDatasetId ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:description ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:issued ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:language ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:personalData ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:preservationStatement ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:sensitiveData ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:datasetType ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:title ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:DistributionCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Distribution ;
+    sh:property [
+                    sh:path dcso:accessURL ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:availableUntil ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:byteSize ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:dataAccess ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:description ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:downloadURL ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:host ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:title ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:FundingCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Funding ;
+    sh:property [
+                    sh:path dcso:hasGrantId ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:fundingStatus ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:hasId ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:HostCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Host ;
+    sh:property [
+                    sh:path dcso:availability ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:backupFrequency ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:backupType ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:certifiedWith ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:description ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:geoLocation ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:storageType ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:supportVersioning ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:title ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:url ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:LicenseCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:License ;
+    sh:property [
+                    sh:path dcso:licenseRef ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:startDate ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:MetadataCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Metadata ;
+    sh:property [
+                    sh:path terms:description ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:language ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:hasMetadataStandardId ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:ProjectCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Metadata ;
+    sh:property [
+                    sh:path terms:description ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:end ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path dcso:start ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:title ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:SecurityAndPrivacyCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:Metadata ;
+    sh:property [
+                    sh:path terms:description ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path terms:title ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .
+
+####################################
+
+:TechnicalResourceCompletenessShape a sh:NodeShape ;
+    sh:targetClass dcso:TechnicalResource ;
+    sh:property [
+                    sh:path terms:description ;
+                    sh:maxCount 1 ;
+                ] ;
+    sh:property [
+                    sh:path foaf:name ;
+                    sh:minCount 1 ;
+                    sh:maxCount 1 ;
+                ] .

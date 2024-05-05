@@ -16,7 +16,7 @@ data class Measurement(
     val computedOn: DMPLocation,
     val value: Any,
     val softwareAgent: SoftwareAgent?,
-    val testResults: List<TestResult> = ArrayList()
+    val testResults: List<TestResult>? = null
 ): RdfResourceProvider() {
     override fun toResource(model: Model, name: String): Resource {
         return super.toResource(model, name, listOf(

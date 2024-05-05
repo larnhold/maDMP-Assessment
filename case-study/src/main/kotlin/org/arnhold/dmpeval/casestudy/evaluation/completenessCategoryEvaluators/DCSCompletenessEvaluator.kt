@@ -7,11 +7,20 @@ import org.arnhold.sdk.vocab.dqv.Measurement
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
+import org.arnhold.sdk.tools.shacl.ShaclValidationService
 import org.arnhold.sdk.vocab.context.DMPContext
+import org.arnhold.sdk.vocab.dqv.DMPLocation
+import org.arnhold.sdk.vocab.dqv.DmpLifecycle
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
+import java.nio.file.Path
 
 @Component
-class DCSCompletenessEvaluator : EvaluatorPlugin {
+class DCSCompletenessEvaluator @Autowired constructor(
+    val shaclValidationService: ShaclValidationService
+) : EvaluatorPlugin {
+
+    val dcsCompletenessShapes: Path = Path.of("./data/case-study/shapes/dcs-completeness.ttl")
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.DCS_COMPLETENESS.toString()
@@ -26,10 +35,20 @@ class DCSCompletenessEvaluator : EvaluatorPlugin {
     }
 
     override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
-        return listOf()
+        return getCompletenessValuesMeasurements(dmp, DmpLifecycle(parameters.dataLifecycle))
+    }
+
+    fun getCompletenessValuesMeasurements(dmp: Model, lifecycle: DmpLifecycle): List<Measurement> {
+        return shaclValidationService.validateShape(
+            dmp,
+            dcsCompletenessShapes,
+            CompletenessMetricModels.DCS_COMPLETENESS_METRIC,
+            DMPLocation(dmp.toString(), null),
+            lifecycle
+        )
     }
 
     override fun supports(p0: String): Boolean {
-        return true
+        return EvaluationDimensionConstants.DCS_COMPLETENESS.toString() == p0
     }
 }
