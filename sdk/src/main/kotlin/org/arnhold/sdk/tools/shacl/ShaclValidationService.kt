@@ -9,6 +9,7 @@ import org.apache.jena.shacl.Shapes
 import org.apache.jena.shacl.ValidationReport
 import org.apache.jena.shacl.validation.ReportEntry
 import org.apache.jena.vocabulary.XSD
+import org.arnhold.sdk.model.SoftareAgents
 import org.arnhold.sdk.vocab.dqv.*
 import org.springframework.stereotype.Service
 import java.io.FileInputStream
@@ -16,10 +17,6 @@ import java.nio.file.Path
 
 @Service
 class ShaclValidationService {
-
-    companion object {
-        val SHACL_AGENT = SoftwareAgent("Apache Jena SHACL Validator", null)
-    }
 
     fun validateShape(dmp: Model,
                       shapesPath: Path,
@@ -50,7 +47,7 @@ class ShaclValidationService {
             null,
             dmpRoot,
             true,
-            SHACL_AGENT,
+            SoftareAgents.SHACL_AGENT,
             ArrayList()
         )
     }
@@ -79,7 +76,7 @@ class ShaclValidationService {
             guidance,
             location,
             false,
-            SHACL_AGENT,
+            SoftareAgents.SHACL_AGENT,
             null
         )
     }

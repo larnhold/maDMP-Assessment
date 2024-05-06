@@ -6,9 +6,9 @@ import okhttp3.Request
 import org.apache.commons.validator.routines.UrlValidator
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
-import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
-import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
-import org.arnhold.dmpeval.casestudy.evaluation.SoftareAgents
+import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.sdk.model.EvaluationDimensionConstants
+import org.arnhold.sdk.model.SoftareAgents
 import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
@@ -159,7 +159,7 @@ class AvailabilityEvaluator @Autowired constructor(
             null,
             DMPLocation(entity, property),
             available.toString(),
-            softwareAgent=SoftareAgents.DMPEVAL,
+            softwareAgent= SoftareAgents.DMPEVAL,
         )
     }
 

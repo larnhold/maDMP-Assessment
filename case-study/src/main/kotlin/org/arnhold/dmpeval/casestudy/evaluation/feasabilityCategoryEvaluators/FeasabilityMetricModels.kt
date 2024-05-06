@@ -2,7 +2,7 @@ package org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators
 
 import org.apache.jena.rdf.model.Resource
 import org.apache.jena.vocabulary.XSD
-import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
+import org.arnhold.sdk.model.CategoryDimmensionModels
 import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.vocab.dqv.DmpLifecycle
 import org.arnhold.sdk.vocab.dqv.Metric

@@ -2,7 +2,7 @@ package org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluat
 
 import org.apache.jena.rdf.model.Resource
 import org.apache.jena.vocabulary.XSD
-import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
+import org.arnhold.sdk.model.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
 import org.arnhold.sdk.vocab.constants.DataLifecycle

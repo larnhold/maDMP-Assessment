@@ -1,8 +1,8 @@
 package org.arnhold.dmpeval.casestudy.evaluation.complianceCategoryEvaluators
 
 import org.apache.jena.rdf.model.Model
-import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
-import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
+import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
@@ -11,15 +11,15 @@ import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.stereotype.Component
 
 @Component
-class ExtensionComplianceEvaluator : EvaluatorPlugin {
+class ScienceEuropeExtensionComplianceEvaluator : EvaluatorPlugin {
 
     override fun getPluginIdentifier(): String {
-        return EvaluationDimensionConstants.EXTENSION_COMPLIANCE.toString()
+        return EvaluationDimensionConstants.SCIENCE_EUROPE_EXTENSION_COMPLIANCE.toString()
     }
 
     override fun getPluginInformation(): EvaluatorInformation {
         return EvaluatorInformation(
-            CategoryDimmensionModels.EXTENSION_COMPLIANCE_DIMENSION,
+            CategoryDimmensionModels.SCIENCE_EUROPE_EXTENSION_COMPLIANCE_DIMENSION,
             CategoryDimmensionModels.COMPLIANCE_CATEGORY,
             listOf()
         )
@@ -30,6 +30,6 @@ class ExtensionComplianceEvaluator : EvaluatorPlugin {
     }
 
     override fun supports(p0: String): Boolean {
-        return true
+        return EvaluationDimensionConstants.SCIENCE_EUROPE_EXTENSION_COMPLIANCE.toString() == p0
     }
 }

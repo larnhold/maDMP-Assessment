@@ -1,8 +1,8 @@
-package org.arnhold.dmpeval.casestudy.evaluation
+package org.arnhold.sdk.model
 
 enum class EvaluationDimensionConstants(title: String) {
     DCS_COMPLETENESS("dcs_completeness"),
-    EXTENSION_COMPLETENESS("extension_completeness"),
+    SCIENCE_EUROPE_EXTENSION_COMPLETENESS("science_europe_extension_completeness"),
     ACCURACY("accuracy"),
     AVAILABILITY("availability"),
     FAIR("FAIR"),
@@ -12,5 +12,5 @@ enum class EvaluationDimensionConstants(title: String) {
     REUSABLE("reusable"),
     GUIDELINE_COMPLIANCE("guideline_compliance"),
     DCS_COMPLIANCE("dcs_compliance"),
-    EXTENSION_COMPLIANCE("extension_compliance")
+    SCIENCE_EUROPE_EXTENSION_COMPLIANCE("extension_compliance")
 }

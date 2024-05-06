@@ -1,8 +1,8 @@
 package org.arnhold.dmpeval.casestudy.evaluation.completenessCategoryEvaluators
 
 import org.apache.jena.rdf.model.Model
-import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
-import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
+import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
@@ -11,15 +11,15 @@ import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.stereotype.Component
 
 @Component
-class ExtensionCompletenessEvaluator : EvaluatorPlugin {
+class ScienceEuropeExtensionCompletenessEvaluator : EvaluatorPlugin {
 
     override fun getPluginIdentifier(): String {
-        return EvaluationDimensionConstants.EXTENSION_COMPLETENESS.toString()
+        return EvaluationDimensionConstants.SCIENCE_EUROPE_EXTENSION_COMPLETENESS.toString()
     }
 
     override fun getPluginInformation(): EvaluatorInformation {
         return EvaluatorInformation(
-            CategoryDimmensionModels.EXTENSION_COMPLETENESS_DIMENSION,
+            CategoryDimmensionModels.SCIENCE_EUROPE_EXTENSION_COMPLETENESS_DIMENSION,
             CategoryDimmensionModels.COMPLETENSS_CATEGORY,
             listOf()
         )
@@ -30,6 +30,6 @@ class ExtensionCompletenessEvaluator : EvaluatorPlugin {
     }
 
     override fun supports(p0: String): Boolean {
-        TODO("Not yet implemented")
+        return EvaluationDimensionConstants.SCIENCE_EUROPE_EXTENSION_COMPLETENESS.toString() == p0
     }
 }

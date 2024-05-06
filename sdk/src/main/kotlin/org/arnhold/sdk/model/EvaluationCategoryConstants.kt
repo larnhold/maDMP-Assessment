@@ -1,4 +1,4 @@
-package org.arnhold.dmpeval.casestudy.evaluation
+package org.arnhold.sdk.model
 
 enum class EvaluationCategoryConstants(title: String) {
     COMPLETENESS("completeness"),

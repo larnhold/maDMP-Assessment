@@ -1,8 +1,8 @@
 package org.arnhold.dmpeval.casestudy.evaluation.completenessCategoryEvaluators
 
 import org.apache.jena.rdf.model.Model
-import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
-import org.arnhold.dmpeval.casestudy.evaluation.EvaluationDimensionConstants
+import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
