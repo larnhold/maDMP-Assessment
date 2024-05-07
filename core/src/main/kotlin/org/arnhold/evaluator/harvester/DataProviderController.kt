@@ -6,6 +6,7 @@ import org.apache.jena.rdf.model.Model
 import org.arnhold.evaluator.harvester.dataProvider.DataProviderService
 import org.arnhold.sdk.model.DMPLoaderParameters
 import org.arnhold.evaluator.plugin.PluginLoader
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -20,7 +21,7 @@ class DataProviderController @Autowired constructor(
 ) {
 
     @GetMapping("extensions")
-    fun getExtensions(): List<String> {
+    fun getExtensions(): List<Extension> {
         return dataProviderService.getExtensions().map { it.key }
     }
 

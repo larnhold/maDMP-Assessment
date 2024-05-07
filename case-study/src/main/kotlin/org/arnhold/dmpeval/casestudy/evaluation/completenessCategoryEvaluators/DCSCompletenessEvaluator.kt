@@ -9,6 +9,7 @@ import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.tools.shacl.ShaclValidationService
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.arnhold.sdk.vocab.dqv.DMPLocation
 import org.arnhold.sdk.vocab.dqv.DmpLifecycle
@@ -40,7 +41,7 @@ class DCSCompletenessEvaluator @Autowired constructor(
         context: List<DMPContext>,
         parameters: EvaluationTaskParameters,
         dmpOntology: OntModel,
-        extensionOntologies: Map<String, OntModel>
+        extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         return getCompletenessValuesMeasurements(dmp, DmpLifecycle(parameters.dataLifecycle))
     }

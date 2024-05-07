@@ -5,6 +5,7 @@ import org.apache.jena.rdf.model.Model
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.vocab.dqv.Measurement
 import org.arnhold.sdk.plugin.ConfigurablePlugin
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 
 interface EvaluatorPlugin: ConfigurablePlugin<String, EvaluatorInformation> {
@@ -13,6 +14,6 @@ interface EvaluatorPlugin: ConfigurablePlugin<String, EvaluatorInformation> {
         context: List<DMPContext>,
         parameters: EvaluationTaskParameters,
         dmpOntology: OntModel,
-        extensionOntologies: Map<String, OntModel>
+        extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement>
 }

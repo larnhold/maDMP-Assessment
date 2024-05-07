@@ -3,6 +3,7 @@ package org.arnhold.evaluator.harvester.dataProvider
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.arnhold.sdk.model.DMPLoaderParameters
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import java.util.UUID
 
@@ -12,7 +13,7 @@ interface DataProviderService {
 
     fun getDMPDQVOntology(): OntModel
 
-    fun getExtensions(): Map<String, OntModel>
+    fun getExtensions(): Map<Extension, OntModel>
 
     suspend fun loadContext(model: Model): List<DMPContext>
 

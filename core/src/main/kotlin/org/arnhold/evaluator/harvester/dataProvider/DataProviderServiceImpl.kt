@@ -14,6 +14,7 @@ import org.arnhold.evaluator.harvester.dmpProvider.DmpProviderService
 import org.arnhold.evaluator.harvester.inferenceEngine.InferenceEngineService
 import org.arnhold.sdk.model.DMPLoaderParameters
 import org.arnhold.sdk.store.DataStoreService
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -53,7 +54,7 @@ class DataProviderServiceImpl @Autowired constructor(
         return dmpdqv
     }
 
-    override fun getExtensions(): Map<String, OntModel> {
+    override fun getExtensions(): Map<Extension, OntModel> {
         logger.info { "Load Extensions Ontologies" }
         val extensionInfo: List<OntologyInfo> = extensionConfig.ontologies
         return extensionInfo.associate { item ->

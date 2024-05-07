@@ -13,6 +13,7 @@ import org.arnhold.evaluator.harvester.dataProvider.DataProviderService
 import org.arnhold.evaluator.indicator.evaluationProvider.EvaluationProviderService
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.model.EvaluationTaskResult
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.arnhold.sdk.vocab.dqv.Category
 import org.arnhold.sdk.vocab.dqv.Dimension
@@ -34,7 +35,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         val dmpStoreId = dataProviderService.loadDMP(parameters.dmpLoaderParameters)
         val dmp = dataProviderService.getModel(dmpStoreId)
         val dmpOntology: OntModel = dataProviderService.getDCSOntology()
-        val extensions: Map<String, OntModel> = dataProviderService.getExtensions()
+        val extensions: Map<Extension, OntModel> = dataProviderService.getExtensions()
 
         val context = runBlocking(Dispatchers.Default) {
             return@runBlocking dataProviderService.loadContext(dmp)
@@ -60,7 +61,7 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         context: List<DMPContext>,
         parameters: EvaluationTaskParameters,
         dmpOntology: OntModel,
-        extensionOntologies: Map<String, OntModel>
+        extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         return runBlocking(Dispatchers.Default) {
             if (parameters.dimensions != null) {

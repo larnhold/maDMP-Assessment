@@ -17,6 +17,7 @@ import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -47,7 +48,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
         context: List<DMPContext>,
         parameters: EvaluationTaskParameters,
         dmpOntology: OntModel,
-        extensionOntologies: Map<String, OntModel>
+        extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         logger.info { "Get measurements for all datasets" }
         val query = Path.of(AvailabilityEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)

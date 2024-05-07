@@ -5,5 +5,5 @@ ontology:
   DMPDQVLocation: "./data/ontologies/dmp-dqv.ttl"
 extension:
   ontologies:
-    - name: "FunderExtension"
+    - name: "science-europe"
       location: "./data/ontologies/dcs-funder-1.0.ttl"

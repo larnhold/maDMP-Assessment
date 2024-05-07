@@ -9,6 +9,7 @@ import org.apache.jena.rdf.model.Model
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.evaluator.plugin.PluginLoader
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.arnhold.sdk.vocab.dqv.Measurement
 import org.springframework.beans.factory.annotation.Autowired
@@ -31,7 +32,7 @@ class EvaluationProviderServiceImpl @Autowired constructor(
         context: List<DMPContext>,
         parameters: EvaluationTaskParameters,
         dmpOntology: OntModel,
-        extensionOntologies: Map<String, OntModel>
+        extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         logger.info { "Produce all available metrics for lifecycle ${parameters.dataLifecycle}" }
         return coroutineScope {
@@ -44,7 +45,7 @@ class EvaluationProviderServiceImpl @Autowired constructor(
         context: List<DMPContext>,
         parameters: EvaluationTaskParameters,
         dmpOntology: OntModel,
-        extensionOntologies: Map<String, OntModel>
+        extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         logger.info { "Produce all available metrics for lifecycle ${parameters.dataLifecycle} and Dimensions ${parameters.dimensions}" }
         return coroutineScope {
@@ -62,7 +63,7 @@ class EvaluationProviderServiceImpl @Autowired constructor(
         context: List<DMPContext>,
         parameters: EvaluationTaskParameters,
         dmpOntology: OntModel,
-        extensionOntologies: Map<String, OntModel>
+        extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         logger.info { "Produce all available metrics for lifecycle ${parameters.dataLifecycle} and Categories ${parameters.categories}" }
         return coroutineScope {

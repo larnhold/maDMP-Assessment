@@ -8,6 +8,7 @@ import org.arnhold.sdk.vocab.dqv.Measurement
 import org.arnhold.sdk.evaluator.EvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
+import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.stereotype.Component
 
@@ -31,7 +32,7 @@ class ScienceEuropeExtensionComplianceEvaluator : EvaluatorPlugin {
         context: List<DMPContext>,
         parameters: EvaluationTaskParameters,
         dmpOntology: OntModel,
-        extensionOntologies: Map<String, OntModel>
+        extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         return listOf()
     }
