@@ -1,11 +1,11 @@
-package org.arnhold.dmpeval.casestudy.evaluation.complianceCategoryEvaluators
+package org.arnhold.dmpeval.casestudy.evaluation.completenessCategoryEvaluators
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
-import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
-import org.arnhold.sdk.evaluator.EvaluatorPlugin
+import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.vocab.constants.Extension
@@ -13,16 +13,16 @@ import org.arnhold.sdk.vocab.context.DMPContext
 import org.springframework.stereotype.Component
 
 @Component
-class GuidelineComplianceEvaluator : EvaluatorPlugin {
+class ScienceEuropeExtensionCompletenessDimensionEvaluator : DimensionEvaluatorPlugin {
 
     override fun getPluginIdentifier(): String {
-        return EvaluationDimensionConstants.GUIDELINE_COMPLIANCE.toString()
+        return EvaluationDimensionConstants.SCIENCE_EUROPE_EXTENSION_COMPLETENESS.toString()
     }
 
     override fun getPluginInformation(): EvaluatorInformation {
         return EvaluatorInformation(
-            CategoryDimmensionModels.GUIDELINE_COMPLIANCE_DIMENSION,
-            CategoryDimmensionModels.COMPLIANCE_CATEGORY,
+            CategoryDimmensionModels.SCIENCE_EUROPE_EXTENSION_COMPLETENESS_DIMENSION,
+            CategoryDimmensionModels.COMPLETENSS_CATEGORY,
             listOf()
         )
     }
@@ -34,10 +34,18 @@ class GuidelineComplianceEvaluator : EvaluatorPlugin {
         dmpOntology: OntModel,
         extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
+        return if (extensionOntologies.containsKey(Extension.SCIENCE_EUROPE)) {
+            produceMeasurements()
+        } else {
+            listOf()
+        }
+    }
+
+    private fun produceMeasurements(): List<Measurement> {
         return listOf()
     }
 
     override fun supports(p0: String): Boolean {
-        return true
+        return EvaluationDimensionConstants.SCIENCE_EUROPE_EXTENSION_COMPLETENESS.toString() == p0
     }
 }

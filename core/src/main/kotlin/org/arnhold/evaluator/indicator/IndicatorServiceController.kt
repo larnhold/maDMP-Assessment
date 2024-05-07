@@ -44,6 +44,6 @@ class IndicatorServiceController @Autowired constructor(
 
     @GetMapping("info/evaluators")
     fun getEvaluatorInformation(): List<EvaluatorInformationDTO> {
-        return evaluationManagerService.getEvaluatorInformation().mapNotNull { EvaluatorInformationDTO(it.key.title, it.value.mapNotNull { it2 -> it2.title }) }
+        return evaluationManagerService.getEvaluatorInformation().mapNotNull { EvaluatorInformationDTO(it.key.title, it.value.map { it2 -> it2.title }) }
     }
 }

@@ -13,7 +13,7 @@ data class Metric (
     val identifier: String,
     var description: String,
     val title: String,
-    val inDimension: Dimension,
+    val inDimension: Dimension?,
     val applicableDMPLifeCycles: List<DmpLifecycle> = ArrayList(),
     val expectedDataType: String,
     var metricTests: MutableList<MetricTestDefinition> = ArrayList(),

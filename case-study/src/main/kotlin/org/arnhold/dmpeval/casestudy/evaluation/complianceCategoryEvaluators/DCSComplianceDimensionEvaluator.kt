@@ -2,10 +2,10 @@ package org.arnhold.dmpeval.casestudy.evaluation.complianceCategoryEvaluators
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
-import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
-import org.arnhold.sdk.evaluator.EvaluatorPlugin
+import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.tools.shacl.ShaclValidationService
@@ -18,9 +18,9 @@ import org.springframework.stereotype.Component
 import java.nio.file.Path
 
 @Component
-class DCSComplianceEvaluator @Autowired constructor(
+class DCSComplianceDimensionEvaluator @Autowired constructor(
     val shaclValidationService: ShaclValidationService
-) : EvaluatorPlugin {
+) : DimensionEvaluatorPlugin {
 
     val dcsMultiplicityShapes: Path = Path.of("./data/case-study/shapes/dcs-multiplicity.ttl")
 
@@ -32,7 +32,7 @@ class DCSComplianceEvaluator @Autowired constructor(
         return EvaluatorInformation(
             CategoryDimmensionModels.DCS_COMPLIANCE_DIMENSION,
             CategoryDimmensionModels.COMPLIANCE_CATEGORY,
-            listOf()
+            listOf(ComplianceMetricModels.DCS_MULTIPLICITY_METRIC, ComplianceMetricModels.DCS_WHITELIST_METRIC)
         )
     }
 
@@ -54,6 +54,10 @@ class DCSComplianceEvaluator @Autowired constructor(
             DMPLocation(dmp.toString(), ""),
             lifecycle
         )
+    }
+
+    fun getWhitelistComplianceMeasurements(dmp: Model, lifecycle: DmpLifecycle): List<Measurement> {
+        return listOf()
     }
 
     override fun supports(p0: String): Boolean {

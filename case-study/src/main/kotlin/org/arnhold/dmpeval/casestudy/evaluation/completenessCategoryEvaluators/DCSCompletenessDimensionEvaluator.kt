@@ -2,10 +2,10 @@ package org.arnhold.dmpeval.casestudy.evaluation.completenessCategoryEvaluators
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
-import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
-import org.arnhold.sdk.evaluator.EvaluatorPlugin
+import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.tools.shacl.ShaclValidationService
@@ -18,9 +18,9 @@ import org.springframework.stereotype.Component
 import java.nio.file.Path
 
 @Component
-class DCSCompletenessEvaluator @Autowired constructor(
+class DCSCompletenessDimensionEvaluator @Autowired constructor(
     val shaclValidationService: ShaclValidationService
-) : EvaluatorPlugin {
+) : DimensionEvaluatorPlugin {
 
     val dcsCompletenessShapes: Path = Path.of("./data/case-study/shapes/dcs-completeness.ttl")
 
@@ -32,7 +32,9 @@ class DCSCompletenessEvaluator @Autowired constructor(
         return EvaluatorInformation(
             CategoryDimmensionModels.DCS_COMPLETENESS_DIMENSION,
             CategoryDimmensionModels.COMPLETENSS_CATEGORY,
-            listOf()
+            listOf(
+                CompletenessMetricModels.REQUIRED_ENTITY_OR_PROPERTY_EXISTENT_METRIC
+            )
         )
     }
 
@@ -50,7 +52,7 @@ class DCSCompletenessEvaluator @Autowired constructor(
         return shaclValidationService.validateShape(
             dmp,
             dcsCompletenessShapes,
-            CompletenessMetricModels.DCS_COMPLETENESS_METRIC,
+            CompletenessMetricModels.REQUIRED_ENTITY_OR_PROPERTY_EXISTENT_METRIC,
             DMPLocation(dmp.toString(), null),
             lifecycle
         )

@@ -8,7 +8,7 @@ import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.evaluator.plugin.PluginLoader
-import org.arnhold.sdk.evaluator.EvaluatorPlugin
+import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 import org.arnhold.sdk.vocab.dqv.Measurement
@@ -22,7 +22,7 @@ class EvaluationProviderServiceImpl @Autowired constructor(
 
     private val logger = KotlinLogging.logger {}
 
-    override fun getAllEvaluators(): List<EvaluatorPlugin> {
+    override fun getAllEvaluators(): List<DimensionEvaluatorPlugin> {
         logger.info { "Get instance of all evaluators" }
         return pluginLoader.getEvaluators()
     }
@@ -49,12 +49,16 @@ class EvaluationProviderServiceImpl @Autowired constructor(
     ): List<Measurement> {
         logger.info { "Produce all available metrics for lifecycle ${parameters.dataLifecycle} and Dimensions ${parameters.dimensions}" }
         return coroutineScope {
-            val applicableEvaluators = getAllEvaluators()
-                .filter { evaluator ->
-                    parameters.dimensions!!.map {dim -> dim.uppercase() }
-                        .contains(evaluator.getPluginInformation().applicableDimension.title.uppercase())
-                }
-            return@coroutineScope applicableEvaluators.map { async { it.getAllMeasurements(dmp, context, parameters, dmpOntology, extensionOntologies) } }.awaitAll().flatten()
+            if (parameters.dimensions == null) {
+                return@coroutineScope listOf()
+            } else {
+                val applicableEvaluators = getAllEvaluators()
+                    .filter { evaluator ->
+                        parameters.dimensions!!.map {dim -> dim.uppercase() }
+                            .contains(evaluator.getPluginInformation().applicableDimension.title.uppercase())
+                    }
+                return@coroutineScope applicableEvaluators.map { async { it.getAllMeasurements(dmp, context, parameters, dmpOntology, extensionOntologies) } }.awaitAll().flatten()
+            }
         }
     }
 
@@ -67,12 +71,16 @@ class EvaluationProviderServiceImpl @Autowired constructor(
     ): List<Measurement> {
         logger.info { "Produce all available metrics for lifecycle ${parameters.dataLifecycle} and Categories ${parameters.categories}" }
         return coroutineScope {
-            return@coroutineScope getAllEvaluators()
-                .filter { evaluator ->
-                    parameters.dimensions!!.map {dim -> dim.uppercase() }
-                        .contains(evaluator.getPluginInformation().belongsToCategory.title.uppercase())
-                }
-                .map { async { it.getAllMeasurements(dmp, context, parameters, dmpOntology, extensionOntologies) } }.awaitAll().flatten()
+            if (parameters.categories == null) {
+                return@coroutineScope listOf()
+            } else {
+                return@coroutineScope getAllEvaluators()
+                    .filter { evaluator ->
+                        parameters.dimensions!!.map {dim -> dim.uppercase() }
+                            .contains(evaluator.getPluginInformation().belongsToCategory.title.uppercase())
+                    }
+                    .map { async { it.getAllMeasurements(dmp, context, parameters, dmpOntology, extensionOntologies) } }.awaitAll().flatten()
+            }
         }
     }
 }

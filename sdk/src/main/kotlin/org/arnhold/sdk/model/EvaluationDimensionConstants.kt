@@ -5,6 +5,7 @@ enum class EvaluationDimensionConstants(title: String) {
     SCIENCE_EUROPE_EXTENSION_COMPLETENESS("science_europe_extension_completeness"),
     ACCURACY("accuracy"),
     AVAILABILITY("availability"),
+    CONSISTENCY("consistency"),
     FAIR("FAIR"),
     FINDABLE("findable"),
     ACCESSIBLE("accessible"),

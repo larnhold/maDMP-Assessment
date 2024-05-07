@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectWriter
 import mu.KotlinLogging
 import org.apache.jena.rdf.model.Model
 import org.arnhold.dmpeval.casestudy.context.ContextLoaderIdentifier
-import org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators.AvailabilityEvaluator
+import org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators.AvailabilityDimensionEvaluator
 import org.arnhold.sdk.context.ContextLoaderPlugin
 import org.arnhold.sdk.context.ContextProviderInformation
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
@@ -35,7 +35,7 @@ class Re3DataContextLoaderPlugin @Autowired constructor(
 
     override fun getContext(dmpModel: Model): List<DMPContext> {
         logger.info { "Get Re3Data context for all datasets" }
-        val query = Path.of(AvailabilityEvaluator.SPARQL_DIRECTORY + "allHosts.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(AvailabilityDimensionEvaluator.SPARQL_DIRECTORY + "allHosts.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmpModel, query)
         logger.info { "Found ${selected.size} Datasets with identifiers"}
 

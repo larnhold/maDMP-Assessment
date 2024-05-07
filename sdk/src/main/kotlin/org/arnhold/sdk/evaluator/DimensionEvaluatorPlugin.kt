@@ -8,7 +8,7 @@ import org.arnhold.sdk.plugin.ConfigurablePlugin
 import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
 
-interface EvaluatorPlugin: ConfigurablePlugin<String, EvaluatorInformation> {
+interface DimensionEvaluatorPlugin: ConfigurablePlugin<String, EvaluatorInformation> {
     fun getAllMeasurements(
         dmp: Model,
         context: List<DMPContext>,

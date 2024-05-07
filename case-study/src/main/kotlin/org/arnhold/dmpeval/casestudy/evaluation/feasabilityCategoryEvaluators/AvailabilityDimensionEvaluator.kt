@@ -7,11 +7,11 @@ import org.apache.commons.validator.routines.UrlValidator
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
-import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.model.SoftareAgents
 import org.arnhold.sdk.vocab.constants.DataLifecycle
-import org.arnhold.sdk.evaluator.EvaluatorPlugin
+import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
@@ -25,11 +25,11 @@ import java.nio.file.Path
 
 
 @Component
-class AvailabilityEvaluator @Autowired constructor(
+class AvailabilityDimensionEvaluator @Autowired constructor(
     val sparqlSelector: SparqlSelector,
     val okHttpClient: OkHttpClient,
     val urlValidator: UrlValidator
-) : EvaluatorPlugin {
+) : DimensionEvaluatorPlugin {
 
     private val logger = KotlinLogging.logger {}
 
@@ -46,7 +46,7 @@ class AvailabilityEvaluator @Autowired constructor(
             CategoryDimmensionModels.AVAILABILITY_DIMENSION,
             CategoryDimmensionModels.FEASABILITY_CATEGORY,
             listOf(
-                FeasabilityMetricModels.ID_AVAILABLE_METRIC
+                FeasabilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
             )
         )
     }
@@ -75,13 +75,12 @@ class AvailabilityEvaluator @Autowired constructor(
             val verb = it.resources.get("verb")
             val urlValue = it.literals.get("value").toString()
 
-            if (verb !== null) {
-                val metric = FeasabilityMetricModels.getUriAvailableMetric(verb)
+            if (verb != null) {
                 val measurement = getAvailabilityMeasurement(
                     subject,
                     verb,
                     httpCheck(urlValue),
-                    metric
+                    FeasabilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
                 )
 
                 return@mapNotNull measurement
@@ -101,7 +100,7 @@ class AvailabilityEvaluator @Autowired constructor(
                 it.resources.get("root"),
                 it.resources.get("id"),
                 isIDAvailable(it.literals.get("value").toString(), it.literals.get("type").toString()),
-                FeasabilityMetricModels.ID_AVAILABLE_METRIC
+                FeasabilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
             )
         }
     }

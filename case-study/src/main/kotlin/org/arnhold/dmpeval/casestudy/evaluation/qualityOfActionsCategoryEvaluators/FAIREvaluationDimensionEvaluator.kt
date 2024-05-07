@@ -4,16 +4,16 @@ import mu.KotlinLogging
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
-import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.model.SoftareAgents
-import org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators.AvailabilityEvaluator
+import org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators.AvailabilityDimensionEvaluator
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiRoot
 import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.vocab.dqv.*
-import org.arnhold.sdk.evaluator.EvaluatorPlugin
+import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
@@ -24,10 +24,10 @@ import org.springframework.stereotype.Component
 import java.nio.file.Path
 
 @Component
-class FAIREvaluationEvaluator @Autowired constructor(
+class FAIREvaluationDimensionEvaluator @Autowired constructor(
     val fujiService: FujiService,
     val sparqlSelector: SparqlSelector,
-) : EvaluatorPlugin {
+) : DimensionEvaluatorPlugin {
 
     private val logger = KotlinLogging.logger {}
 
@@ -51,7 +51,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
         extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         logger.info { "Get measurements for all datasets" }
-        val query = Path.of(AvailabilityEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(AvailabilityDimensionEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} Datasets with identifiers"}
 
@@ -87,7 +87,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
 
     private fun fujiResultToMeasurement(dataset: Resource, datasetIdType: Resource, result: FujiResult): Measurement {
         logger.info { "Convert metric ${result.metricIdentifier} from F-UJI to DQV" }
-        val metric: Metric = QualityOfActionsMetricModels.metricFromFujiResult(datasetIdType, result)
+        val metric: Metric = QualityOfActionsMetricModels.metricFromFujiResult(result)
         return Measurement(
             DmpLifecycle(DataLifecycle.PUBLISHED),
             metric,
@@ -101,7 +101,7 @@ class FAIREvaluationEvaluator @Autowired constructor(
 
     private fun testResultFrom(metricTestDefinition: MetricTestDefinition?, fujiTestResults: Map<String, FujiMetricTest>): TestResult? {
         val fujiTestResultValue = fujiTestResults.get(metricTestDefinition?.title)
-        return if (fujiTestResultValue != null && metricTestDefinition !== null) {
+        return if (fujiTestResultValue != null && metricTestDefinition != null) {
             TestResult(
                 metricTestDefinition,
                 fujiTestResultValue.metricTestScore.earned

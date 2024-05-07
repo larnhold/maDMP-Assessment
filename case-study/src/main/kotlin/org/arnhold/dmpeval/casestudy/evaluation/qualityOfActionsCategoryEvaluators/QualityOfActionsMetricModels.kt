@@ -1,30 +1,44 @@
 package org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators
 
-import org.apache.jena.rdf.model.Resource
 import org.apache.jena.vocabulary.XSD
-import org.arnhold.sdk.model.CategoryDimmensionModels
+import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
 import org.arnhold.sdk.vocab.constants.DataLifecycle
-import org.arnhold.sdk.vocab.dqv.Dimension
-import org.arnhold.sdk.vocab.dqv.DmpLifecycle
-import org.arnhold.sdk.vocab.dqv.Metric
-import org.arnhold.sdk.vocab.dqv.MetricTestDefinition
+import org.arnhold.sdk.vocab.dqv.*
 
 
 class QualityOfActionsMetricModels {
     companion object {
 
-        fun metricFromFujiResult(datasetIdType: Resource, result: FujiResult): Metric {
+        val DATASET_ACHIEVED_FAIRNESS_METRIC = Metric(
+            "dataset_achieved_fairness_metric",
+            "Indicate the achieved value of a FAIR metric of a published dataset object contained in the DMP as reported by an automatic FAIR evaluator",
+            "Dataset Achieved FAIRness",
+            CategoryDimmensionModels.FAIR_DIMENSION,
+            listOf(DmpLifecycle(DataLifecycle.PUBLISHED)),
+            XSD.integer.toString()
+        )
+
+        val FUJI_METRIC_GROUP = MetricGroup(
+            "fuji_metric_group",
+            "FUJI Metrics",
+            ""
+        )
+
+        fun metricFromFujiResult(result: FujiResult): Metric {
+
+
             return Metric(
-                "fuji-result-metric",
+                result.metricIdentifier,
                 result.metricName,
                 result.metricIdentifier,
                 fujiResultToDimension(result),
                 listOf(DmpLifecycle(DataLifecycle.PUBLISHED)),
                 XSD.integer.toString(),
                 result.metricTests.map { (key, value) -> metricTestFromFujiMetricTest(key, value) }.toMutableList(),
-                result.score.total.toString()
+                result.score.total.toString(),
+                FUJI_METRIC_GROUP
             )
         }
 
