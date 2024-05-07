@@ -4,6 +4,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import mu.KotlinLogging
 import org.apache.jena.ontology.OntModel
+import org.apache.jena.ontology.Ontology
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.ModelFactory
 import org.apache.jena.reasoner.Reasoner
@@ -32,12 +33,16 @@ class EvaluationManagerServiceImpl @Autowired constructor(
 
         val dmpStoreId = dataProviderService.loadDMP(parameters.dmpLoaderParameters)
         val dmp = dataProviderService.getModel(dmpStoreId)
+        val dmpOntology: OntModel = dataProviderService.getDCSOntology()
+        val extensions: Map<String, OntModel> = dataProviderService.getExtensions()
 
         val context = runBlocking(Dispatchers.Default) {
             return@runBlocking dataProviderService.loadContext(dmp)
         }
 
-        val measurements = getMeasurementsDependingOnParameters(dmp, context, parameters)
+        val measurements = getMeasurementsDependingOnParameters(
+            dmp, context, parameters, dmpOntology, extensions
+        )
 
         logger.info { "Created ${measurements.size} measurements" }
 
@@ -50,14 +55,20 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         return result
     }
 
-    private fun getMeasurementsDependingOnParameters(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
+    private fun getMeasurementsDependingOnParameters(
+        dmp: Model,
+        context: List<DMPContext>,
+        parameters: EvaluationTaskParameters,
+        dmpOntology: OntModel,
+        extensionOntologies: Map<String, OntModel>
+    ): List<Measurement> {
         return runBlocking(Dispatchers.Default) {
             if (parameters.dimensions != null) {
-                return@runBlocking evaluationProviderService.produceMeasurementsForDimensions(dmp, context, parameters)
+                return@runBlocking evaluationProviderService.produceMeasurementsForDimensions(dmp, context, parameters, dmpOntology, extensionOntologies)
             } else if (parameters.categories != null) {
-                return@runBlocking evaluationProviderService.produceMeasurementsForCategories(dmp, context, parameters)
+                return@runBlocking evaluationProviderService.produceMeasurementsForCategories(dmp, context, parameters, dmpOntology, extensionOntologies)
             } else {
-                return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, context, parameters)
+                return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, context, parameters, dmpOntology, extensionOntologies)
             }
         }
     }

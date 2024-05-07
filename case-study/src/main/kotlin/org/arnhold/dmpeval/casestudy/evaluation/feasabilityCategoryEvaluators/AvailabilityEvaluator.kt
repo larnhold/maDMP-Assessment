@@ -4,6 +4,7 @@ import mu.KotlinLogging
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.apache.commons.validator.routines.UrlValidator
+import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.sdk.model.CategoryDimmensionModels
@@ -49,7 +50,13 @@ class AvailabilityEvaluator @Autowired constructor(
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
+    override fun getAllMeasurements(
+        dmp: Model,
+        context: List<DMPContext>,
+        parameters: EvaluationTaskParameters,
+        dmpOntology: OntModel,
+        extensionOntologies: Map<String, OntModel>
+    ): List<Measurement> {
         logger.info { "Get all availability measurements" }
         val allMeasurements = getAllIdentifiermeasurements(dmp)+allURIsMeasurements(dmp)
         logger.info { "All Availability measurements calculated: ${allMeasurements.size} results" }

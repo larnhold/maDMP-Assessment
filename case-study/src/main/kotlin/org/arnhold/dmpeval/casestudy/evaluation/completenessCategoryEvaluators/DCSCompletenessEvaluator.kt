@@ -1,5 +1,6 @@
 package org.arnhold.dmpeval.casestudy.evaluation.completenessCategoryEvaluators
 
+import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.arnhold.sdk.model.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
@@ -34,7 +35,13 @@ class DCSCompletenessEvaluator @Autowired constructor(
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
+    override fun getAllMeasurements(
+        dmp: Model,
+        context: List<DMPContext>,
+        parameters: EvaluationTaskParameters,
+        dmpOntology: OntModel,
+        extensionOntologies: Map<String, OntModel>
+    ): List<Measurement> {
         return getCompletenessValuesMeasurements(dmp, DmpLifecycle(parameters.dataLifecycle))
     }
 

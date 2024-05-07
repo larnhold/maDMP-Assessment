@@ -1,9 +1,7 @@
 package org.arnhold.evaluator.indicator
 
-import org.arnhold.sdk.model.DMPLoaderParameters
 import org.arnhold.evaluator.indicator.evaluationManager.EvaluationManagerService
-import org.arnhold.sdk.model.EvaluationTaskParameters
-import org.arnhold.sdk.model.EvaluationTaskResult
+import org.arnhold.sdk.model.*
 import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
@@ -32,14 +30,16 @@ class CaseStudyFacadeController @Autowired constructor(
 
     @PostMapping("evaluateDCSCompliance")
     fun createDCSComplianceEvaluation(): EvaluationTaskResult {
-        val dimension = "dcs_compliance"
-        val dmploader = DMPLoaderParameters("", "zenodo/12.json")
+        val dmploader = DMPLoaderParameters("", "damap/valentin.json")
 
         val parameters =  EvaluationTaskParameters(
             dmpLoaderParameters = dmploader,
             categories = null,
             dataLifecycle = DataLifecycle.PLANNING,
-            dimensions = listOf(dimension)
+            dimensions = listOf(
+                EvaluationDimensionConstants.DCS_COMPLIANCE.toString(),
+                EvaluationDimensionConstants.DCS_COMPLETENESS.toString()
+            )
         )
 
         return evaluationManagerService.createEvaluation(parameters)

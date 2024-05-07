@@ -1,6 +1,7 @@
 package org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators
 
 import mu.KotlinLogging
+import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
 import org.arnhold.sdk.model.CategoryDimmensionModels
@@ -41,7 +42,13 @@ class FAIREvaluationEvaluator @Autowired constructor(
         )
     }
 
-    override fun getAllMeasurements(dmp: Model, context: List<DMPContext>, parameters: EvaluationTaskParameters): List<Measurement> {
+    override fun getAllMeasurements(
+        dmp: Model,
+        context: List<DMPContext>,
+        parameters: EvaluationTaskParameters,
+        dmpOntology: OntModel,
+        extensionOntologies: Map<String, OntModel>
+    ): List<Measurement> {
         logger.info { "Get measurements for all datasets" }
         val query = Path.of(AvailabilityEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
