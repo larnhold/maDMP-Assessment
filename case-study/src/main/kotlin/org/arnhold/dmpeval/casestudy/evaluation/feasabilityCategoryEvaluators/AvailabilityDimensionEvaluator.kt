@@ -59,7 +59,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
         extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         logger.info { "Get all availability measurements" }
-        val allMeasurements = getAllIdentifiermeasurements(dmp)+allURIsMeasurements(dmp)
+        val allMeasurements = getAllIdentifiermeasurements(dmp) + allURIsMeasurements(dmp)
         logger.info { "All Availability measurements calculated: ${allMeasurements.size} results" }
         return allMeasurements.filterNotNull()
     }

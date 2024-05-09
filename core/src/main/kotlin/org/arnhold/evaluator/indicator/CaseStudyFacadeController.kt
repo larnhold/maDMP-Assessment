@@ -30,7 +30,7 @@ class CaseStudyFacadeController @Autowired constructor(
 
     @PostMapping("evaluateDCSCompliance")
     fun createDCSComplianceEvaluation(): EvaluationTaskResult {
-        val dmploader = DMPLoaderParameters("", "damap/valentin.json")
+        val dmploader = DMPLoaderParameters("", "zenodo/12.json")
 
         val parameters =  EvaluationTaskParameters(
             dmpLoaderParameters = dmploader,

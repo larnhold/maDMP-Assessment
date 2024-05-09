@@ -5,7 +5,7 @@ import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.vocab.dqv.DmpLifecycle
 import org.arnhold.sdk.vocab.dqv.Metric
 
-class ComplianceMetricModels {
+class ScienceEuropeComplianceMetricModels {
 
     companion object {
         val GUIDELINE_EXTRACTION_METRIC = Metric(

@@ -64,10 +64,13 @@ class EvaluationManagerServiceImpl @Autowired constructor(
     ): List<Measurement> {
         return runBlocking(Dispatchers.Default) {
             if (parameters.dimensions != null) {
+                logger.info { "Call Evaluation Provider -> Produce Measurements for Dimensions ${parameters.dimensions}" }
                 return@runBlocking evaluationProviderService.produceMeasurementsForDimensions(dmp, context, parameters, dmpOntology, extensionOntologies)
             } else if (parameters.categories != null) {
+                logger.info { "Call Evaluation Provider -> Produce Measurements for Categories ${parameters.categories}" }
                 return@runBlocking evaluationProviderService.produceMeasurementsForCategories(dmp, context, parameters, dmpOntology, extensionOntologies)
             } else {
+                logger.info { "Call Evaluation Provider -> Produce all Measurements" }
                 return@runBlocking evaluationProviderService.produceAllMeasurements(dmp, context, parameters, dmpOntology, extensionOntologies)
             }
         }

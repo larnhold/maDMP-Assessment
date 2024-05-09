@@ -32,7 +32,7 @@ class DCSComplianceDimensionEvaluator @Autowired constructor(
         return EvaluatorInformation(
             CategoryDimmensionModels.DCS_COMPLIANCE_DIMENSION,
             CategoryDimmensionModels.COMPLIANCE_CATEGORY,
-            listOf(ComplianceMetricModels.DCS_MULTIPLICITY_METRIC, ComplianceMetricModels.DCS_WHITELIST_METRIC)
+            listOf(DCSComplianceMetricModels.DCS_MULTIPLICITY_METRIC, DCSComplianceMetricModels.DCS_WHITELIST_METRIC)
         )
     }
 
@@ -50,7 +50,7 @@ class DCSComplianceDimensionEvaluator @Autowired constructor(
         return shaclValidationService.validateShape(
             dmp,
             dcsMultiplicityShapes,
-            ComplianceMetricModels.DCS_MULTIPLICITY_METRIC,
+            DCSComplianceMetricModels.DCS_MULTIPLICITY_METRIC,
             DMPLocation(dmp.toString(), ""),
             lifecycle
         )
