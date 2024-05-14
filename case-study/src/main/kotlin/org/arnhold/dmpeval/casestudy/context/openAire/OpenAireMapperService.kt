@@ -96,7 +96,7 @@ class OpenAireMapperService {
             }
 
             "publisher" -> {
-                dataset.publusher.add(string)
+                dataset.publisher.add(string)
             }
 
             else -> {}

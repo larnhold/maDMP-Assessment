@@ -47,7 +47,7 @@ class Dataset(
     var dataAccess: EDataAccessType? = null,
     var datasetId: Identifier? = null,
     var source: EDataSource? = null,
-    var publusher: MutableSet<String> = HashSet(),
+    var publisher: MutableSet<String> = HashSet(),
     var language: String? = null,
     var country: String? = null,
     var subject: MutableSet<String> = HashSet(),
