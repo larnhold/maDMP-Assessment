@@ -44,7 +44,7 @@
 :ContactCompletenessShape a sh:NodeShape ;
     sh:targetClass dcso:Contact ;
     sh:property [
-                    sh:path dcso:hasId ;
+                    sh:path dcso:hasContactId ;
                     sh:minCount 1 ;
                 ] ;
     sh:property [
