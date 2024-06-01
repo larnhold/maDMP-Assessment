@@ -178,7 +178,7 @@ dcso:hasHost rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/dcso/ns/core#hasId
 dcso:hasId rdf:type owl:ObjectProperty ;
-           rdfs:domain dcso:Id ;
+           rdfs:domain owl:Thing ;
            rdfs:range dcso:Id ;
            rdfs:comment "Any ID used to uniquely identified a Thing." ;
            rdfs:label "hasId" .
@@ -652,6 +652,7 @@ dcso:value rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3.org/ns/dcat#Dataset
 dcat:Dataset rdf:type owl:Class ;
+             owl:disjointWith dcso:Contact ;
              rdfs:label "Dataset" .
 
 
@@ -668,6 +669,7 @@ foaf:Agent rdf:type owl:Class ;
 ###  https://w3id.org/dcso/ns/core#Contact
 dcso:Contact rdf:type owl:Class ;
              rdfs:subClassOf foaf:Agent ;
+             owl:disjointWith dcso:Dataset ;
              rdfs:comment "Specifies the party which can provide any information on the DMP. This is not necessarily the DMP creator, and can be a person or an organisation. " ;
              rdfs:label "Contact" .
 
@@ -825,28 +827,8 @@ dcso:TechnicalResource rdf:type owl:Class ;
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( dcat:Dataset
-                dcat:Distribution
-                dcso:Contact
-                dcso:ContactId
-                dcso:Contributor
-                dcso:ContributorId
-                dcso:Cost
                 dcso:DMP
-                dcso:DMPId
                 dcso:Dataset
-                dcso:DatasetId
-                dcso:Distribution
-                dcso:FunderId
-                dcso:Funding
-                dcso:GrantId
-                dcso:Host
-                dcso:Id
-                dcso:License
-                dcso:Metadata
-                dcso:MetadataStandardId
-                dcso:Project
-                dcso:SecurityPrivacy
-                dcso:TechnicalResource
               )
 ] .
 

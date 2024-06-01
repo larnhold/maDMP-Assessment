@@ -53,7 +53,7 @@ class DCSCompletenessDimensionEvaluator @Autowired constructor(
             dmp,
             dcsCompletenessShapes,
             CompletenessMetricModels.REQUIRED_ENTITY_OR_PROPERTY_EXISTENT_METRIC,
-            DMPLocation(dmp.toString(), null),
+            DMPLocation("dmp", null),
             lifecycle
         )
     }

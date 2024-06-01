@@ -40,7 +40,7 @@ class ShaclValidationService {
         }
     }
 
-    fun getConformsMetric(lifecycle: DmpLifecycle, dmpRoot: DMPLocation, metric: Metric): Measurement {
+    private fun getConformsMetric(lifecycle: DmpLifecycle, dmpRoot: DMPLocation, metric: Metric): Measurement {
         return Measurement(
             lifecycle,
             metric,
@@ -52,7 +52,7 @@ class ShaclValidationService {
         )
     }
 
-    fun createNotConfirmMeasurement(dmp: Model, lifecycle: DmpLifecycle, metric: Metric, report: ReportEntry): Measurement {
+    private fun createNotConfirmMeasurement(dmp: Model, lifecycle: DmpLifecycle, metric: Metric, report: ReportEntry): Measurement {
         val missingProperty = report.resultPath().toString()
         val guidance = Guidance("SHACL Report", missingProperty + ": " + report.message())
         val location = DMPLocation(report.focusNode().toString(), null)

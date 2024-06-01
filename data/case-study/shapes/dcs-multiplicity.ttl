@@ -4,7 +4,7 @@
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-:DMPCompletenessShape a sh:NodeShape ;
+:DMPMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:DMP ;
     sh:property [
                     sh:path dcso:hasContact ;
@@ -52,7 +52,7 @@
 
 ####################################
 
-:ContactCompletenessShape a sh:NodeShape ;
+:ContactMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Contact ;
     sh:property [
                     sh:path dcso:hasId ;
@@ -72,22 +72,22 @@
 
 ####################################
 
-:IdCompletenessShape a sh:NodeShape ;
+:IdMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Id ;
     sh:property [
-                    sh:path dcso:dentifier ;
+                    sh:path dcso:identifier ;
                     sh:minCount 1 ;
                     sh:maxCount 1 ;
                 ] ;
     sh:property [
-                    sh:path dcso:type ;
+                    sh:path dcso:identifierType ;
                     sh:minCount 1 ;
                     sh:maxCount 1 ;
                 ] .
 
 ####################################
 
-:ContributorCompletenessShape a sh:NodeShape ;
+:ContributorMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Contributor ;
     sh:property [
                     sh:path dcso:hasContributorId ;
@@ -110,7 +110,7 @@
 
 ####################################
 
-:CostCompletenessShape a sh:NodeShape ;
+:CostMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Cost ;
     sh:property [
                     sh:path dcso:curencyCode ;
@@ -132,7 +132,7 @@
 
 ####################################
 
-:DatasetCompletenessShape a sh:NodeShape ;
+:DatasetMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Dataset ;
     sh:property [
                     sh:path dcso:hasDatasetId ;
@@ -177,7 +177,7 @@
 
 ####################################
 
-:DistributionCompletenessShape a sh:NodeShape ;
+:DistributionMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Distribution ;
     sh:property [
                     sh:path dcso:accessURL ;
@@ -216,7 +216,7 @@
 
 ####################################
 
-:FundingCompletenessShape a sh:NodeShape ;
+:FundingMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Funding ;
     sh:property [
                     sh:path dcso:hasGrantId ;
@@ -234,7 +234,7 @@
 
 ####################################
 
-:HostCompletenessShape a sh:NodeShape ;
+:HostMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Host ;
     sh:property [
                     sh:path dcso:availability ;
@@ -281,7 +281,7 @@
 
 ####################################
 
-:LicenseCompletenessShape a sh:NodeShape ;
+:LicenseMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:License ;
     sh:property [
                     sh:path dcso:licenseRef ;
@@ -296,7 +296,7 @@
 
 ####################################
 
-:MetadataCompletenessShape a sh:NodeShape ;
+:MetadataMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Metadata ;
     sh:property [
                     sh:path terms:description ;
@@ -315,7 +315,7 @@
 
 ####################################
 
-:ProjectCompletenessShape a sh:NodeShape ;
+:ProjectMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Metadata ;
     sh:property [
                     sh:path terms:description ;
@@ -337,7 +337,7 @@
 
 ####################################
 
-:SecurityAndPrivacyCompletenessShape a sh:NodeShape ;
+:SecurityAndPrivacyMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:Metadata ;
     sh:property [
                     sh:path terms:description ;
@@ -351,7 +351,7 @@
 
 ####################################
 
-:TechnicalResourceCompletenessShape a sh:NodeShape ;
+:TechnicalResourceMultiplicityShape a sh:NodeShape ;
     sh:targetClass dcso:TechnicalResource ;
     sh:property [
                     sh:path terms:description ;

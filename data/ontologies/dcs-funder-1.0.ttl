@@ -64,11 +64,6 @@ terms:title rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/dcso/ns/core#hasId
-dcso:hasId rdf:type owl:ObjectProperty ;
-           rdfs:domain dcso:Dataset ;
-           rdfs:range dcsx:DataRecoveryExplanation .
-
 
 ###  https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource
 dcsx:hasDataQualityAssuranceResource rdf:type owl:ObjectProperty ;
@@ -178,7 +173,8 @@ dcso:Distribution rdf:type owl:Class .
 
 
 ###  https://w3id.org/dcso/ns/core#Id
-dcso:Id rdf:type owl:Class .
+dcso:Id rdf:type owl:Class ;
+        owl:disjointWith dcsx:DataRecoveryExplanation .
 
 
 ###  https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource
@@ -223,6 +219,7 @@ dcsx:PropertyRightsExplanationId rdf:type owl:Class ;
 
 ###  https://w3id.org/dcso/ns/extension#RelatedPolicy
 dcsx:RelatedPolicy rdf:type owl:Class ;
+                   owl:disjointWith dcso:Dataset ;
                    terms:description """To link to all documents needed to be
 compliant to requirements within this
 DMP (e.g. legal, ethical, contractual,

@@ -61,7 +61,7 @@
 :IdCompletenessShape a sh:NodeShape ;
     sh:targetClass dcso:Id ;
     sh:property [
-                    sh:path dcso:dentifier ;
+                    sh:path dcso:identifier ;
                     sh:minCount 1 ;
                 ] ;
     sh:property [

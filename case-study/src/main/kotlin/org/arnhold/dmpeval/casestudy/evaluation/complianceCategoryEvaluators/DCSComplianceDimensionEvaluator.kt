@@ -51,7 +51,7 @@ class DCSComplianceDimensionEvaluator @Autowired constructor(
             dmp,
             dcsMultiplicityShapes,
             DCSComplianceMetricModels.DCS_MULTIPLICITY_METRIC,
-            DMPLocation(dmp.toString(), ""),
+            DMPLocation("dmp", ""),
             lifecycle
         )
     }
