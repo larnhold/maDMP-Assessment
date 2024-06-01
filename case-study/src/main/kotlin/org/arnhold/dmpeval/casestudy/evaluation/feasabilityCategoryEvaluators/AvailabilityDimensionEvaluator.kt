@@ -107,6 +107,11 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
 
     private fun isIDAvailable(id: String, type: String): Boolean {
         logger.info { "Check if $id is available" }
+
+        if (id.substring(0, 4) == "http") {
+            return httpCheck(id)
+        }
+
         return when (IdType.from(type)) {
             IdType.DOI -> doiCheck(id)
             IdType.ORCID -> orcidCheck(id)

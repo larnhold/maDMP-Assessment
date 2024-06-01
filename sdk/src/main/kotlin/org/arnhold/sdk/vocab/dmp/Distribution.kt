@@ -7,7 +7,9 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
 import org.arnhold.sdk.vocab.ontologyDefinitions.DCSX
+import org.arnhold.sdk.vocab.ontologyDefinitions.RDF
 import java.math.BigInteger
 
 data class Distribution (
@@ -51,6 +53,8 @@ data class Distribution (
             ObjectPropertyDefinition(DCSO.HAS_LICENSE, license, name, "license"),
             ObjectPropertyDefinition(DCSO.HAS_HOST, host, name, "host"),
             ObjectPropertyDefinition(DCSX.HAS_PROPERTY_RIGHTS_EXPLANATION, propertyRightsExplanation, name, "propertyRightsExplanation"),
+        ), listOf(
+            ResourcePropertyDefinition(RDF.TYPE, model.createResource("https://w3id.org/dcso/ns/core#Distribution"))
         ))
     }
 }

@@ -7,7 +7,9 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
 import org.arnhold.sdk.vocab.ontologyDefinitions.DCSX
+import org.arnhold.sdk.vocab.ontologyDefinitions.RDF
 
 data class Dataset (
     @JsonProperty("distribution")
@@ -71,6 +73,8 @@ data class Dataset (
             ObjectPropertyDefinition(DCSO.HAS_DATASET_ID, datasetId, name, "datasetId"),
             ObjectPropertyDefinition(DCSX.HAS_METHODOLOGY, methodology, name, "methodology"),
             ObjectPropertyDefinition(DCSX.HAS_DATA_QUALIY_ASSURANCE_RESOURCE, dataQualityAssuranceResource, name, "dataQualityAssuranceResource")
+        ), listOf(
+            ResourcePropertyDefinition(RDF.TYPE, model.createResource("https://w3id.org/dcso/ns/core#Dataset"))
         ))
     }
 }

@@ -14,6 +14,7 @@ class InferenceEngineServiceImpl: InferenceEngineService {
     private val logger = KotlinLogging.logger {}
 
     override fun applyReasoning(ontology: OntModel, model: Model): Model {
+        return model
         logger.info { "Reason over loaded DMP using DCS Ontology" }
         val reasoner: Reasoner = ReasonerRegistry.getOWLReasoner()
         reasoner.bindSchema(ontology)

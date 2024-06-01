@@ -7,6 +7,8 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
+import org.arnhold.sdk.vocab.ontologyDefinitions.RDF
 
 data class Funding (
     @JsonProperty("funder_id")
@@ -22,6 +24,8 @@ data class Funding (
         ), listOf(
             ObjectPropertyDefinition(DCSO.HAS_GRANT_ID, grantId, name, "grantId"),
             ObjectPropertyDefinition(DCSO.HAS_FUNDER_ID, funderId, name, "funderId")
+        ), listOf(
+            ResourcePropertyDefinition(RDF.TYPE, model.createResource("https://w3id.org/dcso/ns/core#Funding"))
         ))
     }
 }

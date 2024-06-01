@@ -7,6 +7,8 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
+import org.arnhold.sdk.vocab.ontologyDefinitions.RDF
 
 data class Metadata (
     @JsonProperty("description")
@@ -22,6 +24,8 @@ data class Metadata (
             DataPropertyDefinition(DCSO.LANGUAGE, language)
         ), listOf(
             ObjectPropertyDefinition(DCSO.HAS_METADATA_STANDARD_ID, metadataStandardId, name, "metadataStandardId")
+        ), listOf(
+            ResourcePropertyDefinition(RDF.TYPE, model.createResource("https://w3id.org/dcso/ns/core#Metadata"))
         ))
     }
 }

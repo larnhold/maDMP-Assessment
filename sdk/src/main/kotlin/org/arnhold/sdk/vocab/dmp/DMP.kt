@@ -7,7 +7,9 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
 import org.arnhold.sdk.vocab.ontologyDefinitions.DCSX
+import org.arnhold.sdk.vocab.ontologyDefinitions.RDF
 
 data class DMP (
     @JsonProperty("contact")
@@ -59,6 +61,8 @@ data class DMP (
             ObjectPropertyDefinition(DCSO.HAS_PROJECT, projects, name, "project"),
             ObjectPropertyDefinition(DCSO.HAS_DATASET, datasets, name, "dataset"),
             ObjectPropertyDefinition(DCSX.HAS_RELATED_POLICY, datasets, name, "dataset")
+        ), listOf(
+            ResourcePropertyDefinition(RDF.TYPE, model.createResource("https://w3id.org/dcso/ns/core#DMP"))
         ))
     }
 }

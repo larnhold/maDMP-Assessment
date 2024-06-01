@@ -7,7 +7,9 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
 import org.arnhold.sdk.vocab.ontologyDefinitions.DCSX
+import org.arnhold.sdk.vocab.ontologyDefinitions.RDF
 
 data class Methodology (
     @JsonProperty("description")
@@ -20,6 +22,8 @@ data class Methodology (
             DataPropertyDefinition(DCSO.DESCRIPTION, description)
         ), listOf(
             ObjectPropertyDefinition(DCSX.HAS_METHODOLOGY_ID, methodologyId,  name, "methodologyId")
+        ), listOf(
+            ResourcePropertyDefinition(RDF.TYPE, model.createResource("https://w3id.org/dcso/ns/extension#Methodology"))
         ))
     }
 }

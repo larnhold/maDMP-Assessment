@@ -370,13 +370,6 @@ dcso:created rdf:type owl:DatatypeProperty ;
              rdfs:comment "The time of creation for the DMP" ;
              rdfs:label "created" .
 
-###  https://w3id.org/dcso/ns/core#created
-dcso:validated rdf:type owl:DatatypeProperty ;
-             rdfs:domain dcso:DMP ;
-             rdfs:range xsd:dateTime ;
-             rdfs:comment "The time of validation for the DMP" ;
-             rdfs:label "created" .
-
 
 ###  https://w3id.org/dcso/ns/core#curencyCode
 dcso:curencyCode rdf:type owl:DatatypeProperty ;
@@ -637,6 +630,14 @@ dcso:url rdf:type owl:DatatypeProperty ;
          rdfs:label "url" .
 
 
+###  https://w3id.org/dcso/ns/core#validated
+dcso:validated rdf:type owl:DatatypeProperty ;
+               rdfs:domain dcso:DMP ;
+               rdfs:range xsd:dateTime ;
+               rdfs:comment "The time of validation for the DMP" ;
+               rdfs:label "created" .
+
+
 ###  https://w3id.org/dcso/ns/core#value
 dcso:value rdf:type owl:DatatypeProperty ;
            rdfs:domain dcso:Cost ;
@@ -815,6 +816,34 @@ dcso:TechnicalResource rdf:type owl:Class ;
                 dcso:Id
                 dcso:License
                 dcso:Metadata
+                dcso:Project
+                dcso:SecurityPrivacy
+                dcso:TechnicalResource
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dcat:Dataset
+                dcat:Distribution
+                dcso:Contact
+                dcso:ContactId
+                dcso:Contributor
+                dcso:ContributorId
+                dcso:Cost
+                dcso:DMP
+                dcso:DMPId
+                dcso:Dataset
+                dcso:DatasetId
+                dcso:Distribution
+                dcso:FunderId
+                dcso:Funding
+                dcso:GrantId
+                dcso:Host
+                dcso:Id
+                dcso:License
+                dcso:Metadata
+                dcso:MetadataStandardId
                 dcso:Project
                 dcso:SecurityPrivacy
                 dcso:TechnicalResource

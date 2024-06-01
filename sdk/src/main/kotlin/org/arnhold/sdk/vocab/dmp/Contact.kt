@@ -7,6 +7,8 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.ObjectPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
+import org.arnhold.sdk.vocab.ontologyDefinitions.RDF
 
 data class Contact (
     @JsonProperty("contact_id")
@@ -22,6 +24,8 @@ data class Contact (
             DataPropertyDefinition(DCSO.NAME, this.name)
         ), listOf(
             ObjectPropertyDefinition(DCSO.HAS_CONTACT_ID, contactId, name,  "contactId")
+        ), listOf(
+            ResourcePropertyDefinition(RDF.TYPE, model.createResource("https://w3id.org/dcso/ns/core#Contact"))
         ))
     }
 }

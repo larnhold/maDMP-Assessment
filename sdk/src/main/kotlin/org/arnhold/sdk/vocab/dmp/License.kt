@@ -6,6 +6,8 @@ import org.apache.jena.rdf.model.Resource
 import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.arnhold.sdk.tools.rdfParsing.DataPropertyDefinition
 import org.arnhold.sdk.tools.rdfParsing.RdfResourceProvider
+import org.arnhold.sdk.tools.rdfParsing.ResourcePropertyDefinition
+import org.arnhold.sdk.vocab.ontologyDefinitions.RDF
 
 data class License (
     @JsonProperty("license_ref")
@@ -18,6 +20,8 @@ data class License (
         return super.toResource(model, name, listOf(
             DataPropertyDefinition(DCSO.LICENSE_REF, licenseRef),
             DataPropertyDefinition(DCSO.START_DATE, startDate)
-        ), listOf())
+        ), listOf(), listOf(
+            ResourcePropertyDefinition(RDF.TYPE, model.createResource("https://w3id.org/dcso/ns/core#License"))
+        ))
     }
 }

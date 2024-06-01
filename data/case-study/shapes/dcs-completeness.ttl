@@ -65,7 +65,7 @@
                     sh:minCount 1 ;
                 ] ;
     sh:property [
-                    sh:path dcso:type ;
+                    sh:path dcso:identifierType ;
                     sh:minCount 1 ;
                 ] .
 
