@@ -10,7 +10,7 @@ class CategoryDimmensionModels {
         // evaluators for marked dimensions
 
         val COMPLETENSS_CATEGORY = Category(null, EvaluationCategoryConstants.COMPLETENESS.toString())
-        val FEASABILITY_CATEGORY = Category(null, EvaluationCategoryConstants.FEASABILITY.toString())
+        val FEASIBILITY_CATEGORY = Category(null, EvaluationCategoryConstants.FEASIBILITY.toString())
         val QUALITY_OF_ACTIONS_CATEGORY = Category(null, EvaluationCategoryConstants.QUALITY_OF_ACTIONS.toString())
         val COMPLIANCE_CATEGORY = Category(null, EvaluationCategoryConstants.COMPLIANCE.toString())
 
@@ -19,11 +19,11 @@ class CategoryDimmensionModels {
         //+1
         val SCIENCE_EUROPE_EXTENSION_COMPLETENESS_DIMENSION = Dimension(COMPLETENSS_CATEGORY, EvaluationDimensionConstants.SCIENCE_EUROPE_EXTENSION_COMPLETENESS.toString(), null)
         //+1
-        val ACCURACY_DIMENSION = Dimension(FEASABILITY_CATEGORY, EvaluationDimensionConstants.ACCURACY.toString(), null)
+        val ACCURACY_DIMENSION = Dimension(FEASIBILITY_CATEGORY, EvaluationDimensionConstants.ACCURACY.toString(), null)
         //+1
-        val AVAILABILITY_DIMENSION = Dimension(FEASABILITY_CATEGORY, EvaluationDimensionConstants.AVAILABILITY.toString(), null)
+        val AVAILABILITY_DIMENSION = Dimension(FEASIBILITY_CATEGORY, EvaluationDimensionConstants.AVAILABILITY.toString(), null)
         //+1
-        val CONSISTENCY_DIMENSION = Dimension(FEASABILITY_CATEGORY, EvaluationDimensionConstants.CONSISTENCY.toString(), null)
+        val CONSISTENCY_DIMENSION = Dimension(FEASIBILITY_CATEGORY, EvaluationDimensionConstants.CONSISTENCY.toString(), null)
 
         val GUIDELINE_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.GUIDELINE_COMPLIANCE.toString(), null)
         //+1

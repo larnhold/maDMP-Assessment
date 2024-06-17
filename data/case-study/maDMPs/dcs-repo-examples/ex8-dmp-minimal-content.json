@@ -3,30 +3,30 @@
 		"title": "Minimal DMP",
 		"contact": {
 			"contact_id": {
-				"identifier": "http://orcid.org/0000-0000-0000-0000",
+				"identifier": "0000-0002-5164-2690",
 				"type": "orcid"
 			},
-			"mbox": "cc@example.com",
-			"name": "Charlie Chaplin"
+			"mbox": "moritz.staudinger@tuwien.ac.at",
+			"name": "Moritz Staudinger"
 		},
-		"created": "2018-07-23T10:10:23.6",
+		"created": "2023-10-23T10:10:23.6",
 		"dmp_id": {
-			"identifier": "https://doi.org/10.0000/00.0.1234",
+			"identifier": "10.5281/zenodo.11670084",
 			"type": "doi"
 		},
 		"dataset": [
 			{
 				"dataset_id": {
-					"identifier": "https://doi.org/10.0000/00.0.5678",
+					"identifier": "10.5281/zenodo.4699051",
 					"type": "doi"
 				},
-				"title": "Placeholder dataset",
+				"title": "Analysis of Performances of kNN and Random Forest",
 				"personal_data": "unknown",
 				"sensitive_data": "unknown"
 			}
 		],
 		"ethical_issues_exist": "unknown",
 		"language": "eng",
-		"modified": "2019-02-06T15:30:42.1"
+		"modified": "2023-10-23T10:10:23.6"
 	}
 }

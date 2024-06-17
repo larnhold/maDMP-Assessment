@@ -22,7 +22,7 @@ class AccuracyDimensionEvaluator : DimensionEvaluatorPlugin {
     override fun getPluginInformation(): EvaluatorInformation {
         return EvaluatorInformation(
             CategoryDimmensionModels.ACCURACY_DIMENSION,
-            CategoryDimmensionModels.FEASABILITY_CATEGORY,
+            CategoryDimmensionModels.FEASIBILITY_CATEGORY,
             listOf()
         )
     }

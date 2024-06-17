@@ -67,7 +67,7 @@ terms:title rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource
 dcsx:hasDataQualityAssuranceResource rdf:type owl:ObjectProperty ;
-                                     rdfs:domain dcso:DMP ;
+                                     rdfs:domain dcso:Dataset ;
                                      rdfs:range dcsx:DataQualityAssuranceResource .
 
 

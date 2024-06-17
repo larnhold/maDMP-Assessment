@@ -44,7 +44,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
     override fun getPluginInformation(): EvaluatorInformation {
         return EvaluatorInformation(
             CategoryDimmensionModels.AVAILABILITY_DIMENSION,
-            CategoryDimmensionModels.FEASABILITY_CATEGORY,
+            CategoryDimmensionModels.FEASIBILITY_CATEGORY,
             listOf(
                 FeasabilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
             )
@@ -77,6 +77,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
 
             if (verb != null) {
                 val measurement = getAvailabilityMeasurement(
+                    urlValue,
                     subject,
                     verb,
                     httpCheck(urlValue),
@@ -97,6 +98,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
         logger.info { "Found ${selected.size} IDs"}
         return selected.map {
             getAvailabilityMeasurement(
+                it.literals.get("value").toString(),
                 it.resources.get("root"),
                 it.resources.get("id"),
                 isIDAvailable(it.literals.get("value").toString(), it.literals.get("type").toString()),
@@ -164,10 +166,13 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
         }
     }
 
-    private fun getAvailabilityMeasurement(entity: Resource?, property: Resource?, available: Boolean, metric: Metric): Measurement {
+    private fun getAvailabilityMeasurement(url: String, entity: Resource?, property: Resource?, available: Boolean, metric: Metric): Measurement {
+        val metricCopy = metric.copy()
+        metricCopy.description += ": $url"
+
         return Measurement(
             DmpLifecycle(DataLifecycle.PUBLISHED),
-            metric,
+            metricCopy,
             null,
             DMPLocation(entity, property),
             available.toString(),
