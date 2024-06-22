@@ -15,7 +15,7 @@ interface DataProviderService {
 
     fun getExtensions(): Map<Extension, OntModel>
 
-    suspend fun loadContext(model: Model): List<DMPContext>
+    fun loadContext(model: Model): List<DMPContext>
 
     fun loadDMP(parameters: DMPLoaderParameters): UUID
 

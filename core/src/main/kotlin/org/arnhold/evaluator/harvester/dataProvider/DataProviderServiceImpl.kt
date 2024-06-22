@@ -1,5 +1,7 @@
 package org.arnhold.evaluator.harvester.dataProvider
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import mu.KotlinLogging
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
@@ -42,8 +44,12 @@ class DataProviderServiceImpl @Autowired constructor(
         return dcso
     }
 
-    override suspend fun loadContext(model: Model): List<DMPContext> {
-        return contextProviderService.getAvailableContext(model)
+    override fun loadContext(model: Model): List<DMPContext> {
+        val context = runBlocking(Dispatchers.Default) {
+            return@runBlocking contextProviderService.getAvailableContext(model)
+        }
+
+        return context
     }
 
     override fun getDMPDQVOntology(): OntModel {
