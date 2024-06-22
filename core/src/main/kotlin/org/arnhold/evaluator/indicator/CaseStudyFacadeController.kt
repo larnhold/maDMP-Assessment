@@ -16,7 +16,7 @@ class CaseStudyFacadeController @Autowired constructor(
 
     @PostMapping("evaluate")
     fun createEvaluation(): EvaluationTaskResult {
-        val dmploader = DMPLoaderParameters("", "dcs-repo-examples/ex8-dmp-minimal-content.json")
+        val dmploader = DMPLoaderParameters("JSON-FILE", "dcs-repo-examples/ex8-dmp-minimal-content.json")
 
         val parameters =  EvaluationTaskParameters(
             dmpLoaderParameters = dmploader,

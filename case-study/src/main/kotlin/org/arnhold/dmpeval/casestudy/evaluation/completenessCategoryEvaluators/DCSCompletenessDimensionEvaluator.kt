@@ -33,7 +33,7 @@ class DCSCompletenessDimensionEvaluator @Autowired constructor(
             CategoryDimmensionModels.DCS_COMPLETENESS_DIMENSION,
             CategoryDimmensionModels.COMPLETENSS_CATEGORY,
             listOf(
-                CompletenessMetricModels.REQUIRED_ENTITY_OR_PROPERTY_EXISTENT_METRIC
+                DCS_CompletenessMetricModels.REQUIRED_ENTITY_OR_PROPERTY_EXISTENT_METRIC
             )
         )
     }
@@ -52,7 +52,7 @@ class DCSCompletenessDimensionEvaluator @Autowired constructor(
         return shaclValidationService.validateShape(
             dmp,
             dcsCompletenessShapes,
-            CompletenessMetricModels.REQUIRED_ENTITY_OR_PROPERTY_EXISTENT_METRIC,
+            DCS_CompletenessMetricModels.REQUIRED_ENTITY_OR_PROPERTY_EXISTENT_METRIC,
             DMPLocation("dmp", null),
             lifecycle
         )

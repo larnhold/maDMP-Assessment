@@ -17,7 +17,7 @@ class MaDMPJsonJacksonLoaderImpl: DmpLoaderPlugin {
     private val logger = KotlinLogging.logger {}
 
     companion object {
-        const val IDENTIFIER = ""
+        const val IDENTIFIER = "JSON-FILE"
         val dataDirectory: Path = Path.of("./data/case-study/maDMPs")
     }
 

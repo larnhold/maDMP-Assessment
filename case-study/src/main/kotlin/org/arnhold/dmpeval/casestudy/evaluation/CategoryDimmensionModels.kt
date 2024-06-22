@@ -22,8 +22,6 @@ class CategoryDimmensionModels {
         val ACCURACY_DIMENSION = Dimension(FEASIBILITY_CATEGORY, EvaluationDimensionConstants.ACCURACY.toString(), null)
         //+1
         val AVAILABILITY_DIMENSION = Dimension(FEASIBILITY_CATEGORY, EvaluationDimensionConstants.AVAILABILITY.toString(), null)
-        //+1
-        val CONSISTENCY_DIMENSION = Dimension(FEASIBILITY_CATEGORY, EvaluationDimensionConstants.CONSISTENCY.toString(), null)
 
         private val GUIDELINE_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.GUIDELINE_COMPLIANCE.toString(), null)
         //+1
