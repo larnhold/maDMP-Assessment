@@ -5,7 +5,8 @@ import org.arnhold.evaluator.indicator.evaluationManager.EvaluationManagerServic
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.model.EvaluationTaskResult
 import org.arnhold.evaluator.indicator.evaluationManager.EvaluatorInformationDTO
-import org.arnhold.evaluator.indicator.metricAggregation.MetricAggregationService
+import org.arnhold.sdk.model.EvaluationReport
+import org.arnhold.sdk.model.EvaluationReportParameters
 import org.arnhold.sdk.vocab.dqv.Measurement
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -19,8 +20,7 @@ import java.util.UUID
 @RestController
 @RequestMapping("/api/evaluation")
 class IndicatorServiceController @Autowired constructor(
-    val evaluationManagerService: EvaluationManagerService,
-    val metricAggregationService: MetricAggregationService
+    val evaluationManagerService: EvaluationManagerService
 ) {
 
     private val logger = KotlinLogging.logger {}
@@ -32,14 +32,14 @@ class IndicatorServiceController @Autowired constructor(
         return measurements
     }
 
-    @GetMapping("{id}/measurements")
-    fun getMeasurements(@PathVariable(name = "id") id: UUID): List<Measurement> {
+    @GetMapping("{evaluationId}/measurements")
+    fun getMeasurements(@PathVariable(name = "evaluationId") id: UUID): List<Measurement> {
         return listOf()
     }
 
-    @PostMapping("{id}/aggregate")
-    fun aggregate(@PathVariable(name = "id") id: UUID): List<Measurement> {
-        return listOf()
+    @PostMapping("createReport")
+    fun report(@RequestBody parameters: EvaluationReportParameters): EvaluationReport {
+        return evaluationManagerService.createEvaluationReport(parameters)
     }
 
     @GetMapping("info/evaluators")

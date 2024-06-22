@@ -1,8 +1,8 @@
 package org.arnhold.evaluator.indicator.metricAggregation
 
+import org.arnhold.sdk.vocab.dqv.Measurement
+
 interface MetricAggregationService {
-    fun averageForDimension(dimension: String)
-    fun averageForCategory(category: String)
-    fun sumForCategory(category: String)
-    fun sumForDimension(dimension: String)
+    fun averageForDimension(dimension: String, measurements: List<Measurement>): Double
+    fun sumForDimension(dimension: String, measurements: List<Measurement>): Double
 }

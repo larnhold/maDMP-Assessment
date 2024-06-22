@@ -10,6 +10,9 @@ import org.apache.jena.reasoner.Reasoner
 import org.apache.jena.reasoner.ReasonerRegistry
 import org.arnhold.evaluator.harvester.dataProvider.DataProviderService
 import org.arnhold.evaluator.indicator.evaluationProvider.EvaluationProviderService
+import org.arnhold.evaluator.indicator.metricAggregation.MetricAggregationService
+import org.arnhold.sdk.model.EvaluationReport
+import org.arnhold.sdk.model.EvaluationReportParameters
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.model.EvaluationTaskResult
 import org.arnhold.sdk.vocab.constants.Extension
@@ -18,40 +21,56 @@ import org.arnhold.sdk.vocab.dqv.Category
 import org.arnhold.sdk.vocab.dqv.Dimension
 import org.arnhold.sdk.vocab.dqv.Measurement
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
-import java.util.UUID
+import org.springframework.web.server.ResponseStatusException
+import java.io.StringWriter
+import java.util.*
+
 
 @Component
 class EvaluationManagerServiceImpl @Autowired constructor(
     val evaluationProviderService: EvaluationProviderService,
-    val dataProviderService: DataProviderService
+    val dataProviderService: DataProviderService,
+    val runtimeStore: RuntimeStore,
+    val aggregationService: MetricAggregationService
 ) : EvaluationManagerService {
 
     private val logger = KotlinLogging.logger {}
+
+
     override fun createEvaluation(parameters: EvaluationTaskParameters): EvaluationTaskResult {
         logger.info { "Create evaluation with parameters $parameters" }
 
+        // dmp
+        logger.info { "Get DMP" }
         val dmpStoreId = dataProviderService.loadDMP(parameters.dmpLoaderParameters)
         val dmp = dataProviderService.getModel(dmpStoreId)
         val dmpOntology: OntModel = dataProviderService.getDCSOntology()
         val extensions: Map<Extension, OntModel> = dataProviderService.getExtensions()
 
-        val context = runBlocking(Dispatchers.Default) {
-            return@runBlocking dataProviderService.loadContext(dmp)
-        }
+        //context
+        logger.info { "Get Context" }
+        val context = dataProviderService.loadContext(dmp)
 
+        //measurements
+        logger.info { "Get Measurements" }
         val measurements = getMeasurementsDependingOnParameters(
             dmp, context, parameters, dmpOntology, extensions
         )
 
         logger.info { "Created ${measurements.size} measurements" }
+        val evaluationId = UUID.randomUUID()
 
         val result = EvaluationTaskResult(
-            evaluationId = UUID.randomUUID().toString(),
+            dmpStoreId = dmpStoreId,
+            evaluationId = evaluationId,
             measurements = measurements
         )
 
+        logger.info { "Persist Measurements and other Evaluation Artifacts" }
         saveMeasurements(result)
+        runtimeStore.storePackage(EvaluationStoreItem(evaluationId, dmpStoreId, dmp, measurements, context))
         return result
     }
 
@@ -83,11 +102,35 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         reasoner.bindSchema(dataProviderService.getDMPDQVOntology())
         val reasonedMeasurementsModel = ModelFactory.createInfModel(reasoner, measurementsModel)
         val uuid = dataProviderService.saveModel(reasonedMeasurementsModel)
+        logger.info { "Measurements saved with id $uuid" }
         dataProviderService.saveAsJson<EvaluationTaskResult>(result, uuid)
     }
 
     override fun getEvaluatorInformation(): Map<Category, List<Dimension>> {
         return evaluationProviderService.getAllEvaluators().map { it.getPluginInformation() }.groupBy ( {it.belongsToCategory}, {it.applicableDimension} )
+    }
+
+    override fun createEvaluationReport(parameters: EvaluationReportParameters): EvaluationReport {
+        logger.info { "Create evaluation report for evaluation with id ${parameters.evaluationId}" }
+        val report = EvaluationReport()
+
+        val storeItem = runtimeStore.store.find { it.evaluationId.toString() == parameters.evaluationId }
+        if (storeItem == null) { throw ResponseStatusException(HttpStatus.NOT_FOUND, "No evaluation exists") }
+        logger.info { "Received corresponding evaluation artifacts" }
+
+        val dmpSerialized = StringWriter()
+        storeItem.dmp.write(dmpSerialized, "RDF/JSON")
+
+        report.dmp = dmpSerialized.toString()
+        report.dmpFormat = "RDF/JSON"
+        report.measurements = storeItem.measurements
+
+        logger.info { "Calculate averages for ${parameters.averageDimensions.size} dimensions" }
+        report.averages = parameters.averageDimensions.associateBy({ it }, { aggregationService.averageForDimension(it, report.measurements) })
+        logger.info { "Calculate sums for ${parameters.aggregateDimensions.size} dimensions" }
+        report.sums = parameters.averageDimensions.associateBy({ it }, { aggregationService.sumForDimension(it, report.measurements) })
+
+        return report
     }
 
     private fun measurementsToModel(dmpdqv: OntModel, measurements: List<Measurement>): Model {

@@ -1,23 +1,26 @@
 package org.arnhold.evaluator.indicator.metricAggregation
 
+import org.arnhold.sdk.vocab.dqv.Measurement
 import org.springframework.stereotype.Component
 
 @Component
 class MetricAggregationServiceImpl: MetricAggregationService {
 
-    override fun averageForDimension(dimension: String) {
-        TODO("Not yet implemented")
+    override fun averageForDimension(dimension: String, measurements: List<Measurement>): Double {
+        val count = measurements.filter { it.isMeasurementOf.inDimension?.title.equals(dimension, ignoreCase = true)}.size
+        return sumForDimension(dimension, measurements) / count
     }
 
-    override fun averageForCategory(category: String) {
-        TODO("Not yet implemented")
-    }
+    override fun sumForDimension(dimension: String, measurements: List<Measurement>): Double {
+        val selected = measurements.filter { it.isMeasurementOf.inDimension?.title.equals(dimension, ignoreCase = true)}
+        var sum = 0
 
-    override fun sumForCategory(category: String) {
-        TODO("Not yet implemented")
-    }
+        for (measurement in selected) {
+            when (measurement.isMeasurementOf.expectedDataType) {
+                "http://www.w3.org/2001/XMLSchema#boolean" -> sum += (if(measurement.value === "true") 1 else 0)
+            }
+        }
 
-    override fun sumForDimension(dimension: String) {
-        TODO("Not yet implemented")
+        return sum.toDouble()
     }
 }
