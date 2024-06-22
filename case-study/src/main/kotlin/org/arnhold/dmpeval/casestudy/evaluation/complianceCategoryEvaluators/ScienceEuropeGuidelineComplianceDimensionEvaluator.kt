@@ -2,6 +2,7 @@ package org.arnhold.dmpeval.casestudy.evaluation.complianceCategoryEvaluators
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
+import org.arnhold.dmpeval.casestudy.context.FAIRSharing.FAIRSharingService
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
@@ -10,10 +11,13 @@ import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationTaskParameters
 import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class ScienceEuropeExtensionComplianceDimensionEvaluator : DimensionEvaluatorPlugin {
+class ScienceEuropeGuidelineComplianceDimensionEvaluator @Autowired constructor(
+    val fairSharingService: FAIRSharingService
+) : DimensionEvaluatorPlugin {
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.SCIENCE_EUROPE_COMPLIANCE.toString()
