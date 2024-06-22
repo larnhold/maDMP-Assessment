@@ -82,10 +82,10 @@ class EvaluationManagerServiceImpl @Autowired constructor(
         extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         return runBlocking(Dispatchers.Default) {
-            if (parameters.dimensions != null) {
+            if (parameters.dimensions.isNotEmpty()) {
                 logger.info { "Call Evaluation Provider -> Produce Measurements for Dimensions ${parameters.dimensions}" }
                 return@runBlocking evaluationProviderService.produceMeasurementsForDimensions(dmp, context, parameters, dmpOntology, extensionOntologies)
-            } else if (parameters.categories != null) {
+            } else if (parameters.categories.isNotEmpty()) {
                 logger.info { "Call Evaluation Provider -> Produce Measurements for Categories ${parameters.categories}" }
                 return@runBlocking evaluationProviderService.produceMeasurementsForCategories(dmp, context, parameters, dmpOntology, extensionOntologies)
             } else {
