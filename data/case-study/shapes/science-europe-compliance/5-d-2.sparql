@@ -1,0 +1,10 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+ASK
+WHERE
+{
+    ?dataset dcso:hasDistribution ?distribution .
+    ?distribution dcso:hasHost ?hostId .
+    ?hostId dcso:pidSystem ?pidSystem .
+}
+GROUP BY ?distribution ?dataset ?hostId ?pidSystem

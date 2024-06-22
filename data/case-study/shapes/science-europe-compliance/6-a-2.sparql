@@ -1,0 +1,30 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT ?property ?propertyValue
+WHERE
+{
+    ?dmp dcso:hasContributor ?contact .
+
+    {
+        {
+            ?contact ?property ?propertyValue .
+        }
+        UNION
+        {
+            ?contact dcso:hasContributorId ?contactId .
+            ?contactId ?property ?propertyValue .
+        }
+    }
+    UNION
+    {
+        ?contact dcso:role ?roleElement .
+        ?contact foaf:name ?name .
+        ?roleElement rdf:rest*/rdf:first ?role .
+        BIND(dcso:role as ?property)
+        BIND(CONCAT(?name, ": ", ?role) AS ?propertyValue)
+    }
+
+}
+GROUP BY ?property ?propertyValue

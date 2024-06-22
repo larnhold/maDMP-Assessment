@@ -1,0 +1,8 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+SELECT (COALESCE(?desc, "<none>") AS ?ethicalIssuesDescription) (COALESCE(?rep, "<none>") AS ?report)
+WHERE
+{
+    OPTIONAL { ?maDMP dcso:ethicalIssuesDescription ?desc . }
+    OPTIONAL { ?maDMP dcso:ethicalIssuesReport ?rep . }
+}

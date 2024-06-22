@@ -1,0 +1,7 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+ASK
+WHERE
+{
+    ?maDMP dcso:ethicalIssuesExist "yes" .
+}

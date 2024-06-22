@@ -1,9 +1,0 @@
-PREFIX sh: <http://www.w3.org/ns/shacl#>
-PREFIX dcso: <https://w3id.org/dcso/ns/core#>
-
-[] a sh:NodeShape ;
-   sh:targetObjectsOf dcso:hasDataset ;
-   sh:property [
-      sh:path dcso:preservationStatement ;
-      sh:minCount 1 ;
-   ] .

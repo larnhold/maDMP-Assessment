@@ -1,0 +1,9 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+SELECT ?technicalResource ?property ?propertyValue
+WHERE
+{
+    ?dmp dcso:hasTechnicalResource ?technicalResource .
+    ?technicalResource ?property ?propertyValue .
+}
+GROUP BY ?technicalResource ?property ?propertyValue

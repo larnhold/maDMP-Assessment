@@ -20,12 +20,12 @@ class ScienceEuropeGuidelineComplianceDimensionEvaluator @Autowired constructor(
 ) : DimensionEvaluatorPlugin {
 
     override fun getPluginIdentifier(): String {
-        return EvaluationDimensionConstants.SCIENCE_EUROPE_COMPLIANCE.toString()
+        return EvaluationDimensionConstants.SCIENCE_EUROPE_GUIDELINE_COMPLIANCE.toString()
     }
 
     override fun getPluginInformation(): EvaluatorInformation {
         return EvaluatorInformation(
-            CategoryDimmensionModels.SCIENCE_EUROPE_COMPLIANCE_DIMENSION,
+            CategoryDimmensionModels.SCIENCE_EUROPE_GUIDELINE_COMPLIANCE_DIMENSION,
             CategoryDimmensionModels.COMPLIANCE_CATEGORY,
             listOf()
         )
@@ -50,6 +50,6 @@ class ScienceEuropeGuidelineComplianceDimensionEvaluator @Autowired constructor(
     }
 
     override fun supports(p0: String): Boolean {
-        return EvaluationDimensionConstants.SCIENCE_EUROPE_COMPLIANCE.toString() == p0
+        return EvaluationDimensionConstants.SCIENCE_EUROPE_GUIDELINE_COMPLIANCE.toString() == p0
     }
 }

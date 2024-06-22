@@ -1,0 +1,8 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+SELECT *
+WHERE
+{
+    ?maDmp dcso:hasDataset ?dataSet .
+    OPTIONAL { ?dataSet dcso:preservationStatement ?statement . }
+}

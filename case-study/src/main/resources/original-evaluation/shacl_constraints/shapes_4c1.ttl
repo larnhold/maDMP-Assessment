@@ -1,9 +1,0 @@
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix dcso: <https://w3id.org/dcso/ns/core#> .
-
-[] a sh:NodeShape ;
-   sh:targetSubjectsOf dcso:ethicalIssuesExist ;
-   sh:property [
-      sh:path dcso:ethicalIssuesExist ;
-      sh:in ("yes" "no") ;
-   ] .

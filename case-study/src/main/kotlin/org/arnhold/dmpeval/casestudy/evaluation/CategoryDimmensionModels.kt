@@ -25,11 +25,11 @@ class CategoryDimmensionModels {
         //+1
         val CONSISTENCY_DIMENSION = Dimension(FEASIBILITY_CATEGORY, EvaluationDimensionConstants.CONSISTENCY.toString(), null)
 
-        val GUIDELINE_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.GUIDELINE_COMPLIANCE.toString(), null)
+        private val GUIDELINE_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.GUIDELINE_COMPLIANCE.toString(), null)
         //+1
         val DCS_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.DCS_COMPLIANCE.toString(), null, GUIDELINE_COMPLIANCE_DIMENSION)
         //+1
-        val SCIENCE_EUROPE_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.SCIENCE_EUROPE_COMPLIANCE.toString(), null, GUIDELINE_COMPLIANCE_DIMENSION)
+        val SCIENCE_EUROPE_GUIDELINE_COMPLIANCE_DIMENSION = Dimension(COMPLIANCE_CATEGORY, EvaluationDimensionConstants.SCIENCE_EUROPE_GUIDELINE_COMPLIANCE.toString(), null, GUIDELINE_COMPLIANCE_DIMENSION)
 
         //+1
         val FAIR_DIMENSION = Dimension(QUALITY_OF_ACTIONS_CATEGORY, EvaluationDimensionConstants.FAIR.toString(), null)

@@ -1,0 +1,16 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+SELECT DISTINCT ?property ?propertyValue
+WHERE
+{
+    ?dmp dcso:hasContact ?contact .
+
+    {
+        ?contact ?property ?propertyValue .
+    }
+    UNION
+    {
+        ?contact dcso:hasContactId ?contactId .
+        ?contactId ?property ?propertyValue .
+    }
+}

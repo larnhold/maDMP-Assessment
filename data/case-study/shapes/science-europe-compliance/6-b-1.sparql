@@ -1,0 +1,9 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+SELECT ?cost ?property ?propertyValue
+WHERE
+{
+    ?dmp dcso:hasCost ?cost .
+    ?cost ?property ?propertyValue .
+}
+GROUP BY ?cost ?property ?propertyValue

@@ -16,13 +16,13 @@ class CaseStudyFacadeController @Autowired constructor(
 
     @PostMapping("evaluate")
     fun createEvaluation(): EvaluationTaskResult {
-        val dmploader = DMPLoaderParameters("", "zenodo/12.json")
+        val dmploader = DMPLoaderParameters("", "dcs-repo-examples/ex8-dmp-minimal-content.json")
 
         val parameters =  EvaluationTaskParameters(
             dmpLoaderParameters = dmploader,
-            categories = null,
+            categories = listOf(),
             dataLifecycle = DataLifecycle.PLANNING,
-            dimensions = null
+            dimensions = listOf()
         )
 
         return evaluationManagerService.createEvaluation(parameters)
@@ -34,7 +34,7 @@ class CaseStudyFacadeController @Autowired constructor(
 
         val parameters =  EvaluationTaskParameters(
             dmpLoaderParameters = dmploader,
-            categories = null,
+            categories = listOf(),
             dataLifecycle = DataLifecycle.PLANNING,
             dimensions = listOf(
                 EvaluationDimensionConstants.DCS_COMPLIANCE.toString(),

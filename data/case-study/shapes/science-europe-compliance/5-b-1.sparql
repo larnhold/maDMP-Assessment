@@ -1,0 +1,13 @@
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+
+SELECT ?hostId ?property ?propertyValue
+WHERE
+{
+    ?dataset dcso:hasDistribution ?distribution .
+
+    ?distribution dcso:hasHost ?hostId .
+
+    ?hostId ?property ?propertyValue .
+}
+GROUP BY ?distribution ?hostId ?title ?property ?propertyValue
+ORDER BY ASC(?hostId) ASC(?property)

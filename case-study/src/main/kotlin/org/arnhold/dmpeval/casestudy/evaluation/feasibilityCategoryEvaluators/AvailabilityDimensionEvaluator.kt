@@ -46,7 +46,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
             CategoryDimmensionModels.AVAILABILITY_DIMENSION,
             CategoryDimmensionModels.FEASIBILITY_CATEGORY,
             listOf(
-                FeasabilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
+                FeasibilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
             )
         )
     }
@@ -81,7 +81,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
                     subject,
                     verb,
                     httpCheck(urlValue),
-                    FeasabilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
+                    FeasibilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
                 )
 
                 return@mapNotNull measurement
@@ -102,7 +102,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
                 it.resources.get("root"),
                 it.resources.get("id"),
                 isIDAvailable(it.literals.get("value").toString(), it.literals.get("type").toString()),
-                FeasabilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
+                FeasibilityMetricModels.LINKED_RESOURCE_EXISTENCE_METRIC
             )
         }
     }
