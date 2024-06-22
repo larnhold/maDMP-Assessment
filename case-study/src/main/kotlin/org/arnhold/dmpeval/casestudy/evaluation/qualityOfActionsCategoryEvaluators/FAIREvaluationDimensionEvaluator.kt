@@ -7,7 +7,7 @@ import org.apache.jena.rdf.model.Resource
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.model.SoftareAgents
-import org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators.AvailabilityDimensionEvaluator
+import org.arnhold.dmpeval.casestudy.evaluation.feasibilityCategoryEvaluators.AvailabilityDimensionEvaluator
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiRoot

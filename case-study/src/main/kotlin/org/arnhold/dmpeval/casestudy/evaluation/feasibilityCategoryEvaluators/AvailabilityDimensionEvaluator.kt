@@ -1,4 +1,4 @@
-package org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators
+package org.arnhold.dmpeval.casestudy.evaluation.feasibilityCategoryEvaluators
 
 import mu.KotlinLogging
 import okhttp3.OkHttpClient

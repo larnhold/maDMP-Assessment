@@ -1,4 +1,4 @@
-package org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators
+package org.arnhold.dmpeval.casestudy.evaluation.feasibilityCategoryEvaluators
 
 import org.apache.jena.vocabulary.XSD
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels

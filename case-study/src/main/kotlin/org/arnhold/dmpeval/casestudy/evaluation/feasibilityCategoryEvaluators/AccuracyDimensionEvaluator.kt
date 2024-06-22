@@ -1,4 +1,4 @@
-package org.arnhold.dmpeval.casestudy.evaluation.feasabilityCategoryEvaluators
+package org.arnhold.dmpeval.casestudy.evaluation.feasibilityCategoryEvaluators
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
