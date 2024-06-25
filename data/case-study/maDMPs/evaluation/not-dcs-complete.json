@@ -1,0 +1,24 @@
+{
+	"dmp": {
+		"title": "Minimal DMP",
+		"created": "2023-10-23T10:10:23.6",
+		"dmp_id": {
+			"identifier": "10.5281/zenodo.11670084",
+			"type": "doi"
+		},
+		"dataset": [
+			{
+				"dataset_id": {
+					"identifier": "10.5281/zenodo.4699051",
+					"type": "doi"
+				},
+				"title": "Analysis of Performances of kNN and Random Forest",
+				"personal_data": "unknown",
+				"sensitive_data": "unknown"
+			}
+		],
+		"ethical_issues_exist": "unknown",
+		"language": "eng",
+		"modified": "2023-10-23T10:10:23.6"
+	}
+}
