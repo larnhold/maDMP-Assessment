@@ -2,7 +2,7 @@ store:
   directory: "./data/store"
 ontology:
   DCSLocation: "./data/ontologies/dcso-4.0.1.ttl"
-  DMPDQVLocation: "./data/ontologies/dmp-dqv.ttl"
+  DMPDQVLocation: "./data/ontologies/dmpqv.ttl"
 extension:
   ontologies:
     - name: "science-europe"
