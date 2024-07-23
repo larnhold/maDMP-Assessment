@@ -255,11 +255,15 @@ dqv:value rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/dmpdqv/ns/core#entity
 dmpdqv:entity rdf:type owl:DatatypeProperty ;
+              rdfs:domain dmpdqv:DMPLocation ;
+              rdfs:range xsd:string ;
               rdfs:label "entity" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#property
 dmpdqv:property rdf:type owl:DatatypeProperty ;
+                rdfs:domain dmpdqv:DMPLocation ;
+                rdfs:range xsd:string ;
                 rdfs:label "property" .
 
 
