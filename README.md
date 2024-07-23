@@ -2,12 +2,16 @@
 This repository contains the sources codes and other outputs from the Master Thesis  *Automated Indicators on the Quality of Machine-actionable Data Management Plans*.
 
 ## Table of Contents
+- [DMP Quality Vocabulary]
 - [Conceptual Framwork](#conceptual-framework)
 - [Prototype Implementation](#prototype-implementation)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+- 
+## DMP Quality Vocabulary
+The primary output of the evaluation of a maDMP in the scope of the solution are quality measurements representing quality measurements as described by the DMP Quality Vocabulary. This vocabulary also includes other information relevant to the representation of the result of a DMP Evaluation. The [DMPQV Documentation](https://larnhold.github.io/maDMP-Assesment/dmpqv/index.html) contains more information regarding this vocabulary.
 
 ## Conceptual Framework
 The conceptual framework specifies components that enable the interaction if DMPs to generate automated quality indicators to assist in the evaluation of DMPs. The main components are shown in the pictures below.
