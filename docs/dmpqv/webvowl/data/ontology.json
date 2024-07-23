@@ -1,0 +1,747 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "https://w3id.org/dmpdqv/ns/core", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/prov", "http://www.w3.org/ns/dqv", "http://www.w3.org/2001/XMLSchema", "http://purl.org/linked-data/cube" ],
+    "iri" : "https://w3id.org/dmpdqv/ns/core",
+    "author" : [ "Lukas Arnhold" ],
+    "other" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Lukas Arnhold",
+        "type" : "label"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "Tomasz Miksa",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "30",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://purl.org/linked-data/cube#Observation",
+    "baseIri" : "http://purl.org/linked-data/cube",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Observation"
+    },
+    "subClasses" : [ "1" ],
+    "attributes" : [ "external" ],
+    "id" : "3"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#Metric",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Metric",
+      "en" : "Metric"
+    },
+    "comment" : {
+      "en" : "Represents a standard to measure a quality dimension. An observation (instance of dqv:QualityMeasurement) assigns a value in a given unit to a Metric."
+    },
+    "attributes" : [ "external" ],
+    "id" : "6"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#Category",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Category",
+      "en" : "Category"
+    },
+    "comment" : {
+      "en" : "Represents a group of quality dimensions in which a common type of information is used as quality indicator."
+    },
+    "attributes" : [ "external" ],
+    "id" : "15"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#Guidance",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Guidance",
+      "undefined" : "Guidance"
+    },
+    "comment" : {
+      "undefined" : "Provides guidance on how to improve the result of a given measurement."
+    },
+    "id" : "19"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#DMPLocation",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DMPLocation",
+      "undefined" : "DMPLocation"
+    },
+    "comment" : {
+      "undefined" : "References a location in a maDMP."
+    },
+    "id" : "24"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#Dimension",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Dimension",
+      "en" : "Dimension"
+    },
+    "comment" : {
+      "en" : "Represents criteria relevant for assessing quality. Each quality dimension must have one or more metric to measure it. A dimension is linked with a category using the dqv:inCategory property."
+    },
+    "attributes" : [ "external" ],
+    "id" : "13"
+  }, {
+    "instances" : 0,
+    "union" : [ "32", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "21"
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "33"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#MetricGroup",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MetricGroup",
+      "undefined" : "MetricGroup"
+    },
+    "id" : "34"
+  }, {
+    "instances" : 0,
+    "union" : [ "32", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "8"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#SoftwareAgent",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SoftwareAgent",
+      "undefined" : "SoftwareAgent"
+    },
+    "comment" : {
+      "undefined" : "Indicates which agent produced a given measurement."
+    },
+    "attributes" : [ "external" ],
+    "id" : "36"
+  }, {
+    "instances" : 0,
+    "union" : [ "1", "2" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "37"
+  }, {
+    "instances" : 0,
+    "union" : [ "32", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "26"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "11",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "27",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "38",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "30",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "31",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "39",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "22",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "instances" : 0,
+    "union" : [ "13", "34" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "5"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#TestResult",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TestResult",
+      "undefined" : "TestResult"
+    },
+    "comment" : {
+      "undefined" : "Represents the result of the execution of a test according to a Test Definition."
+    },
+    "id" : "2"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#LifecycleStage",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LifecycleStage",
+      "undefined" : "LifecycleStage"
+    },
+    "comment" : {
+      "undefined" : "Indicates at what stage of the DMP lifecycle the measurements have been generated."
+    },
+    "id" : "17"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anySimpleType",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "9",
+    "label" : {
+      "IRI-based" : "anySimpleType"
+    }
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#QualityMeasurement",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "instances" : 0,
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "The unit of measure in quality measurement should be specified through the property sdmx-attribute:unitMeasure as recommended by RDF Data Cube. The Ontology of units of Measure (OM) by Rijgersberg Et Al provides a list of HTTP dereferenceable unit of measures, which can be exploited as values for sdmx-attribute:unitMeasure.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "QualityMeasurement",
+      "en" : "Quality Measurement"
+    },
+    "comment" : {
+      "en" : "Represents the evaluation of a given dataset (or dataset distribution) against a specific quality metric."
+    },
+    "attributes" : [ "external" ],
+    "id" : "1",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#TestDefinition",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TestDefinition",
+      "undefined" : "TestDefinition"
+    },
+    "comment" : {
+      "undefined" : "Represents the definition of a Test for a Quality Metric."
+    },
+    "id" : "32"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Resource",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Resource"
+    },
+    "attributes" : [ "external" ],
+    "id" : "50"
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "7",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "10",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "12",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "16",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "18",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "20",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "23",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "28",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "29",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "35",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "40",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "41",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "43",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "46",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "47",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "49",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#hasTestResult",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "hasTestResult",
+      "undefined" : "hasTestResult"
+    },
+    "domain" : "1",
+    "comment" : {
+      "undefined" : "Refers to a certain test result belonging to a measurement."
+    },
+    "attributes" : [ "object" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#hasMetric",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "hasMetric",
+      "undefined" : "hasMetric"
+    },
+    "domain" : "5",
+    "comment" : {
+      "undefined" : "Refers to a Metric that belongs to a Dimension of MetricGroup."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "4"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#expectedDataType",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "expectedDataType",
+      "en" : "expected data type"
+    },
+    "domain" : "8",
+    "comment" : {
+      "en" : "Represents the expected data type for metric's observed value (e.g. xsd:boolean, xsd:double etc...)"
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "7"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#hasQualityMeasurement",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "hasQualityMeasurement",
+      "en" : "has quality measurement"
+    },
+    "domain" : "11",
+    "comment" : {
+      "en" : "Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "10"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#hasParentDimension",
+    "inverse" : "14",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "hasParentDimension",
+      "undefined" : "hasParentDimension"
+    },
+    "domain" : "13",
+    "comment" : {
+      "undefined" : "Refers to a parent dimension of a dimension."
+    },
+    "attributes" : [ "object" ],
+    "id" : "12"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "appliedAtLifecycle",
+      "undefined" : "appliedAtLifecycle"
+    },
+    "domain" : "1",
+    "comment" : {
+      "undefined" : "Refers to the  DMP Lifecycle Stage where the given action has been conducted."
+    },
+    "attributes" : [ "object" ],
+    "id" : "16"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#isMeasurementOf",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isMeasurementOf",
+      "en" : "is measurement of"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Indicates the metric being observed."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "18"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#valueUpperBound",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "valueUpperBound",
+      "undefined" : "valueUpperBound"
+    },
+    "domain" : "21",
+    "attributes" : [ "datatype" ],
+    "id" : "20"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#inDimension",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "range" : "13",
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "Dimensions are meant to systematically organize metrics, quality certificates and quality annotations. The Data Quality Vocabulary defines no specific cardinality constraints for dqv:inDimension, since distinct quality frameworks might have different perspectives over a metric. A metric may therefore be associated to more than one dimension. However, those who define new quality metrics should try to avoid this as much as possible and assign only one dimension to the metrics they define. More than one dimension can be indicated for each quality annotation or certificate.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "inDimension",
+      "en" : "in dimension"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "Represents the dimensions a quality metric, certificate and annotation allow a measurement of."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "23"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#valueLowerBound",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "valueLowerBound",
+      "undefined" : "valueLowerBound"
+    },
+    "domain" : "26",
+    "attributes" : [ "datatype" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#hasGuidance",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "hasGuidance",
+      "undefined" : "hasGuidance"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "28"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#property",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "property",
+      "undefined" : "property"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype" ],
+    "id" : "29"
+  }, {
+    "range" : "3",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "35"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#hasSubDimension",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "hasSubDimension",
+      "undefined" : "hasSubDimension"
+    },
+    "domain" : "13",
+    "comment" : {
+      "undefined" : "Refers to subdimensions related with the given dimension."
+    },
+    "attributes" : [ "object" ],
+    "id" : "14"
+  }, {
+    "range" : "2",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "40"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "hasQualityMeasurement",
+      "undefined" : "hasQualityMeasurement"
+    },
+    "domain" : "11",
+    "attributes" : [ "object" ],
+    "id" : "41"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "36",
+    "label" : {
+      "IRI-based" : "wasAttributedTo",
+      "undefined" : "wasAttributedTo"
+    },
+    "domain" : "1",
+    "comment" : {
+      "undefined" : "Indicates which Software Agent was involved in the generation of a measurement."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "42"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#entity",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "entity",
+      "undefined" : "entity"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype" ],
+    "id" : "43"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#value",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "range" : "38",
+    "label" : {
+      "IRI-based" : "value",
+      "en" : "value"
+    },
+    "domain" : "37",
+    "comment" : {
+      "en" : "Refers to values computed by metric."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "44"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "hasApplicableLifecycle",
+      "undefined" : "hasApplicableLifecycle"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "Refers to the DMP Lifecycle stage where the given action can be done."
+    },
+    "attributes" : [ "object" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#inCategory",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "range" : "15",
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "Categories are meant to systematically organize dimensions. The Data Quality Vocabulary defines no specific cardinality constraints for dqv:inCategory, since distinct quality frameworks might have different perspectives over a dimension. A dimension may therefore be associated to more than one category. However, those who define new quality metrics should try to avoid this as much as possible and assign only one category to the dimensions they define.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "inCategory",
+      "en" : "in category"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "Represents the category a dimension is grouped in."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "46"
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#computedOn",
+    "inverse" : "10",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "computedOn",
+      "en" : "computed on"
+    },
+    "domain" : "1",
+    "comment" : {
+      "en" : "Refers to the resource (e.g., a dataset, a linkset, a graph, a set of triples) on which the quality measurement is performed. In the DQV context, this property is generally expected to be used in statements in which objects are instances of dcat:Dataset or dcat:Distribution."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#inMetricGroup",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "34",
+    "label" : {
+      "IRI-based" : "inMetricGroup",
+      "undefined" : "inMetricGroup"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "Refers to the Metric Group that a Metric belongs to."
+    },
+    "attributes" : [ "object" ],
+    "id" : "48"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#hasTestDefinition",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "hasTestDefinition",
+      "undefined" : "hasTestDefinition"
+    },
+    "domain" : "33",
+    "comment" : {
+      "undefined" : "Refers to a test definition."
+    },
+    "attributes" : [ "object" ],
+    "id" : "49"
+  } ]
+}

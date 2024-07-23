@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>DMP Quality Vocabulary</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/dmpdqv/ns/core","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/dmpdqv/ns/core","name":"DMP Quality Vocabulary", "headline":"An Ontology to describe DMP Evaluation.", "dateReleased":"Tue Jul 23 22:15:11 CEST 2024", "author":[{"@type":"Person","name":"Lukas Arnhold"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>DMP Quality Vocabulary</h1>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="https://w3id.org/dmpdqv/ns/core/1.0.0">https://w3id.org/dmpdqv/ns/core/1.0.0</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="https://w3id.org/dmpdqv/ns/core">https://w3id.org/dmpdqv/ns/core</a></dd>
+<dt>Authors:</dt>
+<dd>Lukas Arnhold</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd><dt>Cite as:</dt>
+<dd>Lukas Arnhold. Retrieved from: https://w3id.org/dmpdqv/ns/core/1.0.0</dd>
+</dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+An Ontology to describe DMP Evaluation.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;https://w3id.org/dmpdqv/ns/core&gt;</td></tr>
+<tr><td><b>cube</b></td><td>&lt;http://purl.org/linked-data/cube#&gt;</td></tr>
+<tr><td><b>dmpdqv</b></td><td>&lt;https://w3id.org/dmpdqv/ns/core#&gt;</td></tr>
+<tr><td><b>dqv</b></td><td>&lt;http://www.w3.org/ns/dqv#&gt;</td></tr>
+<tr><td><b>foaf</b></td><td>&lt;http://xmlns.com/foaf/0.1/&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>prov</b></td><td>&lt;http://www.w3.org/ns/prov#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+<tr><td><b>terms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">DMPQV: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#Category" title="http://www.w3.org/ns/dqv#Category">Category</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a>
+   </li>
+   <li>
+      <a href="#DMPLocation" title="https://w3id.org/dmpdqv/ns/core#DMPLocation">DMPLocation</a>
+   </li>
+   <li>
+      <a href="#Guidance" title="https://w3id.org/dmpdqv/ns/core#Guidance">Guidance</a>
+   </li>
+   <li>
+      <a href="#LifecycleStage" title="https://w3id.org/dmpdqv/ns/core#LifecycleStage">LifecycleStage</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a>
+   </li>
+   <li>
+      <a href="#MetricGroup" title="https://w3id.org/dmpdqv/ns/core#MetricGroup">MetricGroup</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">SoftwareAgent</a>
+   </li>
+   <li>
+      <a href="#TestDefinition" title="https://w3id.org/dmpdqv/ns/core#TestDefinition">TestDefinition</a>
+   </li>
+   <li>
+      <a href="#TestResult" title="https://w3id.org/dmpdqv/ns/core#TestResult">TestResult</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#appliedAtLifecycle"
+         title="https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle">appliedAtLifecycle</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#computedOn" title="http://www.w3.org/ns/dqv#computedOn">computed on</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#hasQualityMeasurement" title="http://www.w3.org/ns/dqv#hasQualityMeasurement">has quality measurement</a>
+   </li>
+   <li>
+      <a href="#hasApplicableLifecycle"
+         title="https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle">hasApplicableLifecycle</a>
+   </li>
+   <li>
+      <a href="#hasGuidance" title="https://w3id.org/dmpdqv/ns/core#hasGuidance">hasGuidance</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#hasMetric" title="http://www.w3.org/ns/dqv#hasMetric">hasMetric</a>
+   </li>
+   <li>
+      <a href="#hasParentDimension"
+         title="https://w3id.org/dmpdqv/ns/core#hasParentDimension">hasParentDimension</a>
+   </li>
+   <li>
+      <a href="#hasQualityMeasurement"
+         title="https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement">hasQualityMeasurement</a>
+   </li>
+   <li>
+      <a href="#hasSubDimension" title="https://w3id.org/dmpdqv/ns/core#hasSubDimension">hasSubDimension</a>
+   </li>
+   <li>
+      <a href="#hasTestDefinition"
+         title="https://w3id.org/dmpdqv/ns/core#hasTestDefinition">hasTestDefinition</a>
+   </li>
+   <li>
+      <a href="#hasTestResult" title="https://w3id.org/dmpdqv/ns/core#hasTestResult">hasTestResult</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#inCategory" title="http://www.w3.org/ns/dqv#inCategory">in category</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a>
+   </li>
+   <li>
+      <a href="#inMetricGroup" title="https://w3id.org/dmpdqv/ns/core#inMetricGroup">inMetricGroup</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#isMeasurementOf" title="http://www.w3.org/ns/dqv#isMeasurementOf">is measurement of</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#wasAttributedTo" title="http://www.w3.org/ns/prov#wasAttributedTo">wasAttributedTo</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#entity" title="https://w3id.org/dmpdqv/ns/core#entity">entity</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#expectedDataType" title="http://www.w3.org/ns/dqv#expectedDataType">expected data type</a>
+   </li>
+   <li>
+      <a href="#property" title="https://w3id.org/dmpdqv/ns/core#property">property</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dqv#value" title="http://www.w3.org/ns/dqv#value">value</a>
+   </li>
+   <li>
+      <a href="#valueLowerBound" title="https://w3id.org/dmpdqv/ns/core#valueLowerBound">valueLowerBound</a>
+   </li>
+   <li>
+      <a href="#valueUpperBound" title="https://w3id.org/dmpdqv/ns/core#valueUpperBound">valueUpperBound</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#broader" title="http://www.w3.org/2004/02/skos/core#broader">
+         <span>broader</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/contributor" title="http://purl.org/dc/terms/contributor">
+         <span>contributor</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created">
+         <span>created</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">
+         <span>creator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#definition" title="http://www.w3.org/2004/02/skos/core#definition">
+         <span>definition</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">
+         <span>description</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://xmlns.com/foaf/0.1/homepage" title="http://xmlns.com/foaf/0.1/homepage">
+         <span>homepage</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified">
+         <span>modified</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://xmlns.com/foaf/0.1/name" title="http://xmlns.com/foaf/0.1/name">
+         <span>name</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#prefLabel" title="http://www.w3.org/2004/02/skos/core#prefLabel">
+         <span>pref Label</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespacePrefix"
+         title="http://purl.org/vocab/vann/preferredNamespacePrefix">
+         <span>preferred Namespace Prefix</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespaceUri" title="http://purl.org/vocab/vann/preferredNamespaceUri">
+         <span>preferred Namespace Uri</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/publisher" title="http://purl.org/dc/terms/publisher">
+         <span>publisher</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/type" title="http://purl.org/dc/terms/type">
+         <span>type</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/usageNote" title="http://purl.org/vocab/vann/usageNote">
+         <span>usage Note</span>
+      </a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">DMPQV: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.
+
+</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for DMPQV classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by DMPQV.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#http://www.w3.org/ns/dqv#Category" title="http://www.w3.org/ns/dqv#Category">Category</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a></li>
+  <li><a href="#DMPLocation" title="https://w3id.org/dmpdqv/ns/core#DMPLocation">DMPLocation</a></li>
+  <li><a href="#Guidance" title="https://w3id.org/dmpdqv/ns/core#Guidance">Guidance</a></li>
+  <li><a href="#LifecycleStage" title="https://w3id.org/dmpdqv/ns/core#LifecycleStage">LifecycleStage</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a></li>
+  <li><a href="#MetricGroup" title="https://w3id.org/dmpdqv/ns/core#MetricGroup">MetricGroup</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">SoftwareAgent</a></li>
+  <li><a href="#TestDefinition" title="https://w3id.org/dmpdqv/ns/core#TestDefinition">TestDefinition</a></li>
+  <li><a href="#TestResult" title="https://w3id.org/dmpdqv/ns/core#TestResult">TestResult</a></li>
+ </ul>
+ <div class="entity" id="http://www.w3.org/ns/dqv#Category">
+  <h3>Category<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#Category</p>
+  <div class="comment">
+   <span class="markdown">Represents a group of quality dimensions in which a common type of information is used as quality indicator.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#inCategory" title="http://www.w3.org/ns/dqv#inCategory">in category</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#Dimension">
+  <h3>Dimension<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#Dimension</p>
+  <div class="comment">
+   <span class="markdown">Represents criteria relevant for assessing quality. Each quality dimension must have one or more metric to measure it. A dimension is linked with a category using the dqv:inCategory property.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#hasMetric" title="http://www.w3.org/ns/dqv#hasMetric">hasMetric</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSubDimension" title="https://w3id.org/dmpdqv/ns/core#hasSubDimension">hasSubDimension</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/dqv#inCategory" title="http://www.w3.org/ns/dqv#inCategory">in category</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasSubDimension" title="https://w3id.org/dmpdqv/ns/core#hasSubDimension">hasSubDimension</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DMPLocation">
+  <h3>DMPLocation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#DMPLocation</p>
+  <div class="comment">
+   <span class="markdown">References a location in a maDMP.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#computedOn" title="http://www.w3.org/ns/dqv#computedOn">computed on</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Guidance">
+  <h3>Guidance<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#Guidance</p>
+  <div class="comment">
+   <span class="markdown">Provides guidance on how to improve the result of a given measurement.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasGuidance" title="https://w3id.org/dmpdqv/ns/core#hasGuidance">hasGuidance</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="LifecycleStage">
+  <h3>LifecycleStage<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#LifecycleStage</p>
+  <div class="comment">
+   <span class="markdown">Indicates at what stage of the DMP lifecycle the measurements have been generated.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#appliedAtLifecycle" title="https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle">appliedAtLifecycle</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasApplicableLifecycle" title="https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle">hasApplicableLifecycle</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#Metric">
+  <h3>Metric<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#Metric</p>
+  <div class="comment">
+   <span class="markdown">Represents a standard to measure a quality dimension. An observation (instance of dqv:QualityMeasurement) assigns a value in a given unit to a Metric.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#expectedDataType" title="http://www.w3.org/ns/dqv#expectedDataType">expected data type</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasApplicableLifecycle" title="https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle">hasApplicableLifecycle</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTestDefinition" title="https://w3id.org/dmpdqv/ns/core#hasTestDefinition">hasTestDefinition</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a> <sup class="type-op" title="object property">op</sup>, <a href="#inMetricGroup" title="https://w3id.org/dmpdqv/ns/core#inMetricGroup">inMetricGroup</a> <sup class="type-op" title="object property">op</sup>, <a href="#valueLowerBound" title="https://w3id.org/dmpdqv/ns/core#valueLowerBound">valueLowerBound</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#valueUpperBound" title="https://w3id.org/dmpdqv/ns/core#valueUpperBound">valueUpperBound</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#hasMetric" title="http://www.w3.org/ns/dqv#hasMetric">hasMetric</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/dqv#isMeasurementOf" title="http://www.w3.org/ns/dqv#isMeasurementOf">is measurement of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MetricGroup">
+  <h3>MetricGroup<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#MetricGroup</p>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#hasMetric" title="http://www.w3.org/ns/dqv#hasMetric">hasMetric</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#inMetricGroup" title="https://w3id.org/dmpdqv/ns/core#inMetricGroup">inMetricGroup</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#QualityMeasurement">
+  <h3>Quality Measurement<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#QualityMeasurement</p>
+  <div class="comment">
+   <span class="markdown">Represents the evaluation of a given dataset (or dataset distribution) against a specific quality metric.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/linked-data/cube#Observation" target="_blank" title="http://purl.org/linked-data/cube#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#appliedAtLifecycle" title="https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle">appliedAtLifecycle</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/dqv#computedOn" title="http://www.w3.org/ns/dqv#computedOn">computed on</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasGuidance" title="https://w3id.org/dmpdqv/ns/core#hasGuidance">hasGuidance</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTestResult" title="https://w3id.org/dmpdqv/ns/core#hasTestResult">hasTestResult</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/dqv#value" title="http://www.w3.org/ns/dqv#value">value</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/ns/prov#wasAttributedTo" title="http://www.w3.org/ns/prov#wasAttributedTo">wasAttributedTo</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#hasQualityMeasurement" title="http://www.w3.org/ns/dqv#hasQualityMeasurement">has quality measurement</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasQualityMeasurement" title="https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement">hasQualityMeasurement</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#TestResult" title="https://w3id.org/dmpdqv/ns/core#TestResult">TestResult</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#SoftwareAgent">
+  <h3>SoftwareAgent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#SoftwareAgent</p>
+  <div class="comment">
+   <span class="markdown">Indicates which agent produced a given measurement.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/prov#wasAttributedTo" title="http://www.w3.org/ns/prov#wasAttributedTo">wasAttributedTo</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TestDefinition">
+  <h3>TestDefinition<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#TestDefinition</p>
+  <div class="comment">
+   <span class="markdown">Represents the definition of a Test for a Quality Metric.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#expectedDataType" title="http://www.w3.org/ns/dqv#expectedDataType">expected data type</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#valueLowerBound" title="https://w3id.org/dmpdqv/ns/core#valueLowerBound">valueLowerBound</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#valueUpperBound" title="https://w3id.org/dmpdqv/ns/core#valueUpperBound">valueUpperBound</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasTestDefinition" title="https://w3id.org/dmpdqv/ns/core#hasTestDefinition">hasTestDefinition</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TestResult">
+  <h3>TestResult<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#TestResult</p>
+  <div class="comment">
+   <span class="markdown">Represents the result of the execution of a test according to a Test Definition.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasTestDefinition" title="https://w3id.org/dmpdqv/ns/core#hasTestDefinition">hasTestDefinition</a> <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/dqv#value" title="http://www.w3.org/ns/dqv#value">value</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasTestResult" title="https://w3id.org/dmpdqv/ns/core#hasTestResult">hasTestResult</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#appliedAtLifecycle" title="https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle">appliedAtLifecycle</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#computedOn" title="http://www.w3.org/ns/dqv#computedOn">computed on</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#hasQualityMeasurement" title="http://www.w3.org/ns/dqv#hasQualityMeasurement">has quality measurement</a></li>
+  <li><a href="#hasApplicableLifecycle" title="https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle">hasApplicableLifecycle</a></li>
+  <li><a href="#hasGuidance" title="https://w3id.org/dmpdqv/ns/core#hasGuidance">hasGuidance</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#hasMetric" title="http://www.w3.org/ns/dqv#hasMetric">hasMetric</a></li>
+  <li><a href="#hasParentDimension" title="https://w3id.org/dmpdqv/ns/core#hasParentDimension">hasParentDimension</a></li>
+  <li><a href="#hasQualityMeasurement" title="https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement">hasQualityMeasurement</a></li>
+  <li><a href="#hasSubDimension" title="https://w3id.org/dmpdqv/ns/core#hasSubDimension">hasSubDimension</a></li>
+  <li><a href="#hasTestDefinition" title="https://w3id.org/dmpdqv/ns/core#hasTestDefinition">hasTestDefinition</a></li>
+  <li><a href="#hasTestResult" title="https://w3id.org/dmpdqv/ns/core#hasTestResult">hasTestResult</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#inCategory" title="http://www.w3.org/ns/dqv#inCategory">in category</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#inDimension" title="http://www.w3.org/ns/dqv#inDimension">in dimension</a></li>
+  <li><a href="#inMetricGroup" title="https://w3id.org/dmpdqv/ns/core#inMetricGroup">inMetricGroup</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#isMeasurementOf" title="http://www.w3.org/ns/dqv#isMeasurementOf">is measurement of</a></li>
+  <li><a href="#http://www.w3.org/ns/prov#wasAttributedTo" title="http://www.w3.org/ns/prov#wasAttributedTo">wasAttributedTo</a></li>
+ </ul>
+ <div class="entity" id="appliedAtLifecycle">
+  <h3>appliedAtLifecycle<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle</p>
+  <div class="comment">
+   <span class="markdown">Refers to the DMP Lifecycle Stage where the given action has been conducted.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#LifecycleStage" title="https://w3id.org/dmpdqv/ns/core#LifecycleStage">LifecycleStage</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#computedOn">
+  <h3>computed on<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#computedOn</p>
+  <div class="comment">
+   <span class="markdown">Refers to the resource (e.g., a dataset, a linkset, a graph, a set of triples) on which the quality measurement is performed. In the DQV context, this property is generally expected to be used in statements in which objects are instances of dcat:Dataset or dcat:Distribution.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DMPLocation" title="https://w3id.org/dmpdqv/ns/core#DMPLocation">DMPLocation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#hasQualityMeasurement" title="http://www.w3.org/ns/dqv#hasQualityMeasurement">has quality measurement</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#hasQualityMeasurement">
+  <h3>has quality measurement<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#hasQualityMeasurement</p>
+  <div class="comment">
+   <span class="markdown">Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#computedOn" title="http://www.w3.org/ns/dqv#computedOn">computed on</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasApplicableLifecycle">
+  <h3>hasApplicableLifecycle<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle</p>
+  <div class="comment">
+   <span class="markdown">Refers to the DMP Lifecycle stage where the given action can be done.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#LifecycleStage" title="https://w3id.org/dmpdqv/ns/core#LifecycleStage">LifecycleStage</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasGuidance">
+  <h3>hasGuidance<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#hasGuidance</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Guidance" title="https://w3id.org/dmpdqv/ns/core#Guidance">Guidance</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#hasMetric">
+  <h3>hasMetric<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#hasMetric</p>
+  <div class="comment">
+   <span class="markdown">Refers to a Metric that belongs to a Dimension of MetricGroup.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#MetricGroup" title="https://w3id.org/dmpdqv/ns/core#MetricGroup">MetricGroup</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasParentDimension">
+  <h3>hasParentDimension<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#hasParentDimension</p>
+  <div class="comment">
+   <span class="markdown">Refers to a parent dimension of a dimension.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasSubDimension" title="https://w3id.org/dmpdqv/ns/core#hasSubDimension">hasSubDimension</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasQualityMeasurement">
+  <h3>hasQualityMeasurement<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#Thing" target="_blank" title="http://www.w3.org/2002/07/owl#Thing">Thing</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasSubDimension">
+  <h3>hasSubDimension<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#hasSubDimension</p>
+  <div class="comment">
+   <span class="markdown">Refers to subdimensions related with the given dimension.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasParentDimension" title="https://w3id.org/dmpdqv/ns/core#hasParentDimension">hasParentDimension</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasTestDefinition">
+  <h3>hasTestDefinition<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#hasTestDefinition</p>
+  <div class="comment">
+   <span class="markdown">Refers to a test definition.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TestResult" title="https://w3id.org/dmpdqv/ns/core#TestResult">TestResult</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#TestDefinition" title="https://w3id.org/dmpdqv/ns/core#TestDefinition">TestDefinition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasTestResult">
+  <h3>hasTestResult<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#hasTestResult</p>
+  <div class="comment">
+   <span class="markdown">Refers to a certain test result belonging to a measurement.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#TestResult" title="https://w3id.org/dmpdqv/ns/core#TestResult">TestResult</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#inCategory">
+  <h3>in category<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#inCategory</p>
+  <div class="comment">
+   <span class="markdown">Represents the category a dimension is grouped in.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Category" title="http://www.w3.org/ns/dqv#Category">Category</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#inDimension">
+  <h3>in dimension<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#inDimension</p>
+  <div class="comment">
+   <span class="markdown">Represents the dimensions a quality metric, certificate and annotation allow a measurement of.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Dimension" title="http://www.w3.org/ns/dqv#Dimension">Dimension</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="inMetricGroup">
+  <h3>inMetricGroup<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#inMetricGroup</p>
+  <div class="comment">
+   <span class="markdown">Refers to the Metric Group that a Metric belongs to.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MetricGroup" title="https://w3id.org/dmpdqv/ns/core#MetricGroup">MetricGroup</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#isMeasurementOf">
+  <h3>is measurement of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#isMeasurementOf</p>
+  <div class="comment">
+   <span class="markdown">Indicates the metric being observed.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="http://purl.org/linked-data/cube#Observation" target="_blank" title="http://purl.org/linked-data/cube#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/prov#wasAttributedTo">
+  <h3>wasAttributedTo<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/prov#wasAttributedTo</p>
+  <div class="comment">
+   <span class="markdown">Indicates which Software Agent was involved in the generation of a measurement.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/prov#SoftwareAgent" title="http://www.w3.org/ns/prov#SoftwareAgent">SoftwareAgent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#entity" title="https://w3id.org/dmpdqv/ns/core#entity">entity</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#expectedDataType" title="http://www.w3.org/ns/dqv#expectedDataType">expected data type</a></li>
+  <li><a href="#property" title="https://w3id.org/dmpdqv/ns/core#property">property</a></li>
+  <li><a href="#http://www.w3.org/ns/dqv#value" title="http://www.w3.org/ns/dqv#value">value</a></li>
+  <li><a href="#valueLowerBound" title="https://w3id.org/dmpdqv/ns/core#valueLowerBound">valueLowerBound</a></li>
+  <li><a href="#valueUpperBound" title="https://w3id.org/dmpdqv/ns/core#valueUpperBound">valueUpperBound</a></li>
+ </ul>
+ <div class="entity" id="entity">
+  <h3>entity<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#entity</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#expectedDataType">
+  <h3>expected data type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#expectedDataType</p>
+  <div class="comment">
+   <span class="markdown">Represents the expected data type for metric's observed value (e.g. xsd:boolean, xsd:double etc...)</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TestDefinition" title="https://w3id.org/dmpdqv/ns/core#TestDefinition">TestDefinition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#anySimpleType" target="_blank" title="http://www.w3.org/2001/XMLSchema#anySimpleType">any Simple Type</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="property">
+  <h3>property<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#property</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/dqv#value">
+  <h3>value<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/dqv#value</p>
+  <div class="comment">
+   <span class="markdown">Refers to values computed by metric.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#QualityMeasurement" title="http://www.w3.org/ns/dqv#QualityMeasurement">Quality Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TestResult" title="https://w3id.org/dmpdqv/ns/core#TestResult">TestResult</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="valueLowerBound">
+  <h3>valueLowerBound<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#valueLowerBound</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TestDefinition" title="https://w3id.org/dmpdqv/ns/core#TestDefinition">TestDefinition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="valueUpperBound">
+  <h3>valueUpperBound<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dmpdqv/ns/core#valueUpperBound</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#http://www.w3.org/ns/dqv#Metric" title="http://www.w3.org/ns/dqv#Metric">Metric</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TestDefinition" title="https://w3id.org/dmpdqv/ns/core#TestDefinition">TestDefinition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://www.w3.org/2004/02/skos/core#broader" title="http://www.w3.org/2004/02/skos/core#broader"> <span>broader</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/contributor" title="http://purl.org/dc/terms/contributor"> <span>contributor</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created"> <span>created</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator"> <span>creator</span> </a></li>
+  <li><a href="#http://www.w3.org/2004/02/skos/core#definition" title="http://www.w3.org/2004/02/skos/core#definition"> <span>definition</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description"> <span>description</span> </a></li>
+  <li><a href="#http://xmlns.com/foaf/0.1/homepage" title="http://xmlns.com/foaf/0.1/homepage"> <span>homepage</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified"> <span>modified</span> </a></li>
+  <li><a href="#http://xmlns.com/foaf/0.1/name" title="http://xmlns.com/foaf/0.1/name"> <span>name</span> </a></li>
+  <li><a href="#http://www.w3.org/2004/02/skos/core#prefLabel" title="http://www.w3.org/2004/02/skos/core#prefLabel"> <span>pref Label</span> </a></li>
+  <li><a href="#http://purl.org/vocab/vann/preferredNamespacePrefix" title="http://purl.org/vocab/vann/preferredNamespacePrefix"> <span>preferred Namespace Prefix</span> </a></li>
+  <li><a href="#http://purl.org/vocab/vann/preferredNamespaceUri" title="http://purl.org/vocab/vann/preferredNamespaceUri"> <span>preferred Namespace Uri</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/publisher" title="http://purl.org/dc/terms/publisher"> <span>publisher</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title"> <span>title</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/type" title="http://purl.org/dc/terms/type"> <span>type</span> </a></li>
+  <li><a href="#http://purl.org/vocab/vann/usageNote" title="http://purl.org/vocab/vann/usageNote"> <span>usage Note</span> </a></li>
+ </ul>
+ <div class="entity" id="http://www.w3.org/2004/02/skos/core#broader">
+  <h3>broader<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#broader</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/contributor">
+  <h3>contributor<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/contributor</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/created">
+  <h3>created<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/created</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/creator">
+  <h3>creator<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/creator</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2004/02/skos/core#definition">
+  <h3>definition<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#definition</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/description">
+  <h3>description<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/description</p>
+ </div>
+ <div class="entity" id="http://xmlns.com/foaf/0.1/homepage">
+  <h3>homepage<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/homepage</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/modified">
+  <h3>modified<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/modified</p>
+ </div>
+ <div class="entity" id="http://xmlns.com/foaf/0.1/name">
+  <h3>name<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/name</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2004/02/skos/core#prefLabel">
+  <h3>pref Label<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#prefLabel</p>
+ </div>
+ <div class="entity" id="http://purl.org/vocab/vann/preferredNamespacePrefix">
+  <h3>preferred Namespace Prefix<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespacePrefix</p>
+ </div>
+ <div class="entity" id="http://purl.org/vocab/vann/preferredNamespaceUri">
+  <h3>preferred Namespace Uri<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespaceUri</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/publisher">
+  <h3>publisher<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/publisher</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/title">
+  <h3>title<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/title</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/type">
+  <h3>type<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/type</p>
+ </div>
+ <div class="entity" id="http://purl.org/vocab/vann/usageNote">
+  <h3>usage Note<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/vocab/vann/usageNote</p>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

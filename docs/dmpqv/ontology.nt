@@ -1,0 +1,317 @@
+<https://w3id.org/dmpdqv/ns/core> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/dmpdqv/ns/core> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/dmpdqv/ns/core/1.0.0> .
+<https://w3id.org/dmpdqv/ns/core> <http://purl.org/dc/terms/contributor> "Tomasz Miksa" .
+<https://w3id.org/dmpdqv/ns/core> <http://purl.org/dc/terms/creator> "Lukas Arnhold" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/type
+<http://purl.org/dc/terms/type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/usageNote
+<http://purl.org/vocab/vann/usageNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#broader
+<http://www.w3.org/2004/02/skos/core#broader> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/homepage
+<http://xmlns.com/foaf/0.1/homepage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#anySimpleType
+<http://www.w3.org/2001/XMLSchema#anySimpleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/dqv#computedOn
+<http://www.w3.org/ns/dqv#computedOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/dqv#computedOn> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/dqv#hasQualityMeasurement> .
+<http://www.w3.org/ns/dqv#computedOn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#QualityMeasurement> .
+<http://www.w3.org/ns/dqv#computedOn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dmpdqv/ns/core#DMPLocation> .
+<http://www.w3.org/ns/dqv#computedOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to the resource (e.g., a dataset, a linkset, a graph, a set of triples) on which the quality measurement is performed. In the DQV context, this property is generally expected to be used in statements in which objects are instances of dcat:Dataset or dcat:Distribution."@en .
+<http://www.w3.org/ns/dqv#computedOn> <http://www.w3.org/2000/01/rdf-schema#label> "computed on"@en .
+# 
+# http://www.w3.org/ns/dqv#hasMetric
+<http://www.w3.org/ns/dqv#hasMetric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/dqv#hasMetric> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Dimension> .
+<http://www.w3.org/ns/dqv#hasMetric> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dmpdqv/ns/core#MetricGroup> .
+<http://www.w3.org/ns/dqv#hasMetric> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dqv#Metric> .
+<http://www.w3.org/ns/dqv#hasMetric> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to a Metric that belongs to a Dimension of MetricGroup." .
+<http://www.w3.org/ns/dqv#hasMetric> <http://www.w3.org/2000/01/rdf-schema#label> "hasMetric" .
+_:genid1 <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/ns/dqv#hasMetric> .
+_:genid1 <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/dqv#inDimension> .
+# 
+# http://www.w3.org/ns/dqv#hasQualityMeasurement
+<http://www.w3.org/ns/dqv#hasQualityMeasurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/dqv#hasQualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dqv#QualityMeasurement> .
+<http://www.w3.org/ns/dqv#hasQualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."@en .
+<http://www.w3.org/ns/dqv#hasQualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#label> "has quality measurement"@en .
+# 
+# http://www.w3.org/ns/dqv#inCategory
+<http://www.w3.org/ns/dqv#inCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/dqv#inCategory> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Dimension> .
+<http://www.w3.org/ns/dqv#inCategory> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dqv#Category> .
+<http://www.w3.org/ns/dqv#inCategory> <http://purl.org/vocab/vann/usageNote> "Categories are meant to systematically organize dimensions. The Data Quality Vocabulary defines no specific cardinality constraints for dqv:inCategory, since distinct quality frameworks might have different perspectives over a dimension. A dimension may therefore be associated to more than one category. However, those who define new quality metrics should try to avoid this as much as possible and assign only one category to the dimensions they define."@en .
+<http://www.w3.org/ns/dqv#inCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the category a dimension is grouped in."@en .
+<http://www.w3.org/ns/dqv#inCategory> <http://www.w3.org/2000/01/rdf-schema#label> "in category"@en .
+# 
+# http://www.w3.org/ns/dqv#inDimension
+<http://www.w3.org/ns/dqv#inDimension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/dqv#inDimension> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Metric> .
+<http://www.w3.org/ns/dqv#inDimension> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dqv#Dimension> .
+<http://www.w3.org/ns/dqv#inDimension> <http://purl.org/vocab/vann/usageNote> "Dimensions are meant to systematically organize metrics, quality certificates and quality annotations. The Data Quality Vocabulary defines no specific cardinality constraints for dqv:inDimension, since distinct quality frameworks might have different perspectives over a metric. A metric may therefore be associated to more than one dimension. However, those who define new quality metrics should try to avoid this as much as possible and assign only one dimension to the metrics they define. More than one dimension can be indicated for each quality annotation or certificate."@en .
+<http://www.w3.org/ns/dqv#inDimension> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the dimensions a quality metric, certificate and annotation allow a measurement of."@en .
+<http://www.w3.org/ns/dqv#inDimension> <http://www.w3.org/2000/01/rdf-schema#label> "in dimension"@en .
+# 
+# http://www.w3.org/ns/dqv#isMeasurementOf
+<http://www.w3.org/ns/dqv#isMeasurementOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/dqv#isMeasurementOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/linked-data/cube#Observation> .
+<http://www.w3.org/ns/dqv#isMeasurementOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dqv#Metric> .
+<http://www.w3.org/ns/dqv#isMeasurementOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the metric being observed."@en .
+<http://www.w3.org/ns/dqv#isMeasurementOf> <http://www.w3.org/2000/01/rdf-schema#label> "is measurement of"@en .
+# 
+# http://www.w3.org/ns/prov#wasAttributedTo
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#QualityMeasurement> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#SoftwareAgent> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates which Software Agent was involved in the generation of a measurement." .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#label> "wasAttributedTo" .
+# 
+# https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle
+<https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#QualityMeasurement> .
+<https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dmpdqv/ns/core#LifecycleStage> .
+<https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to the  DMP Lifecycle Stage where the given action has been conducted." .
+<https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle> <http://www.w3.org/2000/01/rdf-schema#label> "appliedAtLifecycle" .
+# 
+# https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle
+<https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Metric> .
+<https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dmpdqv/ns/core#LifecycleStage> .
+<https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to the DMP Lifecycle stage where the given action can be done." .
+<https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle> <http://www.w3.org/2000/01/rdf-schema#label> "hasApplicableLifecycle" .
+# 
+# https://w3id.org/dmpdqv/ns/core#hasGuidance
+<https://w3id.org/dmpdqv/ns/core#hasGuidance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#hasGuidance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#QualityMeasurement> .
+<https://w3id.org/dmpdqv/ns/core#hasGuidance> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dmpdqv/ns/core#Guidance> .
+<https://w3id.org/dmpdqv/ns/core#hasGuidance> <http://www.w3.org/2000/01/rdf-schema#label> "hasGuidance" .
+# 
+# https://w3id.org/dmpdqv/ns/core#hasParentDimension
+<https://w3id.org/dmpdqv/ns/core#hasParentDimension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#hasParentDimension> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/dmpdqv/ns/core#hasSubDimension> .
+<https://w3id.org/dmpdqv/ns/core#hasParentDimension> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to a parent dimension of a dimension." .
+<https://w3id.org/dmpdqv/ns/core#hasParentDimension> <http://www.w3.org/2000/01/rdf-schema#label> "hasParentDimension" .
+# 
+# https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement
+<https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dqv#QualityMeasurement> .
+<https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#label> "hasQualityMeasurement" .
+# 
+# https://w3id.org/dmpdqv/ns/core#hasSubDimension
+<https://w3id.org/dmpdqv/ns/core#hasSubDimension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#hasSubDimension> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Dimension> .
+<https://w3id.org/dmpdqv/ns/core#hasSubDimension> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dqv#Dimension> .
+<https://w3id.org/dmpdqv/ns/core#hasSubDimension> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to subdimensions related with the given dimension." .
+<https://w3id.org/dmpdqv/ns/core#hasSubDimension> <http://www.w3.org/2000/01/rdf-schema#label> "hasSubDimension" .
+# 
+# https://w3id.org/dmpdqv/ns/core#hasTestDefinition
+<https://w3id.org/dmpdqv/ns/core#hasTestDefinition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#hasTestDefinition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Metric> .
+<https://w3id.org/dmpdqv/ns/core#hasTestDefinition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dmpdqv/ns/core#TestResult> .
+<https://w3id.org/dmpdqv/ns/core#hasTestDefinition> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dmpdqv/ns/core#TestDefinition> .
+<https://w3id.org/dmpdqv/ns/core#hasTestDefinition> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to a test definition." .
+<https://w3id.org/dmpdqv/ns/core#hasTestDefinition> <http://www.w3.org/2000/01/rdf-schema#label> "hasTestDefinition" .
+# 
+# https://w3id.org/dmpdqv/ns/core#hasTestResult
+<https://w3id.org/dmpdqv/ns/core#hasTestResult> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#hasTestResult> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#QualityMeasurement> .
+<https://w3id.org/dmpdqv/ns/core#hasTestResult> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dmpdqv/ns/core#TestResult> .
+<https://w3id.org/dmpdqv/ns/core#hasTestResult> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to a certain test result belonging to a measurement." .
+<https://w3id.org/dmpdqv/ns/core#hasTestResult> <http://www.w3.org/2000/01/rdf-schema#label> "hasTestResult" .
+# 
+# https://w3id.org/dmpdqv/ns/core#inMetricGroup
+<https://w3id.org/dmpdqv/ns/core#inMetricGroup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dmpdqv/ns/core#inMetricGroup> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Metric> .
+<https://w3id.org/dmpdqv/ns/core#inMetricGroup> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dmpdqv/ns/core#MetricGroup> .
+<https://w3id.org/dmpdqv/ns/core#inMetricGroup> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to the Metric Group that a Metric belongs to." .
+<https://w3id.org/dmpdqv/ns/core#inMetricGroup> <http://www.w3.org/2000/01/rdf-schema#label> "inMetricGroup" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/dqv#expectedDataType
+<http://www.w3.org/ns/dqv#expectedDataType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/dqv#expectedDataType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Metric> .
+<http://www.w3.org/ns/dqv#expectedDataType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dmpdqv/ns/core#TestDefinition> .
+<http://www.w3.org/ns/dqv#expectedDataType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anySimpleType> .
+<http://www.w3.org/ns/dqv#expectedDataType> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the expected data type for metric's observed value (e.g. xsd:boolean, xsd:double etc...)"@en .
+<http://www.w3.org/ns/dqv#expectedDataType> <http://www.w3.org/2000/01/rdf-schema#label> "expected data type"@en .
+# 
+# http://www.w3.org/ns/dqv#value
+<http://www.w3.org/ns/dqv#value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/dqv#value> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#QualityMeasurement> .
+<http://www.w3.org/ns/dqv#value> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dmpdqv/ns/core#TestResult> .
+<http://www.w3.org/ns/dqv#value> <http://www.w3.org/2000/01/rdf-schema#comment> "Refers to values computed by metric."@en .
+<http://www.w3.org/ns/dqv#value> <http://www.w3.org/2000/01/rdf-schema#label> "value"@en .
+# 
+# https://w3id.org/dmpdqv/ns/core#entity
+<https://w3id.org/dmpdqv/ns/core#entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dmpdqv/ns/core#entity> <http://www.w3.org/2000/01/rdf-schema#label> "entity" .
+# 
+# https://w3id.org/dmpdqv/ns/core#property
+<https://w3id.org/dmpdqv/ns/core#property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dmpdqv/ns/core#property> <http://www.w3.org/2000/01/rdf-schema#label> "property" .
+# 
+# https://w3id.org/dmpdqv/ns/core#valueLowerBound
+<https://w3id.org/dmpdqv/ns/core#valueLowerBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dmpdqv/ns/core#valueLowerBound> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Metric> .
+<https://w3id.org/dmpdqv/ns/core#valueLowerBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dmpdqv/ns/core#TestDefinition> .
+<https://w3id.org/dmpdqv/ns/core#valueLowerBound> <http://www.w3.org/2000/01/rdf-schema#label> "valueLowerBound" .
+# 
+# https://w3id.org/dmpdqv/ns/core#valueUpperBound
+<https://w3id.org/dmpdqv/ns/core#valueUpperBound> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dmpdqv/ns/core#valueUpperBound> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dqv#Metric> .
+<https://w3id.org/dmpdqv/ns/core#valueUpperBound> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dmpdqv/ns/core#TestDefinition> .
+<https://w3id.org/dmpdqv/ns/core#valueUpperBound> <http://www.w3.org/2000/01/rdf-schema#label> "valueUpperBound" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/linked-data/cube#Observation
+<http://purl.org/linked-data/cube#Observation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2000/01/rdf-schema#Resource
+<http://www.w3.org/2000/01/rdf-schema#Resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/dqv#Category
+<http://www.w3.org/ns/dqv#Category> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/dqv#Category> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a group of quality dimensions in which a common type of information is used as quality indicator."@en .
+<http://www.w3.org/ns/dqv#Category> <http://www.w3.org/2000/01/rdf-schema#label> "Category"@en .
+# 
+# http://www.w3.org/ns/dqv#Dimension
+<http://www.w3.org/ns/dqv#Dimension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/dqv#Dimension> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents criteria relevant for assessing quality. Each quality dimension must have one or more metric to measure it. A dimension is linked with a category using the dqv:inCategory property."@en .
+<http://www.w3.org/ns/dqv#Dimension> <http://www.w3.org/2000/01/rdf-schema#label> "Dimension"@en .
+# 
+# http://www.w3.org/ns/dqv#Metric
+<http://www.w3.org/ns/dqv#Metric> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/dqv#Metric> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a standard to measure a quality dimension. An observation (instance of dqv:QualityMeasurement) assigns a value in a given unit to a Metric."@en .
+<http://www.w3.org/ns/dqv#Metric> <http://www.w3.org/2000/01/rdf-schema#label> "Metric"@en .
+# 
+# http://www.w3.org/ns/dqv#QualityMeasurement
+<http://www.w3.org/ns/dqv#QualityMeasurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/dqv#QualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/linked-data/cube#Observation> .
+<http://www.w3.org/ns/dqv#QualityMeasurement> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/dmpdqv/ns/core#TestResult> .
+<http://www.w3.org/ns/dqv#QualityMeasurement> <http://purl.org/vocab/vann/usageNote> "The unit of measure in quality measurement should be specified through the property sdmx-attribute:unitMeasure as recommended by RDF Data Cube. The Ontology of units of Measure (OM) by Rijgersberg Et Al provides a list of HTTP dereferenceable unit of measures, which can be exploited as values for sdmx-attribute:unitMeasure."@en .
+<http://www.w3.org/ns/dqv#QualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the evaluation of a given dataset (or dataset distribution) against a specific quality metric."@en .
+<http://www.w3.org/ns/dqv#QualityMeasurement> <http://www.w3.org/2000/01/rdf-schema#label> "Quality Measurement"@en .
+# 
+# http://www.w3.org/ns/prov#SoftwareAgent
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates which agent produced a given measurement." .
+<http://www.w3.org/ns/prov#SoftwareAgent> <http://www.w3.org/2000/01/rdf-schema#label> "SoftwareAgent" .
+# 
+# https://w3id.org/dmpdqv/ns/core#DMPLocation
+<https://w3id.org/dmpdqv/ns/core#DMPLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dmpdqv/ns/core#DMPLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "References a location in a maDMP." .
+<https://w3id.org/dmpdqv/ns/core#DMPLocation> <http://www.w3.org/2000/01/rdf-schema#label> "DMPLocation" .
+# 
+# https://w3id.org/dmpdqv/ns/core#Guidance
+<https://w3id.org/dmpdqv/ns/core#Guidance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dmpdqv/ns/core#Guidance> <http://www.w3.org/2000/01/rdf-schema#comment> "Provides guidance on how to improve the result of a given measurement." .
+<https://w3id.org/dmpdqv/ns/core#Guidance> <http://www.w3.org/2000/01/rdf-schema#label> "Guidance" .
+# 
+# https://w3id.org/dmpdqv/ns/core#LifecycleStage
+<https://w3id.org/dmpdqv/ns/core#LifecycleStage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dmpdqv/ns/core#LifecycleStage> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates at what stage of the DMP lifecycle the measurements have been generated." .
+<https://w3id.org/dmpdqv/ns/core#LifecycleStage> <http://www.w3.org/2000/01/rdf-schema#label> "LifecycleStage" .
+# 
+# https://w3id.org/dmpdqv/ns/core#MetricGroup
+<https://w3id.org/dmpdqv/ns/core#MetricGroup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dmpdqv/ns/core#MetricGroup> <http://www.w3.org/2000/01/rdf-schema#label> "MetricGroup" .
+# 
+# https://w3id.org/dmpdqv/ns/core#TestDefinition
+<https://w3id.org/dmpdqv/ns/core#TestDefinition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dmpdqv/ns/core#TestDefinition> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the definition of a Test for a Quality Metric." .
+<https://w3id.org/dmpdqv/ns/core#TestDefinition> <http://www.w3.org/2000/01/rdf-schema#label> "TestDefinition" .
+# 
+# https://w3id.org/dmpdqv/ns/core#TestResult
+<https://w3id.org/dmpdqv/ns/core#TestResult> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dmpdqv/ns/core#TestResult> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the result of the execution of a test according to a Test Definition." .
+<https://w3id.org/dmpdqv/ns/core#TestResult> <http://www.w3.org/2000/01/rdf-schema#label> "TestResult" .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
