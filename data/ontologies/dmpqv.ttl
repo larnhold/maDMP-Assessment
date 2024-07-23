@@ -112,7 +112,9 @@ dqv:computedOn rdf:type owl:ObjectProperty ;
 dqv:hasMetric rdf:type owl:ObjectProperty ;
               rdfs:domain dqv:Dimension ,
                           dmpdqv:MetricGroup ;
-              rdfs:range dqv:Metric .
+              rdfs:range dqv:Metric ;
+              rdfs:comment "Refers to a Metric that belongs to a Dimension of MetricGroup." ;
+              rdfs:label "hasMetric" .
 
 [ owl:inverseOf dqv:hasMetric ;
    rdfs:subPropertyOf dqv:inDimension
@@ -155,73 +157,79 @@ dqv:isMeasurementOf rdf:type owl:ObjectProperty ;
 ###  http://www.w3.org/ns/prov#wasAttributedTo
 prov:wasAttributedTo rdf:type owl:ObjectProperty ;
                      rdfs:domain dqv:QualityMeasurement ;
-                     rdfs:range prov:SoftwareAgent .
+                     rdfs:range prov:SoftwareAgent ;
+                     rdfs:comment "Indicates which Software Agent was involved in the generation of a measurement." ;
+                     rdfs:label "wasAttributedTo" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#appliedAtLifecycle
 dmpdqv:appliedAtLifecycle rdf:type owl:ObjectProperty ;
                           rdfs:domain dqv:QualityMeasurement ;
-                          rdfs:range dmpdqv:LifecycleStage .
-
-
-###  https://w3id.org/dmpdqv/ns/core#entity
-dmpdqv:entity rdf:type owl:ObjectProperty ;
-              rdfs:domain dmpdqv:DMPLocation ;
-              rdfs:range rdfs:Resource .
+                          rdfs:range dmpdqv:LifecycleStage ;
+                          rdfs:comment "Refers to the  DMP Lifecycle Stage where the given action has been conducted." ;
+                          rdfs:label "appliedAtLifecycle" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle
 dmpdqv:hasApplicableLifecycle rdf:type owl:ObjectProperty ;
                               rdfs:domain dqv:Metric ;
-                              rdfs:range dmpdqv:LifecycleStage .
+                              rdfs:range dmpdqv:LifecycleStage ;
+                              rdfs:comment "Refers to the DMP Lifecycle stage where the given action can be done." ;
+                              rdfs:label "hasApplicableLifecycle" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasGuidance
 dmpdqv:hasGuidance rdf:type owl:ObjectProperty ;
                    rdfs:domain dqv:QualityMeasurement ;
-                   rdfs:range dmpdqv:Guidance .
+                   rdfs:range dmpdqv:Guidance ;
+                   rdfs:label "hasGuidance" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasParentDimension
 dmpdqv:hasParentDimension rdf:type owl:ObjectProperty ;
-                          owl:inverseOf dmpdqv:hasSubDimension .
+                          owl:inverseOf dmpdqv:hasSubDimension ;
+                          rdfs:comment "Refers to a parent dimension of a dimension." ;
+                          rdfs:label "hasParentDimension" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement
 dmpdqv:hasQualityMeasurement rdf:type owl:ObjectProperty ;
                              rdfs:domain owl:Thing ;
-                             rdfs:range dqv:QualityMeasurement .
+                             rdfs:range dqv:QualityMeasurement ;
+                             rdfs:label "hasQualityMeasurement" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasSubDimension
 dmpdqv:hasSubDimension rdf:type owl:ObjectProperty ;
                        rdfs:domain dqv:Dimension ;
-                       rdfs:range dqv:Dimension .
+                       rdfs:range dqv:Dimension ;
+                       rdfs:comment "Refers to subdimensions related with the given dimension." ;
+                       rdfs:label "hasSubDimension" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasTestDefinition
 dmpdqv:hasTestDefinition rdf:type owl:ObjectProperty ;
                          rdfs:domain dqv:Metric ,
                                      dmpdqv:TestResult ;
-                         rdfs:range dmpdqv:TestDefinition .
+                         rdfs:range dmpdqv:TestDefinition ;
+                         rdfs:comment "Refers to a test definition." ;
+                         rdfs:label "hasTestDefinition" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#hasTestResult
 dmpdqv:hasTestResult rdf:type owl:ObjectProperty ;
                      rdfs:domain dqv:QualityMeasurement ;
-                     rdfs:range dmpdqv:TestResult .
+                     rdfs:range dmpdqv:TestResult ;
+                     rdfs:comment "Refers to a certain test result belonging to a measurement." ;
+                     rdfs:label "hasTestResult" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#inMetricGroup
 dmpdqv:inMetricGroup rdf:type owl:ObjectProperty ;
                      rdfs:domain dqv:Metric ;
-                     rdfs:range dmpdqv:MetricGroup .
-
-
-###  https://w3id.org/dmpdqv/ns/core#property
-dmpdqv:property rdf:type owl:ObjectProperty ;
-                rdfs:domain dmpdqv:DMPLocation ;
-                rdfs:range rdfs:Resource .
+                     rdfs:range dmpdqv:MetricGroup ;
+                     rdfs:comment "Refers to the Metric Group that a Metric belongs to." ;
+                     rdfs:label "inMetricGroup" .
 
 
 #################################################################
@@ -246,23 +254,27 @@ dqv:value rdf:type owl:DatatypeProperty ;
 
 
 ###  https://w3id.org/dmpdqv/ns/core#entity
-dmpdqv:entity rdf:type owl:DatatypeProperty .
+dmpdqv:entity rdf:type owl:DatatypeProperty ;
+              rdfs:label "entity" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#property
-dmpdqv:property rdf:type owl:DatatypeProperty .
+dmpdqv:property rdf:type owl:DatatypeProperty ;
+                rdfs:label "property" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#valueLowerBound
 dmpdqv:valueLowerBound rdf:type owl:DatatypeProperty ;
                        rdfs:domain dqv:Metric ,
-                                   dmpdqv:TestDefinition .
+                                   dmpdqv:TestDefinition ;
+                       rdfs:label "valueLowerBound" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#valueUpperBound
 dmpdqv:valueUpperBound rdf:type owl:DatatypeProperty ;
                        rdfs:domain dqv:Metric ,
-                                   dmpdqv:TestDefinition .
+                                   dmpdqv:TestDefinition ;
+                       rdfs:label "valueUpperBound" .
 
 
 #################################################################
@@ -305,31 +317,44 @@ dqv:QualityMeasurement rdf:type owl:Class ;
 
 
 ###  http://www.w3.org/ns/prov#SoftwareAgent
-prov:SoftwareAgent rdf:type owl:Class .
+prov:SoftwareAgent rdf:type owl:Class ;
+                   rdfs:comment "Indicates which agent produced a given measurement." ;
+                   rdfs:label "SoftwareAgent" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#DMPLocation
-dmpdqv:DMPLocation rdf:type owl:Class .
+dmpdqv:DMPLocation rdf:type owl:Class ;
+                   rdfs:comment "References a location in a maDMP." ;
+                   rdfs:label "DMPLocation" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#Guidance
-dmpdqv:Guidance rdf:type owl:Class .
+dmpdqv:Guidance rdf:type owl:Class ;
+                rdfs:comment "Provides guidance on how to improve the result of a given measurement." ;
+                rdfs:label "Guidance" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#LifecycleStage
-dmpdqv:LifecycleStage rdf:type owl:Class .
+dmpdqv:LifecycleStage rdf:type owl:Class ;
+                      rdfs:comment "Indicates at what stage of the DMP lifecycle the measurements have been generated." ;
+                      rdfs:label "LifecycleStage" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#MetricGroup
-dmpdqv:MetricGroup rdf:type owl:Class .
+dmpdqv:MetricGroup rdf:type owl:Class ;
+                   rdfs:label "MetricGroup" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#TestDefinition
-dmpdqv:TestDefinition rdf:type owl:Class .
+dmpdqv:TestDefinition rdf:type owl:Class ;
+                      rdfs:comment "Represents the definition of a Test for a Quality Metric." ;
+                      rdfs:label "TestDefinition" .
 
 
 ###  https://w3id.org/dmpdqv/ns/core#TestResult
-dmpdqv:TestResult rdf:type owl:Class .
+dmpdqv:TestResult rdf:type owl:Class ;
+                  rdfs:comment "Represents the result of the execution of a test according to a Test Definition." ;
+                  rdfs:label "TestResult" .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
