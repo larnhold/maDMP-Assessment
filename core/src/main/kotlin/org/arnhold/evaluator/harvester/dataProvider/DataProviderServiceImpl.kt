@@ -49,6 +49,7 @@ class DataProviderServiceImpl @Autowired constructor(
             return@runBlocking contextProviderService.getAvailableContext(model)
         }
 
+        this.saveAsJson<DMPContext>(context, UUID.randomUUID())
         return context
     }
 

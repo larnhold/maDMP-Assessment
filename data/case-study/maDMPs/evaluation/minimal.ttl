@@ -1,0 +1,1280 @@
+@prefix :      <https://w3id.org/dcso/ns/extension#> .
+@prefix schema: <http://schema.org/> .
+@prefix dcam:  <http://purl.org/dc/dcam/> .
+@prefix ns:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcsx:  <https://w3id.org/dcso/ns/extension#> .
+@prefix ex:    <https://w3id.org/dcso/id/example/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcso:  <https://w3id.org/dcso/ns/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix wot:   <http://xmlns.com/wot/0.1/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+dcso:language  rdf:type     rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "A code for the language used to express data." ;
+        rdfs:domain         _:b0 , rdfs:Resource , owl:Thing ;
+        rdfs:label          "language" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:language .
+
+dcsx:hasRelatedPolicy
+        rdf:type            rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain         owl:Thing , dcso:DMP , rdfs:Resource , _:b0 ;
+        rdfs:range          owl:Thing , dcsx:RelatedPolicy , rdfs:Resource ;
+        rdfs:subPropertyOf  dcsx:hasRelatedPolicy .
+
+xsd:nonPositiveInteger
+        rdf:type          rdfs:Datatype , rdfs:Resource , rdfs:Class , owl:Class ;
+        owl:disjointWith  xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean .
+
+xsd:gMonthDay  rdf:type  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+dcso:hasCost  rdf:type      owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any Cost related to data management included in this DMP." ;
+        rdfs:domain         owl:Thing , dcso:DMP , _:b0 , rdfs:Resource ;
+        rdfs:label          "hasCost" ;
+        rdfs:range          owl:Thing , dcso:Cost , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:hasCost .
+
+owl:Restriction  rdf:type    rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      owl:Class , rdfs:Resource , owl:Restriction ;
+        owl:equivalentClass  owl:Restriction .
+
+dcso:FunderId  rdf:type      rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Identifier for funders : it is recommended to use CrossRef Funder Registry. " ;
+        rdfs:label           "FunderId" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:FunderId , dcso:Id ;
+        owl:equivalentClass  dcso:FunderId .
+
+dcso:hasLicense  rdf:type   owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "A License used for this Distribution." ;
+        rdfs:domain         owl:Thing , dcso:Distribution , rdfs:Resource , dcat:Distribution ;
+        rdfs:label          "hasLicense" ;
+        rdfs:range          owl:Thing , dcso:License , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:hasLicense .
+
+rdf:nil  rdf:type  rdf:List , rdfs:Resource .
+
+rdfs:Container  rdf:type     rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdfs:Container ;
+        owl:equivalentClass  rdfs:Container .
+
+dcso:Dataset  rdf:type       rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:comment         "This follows the defintion of Dataset in the W3C DCAT specification. Dataset can be understood as a logical entity depicting data, e.g. raw data. It provides high level information about the data. The granularity of dataset depends on a specific setting. In edge cases it can be a file, but also a collection of files in different formats" ;
+        rdfs:label           "Dataset" ;
+        rdfs:subClassOf      owl:Thing , _:b0 , dcso:Dataset , rdfs:Resource , dcat:Dataset ;
+        owl:disjointWith     dcso:Contact , dcsx:RelatedPolicy ;
+        owl:equivalentClass  dcso:Dataset .
+
+dcsx:DataRecoveryExplanationId
+        rdf:type             rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:DataRecoveryExplanationId , dcso:Id , rdfs:Resource ;
+        owl:equivalentClass  dcsx:DataRecoveryExplanationId .
+
+dcso:Distribution  rdf:type  rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:comment         "This follows the defintion of Dataset in the W3C DCAT specification. Dataset can be understood as a logical entity depicting data, e.g. raw data. It provides high level information about the data. The granularity of dataset depends on a specific setting. In edge cases it can be a file, but also a collection of files in different formats" ;
+        rdfs:label           "Distribution" ;
+        rdfs:subClassOf      owl:Thing , dcso:Distribution , rdfs:Resource , dcat:Distribution ;
+        owl:equivalentClass  dcso:Distribution .
+
+xsd:gYearMonth  rdf:type  rdfs:Datatype , rdfs:Class , rdfs:Resource .
+
+xsd:unsignedShort  rdf:type  rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:unsignedLong , xsd:unsignedInt , xsd:int , xsd:integer , xsd:long , xsd:short , xsd:nonNegativeInteger , xsd:unsignedShort ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:unsignedShort .
+
+owl:disjointWith  rdf:type  rdf:Property , owl:SymmetricProperty , rdfs:Resource , owl:ObjectProperty ;
+        rdfs:domain         owl:Class , rdfs:Class , rdfs:Resource ;
+        rdfs:range          owl:Class , rdfs:Class , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:disjointWith .
+
+dcso:hasSecurityPrivacy
+        rdf:type            owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any specific requirements related to security and privacy of this Dataset." ;
+        rdfs:domain         owl:Thing , dcso:Dataset , rdfs:Resource , _:b0 , dcat:Dataset ;
+        rdfs:label          "hasSecurityPrivacy" ;
+        rdfs:range          owl:Thing , dcso:SecurityPrivacy , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:hasSecurityPrivacy .
+
+xsd:dateTime  rdf:type       rdfs:Class , rdfs:Datatype , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , xsd:dateTime ;
+        owl:disjointWith     xsd:long , xsd:byte , xsd:unsignedShort , xsd:time , xsd:unsignedLong , xsd:float , xsd:int , xsd:string , xsd:unsignedInt , xsd:short , xsd:nonNegativeInteger , xsd:duration , xsd:unsignedByte , xsd:date , xsd:integer , xsd:decimal , xsd:boolean , xsd:nonPositiveInteger ;
+        owl:equivalentClass  xsd:dateTime .
+
+dcat:Distribution  rdf:type  rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:label           "Distribution" ;
+        rdfs:subClassOf      rdfs:Resource , dcat:Distribution , owl:Thing ;
+        owl:equivalentClass  dcat:Distribution .
+
+owl:differentFrom  rdf:type  owl:SymmetricProperty , rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:subPropertyOf  owl:differentFrom .
+
+owl:unionOf  rdf:type       rdf:Property , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:unionOf .
+
+xsd:unsignedInt  rdf:type    rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:unsignedLong , xsd:unsignedInt , xsd:int , xsd:integer , xsd:long , xsd:nonNegativeInteger ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:unsignedInt .
+
+xsd:byte  rdf:type           rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:int , xsd:integer , xsd:long , xsd:byte , xsd:short ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:byte .
+
+rdf:Seq  rdf:type            rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdfs:Container , rdf:Seq ;
+        owl:equivalentClass  rdf:Seq .
+
+dcso:hasId  rdf:type            rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:comment            "Any ID used to uniquely identified a Thing." ;
+        rdfs:domain             owl:Thing , rdfs:Resource ;
+        rdfs:label              "hasId" ;
+        rdfs:range              owl:Thing , dcso:Id , rdfs:Resource ;
+        rdfs:subPropertyOf      dcso:hasId ;
+        owl:equivalentProperty  dcso:hasId .
+
+owl:AnnotationProperty
+        rdf:type             rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , owl:AnnotationProperty ;
+        owl:equivalentClass  owl:AnnotationProperty .
+
+rdfs:range  rdf:type        rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdf:Property , rdfs:Resource ;
+        rdfs:range          rdfs:Class , rdfs:Resource ;
+        rdfs:subPropertyOf  rdfs:range .
+
+owl:FunctionalProperty
+        rdf:type         rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdf:Property .
+
+dcso:ContributorId  rdf:type  rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Identifier for a contributor person" ;
+        rdfs:label           "ContributorId" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:ContributorId , dcso:Id ;
+        owl:equivalentClass  dcso:ContributorId .
+
+dcso:DMP  rdf:type           rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:comment         "Provides high level information about the DMP, e.g. its title, modification date, etc. It is the root of this application profile. The majority of its fields are mandatory. " ;
+        rdfs:label           "DMP" ;
+        rdfs:subClassOf      owl:Thing , _:b0 , dcso:DMP , rdfs:Resource ;
+        owl:equivalentClass  dcso:DMP .
+
+owl:sameAs  rdf:type        owl:SymmetricProperty , rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:subPropertyOf  owl:sameAs .
+
+owl:backwardCompatibleWith
+        rdf:type            rdf:Property , rdfs:Resource ;
+        rdfs:domain         owl:Ontology , rdfs:Resource ;
+        rdfs:range          owl:Ontology , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:backwardCompatibleWith .
+
+xsd:anyURI  rdf:type         rdfs:Class , rdfs:Datatype , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , xsd:anyURI ;
+        owl:equivalentClass  xsd:anyURI .
+
+xsd:positiveInteger  rdf:type  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+xsd:double  rdf:type  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+rdf:XMLLiteral  rdf:type     rdfs:Datatype , rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdf:XMLLiteral ;
+        owl:equivalentClass  rdf:XMLLiteral .
+
+xsd:gMonth  rdf:type  rdfs:Datatype , rdfs:Class , rdfs:Resource .
+
+dcso:hasDataset  rdf:type   rdf:Property , owl:ObjectProperty , rdfs:Resource ;
+        rdfs:comment        "Any Dataset considered under this DMP." ;
+        rdfs:domain         owl:Thing , dcso:DMP , rdfs:Resource , _:b0 ;
+        rdfs:label          "hasDataset" ;
+        rdfs:range          owl:Thing , dcso:Dataset , rdfs:Resource , _:b0 , dcat:Dataset ;
+        rdfs:subPropertyOf  dcso:hasDataset .
+
+dcsx:hasDataQualityAssuranceResource
+        rdf:type            rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain         owl:Thing , dcso:Dataset , rdfs:Resource , _:b0 , dcat:Dataset ;
+        rdfs:range          owl:Thing , dcsx:DataQualityAssuranceResource , rdfs:Resource ;
+        rdfs:subPropertyOf  dcsx:hasDataQualityAssuranceResource .
+
+dcso:Id  rdf:type            rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:label           "Id" ;
+        rdfs:subClassOf      rdfs:Resource , owl:Thing , dcso:Id ;
+        owl:disjointWith     dcsx:DataRecoveryExplanation ;
+        owl:equivalentClass  dcso:Id .
+
+xsd:string  rdf:type         rdfs:Datatype , rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      xsd:string , rdfs:Resource ;
+        owl:disjointWith     xsd:long , xsd:byte , xsd:unsignedShort , xsd:time , xsd:unsignedLong , xsd:float , xsd:dateTime , xsd:int , xsd:unsignedInt , xsd:short , xsd:nonNegativeInteger , xsd:duration , xsd:unsignedByte , xsd:date , xsd:integer , xsd:decimal , xsd:boolean , xsd:nonPositiveInteger ;
+        owl:equivalentClass  xsd:string .
+
+dcat:Dataset  rdf:type       rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:label           "Dataset" ;
+        rdfs:subClassOf      rdfs:Resource , dcat:Dataset , owl:Thing ;
+        owl:disjointWith     dcso:Contact ;
+        owl:equivalentClass  dcat:Dataset .
+
+dcsx:hasMethodologyId
+        rdf:type                rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain             owl:Thing , dcsx:Methodology , rdfs:Resource ;
+        rdfs:range              owl:Thing , dcsx:MethodologyId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf      dcsx:hasMethodologyId , dcso:hasId ;
+        owl:equivalentProperty  dcsx:hasMethodologyId .
+
+dcsx:MethodologyId  rdf:type  rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:MethodologyId , dcso:Id , rdfs:Resource ;
+        terms:description    "Identifier for a methodology artifact" ;
+        owl:equivalentClass  dcsx:MethodologyId .
+
+dcso:modified  rdf:type     rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "The date for the latest DMP modification" ;
+        rdfs:domain         dcso:DMP , owl:Thing , _:b0 , rdfs:Resource ;
+        rdfs:label          "modified" ;
+        rdfs:range          xsd:dateTime , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:modified .
+
+owl:equivalentClass  rdf:type  rdf:Property , rdfs:Resource ;
+        rdfs:domain         owl:Class , rdfs:Class , rdfs:Resource ;
+        rdfs:range          owl:Class , rdfs:Class , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:equivalentClass .
+
+xsd:nonNegativeInteger
+        rdf:type             rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:integer , xsd:nonNegativeInteger ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:nonNegativeInteger .
+
+owl:InverseFunctionalProperty
+        rdf:type         rdfs:Resource , rdfs:Class ;
+        rdfs:subClassOf  owl:ObjectProperty .
+
+rdfs:Resource  rdf:type      rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource ;
+        owl:equivalentClass  rdfs:Resource .
+
+xsd:base64Binary  rdf:type  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+rdfs:subPropertyOf  rdf:type  rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdf:Property , rdfs:Resource ;
+        rdfs:range          rdf:Property , rdfs:Resource ;
+        rdfs:subPropertyOf  rdfs:subPropertyOf .
+
+owl:OntologyProperty  rdf:type  rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdf:Property .
+
+xsd:unsignedLong  rdf:type   rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:unsignedLong , xsd:integer , xsd:long , xsd:nonNegativeInteger ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:unsignedLong .
+
+rdfs:domain  rdf:type       rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdf:Property , rdfs:Resource ;
+        rdfs:range          rdfs:Class , rdfs:Resource ;
+        rdfs:subPropertyOf  rdfs:domain .
+
+rdfs:seeAlso  rdf:type          rdfs:Resource , rdf:Property ;
+        rdfs:subPropertyOf      rdfs:seeAlso ;
+        owl:equivalentProperty  rdfs:seeAlso .
+
+rdfs:ContainerMembershipProperty
+        rdf:type             rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdf:Property , rdfs:ContainerMembershipProperty ;
+        owl:equivalentClass  rdfs:ContainerMembershipProperty .
+
+vann:preferredNamespacePrefix
+        rdf:type            rdf:Property , owl:AnnotationProperty , rdfs:Resource ;
+        rdfs:subPropertyOf  vann:preferredNamespacePrefix .
+
+dcso:hasHost  rdf:type      owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any Host, i., storage system, where this Distribution has been stored." ;
+        rdfs:domain         owl:Thing , dcso:Distribution , rdfs:Resource , dcat:Distribution ;
+        rdfs:label          "hasHost" ;
+        rdfs:range          owl:Thing , dcso:Host , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:hasHost .
+
+rdf:subject  rdf:type           rdf:Property , rdfs:Resource ;
+        rdfs:domain             rdf:Statement , rdfs:Resource ;
+        rdfs:subPropertyOf      rdf:subject ;
+        owl:equivalentProperty  rdf:subject .
+
+rdfs:Datatype  rdf:type      rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdfs:Class , rdfs:Datatype ;
+        owl:equivalentClass  rdfs:Datatype .
+
+dcso:sensitiveData  rdf:type  rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "Informs about the presence or absence of sensitive data in the dataset" ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:label          "sensitiveData" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:sensitiveData .
+
+dcso:hasContributorId
+        rdf:type            owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any ID used to uniquely identified this Contributor." ;
+        rdfs:domain         owl:Thing , dcso:Contributor , rdfs:Resource , _:b1 , _:b2 , foaf:Agent ;
+        rdfs:label          "hasContributorId" ;
+        rdfs:range          owl:Thing , dcso:ContributorId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf  dcso:hasId , dcso:hasContributorId .
+
+dcso:License  rdf:type       rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Used to indicate the license under which data (each specific Distribution) will be made available. It also allows for modelling embargoes. " ;
+        rdfs:label           "License" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:License ;
+        owl:equivalentClass  dcso:License .
+
+dcsx:DataQualityAssuranceResourceId
+        rdf:type             rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:DataQualityAssuranceResourceId , dcso:Id , rdfs:Resource ;
+        owl:equivalentClass  dcsx:DataQualityAssuranceResourceId .
+
+dcsx:PropertyRightsExplanation
+        rdf:type             rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:PropertyRightsExplanation , rdfs:Resource ;
+        owl:equivalentClass  dcsx:PropertyRightsExplanation .
+
+dcsx:DataRecoveryExplanation
+        rdf:type             rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:DataRecoveryExplanation , rdfs:Resource ;
+        owl:disjointWith     dcso:Id ;
+        owl:equivalentClass  dcsx:DataRecoveryExplanation .
+
+xsd:time  rdf:type        rdfs:Datatype , rdfs:Resource , rdfs:Class , owl:Class ;
+        owl:disjointWith  xsd:long , xsd:byte , xsd:unsignedShort , xsd:unsignedLong , xsd:float , xsd:dateTime , xsd:int , xsd:string , xsd:unsignedInt , xsd:short , xsd:nonNegativeInteger , xsd:duration , xsd:unsignedByte , xsd:date , xsd:integer , xsd:decimal , xsd:boolean , xsd:nonPositiveInteger .
+
+rdf:List  rdf:type           rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdf:List ;
+        owl:equivalentClass  rdf:List .
+
+owl:imports  rdf:type       rdf:Property , owl:OntologyProperty , rdfs:Resource ;
+        rdfs:domain         owl:Ontology , rdfs:Resource ;
+        rdfs:range          owl:Ontology , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:imports .
+
+owl:TransitiveProperty
+        rdf:type         rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  owl:ObjectProperty .
+
+dcso:Contributor  rdf:type   rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "For listing all parties involved in the process of the data management described by this DMP, and those parties involved in the creation and management of the DMP itself. " ;
+        rdfs:label           "Contributor" ;
+        rdfs:subClassOf      owl:Thing , _:b1 , _:b2 , rdfs:Resource , dcso:Contributor , foaf:Agent ;
+        owl:equivalentClass  dcso:Contributor .
+
+owl:equivalentProperty
+        rdf:type            rdf:Property , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:equivalentProperty .
+
+foaf:name  rdf:type         rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:domain         _:b1 , rdfs:Resource , owl:Thing ;
+        rdfs:label          "name" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  foaf:name .
+
+dcsx:PropertyRightsExplanationId
+        rdf:type             rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:PropertyRightsExplanationId , dcso:Id , rdfs:Resource ;
+        owl:equivalentClass  dcsx:PropertyRightsExplanationId .
+
+owl:ObjectProperty  rdf:type  rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , owl:ObjectProperty , rdf:Property ;
+        owl:equivalentClass  owl:ObjectProperty .
+
+rdf:Property  rdf:type       rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdf:Property ;
+        owl:equivalentClass  rdf:Property .
+
+rdf:first  rdf:type             rdf:Property , owl:FunctionalProperty , rdfs:Resource ;
+        rdfs:domain             rdf:List , rdfs:Resource ;
+        rdfs:subPropertyOf      rdf:first ;
+        owl:equivalentProperty  rdf:first .
+
+dcso:SecurityPrivacy  rdf:type  rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Used to indicate any specific requirements related to security and privacy of a specific dataset, e.g. to indicate that data is not anonymized. " ;
+        rdfs:label           "SecurityPrivacy" ;
+        rdfs:subClassOf      rdfs:Resource , dcso:SecurityPrivacy , owl:Thing ;
+        owl:equivalentClass  dcso:SecurityPrivacy .
+
+dcsx:Methodology  rdf:type   rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:Methodology , rdfs:Resource ;
+        terms:description    "To describe methodology, procedures,\nworkflows. etc. on how the dataset is\ncreated, can be recovered, ..." ;
+        owl:equivalentClass  dcsx:Methodology .
+
+owl:oneOf  rdf:type         rdf:Property , rdfs:Resource ;
+        rdfs:domain         owl:Class , rdfs:Class , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:oneOf .
+
+xsd:negativeInteger  rdf:type  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+xsd:hexBinary  rdf:type  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+dcsx:RelatedPolicyId  rdf:type  rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:RelatedPolicyId , dcso:Id , rdfs:Resource ;
+        terms:description    "Related policy ID" ;
+        owl:equivalentClass  dcsx:RelatedPolicyId .
+
+dcso:hasFunding  rdf:type   owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any Funding granted for this Project." ;
+        rdfs:domain         owl:Thing , dcso:Project , rdfs:Resource ;
+        rdfs:label          "hasFunding" ;
+        rdfs:range          owl:Thing , dcso:Funding , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:hasFunding .
+
+owl:priorVersion  rdf:type  rdf:Property , rdfs:Resource ;
+        rdfs:domain         owl:Ontology , rdfs:Resource ;
+        rdfs:range          owl:Ontology , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:priorVersion .
+
+dcsx:RelatedPolicy  rdf:type  rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:RelatedPolicy , rdfs:Resource ;
+        terms:description    "To link to all documents needed to be\ncompliant to requirements within this\nDMP (e.g. legal, ethical, contractual,\nguidelines, procedures, standards,...)" ;
+        owl:disjointWith     dcso:Dataset ;
+        owl:equivalentClass  dcsx:RelatedPolicy .
+
+dcso:hasDistribution  rdf:type  owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any Distribution, i.e., specific instance, of this Dataset." ;
+        rdfs:domain         owl:Thing , dcso:Dataset , rdfs:Resource , _:b0 , dcat:Dataset ;
+        rdfs:label          "hasDistribution" ;
+        rdfs:range          owl:Thing , dcso:Distribution , rdfs:Resource , dcat:Distribution ;
+        rdfs:subPropertyOf  dcso:hasDistribution .
+
+_:b1    rdf:type             rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:subClassOf      rdfs:Resource , _:b1 , owl:Thing ;
+        owl:equivalentClass  _:b1 ;
+        owl:unionOf          [ rdf:type   rdf:List , rdfs:Resource ;
+                               rdf:first  dcso:Contact ;
+                               rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                            rdf:first  dcso:Contributor ;
+                                            rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                         rdf:first  dcso:TechnicalResource ;
+                                                         rdf:rest   ()
+                                                       ]
+                                          ]
+                             ] .
+
+dcsx:hasPropertyRightsExplanation
+        rdf:type            rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain         owl:Thing , dcso:Distribution , rdfs:Resource , dcat:Distribution ;
+        rdfs:range          owl:Thing , dcsx:PropertyRightsExplanation , rdfs:Resource ;
+        rdfs:subPropertyOf  dcsx:hasPropertyRightsExplanation .
+
+dcso:hasContact  rdf:type   rdf:Property , owl:ObjectProperty , rdfs:Resource ;
+        rdfs:comment        "Any Contact that can provide information on this DMP."^^rdfs:Literal ;
+        rdfs:domain         owl:Thing , dcso:DMP , rdfs:Resource , _:b0 ;
+        rdfs:label          "hasContact" ;
+        rdfs:range          owl:Thing , dcso:Contact , rdfs:Resource , _:b1 , _:b2 , foaf:Agent ;
+        rdfs:subPropertyOf  dcso:hasContact .
+
+owl:intersectionOf  rdf:type  rdf:Property , rdfs:Resource ;
+        rdfs:domain         owl:Class , rdfs:Class , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:intersectionOf .
+
+owl:incompatibleWith  rdf:type  rdf:Property , rdfs:Resource ;
+        rdfs:domain         owl:Ontology , rdfs:Resource ;
+        rdfs:range          owl:Ontology , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:incompatibleWith .
+
+dcso:Metadata  rdf:type      rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Provides a pointer to a metadata standard used to describe the data. It does not contain any actual metadata relating to the dataset. " ;
+        rdfs:label           "Metadata" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:Metadata , _:b0 ;
+        owl:equivalentClass  dcso:Metadata .
+
+owl:DatatypeProperty  rdf:type  rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , owl:DatatypeProperty , rdf:Property ;
+        owl:equivalentClass  owl:DatatypeProperty .
+
+dcsx:hasDataQualityAssuranceRessourceId
+        rdf:type                rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain             owl:Thing , dcsx:DataQualityAssuranceResource , rdfs:Resource ;
+        rdfs:range              owl:Thing , dcsx:DataQualityAssuranceResourceId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf      dcsx:hasDataQualityAssuranceRessourceId , dcso:hasId ;
+        owl:equivalentProperty  dcsx:hasDataQualityAssuranceRessourceId .
+
+dcso:DatasetId  rdf:type     rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Identifier for a dataset" ;
+        rdfs:label           "DatasetId" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:DatasetId , dcso:Id ;
+        owl:equivalentClass  dcso:DatasetId .
+
+terms:title  rdf:type       rdf:Property , owl:AnnotationProperty , rdfs:Resource ;
+        rdfs:subPropertyOf  terms:title .
+
+owl:Ontology  rdf:type       rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , owl:Ontology ;
+        owl:equivalentClass  owl:Ontology .
+
+rdf:Alt  rdf:type            rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdfs:Container , rdf:Alt ;
+        owl:equivalentClass  rdf:Alt .
+
+xsd:gDay  rdf:type  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+dcso:identifier  rdf:type   rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "The identifier any of the id classes" ;
+        rdfs:domain         dcso:Id , rdfs:Resource , owl:Thing ;
+        rdfs:label          "identifier" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:identifier .
+
+rdf:type  rdf:type          rdf:Property , rdfs:Resource ;
+        rdfs:range          rdfs:Class , rdfs:Resource ;
+        rdfs:subPropertyOf  rdf:type .
+
+dcso:DMPId  rdf:type         rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Identifier for a DMP" ;
+        rdfs:label           "DMPId" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:DMPId , dcso:Id ;
+        owl:equivalentClass  dcso:DMPId .
+
+foaf:mbox  rdf:type         rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "E_mail address" ;
+        rdfs:domain         _:b2 , rdfs:Resource , owl:Thing ;
+        rdfs:label          "mbox" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  foaf:mbox .
+
+xsd:unsignedByte  rdf:type   rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:unsignedLong , xsd:unsignedInt , xsd:int , xsd:integer , xsd:long , xsd:byte , xsd:short , xsd:unsignedByte , xsd:nonNegativeInteger , xsd:unsignedShort ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:unsignedByte .
+
+dcso:GrantId  rdf:type       rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Identifier for grant" ;
+        rdfs:label           "GrantId" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:GrantId , dcso:Id ;
+        owl:equivalentClass  dcso:GrantId .
+
+dcso:ethicalIssuesExist
+        rdf:type            rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "To indicate whether there are ethical issues related to data that this DMP describes.\nAllowed Values:\n\n    yes\n    no\n    unknown" ;
+        rdfs:domain         dcso:DMP , owl:Thing , _:b0 , rdfs:Resource ;
+        rdfs:label          "ethicalIssuesExist" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:ethicalIssuesExist .
+
+dcso:Host  rdf:type          rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:comment         "Provides information on the system where data is stored. It can be used to provide details on a repository where data is deposited, e.g. a Core Trust Seal certified repository located in Europe that uses DOIs. It can also provide details on systems where data is stored and processed during research, e.g. a high performance computer that uses fast storage with two daily backups. " ;
+        rdfs:label           "Host" ;
+        rdfs:subClassOf      owl:Thing , dcso:Host , rdfs:Resource ;
+        owl:equivalentClass  dcso:Host .
+
+dcso:personalData  rdf:type  rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "Informs about the presence or absence of personal data in the dataset" ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:label          "personalData" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:personalData .
+
+dcsx:DataQualityAssuranceResource
+        rdf:type             rdfs:Resource , owl:Class , rdfs:Class ;
+        rdfs:subClassOf      owl:Thing , dcsx:DataQualityAssuranceResource , rdfs:Resource ;
+        owl:equivalentClass  dcsx:DataQualityAssuranceResource .
+
+rdfs:subClassOf  rdf:type   rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdfs:Class , rdfs:Resource ;
+        rdfs:range          rdfs:Class , rdfs:Resource ;
+        rdfs:subPropertyOf  rdfs:subClassOf .
+
+terms:rights  rdf:type      rdf:Property , owl:AnnotationProperty , rdfs:Resource ;
+        rdfs:subPropertyOf  terms:rights .
+
+xsd:float  rdf:type       rdfs:Datatype , rdfs:Resource , rdfs:Class , owl:Class ;
+        owl:disjointWith  xsd:long , xsd:byte , xsd:unsignedShort , xsd:time , xsd:unsignedLong , xsd:dateTime , xsd:int , xsd:string , xsd:unsignedInt , xsd:short , xsd:nonNegativeInteger , xsd:duration , xsd:unsignedByte , xsd:date , xsd:integer , xsd:decimal , xsd:boolean , xsd:nonPositiveInteger .
+
+dcsx:hasDataRecoveryExplanationId
+        rdf:type                rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain             owl:Thing , dcsx:DataRecoveryExplanation , rdfs:Resource ;
+        rdfs:range              owl:Thing , dcsx:DataRecoveryExplanationId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf      dcsx:hasDataRecoveryExplanationId , dcso:hasId ;
+        owl:equivalentProperty  dcsx:hasDataRecoveryExplanationId .
+
+dcso:Project  rdf:type       rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Describes the project associated with the DMP, if applicable. It can be used to describe any type of project: that is, not only funded projects, but also internal projects, PhD theses, etc. " ;
+        rdfs:label           "Project" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:Project ;
+        owl:equivalentClass  dcso:Project .
+
+owl:Thing  rdf:type          owl:Class , rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource ;
+        owl:equivalentClass  owl:Thing .
+
+dcsx:hasRelatedPolicyId
+        rdf:type                rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain             owl:Thing , dcsx:RelatedPolicy , rdfs:Resource ;
+        rdfs:range              owl:Thing , dcsx:RelatedPolicyId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf      dcsx:hasRelatedPolicyId , dcso:hasId ;
+        owl:equivalentProperty  dcsx:hasRelatedPolicyId .
+
+rdf:object  rdf:type            rdf:Property , rdfs:Resource ;
+        rdfs:domain             rdf:Statement , rdfs:Resource ;
+        rdfs:subPropertyOf      rdf:object ;
+        owl:equivalentProperty  rdf:object .
+
+dcsx:hasPropertyRightsExplanationId
+        rdf:type                rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain             owl:Thing , dcsx:PropertyRightsExplanation , rdfs:Resource ;
+        rdfs:range              owl:Thing , dcsx:PropertyRightsExplanationId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf      dcsx:hasPropertyRightsExplanationId , dcso:hasId ;
+        owl:equivalentProperty  dcsx:hasPropertyRightsExplanationId .
+
+terms:creator  rdf:type     rdf:Property , owl:AnnotationProperty , rdfs:Resource ;
+        rdfs:subPropertyOf  terms:creator .
+
+xsd:decimal  rdf:type     rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        owl:disjointWith  xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean .
+
+owl:SymmetricProperty
+        rdf:type         rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  owl:ObjectProperty .
+
+_:b2    rdf:type             rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:subClassOf      rdfs:Resource , _:b2 , owl:Thing ;
+        owl:equivalentClass  _:b2 ;
+        owl:unionOf          [ rdf:type   rdf:List , rdfs:Resource ;
+                               rdf:first  dcso:Contact ;
+                               rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                            rdf:first  dcso:Contributor ;
+                                            rdf:rest   ()
+                                          ]
+                             ] .
+
+dcso:hasDMPId  rdf:type     rdf:Property , owl:ObjectProperty , rdfs:Resource ;
+        rdfs:comment        "Any ID used to uniquely identified this DMP." ;
+        rdfs:domain         owl:Thing , dcso:DMP , rdfs:Resource , _:b0 ;
+        rdfs:label          "hasDMPId" ;
+        rdfs:range          owl:Thing , dcso:DMPId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf  dcso:hasId , dcso:hasDMPId .
+
+dcso:identifierType  rdf:type  rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "Validation with ShEx/SHACL" , "Identifier type" ;
+        rdfs:domain         dcso:Id , rdfs:Resource , owl:Thing ;
+        rdfs:label          "identifierType" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:identifierType .
+
+foaf:Agent  rdf:type         rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:label           "Agent" ;
+        rdfs:subClassOf      rdfs:Resource , foaf:Agent , owl:Thing ;
+        owl:equivalentClass  foaf:Agent .
+
+dcso:hasMetadataStandardId
+        rdf:type            owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any ID used to uniquely identified this Metadata standard." ;
+        rdfs:domain         owl:Thing , dcso:Metadata , rdfs:Resource , _:b0 ;
+        rdfs:label          "hasMetadataStandardId" ;
+        rdfs:range          owl:Thing , dcso:MetadataStandardId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf  dcso:hasId , dcso:hasMetadataStandardId .
+
+xsd:boolean  rdf:type     rdfs:Datatype , rdfs:Resource , rdfs:Class , owl:Class ;
+        owl:disjointWith  xsd:long , xsd:byte , xsd:unsignedShort , xsd:time , xsd:unsignedLong , xsd:float , xsd:dateTime , xsd:int , xsd:string , xsd:unsignedInt , xsd:short , xsd:nonNegativeInteger , xsd:duration , xsd:unsignedByte , xsd:date , xsd:integer , xsd:decimal , xsd:nonPositiveInteger .
+
+dcso:hasMetadata  rdf:type  owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "A Metadata standard used to describe data in this Dataset." ;
+        rdfs:domain         owl:Thing , dcso:Dataset , rdfs:Resource , _:b0 , dcat:Dataset ;
+        rdfs:label          "hasMetadata" ;
+        rdfs:range          owl:Thing , dcso:Metadata , rdfs:Resource , _:b0 ;
+        rdfs:subPropertyOf  dcso:hasMetadata .
+
+dcso:hasTechnicalResource
+        rdf:type            owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any Technical Resource, e.g, microscope, needed/used to create or process the data in this Dataset." ;
+        rdfs:domain         owl:Thing , dcso:Dataset , rdfs:Resource , _:b0 , dcat:Dataset ;
+        rdfs:label          "hasTechnicalResource" ;
+        rdfs:range          owl:Thing , dcso:TechnicalResource , rdfs:Resource , _:b1 ;
+        rdfs:subPropertyOf  dcso:hasTechnicalResource .
+
+rdf:Bag  rdf:type            rdfs:Resource , rdfs:Class , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdfs:Container , rdf:Bag ;
+        owl:equivalentClass  rdf:Bag .
+
+dcso:Funding  rdf:type       rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "For specifying details on funded projects, e.g. NSF of EC funded projects. " ;
+        rdfs:label           "Funding" ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , dcso:Funding ;
+        owl:equivalentClass  dcso:Funding .
+
+terms:description  rdf:type  rdf:Property , owl:AnnotationProperty , rdfs:Resource ;
+        rdfs:subPropertyOf  terms:description .
+
+dcso:hasContributor  rdf:type  owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any Contributor involved in the process of the data management described by this DMP as well as any Contributor involved in the creation and management of this DMP itself." ;
+        rdfs:domain         owl:Thing , dcso:DMP , rdfs:Resource , _:b0 ;
+        rdfs:label          "hasContributor" ;
+        rdfs:range          owl:Thing , dcso:Contributor , rdfs:Resource , _:b1 , _:b2 , foaf:Agent ;
+        rdfs:subPropertyOf  dcso:hasContributor .
+
+dcso:hasGrantId  rdf:type   owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any ID used to uniquely identified a Grant associated to this Funder." ;
+        rdfs:domain         owl:Thing , dcso:Funding , rdfs:Resource ;
+        rdfs:label          "hasGrantId" ;
+        rdfs:range          owl:Thing , dcso:GrantId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf  dcso:hasId , dcso:hasGrantId .
+
+dcso:hasContactId  rdf:type  rdf:Property , owl:ObjectProperty , rdfs:Resource ;
+        rdfs:comment        "Any ID used to uniquely identified this Contact." ;
+        rdfs:domain         owl:Thing , dcso:Contact , rdfs:Resource , _:b1 , _:b2 , foaf:Agent ;
+        rdfs:label          "hasContactId" ;
+        rdfs:range          owl:Thing , dcso:ContactId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf  dcso:hasId , dcso:hasContactId .
+
+dcso:hasFunderId  rdf:type  owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any ID used to uniquely identified this Funder." ;
+        rdfs:domain         owl:Thing , dcso:Funding , rdfs:Resource ;
+        rdfs:label          "hasFunderId" ;
+        rdfs:range          owl:Thing , dcso:FunderId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf  dcso:hasId , dcso:hasFunderId .
+
+dcso:Contact  rdf:type       rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Specifies the party which can provide any information on the DMP. This is not necessarily the DMP creator, and can be a person or an organisation. " ;
+        rdfs:label           "Contact" ;
+        rdfs:subClassOf      _:b1 , _:b2 , rdfs:Resource , dcso:Contact , owl:Thing , foaf:Agent ;
+        owl:disjointWith     dcso:Dataset , dcat:Dataset ;
+        owl:equivalentClass  dcso:Contact .
+
+dcso:hasProject  rdf:type   owl:ObjectProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Any Project associated with this DMP." ;
+        rdfs:domain         owl:Thing , dcso:DMP , rdfs:Resource , _:b0 ;
+        rdfs:label          "hasProject" ;
+        rdfs:range          owl:Thing , dcso:Project , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:hasProject .
+
+rdf:predicate  rdf:type         rdf:Property , rdfs:Resource ;
+        rdfs:domain             rdf:Statement , rdfs:Resource ;
+        rdfs:subPropertyOf      rdf:predicate ;
+        owl:equivalentProperty  rdf:predicate .
+
+xsd:long  rdf:type           rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:integer , xsd:long ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:long .
+
+dcso:TechnicalResource
+        rdf:type             rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "For specifying equipment needed/used to create or process the data, e.g. a microscope, etc. " ;
+        rdfs:label           "TechnicalResource" ;
+        rdfs:subClassOf      _:b1 , rdfs:Resource , dcso:TechnicalResource , owl:Thing ;
+        owl:equivalentClass  dcso:TechnicalResource .
+
+xsd:short  rdf:type          rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:int , xsd:integer , xsd:long , xsd:short ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:short .
+
+owl:versionInfo  rdf:type  owl:AnnotationProperty , rdfs:Resource .
+
+_:b0    rdf:type             rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:subClassOf      rdfs:Resource , _:b0 , owl:Thing ;
+        owl:equivalentClass  _:b0 ;
+        owl:unionOf          [ rdf:type   rdf:List , rdfs:Resource ;
+                               rdf:first  dcso:DMP ;
+                               rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                            rdf:first  dcso:Dataset ;
+                                            rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                         rdf:first  dcso:Metadata ;
+                                                         rdf:rest   ()
+                                                       ]
+                                          ]
+                             ] .
+
+dcso:hasDatasetId  rdf:type  rdf:Property , owl:ObjectProperty , rdfs:Resource ;
+        rdfs:comment        "Any ID used to uniquely identified this Dataset." ;
+        rdfs:domain         owl:Thing , dcso:Dataset , rdfs:Resource , _:b0 , dcat:Dataset ;
+        rdfs:label          "hasDatasetId" ;
+        rdfs:range          owl:Thing , dcso:DatasetId , rdfs:Resource , dcso:Id ;
+        rdfs:subPropertyOf  dcso:hasId , dcso:hasDatasetId .
+
+rdf:Statement  rdf:type      rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdf:Statement ;
+        owl:equivalentClass  rdf:Statement .
+
+dcso:ContactId  rdf:type     rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Identifier for a contact person" ;
+        rdfs:label           "ContactId" ;
+        rdfs:subClassOf      rdfs:Resource , dcso:ContactId , owl:Thing , dcso:Id ;
+        owl:equivalentClass  dcso:ContactId .
+
+owl:members  rdf:type       rdf:Property , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:members .
+
+rdfs:isDefinedBy  rdf:type      rdfs:Resource , rdf:Property ;
+        rdfs:subPropertyOf      rdfs:seeAlso , rdfs:isDefinedBy ;
+        owl:equivalentProperty  rdfs:isDefinedBy .
+
+xsd:int  rdf:type            rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      xsd:int , xsd:integer , xsd:long ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:int .
+
+owl:onProperty  rdf:type    rdf:Property , rdfs:Resource ;
+        rdfs:domain         owl:Restriction , rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:range          owl:Property , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:onProperty .
+
+xsd:integer  rdf:type        rdfs:Class , rdfs:Datatype , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , xsd:integer , xsd:decimal ;
+        owl:disjointWith     xsd:time , xsd:float , xsd:dateTime , xsd:string , xsd:duration , xsd:date , xsd:boolean ;
+        owl:equivalentClass  xsd:integer .
+
+dcso:Cost  rdf:type          rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Provides a list of costs related to data management" ;
+        rdfs:label           "Cost" ;
+        rdfs:subClassOf      rdfs:Resource , dcso:Cost , owl:Thing ;
+        owl:equivalentClass  dcso:Cost .
+
+owl:Class  rdf:type          rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Class , rdfs:Resource , owl:Class ;
+        owl:equivalentClass  owl:Class .
+
+terms:contributor  rdf:type  rdf:Property , owl:AnnotationProperty , rdfs:Resource ;
+        rdfs:subPropertyOf  terms:contributor .
+
+dcsx:hasMethodology  rdf:type  rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain         owl:Thing , dcso:Dataset , rdfs:Resource , _:b0 , dcat:Dataset ;
+        rdfs:range          owl:Thing , dcsx:Methodology , rdfs:Resource ;
+        rdfs:subPropertyOf  dcsx:hasMethodology .
+
+xsd:date  rdf:type        rdfs:Datatype , rdfs:Class , rdfs:Resource , owl:Class ;
+        owl:disjointWith  xsd:long , xsd:byte , xsd:unsignedShort , xsd:time , xsd:unsignedLong , xsd:float , xsd:dateTime , xsd:int , xsd:string , xsd:unsignedInt , xsd:short , xsd:nonNegativeInteger , xsd:duration , xsd:unsignedByte , xsd:integer , xsd:decimal , xsd:boolean , xsd:nonPositiveInteger .
+
+owl:Property  rdf:type       rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , owl:Property ;
+        owl:equivalentClass  owl:Property .
+
+xsd:gYear  rdf:type  rdfs:Datatype , rdfs:Class , rdfs:Resource .
+
+owl:versionIRI  rdf:type    rdf:Property , rdfs:Resource ;
+        rdfs:subPropertyOf  owl:versionIRI .
+
+xsd:duration  rdf:type    rdfs:Datatype , rdfs:Resource , rdfs:Class , owl:Class ;
+        owl:disjointWith  xsd:long , xsd:byte , xsd:unsignedShort , xsd:time , xsd:unsignedLong , xsd:float , xsd:dateTime , xsd:int , xsd:string , xsd:unsignedInt , xsd:short , xsd:nonNegativeInteger , xsd:unsignedByte , xsd:date , xsd:integer , xsd:decimal , xsd:boolean , xsd:nonPositiveInteger .
+
+rdfs:Literal  rdf:type       rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdfs:Literal ;
+        owl:equivalentClass  rdfs:Literal .
+
+owl:Nothing  rdf:type        owl:Class , rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf      owl:Thing , rdfs:Resource , owl:Nothing ;
+        owl:equivalentClass  owl:Nothing .
+
+rdfs:Class  rdf:type         rdfs:Class , rdfs:Resource , owl:Class ;
+        rdfs:subClassOf      rdfs:Resource , rdfs:Class ;
+        owl:equivalentClass  rdfs:Class .
+
+dcsx:hasDataRecoveryExplanation
+        rdf:type            rdfs:Resource , rdf:Property , owl:ObjectProperty ;
+        rdfs:domain         owl:Thing , dcso:Host , rdfs:Resource ;
+        rdfs:range          owl:Thing , dcsx:DataRecoveryExplanation , rdfs:Resource ;
+        rdfs:subPropertyOf  dcsx:hasDataRecoveryExplanation .
+
+rdf:rest  rdf:type              rdf:Property , owl:FunctionalProperty , rdfs:Resource ;
+        rdfs:domain             rdf:List , rdfs:Resource ;
+        rdfs:range              rdf:List , rdfs:Resource ;
+        rdfs:subPropertyOf      rdf:rest ;
+        owl:equivalentProperty  rdf:rest .
+
+dcso:created  rdf:type      rdf:Property , owl:DatatypeProperty , rdfs:Resource ;
+        rdfs:comment        "The time of creation for the DMP" ;
+        rdfs:domain         dcso:DMP , owl:Thing , rdfs:Resource , _:b0 ;
+        rdfs:label          "created" ;
+        rdfs:range          xsd:dateTime , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:created .
+
+dcso:MetadataStandardId
+        rdf:type             rdfs:Class , owl:Class , rdfs:Resource ;
+        rdfs:comment         "Identifier for the metadata standard used." ;
+        rdfs:label           "MetadataStandardId" ;
+        rdfs:subClassOf      rdfs:Resource , dcso:MetadataStandardId , owl:Thing , dcso:Id ;
+        owl:equivalentClass  dcso:MetadataStandardId .
+
+dcso:availability  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Indicates the availability of the host" ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "availability" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:availability .
+
+dcso:dmp_0_contact_0  rdf:type  dcso:Contact , owl:Thing , _:b2 , _:b1 , rdfs:Resource , foaf:Agent ;
+        owl:differentFrom  dcso:dmp_0_dataset_0 ;
+        owl:sameAs         dcso:dmp_0_contact_0 ;
+        foaf:mbox          "moritz.staudinger@tuwien.ac.at" ;
+        foaf:name          "Moritz Staudinger" ;
+        dcso:hasContactId  dcso:dmp_0_contact_0_contactId_0 ;
+        dcso:hasId         dcso:dmp_0_contact_0_contactId_0 .
+
+dcso:preservationStatement
+        rdf:type            owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Preservation statement" ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:label          "preservationStatement" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:preservationStatement .
+
+<https://w3id.org/dcso/ns/extension>
+        rdf:type                       owl:Ontology , rdfs:Resource ;
+        terms:contributor              "Diogo Proença" , "Lukas Arnhold" , "Tomasz Miksa" , "Daniel Faria" ;
+        terms:creator                  "Marie Christine Jacquemot" , "Fajar J. Ekaputra" , "João Cardoso" ;
+        terms:description              "This ontology aims to add additional information to the DCS standard to better cover funder requirements."@en ;
+        terms:rights                   "http://creativecommons.org/licenses/by/4.0/" ;
+        terms:title                    "The extension of DMP Common Standard Ontology." ;
+        vann:preferredNamespacePrefix  "dcsx" ;
+        owl:imports                    <https://w3id.org/dcso/ns/core/4.0.0> ;
+        owl:versionIRI                 <https://w3id.org/dcso/ns/funder/1.0.0> .
+
+dcso:end  rdf:type          owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Project end date" ;
+        rdfs:domain         dcso:Project , owl:Thing , rdfs:Resource ;
+        rdfs:label          "end" ;
+        rdfs:range          xsd:dateTime , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:end .
+
+dcso:dataQualityAssurance
+        rdf:type            owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Assurance quality of data" ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:label          "dataQualityAssurance" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:dataQualityAssurance .
+
+dcso:dmp_0_dataset_0  rdf:type  dcso:Dataset , owl:Thing , dcsx:RelatedPolicy , rdfs:Resource , dcat:Dataset , _:b0 ;
+        terms:title         "Analysis of Performances of kNN and Random Forest" ;
+        owl:differentFrom   dcso:dmp_0_contact_0 , dcso:dmp_0_dataset_0 ;
+        owl:sameAs          dcso:dmp_0_dataset_0 ;
+        dcso:hasDatasetId   dcso:dmp_0_dataset_0_datasetId_0 ;
+        dcso:hasId          dcso:dmp_0_dataset_0_datasetId_0 ;
+        dcso:personalData   "unknown" ;
+        dcso:sensitiveData  "unknown" .
+
+dcso:dmp_0  rdf:type             dcso:DMP , owl:Thing , _:b0 , rdfs:Resource ;
+        terms:title              "Minimal DMP" ;
+        owl:sameAs               dcso:dmp_0 ;
+        dcso:created             "2023-10-23T10:10:23.6" ;
+        dcso:ethicalIssuesExist  "unknown" ;
+        dcso:hasContact          dcso:dmp_0_contact_0 ;
+        dcso:hasDMPId            dcso:dmp_0_dmpID_0 ;
+        dcso:hasDataset          dcso:dmp_0_dataset_0 ;
+        dcso:hasId               dcso:dmp_0_dmpID_0 ;
+        dcso:language            "eng" ;
+        dcso:modified            "2023-10-23T10:10:23.6" ;
+        dcsx:hasRelatedPolicy    dcso:dmp_0_dataset_0 .
+
+dcso:pidSystem  rdf:type    owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "PID System\nSuggested values:\n\n    ark\n    arxiv\n    bibcode\n    doi\n    ean13\n    eissn\n    handle\n    igsn\n    isbn\n    issn\n    istc\n    lissn\n    lsid\n    pmid\n    purl\n    upc\n    url\n    urn\n    none\n    unknown\n    other" ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "pidSystem" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:pidSystem .
+
+dcso:datasetType  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "If appropriate, type according to: DataCite and/or COAR dictionary. Otherwise use the common name for the type, e.g. raw data, software, survey, etc. https://schema.datacite.org/meta/kernel-4.1/doc/DataCite-MetadataKernel_v4.1.pdf http://vocabularies.coar-repositories.org/pubby/resource_type.html" ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:label          "datasetType" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:datasetType .
+
+dcso:dmp_0_contact_0_contactId_0
+        rdf:type             dcso:Id , owl:Thing , dcso:ContactId , rdfs:Resource ;
+        owl:sameAs           dcso:dmp_0_contact_0_contactId_0 ;
+        dcso:identifier      "0000-0002-5164-2690" ;
+        dcso:identifierType  "orcid" .
+
+dcso:backupType  rdf:type   owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Backup type" ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "backupType" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:backupType .
+
+dcsx:isReused  rdf:type     rdfs:Resource , rdf:Property , owl:DatatypeProperty ;
+        rdfs:comment        "To explicitly indicate whether the\ndataset is reused or was produced in\nthe course of research. Allowed values\nare: reused, produced." ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcsx:isReused .
+
+dcso:curencyCode  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "A Currency Code used to express values in this Cost." ;
+        rdfs:domain         dcso:Cost , rdfs:Resource , owl:Thing ;
+        rdfs:label          "curencyCode" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:curencyCode .
+
+dcso:licenseRef  rdf:type   owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Link to license document." , "" ;
+        rdfs:domain         dcso:License , owl:Thing , rdfs:Resource ;
+        rdfs:label          "licenseRef" ;
+        rdfs:range          xsd:anyURI , rdfs:Resource ;
+        rdfs:seeAlso        "https://jats.nlm.nih.gov/archiving/tag-library/1.2/element/ali-license_ref.html" ;
+        rdfs:subPropertyOf  dcso:licenseRef .
+
+terms:format  rdf:type      owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Format according to: https://www.iana.org/assignments/media-types/media-types.xhtml if appropriate, otherwise use the common name for this format" ;
+        rdfs:domain         dcso:Distribution , owl:Thing , rdfs:Resource , dcat:Distribution ;
+        rdfs:label          "format" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  terms:format .
+
+dcso:storageType  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "The type of storage required" ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "storageType" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:storageType .
+
+dcat:keyword  rdf:type      owl:DatatypeProperty , rdfs:Resource , rdf:Property ;
+        rdfs:comment        "Keyword to describe the dataset" ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:label          "keyword" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcat:keyword .
+
+dcso:backupFrequency  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Backup frequency" ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "backupFrequency" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:backupFrequency .
+
+dcso:report  rdf:type       owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:domain         dcso:DMP , owl:Thing , rdfs:Resource , _:b0 ;
+        rdfs:label          "report" ;
+        rdfs:range          xsd:anyURI , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:report .
+
+dcso:availableUntil  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Indicates how long this distribution will be/ should be available" ;
+        rdfs:domain         dcso:Distribution , owl:Thing , rdfs:Resource , dcat:Distribution ;
+        rdfs:label          "availableUntil" ;
+        rdfs:range          xsd:dateTime , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:availableUntil .
+
+dcsx:restrictionExplanation
+        rdf:type            rdfs:Resource , rdf:Property , owl:DatatypeProperty ;
+        rdfs:domain         dcso:Distribution , owl:Thing , rdfs:Resource , dcat:Distribution ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcsx:restrictionExplanation .
+
+dcso:dmp_0_dataset_0_datasetId_0
+        rdf:type             dcso:Id , owl:Thing , dcso:DatasetId , rdfs:Resource ;
+        owl:sameAs           dcso:dmp_0_dataset_0_datasetId_0 ;
+        dcso:identifier      "10.5281/zenodo.4699051" ;
+        dcso:identifierType  "doi" .
+
+dcso:startDate  rdf:type    owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "If date is set in the future, it indicates embargo period." ;
+        rdfs:domain         dcso:License , owl:Thing , rdfs:Resource ;
+        rdfs:label          "startDate" ;
+        rdfs:range          xsd:dateTime , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:startDate .
+
+dcso:role  rdf:type         owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Type of contributor" ;
+        rdfs:domain         dcso:Contributor , owl:Thing , _:b1 , _:b2 , rdfs:Resource , foaf:Agent ;
+        rdfs:label          "role" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:role .
+
+dcat:byteSize  rdf:type     owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Byte size" ;
+        rdfs:domain         dcso:Distribution , owl:Thing , rdfs:Resource , dcat:Distribution ;
+        rdfs:label          "byteSize" ;
+        rdfs:range          xsd:integer , rdfs:Resource , xsd:decimal ;
+        rdfs:subPropertyOf  dcat:byteSize .
+
+[ rdf:type     owl:AllDisjointClasses ;
+  owl:members  [ rdf:type   rdf:List , rdfs:Resource ;
+                 rdf:first  dcat:Dataset ;
+                 rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                              rdf:first  dcat:Distribution ;
+                              rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                           rdf:first  foaf:Agent ;
+                                           rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                        rdf:first  dcso:Cost ;
+                                                        rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                     rdf:first  dcso:DMP ;
+                                                                     rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                                  rdf:first  dcso:Funding ;
+                                                                                  rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                                               rdf:first  dcso:Host ;
+                                                                                               rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                                                            rdf:first  dcso:Id ;
+                                                                                                            rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                                                                         rdf:first  dcso:License ;
+                                                                                                                         rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                                                                                      rdf:first  dcso:Metadata ;
+                                                                                                                                      rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                                                                                                   rdf:first  dcso:Project ;
+                                                                                                                                                   rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                                                                                                                rdf:first  dcso:SecurityPrivacy ;
+                                                                                                                                                                rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                                                                                                                                                             rdf:first  dcso:TechnicalResource ;
+                                                                                                                                                                             rdf:rest   ()
+                                                                                                                                                                           ]
+                                                                                                                                                              ]
+                                                                                                                                                 ]
+                                                                                                                                    ]
+                                                                                                                       ]
+                                                                                                          ]
+                                                                                             ]
+                                                                                ]
+                                                                   ]
+                                                      ]
+                                         ]
+                            ]
+               ]
+] .
+
+<https://w3id.org/dcso/ns/core>
+        rdf:type                       owl:Ontology , rdfs:Resource ;
+        terms:contributor              "Diogo Proença" , "Suchánek Marek" , "Daniel Faria" , "Tomasz Miksa" ;
+        terms:creator                  "Leyla Garcia" , "Marie Christine Jacquemot" , "João Cardoso" , "Fajar J. Ekaputra" ;
+        terms:description              " This ontology aims to represent the DMP Common Standard model, through the usage of semantic web technology. It represents the DMP Common Standard model using the Web Ontology Language (OWL)."@en ;
+        terms:rights                   "http://creativecommons.org/licenses/by/4.0/" ;
+        terms:title                    "The DMP Common Standard Ontology." ;
+        vann:preferredNamespacePrefix  "dcso" ;
+        owl:versionIRI                 <https://w3id.org/dcso/ns/core/4.0.0> .
+
+dcat:downloadURL  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "The URL of the downloadable file in a given format. E.g. CSV file or RDF file." ;
+        rdfs:domain         dcso:Distribution , owl:Thing , rdfs:Resource , dcat:Distribution ;
+        rdfs:label          "downloadURL" ;
+        rdfs:range          xsd:anyURI , rdfs:Resource ;
+        rdfs:subPropertyOf  dcat:downloadURL .
+
+dcso:start  rdf:type        owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Project start date" ;
+        rdfs:domain         dcso:Project , owl:Thing , rdfs:Resource ;
+        rdfs:label          "start" ;
+        rdfs:range          xsd:dateTime , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:start .
+
+dcat:accessURL  rdf:type    owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "A URL of the resource that gives access to a distribution of the dataset. e.g. landing page." ;
+        rdfs:domain         dcso:Distribution , owl:Thing , rdfs:Resource , dcat:Distribution ;
+        rdfs:label          "accessURL" ;
+        rdfs:range          xsd:anyURI , rdfs:Resource ;
+        rdfs:subPropertyOf  dcat:accessURL .
+
+dcso:ethicalIssuesReport
+        rdf:type            owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "To indicate where a protocol from a meeting with an ethical commitee can be found" ;
+        rdfs:domain         dcso:DMP , owl:Thing , rdfs:Resource , _:b0 ;
+        rdfs:label          "ethicalIssuesReport" ;
+        rdfs:range          xsd:anyURI , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:ethicalIssuesReport .
+
+dcso:value  rdf:type        owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Value for cost" ;
+        rdfs:domain         dcso:Cost , rdfs:Resource , owl:Thing ;
+        rdfs:label          "value" ;
+        rdfs:range          xsd:integer , rdfs:Resource , xsd:decimal ;
+        rdfs:subPropertyOf  dcso:value .
+
+dcso:validated  rdf:type    owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "The time of validation for the DMP" ;
+        rdfs:domain         dcso:DMP , owl:Thing , _:b0 , rdfs:Resource ;
+        rdfs:label          "created" ;
+        rdfs:range          xsd:dateTime , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:validated .
+
+dcso:geoLocation  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "A Country where a Host, i.e. storage system, is located." ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "geoLocation" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:geoLocation .
+
+dcso:url  rdf:type          owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "The URL of the system hosting a distribution of a dataset" ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "url" ;
+        rdfs:range          xsd:anyURI , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:url .
+
+rdfs:comment  rdf:type      rdfs:Resource , rdf:Property ;
+        rdfs:range          rdfs:Literal , rdfs:Resource ;
+        rdfs:subPropertyOf  rdfs:comment .
+
+[ rdf:type     owl:AllDisjointClasses ;
+  owl:members  [ rdf:type   rdf:List , rdfs:Resource ;
+                 rdf:first  dcat:Dataset ;
+                 rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                              rdf:first  dcso:DMP ;
+                              rdf:rest   [ rdf:type   rdf:List , rdfs:Resource ;
+                                           rdf:first  dcso:Dataset ;
+                                           rdf:rest   ()
+                                         ]
+                            ]
+               ]
+] .
+
+dcso:certifiedWith  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Validation with ShEx/SHACL" , "Repository certified to a recognised standard\nSuggested values:\n\n    din31644\n    dini-zertifikat\n    dsa\n    iso16363\n    iso16919\n    trac\n    wds\n    coretrustseal\n    none\n    other\n    unknown" ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "certifiedWith" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:certifiedWith .
+
+dcso:dataAccess  rdf:type   owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Indicates access mode for data.\nAllowed Values:\n\n    open\n    shared\n    closed" ;
+        rdfs:domain         dcso:Distribution , owl:Thing , rdfs:Resource , dcat:Distribution ;
+        rdfs:label          "dataAccess" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:dataAccess .
+
+dcso:fundingStatus  rdf:type  owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "To express different phases of project lifecycle.\nAllowed Values:\n\n    planned\n    applied\n    granted\n    rejected" ;
+        rdfs:domain         dcso:Funding , owl:Thing , rdfs:Resource ;
+        rdfs:label          "fundingStatus" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:fundingStatus .
+
+dcsx:targetAudience  rdf:type  rdfs:Resource , rdf:Property , owl:DatatypeProperty ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcsx:targetAudience .
+
+dcso:supportVersioning
+        rdf:type            owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Informs of the support for versioning\n  Allowed Values:\n\n    yes\n    no\n    unknown" ;
+        rdfs:domain         dcso:Host , owl:Thing , rdfs:Resource ;
+        rdfs:label          "supportVersioning" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:supportVersioning .
+
+dcso:ethicalIssueDescription
+        rdf:type            owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "To describe ethical issues directly in a DMP" ;
+        rdfs:domain         dcso:DMP , owl:Thing , _:b0 , rdfs:Resource ;
+        rdfs:label          "ethicalIssueDescription" ;
+        rdfs:range          xsd:string , rdfs:Resource ;
+        rdfs:subPropertyOf  dcso:ethicalIssueDescription .
+
+dcso:dmp_0_dmpID_0  rdf:type  dcso:Id , owl:Thing , dcso:DMPId , rdfs:Resource ;
+        owl:sameAs           dcso:dmp_0_dmpID_0 ;
+        dcso:identifier      "10.5281/zenodo.11670084" ;
+        dcso:identifierType  "doi" .
+
+terms:issued  rdf:type      owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
+        rdfs:comment        "Issued date" ;
+        rdfs:domain         dcso:Dataset , owl:Thing , _:b0 , rdfs:Resource , dcat:Dataset ;
+        rdfs:label          "issued" ;
+        rdfs:range          xsd:dateTime , rdfs:Resource ;
+        rdfs:subPropertyOf  terms:issued .
+
+rdfs:label  rdf:type        rdfs:Resource , rdf:Property ;
+        rdfs:range          rdfs:Literal , rdfs:Resource ;
+        rdfs:subPropertyOf  rdfs:label .
+
+<https://w3id.org/dcso/ns/core/4.0.0>
+        rdf:type  owl:Ontology , rdfs:Resource .
+
+owl:AllDisjointClasses
+        rdf:type  rdfs:Class , rdfs:Resource .
