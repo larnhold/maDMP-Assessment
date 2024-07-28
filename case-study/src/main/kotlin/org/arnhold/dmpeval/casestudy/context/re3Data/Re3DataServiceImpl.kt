@@ -33,7 +33,7 @@ class Re3DataServiceImpl @Autowired constructor(
                 }
             }
 
-            val repo = result?.repositories?.find { repository -> repository.name?.contains(name) ?: false }
+            val repo = result?.repositories?.find { repository -> repository.name?.contains(name, ignoreCase = true) ?: false }
 
             return if (repo?.id != null) {
                 this.getById(repo.id!!)

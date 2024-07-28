@@ -1,0 +1,55 @@
+{
+  "dmp": {
+    "title": "Minimal DMP",
+    "contact": {
+      "contact_id": {
+        "identifier": "0000-0002-5164-2690",
+        "type": "orcid"
+      },
+      "mbox": "moritz.staudinger@tuwien.ac.at",
+      "name": "Moritz Staudinger"
+    },
+    "created": "2023-10-23T10:10:23.6",
+    "dmp_id": {
+      "identifier": "10.5281/zenodo.13119047",
+      "type": "doi"
+    },
+    "dataset": [
+      {
+        "dataset_id": {
+          "identifier": "10.5281/zenodo.4699026",
+          "type": "doi"
+        },
+        "title": "Results: Analysis of Performances of kNN and Random Forest",
+        "description": "The results of the experiment Analysis of Performances of kNN and Random Forest. This files contain the accuracy, precision, recall and fbeta scores for various settings for K-Nearest Neighbors and Random Forest for the datasets Zoo (https://www.openml.org/d/62) and PhishingWebsites (https://www.openml.org/d/4534).",
+        "personal_data": "unknown",
+        "sensitive_data": "unknown",
+        "keyword": ["classification", "sklearn", "scikit-learn"],
+        "distribution": [{
+          "access_url": "https://zenodo.org/records/4699026",
+          "data_access": "open",
+          "formats": ["csv"],
+          "license": [{
+            "license_ref": "https://creativecommons.org/licenses/by/4.0/legalcode"
+          }],
+          "host": {
+            "url": "https://zenodo.org/",
+            "title": "zenodo",
+            "pid_system": ["doi"],
+            "support_versioning": "yes"
+          }
+        }],
+        "metadata": [{
+          "language": "Dublin Core",
+          "metadata_standard_id": {
+            "identifier": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
+            "type": "http"
+          }
+        }]
+      }
+    ],
+    "ethical_issues_exist": "unknown",
+    "language": "eng",
+    "modified": "2023-10-23T10:10:23.6"
+  }
+}
