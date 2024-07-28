@@ -75,7 +75,7 @@ To run the prototype implementation of the DMP evaluation framework, use the fol
 mvn -f core spring-boot:run
 ```
 
-The project includes a Swagger documentation which is hosted on [Swagger Link](http://localhost:8080/swagger-ui/index.html).
+The project includes a Swagger documentation which is hosted on a local [Swagger](http://localhost:8080/swagger-ui/index.html) instance when running the application.
 
 In addition to that the project also includes a [Jupyter Notbeook](scripts/evaluation.ipynb) which interactively shows how to use the services provided by the evaluation framework as described in the associated thesis.
 

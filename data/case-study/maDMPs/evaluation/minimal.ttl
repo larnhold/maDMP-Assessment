@@ -945,7 +945,7 @@ dcso:dataQualityAssurance
         rdfs:subPropertyOf  dcso:dataQualityAssurance .
 
 dcso:dmp_0_dataset_0  rdf:type  dcso:Dataset , owl:Thing , dcsx:RelatedPolicy , rdfs:Resource , dcat:Dataset , _:b0 ;
-        terms:title         "Analysis of Performances of kNN and Random Forest" ;
+        terms:title         "Results: Analysis of Performances of kNN and Random Forest" ;
         owl:differentFrom   dcso:dmp_0_contact_0 , dcso:dmp_0_dataset_0 ;
         owl:sameAs          dcso:dmp_0_dataset_0 ;
         dcso:hasDatasetId   dcso:dmp_0_dataset_0_datasetId_0 ;
@@ -1064,7 +1064,7 @@ dcsx:restrictionExplanation
 dcso:dmp_0_dataset_0_datasetId_0
         rdf:type             dcso:Id , owl:Thing , dcso:DatasetId , rdfs:Resource ;
         owl:sameAs           dcso:dmp_0_dataset_0_datasetId_0 ;
-        dcso:identifier      "10.5281/zenodo.4699051" ;
+        dcso:identifier      "10.5281/zenodo.4699026" ;
         dcso:identifierType  "doi" .
 
 dcso:startDate  rdf:type    owl:DatatypeProperty , rdf:Property , rdfs:Resource ;
@@ -1259,7 +1259,7 @@ dcso:ethicalIssueDescription
 
 dcso:dmp_0_dmpID_0  rdf:type  dcso:Id , owl:Thing , dcso:DMPId , rdfs:Resource ;
         owl:sameAs           dcso:dmp_0_dmpID_0 ;
-        dcso:identifier      "10.5281/zenodo.11670084" ;
+        dcso:identifier      "10.5281/zenodo.13119047" ;
         dcso:identifierType  "doi" .
 
 terms:issued  rdf:type      owl:DatatypeProperty , rdf:Property , rdfs:Resource ;

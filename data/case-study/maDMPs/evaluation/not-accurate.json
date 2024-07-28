@@ -11,13 +11,13 @@
 		},
 		"created": "2023-10-23T10:10:23.6",
 		"dmp_id": {
-			"identifier": "10.5281/zenodo.11670084",
+			"identifier": "10.5281/zenodo.13119047",
 			"type": "doi"
 		},
 		"dataset": [
 			{
 				"dataset_id": {
-					"identifier": "10.5281/zenodo.4699051",
+					"identifier": "10.5281/zenodo.4699026",
 					"type": "doi"
 				},
 				"title": "Title not correct",

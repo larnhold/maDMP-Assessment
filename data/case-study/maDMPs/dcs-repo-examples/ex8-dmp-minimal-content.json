@@ -11,16 +11,16 @@
 		},
 		"created": "2023-10-23T10:10:23.6",
 		"dmp_id": {
-			"identifier": "10.5281/zenodo.11670084",
+			"identifier": "10.5281/zenodo.13119047",
 			"type": "doi"
 		},
 		"dataset": [
 			{
 				"dataset_id": {
-					"identifier": "10.5281/zenodo.4699051",
+					"identifier": "10.5281/zenodo.4699026",
 					"type": "doi"
 				},
-				"title": "Analysis of Performances of kNN and Random Forest",
+				"title": "Results: Analysis of Performances of kNN and Random Forest",
 				"personal_data": "unknown",
 				"sensitive_data": "unknown"
 			}
