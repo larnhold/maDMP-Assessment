@@ -72,20 +72,20 @@ class FAIREvaluationDimensionEvaluator @Autowired constructor(
     private fun evaluate(value: String, type: String, datasetIdType: Resource?, dataset: Resource?): List<Measurement> {
         logger.info { "Start evaluation of $value with type $type" }
         val fujiResult = fujiService.evaluateResource(value)
-        return if (dataset != null && datasetIdType != null) {
-            val measurements = fujiResult?.let { fujiResultRootToMeasurement(dataset, datasetIdType, it) }
+        return if (dataset != null) {
+            val measurements = fujiResult?.let { fujiResultRootToMeasurement(dataset, it) }
             return measurements ?: listOf()
         } else {
             listOf()
         }
     }
 
-    private fun fujiResultRootToMeasurement(dataset: Resource, datasetIdType: Resource, result: FujiRoot): List<Measurement> {
+    private fun fujiResultRootToMeasurement(dataset: Resource, result: FujiRoot): List<Measurement> {
         logger.info { "Convert ${result.results.size} evaluation result from F-UJI to DQV" }
-        return result.results.map { fujiResultToMeasurement(dataset, datasetIdType, it) }
+        return result.results.map { fujiResultToMeasurement(dataset, it) }
     }
 
-    private fun fujiResultToMeasurement(dataset: Resource, datasetIdType: Resource, result: FujiResult): Measurement {
+    private fun fujiResultToMeasurement(dataset: Resource, result: FujiResult): Measurement {
         logger.info { "Convert metric ${result.metricIdentifier} from F-UJI to DQV" }
         val metric: Metric = QualityOfActionsMetricModels.metricFromFujiResult(result)
         return Measurement(

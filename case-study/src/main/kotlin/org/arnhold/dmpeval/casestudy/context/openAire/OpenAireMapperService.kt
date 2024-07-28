@@ -1,12 +1,18 @@
 package org.arnhold.dmpeval.casestudy.context.openAire
 
+import eu.openaire.namespace.oaf.FieldType
 import eu.openaire.namespace.oaf.QualifierType
+import eu.openaire.namespace.oaf.ResultChildrenType
 import eu.openaire.namespace.oaf.StructuredPropertyElementType
 import generated.Response
 import jakarta.xml.bind.JAXBElement
 import org.arnhold.sdk.context.schema.Dataset
 import org.arnhold.sdk.context.schema.Identifier
-import org.arnhold.sdk.context.schema.enums.*
+import org.arnhold.sdk.context.schema.enums.EDataAccessType
+import org.arnhold.sdk.context.schema.enums.EDataSource
+import org.arnhold.sdk.context.schema.enums.EDataType
+import org.arnhold.sdk.context.schema.enums.EIdentifierType
+import org.arnhold.sdk.context.schema.enums.ELicense
 import org.springframework.stereotype.Component
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -30,6 +36,18 @@ class OpenAireMapperService {
                     datasetCopy = addQualifierTypeProperties(element.name.localPart, element.value as QualifierType, datasetCopy)
                 } else if (element.declaredType === String::class.java) {
                     datasetCopy = addStringProperties(element.name.localPart, element.value as String, datasetCopy)
+                } else if (element.declaredType === ResultChildrenType::class.java) {
+                    for (instance in (element.value as ResultChildrenType).instance) {
+                        for (instanceElement in instance.licenseOrAccessrightOrInstancetype) {
+                            if (instanceElement.declaredType === FieldType::class.java) {
+                                datasetCopy = mapAtoB(
+                                    instanceElement.name.localPart,
+                                    instanceElement.value as FieldType,
+                                    dataset
+                                )
+                            }
+                        }
+                    }
                 }
             }
         } catch (e: NullPointerException) {
@@ -100,6 +118,15 @@ class OpenAireMapperService {
             }
 
             else -> {}
+        }
+        return dataset
+    }
+
+    fun mapAtoB(propertyName: String, elementType: FieldType, dataset: Dataset): Dataset {
+        if ("license" == propertyName) {
+            if (dataset.license == null) {
+                dataset.license = ELicense.fromAcronym(elementType.value)
+            }
         }
         return dataset
     }

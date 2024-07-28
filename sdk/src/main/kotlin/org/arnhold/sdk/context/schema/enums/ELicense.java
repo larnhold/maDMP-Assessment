@@ -1,7 +1,7 @@
 package org.arnhold.sdk.context.schema.enums;
 
 public enum ELicense {
-    
+
     // TODO: link is dead, fix it
     AGPL1("AGPL-1.0-only", "Affero General Public License v1.0 only", "http://www.affero.org/oagpl.html"),
     AGPL1PLUS("AGPL-1.0-or-later", "Affero General Public License v1.0 or later", "https://spdx.org/licenses/AGPL-1.0-or-later.html"),
@@ -15,7 +15,7 @@ public enum ELicense {
     ARTISTIC2("Artistic-2.0", "Artistic License 2.0", "http://www.perlfoundation.org/artistic_license_2_0"),
     BSD2C("BSD-2-Clause", "BSD 2-Clause \"Simplified\" License", "https://opensource.org/licenses/BSD-2-Clause"),
     BSD3C("BSD-3-Clause", "BSD 3-Clause \"New\" or \"Revised\" License", "https://opensource.org/licenses/BSD-3-Clause"),
-    CCBY("CC-BY-4.0", "Creative Commons Attribution 4.0 International", "https://creativecommons.org/licenses/by/4.0/legalcode"),
+    CCBY("CC BY", "Creative Commons Attribution 4.0 International", "https://creativecommons.org/licenses/by/4.0/legalcode"),
     CCBYNC("CC-BY-NC-4.0", "Creative Commons Attribution Non Commercial 4.0 International", "https://creativecommons.org/licenses/by-nc/4.0/legalcode"),
     CCBYNCND("CC-BY-NC-ND-4.0", "Creative Commons Attribution Non Commercial No Derivatives 4.0 International", "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"),
     CCBYNCSA("CC-BY-NC-SA-4.0", "Creative Commons Attribution Non Commercial Share Alike 4.0 International", "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"),
@@ -50,6 +50,15 @@ public enum ELicense {
     private final String acronym;
     private final String name;
     private final String url;
+
+    public static ELicense fromAcronym(String text) {
+        for (ELicense license : ELicense.values()) {
+            if (license.acronym.equalsIgnoreCase(text)) {
+                return license;
+            }
+        }
+        return null;
+    }
 
     ELicense(String acronym, String name, String url){
         this.acronym = acronym;

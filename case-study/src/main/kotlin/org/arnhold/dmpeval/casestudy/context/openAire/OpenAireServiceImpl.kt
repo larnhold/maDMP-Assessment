@@ -17,8 +17,11 @@ class OpenAireServiceImpl @Autowired constructor(
 ) : OpenAireService {
 
     override fun findDatasetByDoi(doi: String): Dataset? {
+
+        val url = "http://api.openaire.eu/search/researchProducts?doi=$doi&format=xml"
+
         val request = Request.Builder()
-            .url("http://api.openaire.eu/search/datasets?doi=$doi&format=xml")
+            .url(url)
             .get().build()
 
         try {
