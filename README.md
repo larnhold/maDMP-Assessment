@@ -77,7 +77,7 @@ mvn -f core spring-boot:run
 
 The project includes a Swagger documentation which is hosted on a local [Swagger](http://localhost:8080/swagger-ui/index.html) instance when running the application.
 
-In addition to that the project also includes a [Jupyter Notbeook](scripts/evaluation.ipynb) which interactively shows how to use the services provided by the evaluation framework as described in the associated thesis.
+In addition to that the project also includes a [Jupyter Notebook](scripts/evaluation.ipynb) which interactively shows how to use the services provided by the evaluation framework as described in the associated thesis.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
