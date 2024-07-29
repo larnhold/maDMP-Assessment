@@ -7,6 +7,7 @@ import org.apache.commons.validator.routines.UrlValidator
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
+import org.arnhold.dmpeval.casestudy.configuration.QueriesConfig
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.model.SoftareAgents
@@ -27,15 +28,12 @@ import java.nio.file.Path
 @Component
 class AvailabilityDimensionEvaluator @Autowired constructor(
     val sparqlSelector: SparqlSelector,
+    val queryConfig: QueriesConfig,
     val okHttpClient: OkHttpClient,
     val urlValidator: UrlValidator
 ) : DimensionEvaluatorPlugin {
 
     private val logger = KotlinLogging.logger {}
-
-    companion object {
-        const val SPARQL_DIRECTORY = "data/selectors/"
-    }
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.AVAILABILITY.toString()
@@ -66,7 +64,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
 
     private fun allURIsMeasurements(dmp: Model): List<Measurement?> {
         logger.info { "Get measurements of al urls" }
-        val query = Path.of(SPARQL_DIRECTORY + "allUris.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queryConfig.directory + "allUris.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} URIs in DMP"}
 
@@ -93,7 +91,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
 
     private fun getAllIdentifiermeasurements(dmp: Model): List<Measurement?> {
         logger.info { "Get measurements of al identifiers" }
-        val query = Path.of(SPARQL_DIRECTORY + "ids.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queryConfig.directory + "ids.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} IDs"}
         return selected.map {

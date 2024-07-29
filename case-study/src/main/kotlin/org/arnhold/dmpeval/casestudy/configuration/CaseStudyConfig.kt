@@ -9,4 +9,9 @@ class CaseStudyConfig {
     fun getDataStoreConfig(): DataStoreConfig {
         return DataStoreConfig()
     }
+
+    @Bean
+    fun getQueriesConfig(): QueriesConfig {
+        return QueriesConfig()
+    }
 }

@@ -3,8 +3,8 @@ package org.arnhold.dmpeval.casestudy.context.openAire
 import com.fasterxml.jackson.databind.ObjectWriter
 import mu.KotlinLogging
 import org.apache.jena.rdf.model.Model
+import org.arnhold.dmpeval.casestudy.configuration.QueriesConfig
 import org.arnhold.dmpeval.casestudy.context.ContextLoaderIdentifier
-import org.arnhold.dmpeval.casestudy.evaluation.feasibilityCategoryEvaluators.AvailabilityDimensionEvaluator
 import org.arnhold.sdk.context.ContextLoaderPlugin
 import org.arnhold.sdk.context.ContextProviderInformation
 import org.arnhold.sdk.context.schema.Dataset
@@ -20,7 +20,8 @@ import java.nio.file.Path
 class OpenAireContextLoaderPlugin @Autowired constructor(
     val sparqlSelector: SparqlSelector,
     val openAireService: OpenAireService,
-    val objectWriter: ObjectWriter
+    val objectWriter: ObjectWriter,
+    val queriesConfig: QueriesConfig
 ) : ContextLoaderPlugin {
 
     private val logger = KotlinLogging.logger {}
@@ -35,7 +36,7 @@ class OpenAireContextLoaderPlugin @Autowired constructor(
 
     override fun getContext(dmpModel: Model): List<DMPContext> {
         logger.info { "Get OpenAire context for all datasets" }
-        val query = Path.of(AvailabilityDimensionEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queriesConfig.directory + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmpModel, query)
         logger.info { "Found ${selected.size} Datasets with identifiers"}
 

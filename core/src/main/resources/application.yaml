@@ -1,5 +1,7 @@
 store:
   directory: "./data/store"
+queries:
+  directory: "data/selectors/"
 ontology:
   DCSLocation: "./data/ontologies/dcso-4.0.1.ttl"
   DMPDQVLocation: "./data/ontologies/dmpqv.ttl"

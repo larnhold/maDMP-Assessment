@@ -4,10 +4,10 @@ import mu.KotlinLogging
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
 import org.apache.jena.rdf.model.Resource
+import org.arnhold.dmpeval.casestudy.configuration.QueriesConfig
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.model.SoftareAgents
-import org.arnhold.dmpeval.casestudy.evaluation.feasibilityCategoryEvaluators.AvailabilityDimensionEvaluator
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiMetricTest
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiResult
 import org.arnhold.dmpeval.casestudy.evaluation.qualityOfActionsCategoryEvaluators.model.fuji.FujiRoot
@@ -27,6 +27,7 @@ import java.nio.file.Path
 class FAIREvaluationDimensionEvaluator @Autowired constructor(
     val fujiService: FujiService,
     val sparqlSelector: SparqlSelector,
+    val queriesConfig: QueriesConfig
 ) : DimensionEvaluatorPlugin {
 
     private val logger = KotlinLogging.logger {}
@@ -51,7 +52,7 @@ class FAIREvaluationDimensionEvaluator @Autowired constructor(
         extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         logger.info { "Get measurements for all datasets" }
-        val query = Path.of(AvailabilityDimensionEvaluator.SPARQL_DIRECTORY + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queriesConfig.directory + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} Datasets with identifiers"}
 

@@ -28,7 +28,7 @@
         "distribution": [{
           "access_url": "https://zenodo.org/records/4699026",
           "data_access": "open",
-          "formats": ["csv"],
+          "format": ["csv"],
           "license": [{
             "license_ref": "https://creativecommons.org/licenses/by/4.0/legalcode"
           }],
