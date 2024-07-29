@@ -52,7 +52,7 @@ class Re3DataContextLoaderPlugin @Autowired constructor(
     private fun packageIntoDMPContext(dmpId: String, hostId: String, context: Repository?): DMPContext {
         val location = ContextDMPLocation(dmpId, hostId, null)
         val jsonData = objectWriter.writeValueAsString(context)
-        return DMPContext(location, ContextLoaderIdentifier.RE3DATA.toString(), jsonData, ContextSchema.HOST)
+        return DMPContext(listOf(location), ContextLoaderIdentifier.RE3DATA.toString(), jsonData, ContextSchema.HOST)
     }
 
     override fun supports(p0: String): Boolean {

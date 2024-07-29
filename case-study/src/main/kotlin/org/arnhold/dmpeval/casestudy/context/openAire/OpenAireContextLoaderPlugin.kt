@@ -55,7 +55,7 @@ class OpenAireContextLoaderPlugin @Autowired constructor(
     private fun packageIntoDMPContext(dmpId: String, dataSetId: String, context: Dataset?): DMPContext {
         val location = ContextDMPLocation(dmpId, dataSetId, null)
         val jsonData = objectWriter.writeValueAsString(context)
-        return DMPContext(location, ContextLoaderIdentifier.OPEN_AIRE.toString(), jsonData, ContextSchema.DATASET)
+        return DMPContext(listOf(location), ContextLoaderIdentifier.OPEN_AIRE.toString(), jsonData, ContextSchema.DATASET)
     }
 
     override fun supports(p0: String): Boolean {
