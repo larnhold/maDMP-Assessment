@@ -43,17 +43,19 @@ class Re3DataContextLoaderPlugin @Autowired constructor(
         return selected.map {
             val dmp = it.resources.get("dmp").toString()
             val name = it.literals.get("title").toString()
+            val dataset = it.literals.get("dataset").toString()
             val host = it.resources.get("host").toString()
             logger.info { "Requesting context for host $name" }
             val context = re3DataService.getHostByName(name)
-            return@map packageIntoDMPContext(dmp, host, context)
+            return@map packageIntoDMPContext(dmp, dataset, host, context)
         }
     }
 
-    private fun packageIntoDMPContext(dmpId: String, hostId: String, context: Repository?): DMPContext {
-        val location = ContextDMPLocation(dmpId, hostId, null)
+    private fun packageIntoDMPContext(dmpId: String, datasetId: String, hostId: String, context: Repository?): DMPContext {
+        val locationHost = ContextDMPLocation(dmpId, hostId, null)
+        val locationDataset = ContextDMPLocation(dmpId, datasetId, null)
         val jsonData = objectWriter.writeValueAsString(context)
-        return DMPContext(listOf(location), ContextLoaderIdentifier.RE3DATA.toString(), jsonData, ContextSchema.HOST)
+        return DMPContext(listOf(locationHost, locationDataset), ContextLoaderIdentifier.RE3DATA.toString(), jsonData, ContextSchema.HOST)
     }
 
     override fun supports(p0: String): Boolean {

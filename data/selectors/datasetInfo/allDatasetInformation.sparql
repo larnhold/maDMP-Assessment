@@ -1,0 +1,15 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcso: <https://w3id.org/dcso/ns/core#>
+PREFIX terms: <http://purl.org/dc/terms/>
+select * where {
+    ?dataset  rdf:type  dcso:Dataset .
+    ?dataset dcso:hasDistribution ?distribution .
+    ?dataset rdf:type dcso:Dataset .
+    OPTIONAL { ?dataset terms:description ?description } .
+    OPTIONAL { ?dataset terms:title ?title } .
+    OPTIONAL { ?dataset dcso:keyword ?keyword } .
+    OPTIONAL { ?dataset dcso:hasMetadata ?metadata } .
+    OPTIONAL { ?metadata dcso:language ?metadataLanguage } .
+    OPTIONAL { ?metadata dcso:hasMetadataStandardId ?metadataStandardId } .
+    OPTIONAL { ?metadataStandardId dcso:identifier ?metadataStandard } .
+}

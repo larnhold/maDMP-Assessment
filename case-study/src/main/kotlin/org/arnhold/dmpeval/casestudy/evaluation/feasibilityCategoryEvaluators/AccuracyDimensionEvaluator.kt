@@ -4,22 +4,30 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import mu.KotlinLogging
 import org.apache.jena.ontology.OntModel
-import org.apache.jena.rdf.model.Model
+import org.apache.jena.rdf.model.*
+import org.arnhold.dmpeval.casestudy.configuration.QueriesConfig
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.context.schema.Dataset
-import org.arnhold.sdk.model.EvaluationDimensionConstants
-import org.arnhold.sdk.vocab.dqv.Measurement
 import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
+import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.model.EvaluationTaskParameters
+import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
 import org.arnhold.sdk.vocab.constants.ContextSchema
 import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
+import org.arnhold.sdk.vocab.dqv.Measurement
 import org.re3data.schema._2_2.Re3Data.Repository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
+import java.nio.file.Path
+
 
 @Component
-class AccuracyDimensionEvaluator : DimensionEvaluatorPlugin {
+class AccuracyDimensionEvaluator @Autowired constructor(
+    val sparqlSelector: SparqlSelector,
+    val queriesConfig: QueriesConfig
+) : DimensionEvaluatorPlugin {
 
     private val logger = KotlinLogging.logger {}
 
@@ -44,47 +52,39 @@ class AccuracyDimensionEvaluator : DimensionEvaluatorPlugin {
     ): List<Measurement> {
         logger.info { "Get all accuracy measurements" }
 
+        val re3dataContext = context.filter { it.vocabularyIdentifier === ContextSchema.HOST }.filter { it.value !== null }.associateBy( {it}, {this.mapSingleRe3DataContext(it)} )
+        val openAireContext = context.filter { it.vocabularyIdentifier === ContextSchema.DATASET }.filter { it.value !== null }.associateBy( {it}, {this.mapSingleOpenAireContext(it)} )
+
+        return evaluateDatasetAccuracy(dmp, re3dataContext, openAireContext)
+    }
+
+    private fun evaluateDatasetAccuracy(dmp: Model, re3DataContext: Map<DMPContext, Repository>, openAireContext: Map<DMPContext, Dataset>): List<Measurement> {
+        logger.info { "Select all datasets and corresponding information" }
+        val query = Path.of(queriesConfig.directory + "/datasetInfo/allDatasetInformation.sparql").toFile().readText(Charsets.UTF_8)
+        val selected = sparqlSelector.getSelectResults(dmp, query)
+        logger.info { "Found ${selected.size} Datasets"}
+
         val measurements = mutableListOf<Measurement>()
-        val re3dataContext = context.filter { it.vocabularyIdentifier === ContextSchema.HOST }
-        val openAireContext = context.filter { it.vocabularyIdentifier === ContextSchema.DATASET }
 
-        if (re3dataContext.isNotEmpty())  {
-            measurements.addAll(fromRe3DataContext(dmp, re3dataContext))
-        }
-
-        if (openAireContext.isNotEmpty()) {
-            measurements.addAll(fromOpenAireContext(dmpOntology, openAireContext))
+        selected.forEach {
+            val dataset = it.resources.get("dataset").toString()
+            val description = it.literals.get("description").toString()
+            val title = it.resources.get("title").toString()
+            val keyword = it.resources.get("keyword").toString()
+            val metadataLanguage = it.resources.get("metadataLanguage").toString()
         }
 
         return measurements
     }
 
-    private fun fromOpenAireContext(dmp: Model, context: List<DMPContext>): List<Measurement> {
-        return context.flatMap { mapSingleOpenAireContext(dmp, it) }
+    private fun mapSingleOpenAireContext(context: DMPContext): Dataset {
+        val reader = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        return reader.readValue(context.value, Dataset::class.java)
     }
 
-    private fun mapSingleOpenAireContext(dmp: Model, context: DMPContext): List<Measurement> {
-        if (context.value != null) {
-            val reader = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            val openAireDataset = reader.readValue(context.value, Dataset::class.java)
-            logger.info { "OpenAireDataset: $openAireDataset" }
-        }
-
-        return listOf()
-    }
-
-    private fun fromRe3DataContext(dmp: Model, context: List<DMPContext>): List<Measurement> {
-        return context.flatMap { mapSingleRe3DataContext(dmp, it) }
-    }
-
-    private fun mapSingleRe3DataContext(dmp: Model, context: DMPContext): List<Measurement> {
-        if (context.value != null) {
-            val reader = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            val re3DataHost = reader.readValue(context.value, Repository::class.java)
-            logger.info { "Re3DataHost: $re3DataHost" }
-        }
-
-        return listOf()
+    private fun mapSingleRe3DataContext(context: DMPContext): Repository {
+        val reader = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        return reader.readValue(context.value, Repository::class.java)
     }
 
     override fun supports(p0: String): Boolean {
