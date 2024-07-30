@@ -12,11 +12,14 @@ import org.arnhold.sdk.evaluator.DimensionEvaluatorPlugin
 import org.arnhold.sdk.evaluator.EvaluatorInformation
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.model.EvaluationTaskParameters
+import org.arnhold.sdk.model.SoftareAgents
 import org.arnhold.sdk.tools.sparqlSelector.SparqlSelector
 import org.arnhold.sdk.vocab.constants.ContextSchema
+import org.arnhold.sdk.vocab.constants.DataLifecycle
 import org.arnhold.sdk.vocab.constants.Extension
 import org.arnhold.sdk.vocab.context.DMPContext
-import org.arnhold.sdk.vocab.dqv.Measurement
+import org.arnhold.sdk.vocab.dqv.*
+import org.arnhold.sdk.vocab.ontologyDefinitions.DCSO
 import org.re3data.schema._2_2.Re3Data.Repository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -52,29 +55,39 @@ class AccuracyDimensionEvaluator @Autowired constructor(
     ): List<Measurement> {
         logger.info { "Get all accuracy measurements" }
 
-        val re3dataContext = context.filter { it.vocabularyIdentifier === ContextSchema.HOST }.filter { it.value !== null }.associateBy( {it}, {this.mapSingleRe3DataContext(it)} )
-        val openAireContext = context.filter { it.vocabularyIdentifier === ContextSchema.DATASET }.filter { it.value !== null }.associateBy( {it}, {this.mapSingleOpenAireContext(it)} )
+        val re3dataContext = context.filter { it.vocabularyIdentifier === ContextSchema.HOST }.filter { it.value !== null && it.value != "null" }.associateBy( {it}, {this.mapSingleRe3DataContext(it)} )
+        val openAireContext = context.filter { it.vocabularyIdentifier === ContextSchema.DATASET }.filter { it.value !== null && it.value != "null" }.associateBy( {it}, {this.mapSingleOpenAireContext(it)} )
 
         return evaluateDatasetAccuracy(dmp, re3dataContext, openAireContext)
     }
 
-    private fun evaluateDatasetAccuracy(dmp: Model, re3DataContext: Map<DMPContext, Repository>, openAireContext: Map<DMPContext, Dataset>): List<Measurement> {
+    private fun evaluateDatasetAccuracy(dmp: Model, re3DataContextCollection: Map<DMPContext, Repository>, openAireContextCollection: Map<DMPContext, Dataset>): List<Measurement> {
         logger.info { "Select all datasets and corresponding information" }
         val query = Path.of(queriesConfig.directory + "/datasetInfo/allDatasetInformation.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} Datasets"}
 
-        val measurements = mutableListOf<Measurement>()
+        val measurements = mutableListOf<Measurement?>()
 
         selected.forEach {
-            val dataset = it.resources.get("dataset").toString()
+            val dataset = it.resources.get("dataset")
             val description = it.literals.get("description").toString()
-            val title = it.resources.get("title").toString()
-            val keyword = it.resources.get("keyword").toString()
-            val metadataLanguage = it.resources.get("metadataLanguage").toString()
+            val title = it.literals.get("title").toString()
+            val keyword = it.literals.get("keyword").toString()
+            val metadataLanguage = it.literals.get("metadataLanguage").toString()
+
+            val openAireContext = openAireContextCollection.keys.find { it.dmpLocations.any { loc -> loc.entity === dataset.toString() } }
+            val re3dataContext = re3DataContextCollection.keys.find { it.dmpLocations.any { loc -> loc.entity === dataset.toString() } }
+
+            val openAireEntity = openAireContextCollection[openAireContext]
+            val re3dataEntity = re3DataContextCollection[re3dataContext]
+
+            if (openAireContext != null && openAireEntity != null) {
+                measurements.add(this.getAccuracyMeasurement(openAireContext.sourceIdentifier, dataset, title, openAireEntity.title, DCSO.TITLE, "OpenAire"))
+            }
         }
 
-        return measurements
+        return measurements.filterNotNull().distinctBy { it.computedOn }
     }
 
     private fun mapSingleOpenAireContext(context: DMPContext): Dataset {
@@ -85,6 +98,35 @@ class AccuracyDimensionEvaluator @Autowired constructor(
     private fun mapSingleRe3DataContext(context: DMPContext): Repository {
         val reader = ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         return reader.readValue(context.value, Repository::class.java)
+    }
+
+    private fun getAccuracyMeasurement(source: String, entity: Resource?, dmpVal: String?, referenceVal: String?, property: Resource?, contextSource: String): Measurement? {
+        val metricCopy = FeasibilityMetricModels.PROPERTY_MATCHES_GROUND_TRUTH_METRIC.copy()
+        metricCopy.description += ": $source"
+
+        if (dmpVal === null || referenceVal == null) {
+            return null
+        }
+
+        val matching = (dmpVal == referenceVal)
+
+        val guidance: MutableList<Guidance> = mutableListOf()
+
+        if (!matching) {
+            guidance.add(Guidance(
+                "DMP value inconsistent with available context.",
+                "Value received from $contextSource is $referenceVal.")
+            )
+        }
+
+        return Measurement(
+            DmpLifecycle(DataLifecycle.PUBLISHED),
+            metricCopy,
+            guidance,
+            DMPLocation(entity, property),
+            matching.toString(),
+            softwareAgent= SoftareAgents.DMPEVAL,
+        )
     }
 
     override fun supports(p0: String): Boolean {

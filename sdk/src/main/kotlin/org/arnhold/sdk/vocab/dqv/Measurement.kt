@@ -12,7 +12,7 @@ import org.arnhold.sdk.vocab.ontologyDefinitions.DMPDQV
 data class Measurement(
     val lifeCycleStage: DmpLifecycle,
     val isMeasurementOf: Metric,
-    val guidance: Guidance?,
+    val guidance: List<Guidance>?,
     val computedOn: DMPLocation,
     val value: Any,
     val softwareAgent: SoftwareAgent?,

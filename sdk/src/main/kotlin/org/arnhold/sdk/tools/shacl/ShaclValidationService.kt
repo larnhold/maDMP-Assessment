@@ -73,7 +73,7 @@ class ShaclValidationService {
         return Measurement(
             lifecycle,
             metric,
-            guidance,
+            listOf(guidance),
             location,
             false,
             SoftareAgents.SHACL_AGENT,

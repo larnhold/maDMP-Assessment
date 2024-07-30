@@ -43,7 +43,7 @@ class Re3DataContextLoaderPlugin @Autowired constructor(
         return selected.map {
             val dmp = it.resources.get("dmp").toString()
             val name = it.literals.get("title").toString()
-            val dataset = it.literals.get("dataset").toString()
+            val dataset = it.resources.get("dataset").toString()
             val host = it.resources.get("host").toString()
             logger.info { "Requesting context for host $name" }
             val context = re3DataService.getHostByName(name)
