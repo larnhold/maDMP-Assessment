@@ -23,6 +23,7 @@ class DCSComplianceDimensionEvaluator @Autowired constructor(
 ) : DimensionEvaluatorPlugin {
 
     val dcsMultiplicityShapes: Path = Path.of("./data/case-study/shapes/dcs-multiplicity.ttl")
+    val dateISOPatternShape: Path = Path.of("./data/case-study/shapes/dcs-date.ttl")
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.DCS_COMPLIANCE.toString()
@@ -43,7 +44,10 @@ class DCSComplianceDimensionEvaluator @Autowired constructor(
         dmpOntology: OntModel,
         extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
-        return getMultiplicityComplianceMeasurements(dmp, DmpLifecycle(parameters.dataLifecycle))
+        val measurements = mutableListOf<Measurement>()
+        measurements.addAll(getMultiplicityComplianceMeasurements(dmp, DmpLifecycle(parameters.dataLifecycle)))
+        measurements.addAll(getDateISOMeasurements(dmp, DmpLifecycle(parameters.dataLifecycle)))
+        return measurements
     }
 
     fun getMultiplicityComplianceMeasurements(dmp: Model, lifecycle: DmpLifecycle): List<Measurement> {
@@ -56,8 +60,14 @@ class DCSComplianceDimensionEvaluator @Autowired constructor(
         )
     }
 
-    fun getWhitelistComplianceMeasurements(dmp: Model, lifecycle: DmpLifecycle): List<Measurement> {
-        return listOf()
+    fun getDateISOMeasurements(dmp: Model, lifecycle: DmpLifecycle): List<Measurement> {
+        return shaclValidationService.validateShape(
+            dmp,
+            dateISOPatternShape,
+            DCSComplianceMetricModels.DCS_VALUE_PATTERN_CONTRAINT_METRIC,
+            DMPLocation("dmp", ""),
+            lifecycle
+        )
     }
 
     override fun supports(p0: String): Boolean {
