@@ -13,5 +13,5 @@ enum class EvaluationDimensionConstants(title: String) {
     REUSABLE("reusable"),
     GUIDELINE_COMPLIANCE("guideline_compliance"),
     DCS_COMPLIANCE("dcs_compliance"),
-    SCIENCE_EUROPE_GUIDELINE_COMPLIANCE("extension_compliance")
+    SCIENCE_EUROPE_GUIDELINE_COMPLIANCE("science_europe_guideline_compliance")
 }

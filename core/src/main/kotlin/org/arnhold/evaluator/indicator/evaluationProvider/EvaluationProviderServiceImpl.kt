@@ -23,8 +23,9 @@ class EvaluationProviderServiceImpl @Autowired constructor(
     private val logger = KotlinLogging.logger {}
 
     override fun getAllEvaluators(): List<DimensionEvaluatorPlugin> {
-        logger.info { "Get instance of all evaluators" }
-        return pluginLoader.getEvaluators()
+        val evaluators = pluginLoader.getEvaluators()
+        logger.info { "Get instance of all evaluators $evaluators" }
+        return evaluators
     }
 
     override suspend fun produceAllMeasurements(
