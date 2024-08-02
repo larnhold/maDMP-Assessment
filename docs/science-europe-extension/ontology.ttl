@@ -1,0 +1,231 @@
+@prefix : <https://w3id.org/dcso/ns/extension#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/dcso/ns/extension#> .
+
+<https://w3id.org/dcso/ns/extension> rdf:type owl:Ontology ;
+                                      owl:versionIRI <https://w3id.org/dcso/ns/extension/science-europe/1.0.0> ;
+                                      owl:imports <https://w3id.org/dcso/ns/core/4.0.0> ;
+                                      <http://purl.org/dc/terms/contributor> "Daniel Faria" ,
+                                                                             "Diogo Proença" ,
+                                                                             "Lukas Arnhold" ,
+                                                                             "Tomasz Miksa" ;
+                                      <http://purl.org/dc/terms/creator> "Fajar J. Ekaputra" ,
+                                                                         "João Cardoso" ,
+                                                                         "Marie Christine Jacquemot" ;
+                                      <http://purl.org/dc/terms/description> "This ontology aims to add additional information to the DCS standard to better cover funder requirements stated by the Science Europe DMP Evaluation Rubric."@en ;
+                                      <http://purl.org/dc/terms/rights> "http://creativecommons.org/licenses/by/4.0/" ;
+                                      <http://purl.org/dc/terms/title> "An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric." ;
+                                      <http://purl.org/vocab/vann/preferredNamespacePrefix> "dcsx" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/dcso/ns/core#hasId
+<https://w3id.org/dcso/ns/core#hasId> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource
+:hasDataQualityAssuranceResource rdf:type owl:ObjectProperty ;
+                                 rdfs:domain <https://w3id.org/dcso/ns/core#Dataset> ;
+                                 rdfs:range :DataQualityAssuranceResource .
+
+
+###  https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId
+:hasDataQualityAssuranceRessourceId rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf <https://w3id.org/dcso/ns/core#hasId> ;
+                                    rdfs:domain :DataQualityAssuranceResource ;
+                                    rdfs:range :DataQualityAssuranceResourceId .
+
+
+###  https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation
+:hasDataRecoveryExplanation rdf:type owl:ObjectProperty ;
+                            rdfs:domain <https://w3id.org/dcso/ns/core#Host> ;
+                            rdfs:range :DataRecoveryExplanation .
+
+
+###  https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId
+:hasDataRecoveryExplanationId rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf <https://w3id.org/dcso/ns/core#hasId> ;
+                              rdfs:domain :DataRecoveryExplanation ;
+                              rdfs:range :DataRecoveryExplanationId .
+
+
+###  https://w3id.org/dcso/ns/extension#hasMethodology
+:hasMethodology rdf:type owl:ObjectProperty ;
+                rdfs:domain <https://w3id.org/dcso/ns/core#Dataset> ;
+                rdfs:range :Methodology .
+
+
+###  https://w3id.org/dcso/ns/extension#hasMethodologyId
+:hasMethodologyId rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf <https://w3id.org/dcso/ns/core#hasId> ;
+                  rdfs:domain :Methodology ;
+                  rdfs:range :MethodologyId .
+
+
+###  https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation
+:hasPropertyRightsExplanation rdf:type owl:ObjectProperty ;
+                              rdfs:domain <https://w3id.org/dcso/ns/core#Distribution> ;
+                              rdfs:range :PropertyRightsExplanation .
+
+
+###  https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId
+:hasPropertyRightsExplanationId rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf <https://w3id.org/dcso/ns/core#hasId> ;
+                                rdfs:domain :PropertyRightsExplanation ;
+                                rdfs:range :PropertyRightsExplanationId .
+
+
+###  https://w3id.org/dcso/ns/extension#hasRelatedPolicy
+:hasRelatedPolicy rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://w3id.org/dcso/ns/core#DMP> ;
+                  rdfs:range :RelatedPolicy .
+
+
+###  https://w3id.org/dcso/ns/extension#hasRelatedPolicyId
+:hasRelatedPolicyId rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <https://w3id.org/dcso/ns/core#hasId> ;
+                    rdfs:domain :RelatedPolicy ;
+                    rdfs:range :RelatedPolicyId .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/dcso/ns/extension#isReused
+:isReused rdf:type owl:DatatypeProperty ;
+          rdfs:domain <https://w3id.org/dcso/ns/core#Dataset> ;
+          rdfs:range xsd:string ;
+          rdfs:comment """To explicitly indicate whether the
+dataset is reused or was produced in
+the course of research. Allowed values
+are: reused, produced.""" .
+
+
+###  https://w3id.org/dcso/ns/extension#restrictionExplanation
+:restrictionExplanation rdf:type owl:DatatypeProperty ;
+                        rdfs:domain <https://w3id.org/dcso/ns/core#Distribution> ;
+                        rdfs:range xsd:string .
+
+
+###  https://w3id.org/dcso/ns/extension#targetAudience
+:targetAudience rdf:type owl:DatatypeProperty ;
+                rdfs:domain <https://w3id.org/dcso/ns/core#Dataset> ;
+                rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/dcso/ns/core#DMP
+<https://w3id.org/dcso/ns/core#DMP> rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/core#Dataset
+<https://w3id.org/dcso/ns/core#Dataset> rdf:type owl:Class ;
+                                        owl:disjointWith :RelatedPolicy .
+
+
+###  https://w3id.org/dcso/ns/core#Distribution
+<https://w3id.org/dcso/ns/core#Distribution> rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/core#Host
+<https://w3id.org/dcso/ns/core#Host> rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/core#Id
+<https://w3id.org/dcso/ns/core#Id> rdf:type owl:Class ;
+                                   owl:disjointWith :DataRecoveryExplanation .
+
+
+###  https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource
+:DataQualityAssuranceResource rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId
+:DataQualityAssuranceResourceId rdf:type owl:Class ;
+                                rdfs:subClassOf <https://w3id.org/dcso/ns/core#Id> .
+
+
+###  https://w3id.org/dcso/ns/extension#DataRecoveryExplanation
+:DataRecoveryExplanation rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId
+:DataRecoveryExplanationId rdf:type owl:Class ;
+                           rdfs:subClassOf <https://w3id.org/dcso/ns/core#Id> .
+
+
+###  https://w3id.org/dcso/ns/extension#Methodology
+:Methodology rdf:type owl:Class ;
+             <http://purl.org/dc/terms/description> """To describe methodology, procedures,
+workflows. etc. on how the dataset is
+created, can be recovered, ...""" .
+
+
+###  https://w3id.org/dcso/ns/extension#MethodologyId
+:MethodologyId rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/dcso/ns/core#Id> ;
+               <http://purl.org/dc/terms/description> "Identifier for a methodology artifact" .
+
+
+###  https://w3id.org/dcso/ns/extension#PropertyRightsExplanation
+:PropertyRightsExplanation rdf:type owl:Class .
+
+
+###  https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId
+:PropertyRightsExplanationId rdf:type owl:Class ;
+                             rdfs:subClassOf <https://w3id.org/dcso/ns/core#Id> .
+
+
+###  https://w3id.org/dcso/ns/extension#RelatedPolicy
+:RelatedPolicy rdf:type owl:Class ;
+               <http://purl.org/dc/terms/description> """To link to all documents needed to be
+compliant to requirements within this
+DMP (e.g. legal, ethical, contractual,
+guidelines, procedures, standards,...)""" .
+
+
+###  https://w3id.org/dcso/ns/extension#RelatedPolicyId
+:RelatedPolicyId rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/dcso/ns/core#Id> ;
+                 <http://purl.org/dc/terms/description> "Related policy ID" .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

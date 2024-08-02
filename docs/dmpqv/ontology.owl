@@ -418,6 +418,8 @@
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/dmpdqv/ns/core#entity">
+        <rdfs:domain rdf:resource="https://w3id.org/dmpdqv/ns/core#DMPLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:label>entity</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -427,6 +429,8 @@
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/dmpdqv/ns/core#property">
+        <rdfs:domain rdf:resource="https://w3id.org/dmpdqv/ns/core#DMPLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:label>property</rdfs:label>
     </owl:DatatypeProperty>
     

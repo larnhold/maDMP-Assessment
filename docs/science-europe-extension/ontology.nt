@@ -1,0 +1,199 @@
+<https://w3id.org/dcso/ns/extension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/dcso/ns/extension> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/dcso/ns/extension/science-europe/1.0.0> .
+<https://w3id.org/dcso/ns/extension> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/dcso/ns/core/4.0.0> .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/contributor> "Daniel Faria" .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/contributor> "Diogo Proença" .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/contributor> "Lukas Arnhold" .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/contributor> "Tomasz Miksa" .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/creator> "Fajar J. Ekaputra" .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/creator> "João Cardoso" .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/creator> "Marie Christine Jacquemot" .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/description> "This ontology aims to add additional information to the DCS standard to better cover funder requirements stated by the Science Europe DMP Evaluation Rubric."@en .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/rights> "http://creativecommons.org/licenses/by/4.0/" .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/dc/terms/title> "An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric." .
+<https://w3id.org/dcso/ns/extension> <http://purl.org/vocab/vann/preferredNamespacePrefix> "dcsx" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/dcso/ns/core#hasId
+<https://w3id.org/dcso/ns/core#hasId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource
+<https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/core#Dataset> .
+<https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource> .
+# 
+# https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId
+<https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/dcso/ns/core#hasId> .
+<https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource> .
+<https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId> .
+# 
+# https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation
+<https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/core#Host> .
+<https://w3id.org/dcso/ns/core#Host> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#DataRecoveryExplanation> .
+# 
+# https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId
+<https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/dcso/ns/core#hasId> .
+<https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/extension#DataRecoveryExplanation> .
+<https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId> .
+# 
+# https://w3id.org/dcso/ns/extension#hasMethodology
+<https://w3id.org/dcso/ns/extension#hasMethodology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasMethodology> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/core#Dataset> .
+<https://w3id.org/dcso/ns/extension#hasMethodology> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#Methodology> .
+# 
+# https://w3id.org/dcso/ns/extension#hasMethodologyId
+<https://w3id.org/dcso/ns/extension#hasMethodologyId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasMethodologyId> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/dcso/ns/core#hasId> .
+<https://w3id.org/dcso/ns/extension#hasMethodologyId> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/extension#Methodology> .
+<https://w3id.org/dcso/ns/extension#hasMethodologyId> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#MethodologyId> .
+# 
+# https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation
+<https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/core#Distribution> .
+<https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#PropertyRightsExplanation> .
+# 
+# https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId
+<https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/dcso/ns/core#hasId> .
+<https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/extension#PropertyRightsExplanation> .
+<https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId> .
+# 
+# https://w3id.org/dcso/ns/extension#hasRelatedPolicy
+<https://w3id.org/dcso/ns/extension#hasRelatedPolicy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasRelatedPolicy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/core#DMP> .
+<https://w3id.org/dcso/ns/extension#hasRelatedPolicy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#RelatedPolicy> .
+# 
+# https://w3id.org/dcso/ns/extension#hasRelatedPolicyId
+<https://w3id.org/dcso/ns/extension#hasRelatedPolicyId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/dcso/ns/extension#hasRelatedPolicyId> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/dcso/ns/core#hasId> .
+<https://w3id.org/dcso/ns/extension#hasRelatedPolicyId> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/extension#RelatedPolicy> .
+<https://w3id.org/dcso/ns/extension#hasRelatedPolicyId> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/dcso/ns/extension#RelatedPolicyId> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/dcso/ns/extension#isReused
+<https://w3id.org/dcso/ns/extension#isReused> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dcso/ns/extension#isReused> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/core#Dataset> .
+<https://w3id.org/dcso/ns/extension#isReused> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/dcso/ns/extension#isReused> <http://www.w3.org/2000/01/rdf-schema#comment> "To explicitly indicate whether the\ndataset is reused or was produced in\nthe course of research. Allowed values\nare: reused, produced." .
+# 
+# https://w3id.org/dcso/ns/extension#restrictionExplanation
+<https://w3id.org/dcso/ns/extension#restrictionExplanation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dcso/ns/extension#restrictionExplanation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/core#Distribution> .
+<https://w3id.org/dcso/ns/extension#restrictionExplanation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://w3id.org/dcso/ns/extension#targetAudience
+<https://w3id.org/dcso/ns/extension#targetAudience> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dcso/ns/extension#targetAudience> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dcso/ns/core#Dataset> .
+<https://w3id.org/dcso/ns/extension#targetAudience> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/dcso/ns/core#DMP
+<https://w3id.org/dcso/ns/core#DMP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/dcso/ns/core#Dataset
+<https://w3id.org/dcso/ns/core#Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/core#Dataset> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/dcso/ns/extension#RelatedPolicy> .
+# 
+# https://w3id.org/dcso/ns/core#Distribution
+<https://w3id.org/dcso/ns/core#Distribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/dcso/ns/core#Host
+# 
+# https://w3id.org/dcso/ns/core#Id
+<https://w3id.org/dcso/ns/core#Id> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/core#Id> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/dcso/ns/extension#DataRecoveryExplanation> .
+# 
+# https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource
+<https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId
+<https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/dcso/ns/core#Id> .
+# 
+# https://w3id.org/dcso/ns/extension#DataRecoveryExplanation
+<https://w3id.org/dcso/ns/extension#DataRecoveryExplanation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId
+<https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/dcso/ns/core#Id> .
+# 
+# https://w3id.org/dcso/ns/extension#Methodology
+<https://w3id.org/dcso/ns/extension#Methodology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/extension#Methodology> <http://purl.org/dc/terms/description> "To describe methodology, procedures,\nworkflows. etc. on how the dataset is\ncreated, can be recovered, ..." .
+# 
+# https://w3id.org/dcso/ns/extension#MethodologyId
+<https://w3id.org/dcso/ns/extension#MethodologyId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/extension#MethodologyId> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/dcso/ns/core#Id> .
+<https://w3id.org/dcso/ns/extension#MethodologyId> <http://purl.org/dc/terms/description> "Identifier for a methodology artifact" .
+# 
+# https://w3id.org/dcso/ns/extension#PropertyRightsExplanation
+<https://w3id.org/dcso/ns/extension#PropertyRightsExplanation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId
+<https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/dcso/ns/core#Id> .
+# 
+# https://w3id.org/dcso/ns/extension#RelatedPolicy
+<https://w3id.org/dcso/ns/extension#RelatedPolicy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/extension#RelatedPolicy> <http://purl.org/dc/terms/description> "To link to all documents needed to be\ncompliant to requirements within this\nDMP (e.g. legal, ethical, contractual,\nguidelines, procedures, standards,...)" .
+# 
+# https://w3id.org/dcso/ns/extension#RelatedPolicyId
+<https://w3id.org/dcso/ns/extension#RelatedPolicyId> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/dcso/ns/extension#RelatedPolicyId> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/dcso/ns/core#Id> .
+<https://w3id.org/dcso/ns/extension#RelatedPolicyId> <http://purl.org/dc/terms/description> "Related policy ID" .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

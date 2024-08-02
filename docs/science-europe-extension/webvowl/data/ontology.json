@@ -1,0 +1,552 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "https://w3id.org/dcso/ns/core", "https://w3id.org/dcso/ns/extension" ],
+    "title" : {
+      "undefined" : "An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric."
+    },
+    "iri" : "https://w3id.org/dcso/ns/extension",
+    "author" : [ "Marie Christine Jacquemot", "Fajar J. Ekaputra", "João Cardoso" ],
+    "description" : {
+      "en" : "This ontology aims to add additional information to the DCS standard to better cover funder requirements stated by the Science Europe DMP Evaluation Rubric."
+    },
+    "other" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Fajar J. Ekaputra",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "João Cardoso",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Marie Christine Jacquemot",
+        "type" : "label"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "Lukas Arnhold",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "Daniel Faria",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "Diogo Proença",
+        "type" : "label"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "Tomasz Miksa",
+        "type" : "label"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "dcsx",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "undefined",
+        "value" : "http://creativecommons.org/licenses/by/4.0/",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "undefined",
+        "value" : "An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric.",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "17",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "10",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://w3id.org/dcso/ns/extension#DataRecoveryExplanation",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataRecoveryExplanation"
+    },
+    "id" : "4"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/core#Id",
+    "baseIri" : "https://w3id.org/dcso/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Id"
+    },
+    "subClasses" : [ "6", "2", "7", "8", "9" ],
+    "attributes" : [ "external" ],
+    "id" : "5"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "15",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "16",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "17",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "10",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PropertyRightsExplanationId"
+    },
+    "id" : "8",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/core#Host",
+    "baseIri" : "https://w3id.org/dcso/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Host"
+    },
+    "attributes" : [ "external" ],
+    "id" : "27"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/core#DMP",
+    "baseIri" : "https://w3id.org/dcso/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DMP"
+    },
+    "attributes" : [ "external" ],
+    "id" : "28"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#PropertyRightsExplanation",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PropertyRightsExplanation"
+    },
+    "id" : "26"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/core#Distribution",
+    "baseIri" : "https://w3id.org/dcso/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Distribution"
+    },
+    "attributes" : [ "external" ],
+    "id" : "30"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataQualityAssuranceResourceId"
+    },
+    "id" : "9",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#MethodologyId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "description" : {
+      "undefined" : "Identifier for a methodology artifact"
+    },
+    "label" : {
+      "IRI-based" : "MethodologyId"
+    },
+    "id" : "2",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#RelatedPolicyId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "description" : {
+      "undefined" : "Related policy ID"
+    },
+    "label" : {
+      "IRI-based" : "RelatedPolicyId"
+    },
+    "id" : "7",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataQualityAssuranceResource"
+    },
+    "id" : "20"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataRecoveryExplanationId"
+    },
+    "id" : "6",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#RelatedPolicy",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "description" : {
+      "undefined" : "To link to all documents needed to be\ncompliant to requirements within this\nDMP (e.g. legal, ethical, contractual,\nguidelines, procedures, standards,...)"
+    },
+    "label" : {
+      "IRI-based" : "RelatedPolicy"
+    },
+    "id" : "32"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/core#Dataset",
+    "baseIri" : "https://w3id.org/dcso/ns/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Dataset"
+    },
+    "attributes" : [ "external" ],
+    "id" : "19"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#Methodology",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "instances" : 0,
+    "description" : {
+      "undefined" : "To describe methodology, procedures,\nworkflows. etc. on how the dataset is\ncreated, can be recovered, ..."
+    },
+    "label" : {
+      "IRI-based" : "Methodology"
+    },
+    "id" : "1"
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "3",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "18",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "24",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "11",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "29",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "31",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "33",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "12",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "34",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "35",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "36",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "37",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "39",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "13",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasMethodologyId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "hasMethodologyId"
+    },
+    "superproperty" : [ "3" ],
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "0"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/core#hasId",
+    "baseIri" : "https://w3id.org/dcso/ns/core",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "hasId"
+    },
+    "domain" : "10",
+    "subproperty" : [ "11", "0", "12", "13", "14" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "3"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "20",
+    "label" : {
+      "IRI-based" : "hasDataQualityAssuranceResource"
+    },
+    "domain" : "19",
+    "attributes" : [ "object" ],
+    "id" : "18"
+  }, {
+    "range" : "5",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "21"
+  }, {
+    "range" : "5",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "22"
+  }, {
+    "range" : "5",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "23"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasMethodology",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "hasMethodology"
+    },
+    "domain" : "19",
+    "attributes" : [ "object" ],
+    "id" : "24"
+  }, {
+    "range" : "5",
+    "domain" : "8",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "hasPropertyRightsExplanationId"
+    },
+    "superproperty" : [ "3" ],
+    "domain" : "26",
+    "attributes" : [ "object" ],
+    "id" : "11"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "26",
+    "label" : {
+      "IRI-based" : "hasPropertyRightsExplanation"
+    },
+    "domain" : "30",
+    "attributes" : [ "object" ],
+    "id" : "29"
+  }, {
+    "range" : "32",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "31"
+  }, {
+    "range" : "4",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "33"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "hasDataRecoveryExplanationId"
+    },
+    "superproperty" : [ "3" ],
+    "domain" : "4",
+    "attributes" : [ "object" ],
+    "id" : "12"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "hasDataRecoveryExplanation"
+    },
+    "domain" : "27",
+    "attributes" : [ "object" ],
+    "id" : "34"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#targetAudience",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "targetAudience"
+    },
+    "domain" : "19",
+    "attributes" : [ "datatype" ],
+    "id" : "35"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#isReused",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "isReused"
+    },
+    "domain" : "19",
+    "comment" : {
+      "undefined" : "To explicitly indicate whether the\ndataset is reused or was produced in\nthe course of research. Allowed values\nare: reused, produced."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "36"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasRelatedPolicy",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "hasRelatedPolicy"
+    },
+    "domain" : "28",
+    "attributes" : [ "object" ],
+    "id" : "37"
+  }, {
+    "range" : "5",
+    "domain" : "9",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "38"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#restrictionExplanation",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "restrictionExplanation"
+    },
+    "domain" : "30",
+    "attributes" : [ "datatype" ],
+    "id" : "39"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasRelatedPolicyId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "hasRelatedPolicyId"
+    },
+    "superproperty" : [ "3" ],
+    "domain" : "32",
+    "attributes" : [ "object" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId",
+    "baseIri" : "https://w3id.org/dcso/ns/extension",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "hasDataQualityAssuranceRessourceId"
+    },
+    "superproperty" : [ "3" ],
+    "domain" : "20",
+    "attributes" : [ "object" ],
+    "id" : "14"
+  } ]
+}

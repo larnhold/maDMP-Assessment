@@ -224,10 +224,14 @@ _:genid1 <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org
 # 
 # https://w3id.org/dmpdqv/ns/core#entity
 <https://w3id.org/dmpdqv/ns/core#entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dmpdqv/ns/core#entity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dmpdqv/ns/core#DMPLocation> .
+<https://w3id.org/dmpdqv/ns/core#entity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/dmpdqv/ns/core#entity> <http://www.w3.org/2000/01/rdf-schema#label> "entity" .
 # 
 # https://w3id.org/dmpdqv/ns/core#property
 <https://w3id.org/dmpdqv/ns/core#property> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/dmpdqv/ns/core#property> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/dmpdqv/ns/core#DMPLocation> .
+<https://w3id.org/dmpdqv/ns/core#property> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/dmpdqv/ns/core#property> <http://www.w3.org/2000/01/rdf-schema#label> "property" .
 # 
 # https://w3id.org/dmpdqv/ns/core#valueLowerBound

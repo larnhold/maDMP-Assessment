@@ -1,0 +1,273 @@
+[ {
+  "@id" : "http://purl.org/dc/terms/contributor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/creator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/description",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/rights",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/title",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/core#DMP",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/core#Dataset",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#RelatedPolicy"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/core#Distribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/core#Host",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/core#Id",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#DataRecoveryExplanation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/core#hasId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/contributor" : [ {
+    "@value" : "Daniel Faria"
+  }, {
+    "@value" : "Diogo Proença"
+  }, {
+    "@value" : "Lukas Arnhold"
+  }, {
+    "@value" : "Tomasz Miksa"
+  } ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@value" : "Fajar J. Ekaputra"
+  }, {
+    "@value" : "João Cardoso"
+  }, {
+    "@value" : "Marie Christine Jacquemot"
+  } ],
+  "http://purl.org/dc/terms/description" : [ {
+    "@language" : "en",
+    "@value" : "This ontology aims to add additional information to the DCS standard to better cover funder requirements stated by the Science Europe DMP Evaluation Rubric."
+  } ],
+  "http://purl.org/dc/terms/rights" : [ {
+    "@value" : "http://creativecommons.org/licenses/by/4.0/"
+  } ],
+  "http://purl.org/dc/terms/title" : [ {
+    "@value" : "An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric."
+  } ],
+  "http://purl.org/vocab/vann/preferredNamespacePrefix" : [ {
+    "@value" : "dcsx"
+  } ],
+  "http://www.w3.org/2002/07/owl#imports" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core/4.0.0"
+  } ],
+  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension/science-europe/1.0.0"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Id"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#DataRecoveryExplanation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Id"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#Methodology",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/dc/terms/description" : [ {
+    "@value" : "To describe methodology, procedures,\nworkflows. etc. on how the dataset is\ncreated, can be recovered, ..."
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#MethodologyId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/dc/terms/description" : [ {
+    "@value" : "Identifier for a methodology artifact"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Id"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#PropertyRightsExplanation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Id"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#RelatedPolicy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/dc/terms/description" : [ {
+    "@value" : "To link to all documents needed to be\ncompliant to requirements within this\nDMP (e.g. legal, ethical, contractual,\nguidelines, procedures, standards,...)"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#RelatedPolicyId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/dc/terms/description" : [ {
+    "@value" : "Related policy ID"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Id"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#hasId"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Host"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#DataRecoveryExplanation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#DataRecoveryExplanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#hasId"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasMethodology",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#Methodology"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasMethodologyId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#Methodology"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#MethodologyId"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#hasId"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#PropertyRightsExplanation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#PropertyRightsExplanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#hasId"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasRelatedPolicy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#DMP"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#RelatedPolicy"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#hasRelatedPolicyId",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#RelatedPolicy"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/dcso/ns/extension#RelatedPolicyId"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#hasId"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#isReused",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "To explicitly indicate whether the\ndataset is reused or was produced in\nthe course of research. Allowed values\nare: reused, produced."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#restrictionExplanation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/dcso/ns/extension#targetAudience",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/dcso/ns/core#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+} ]

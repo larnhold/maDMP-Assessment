@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric.</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/dcso/ns/extension","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/dcso/ns/extension","name":"An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric.", "headline":"Document describing the ontology https://w3id.org/dcso/ns/extension", "dateReleased":"Fri Aug 02 20:39:38 CEST 2024", "author":[{"@type":"Person","name":"Fajar J. Ekaputra"},{"@type":"Person","name":"João Cardoso"},{"@type":"Person","name":"Marie Christine Jacquemot"}], "contributor":[{"@type":"Person","name":"Daniel Faria"},{"@type":"Person","name":"Diogo Proença"},{"@type":"Person","name":"Lukas Arnhold"},{"@type":"Person","name":"Tomasz Miksa"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric.</h1>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="https://w3id.org/dcso/ns/extension/science-europe/1.0.0">https://w3id.org/dcso/ns/extension/science-europe/1.0.0</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="https://w3id.org/dcso/ns/extension">https://w3id.org/dcso/ns/extension</a></dd>
+<dt>Authors:</dt>
+<dd>Fajar J. Ekaputra</dd><dd>João Cardoso</dd><dd>Marie Christine Jacquemot</dd>
+
+<dt>Contributors:</dt>
+<dd>Daniel Faria</dd><dd>Diogo Proença</dd><dd>Lukas Arnhold</dd><dd>Tomasz Miksa</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Fajar J. Ekaputra, João Cardoso, Marie Christine Jacquemot. An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric.. Retrieved from: https://w3id.org/dcso/ns/extension/science-europe/1.0.0</dd>
+</dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+This is a placeholder text for the abstract. The abstract should contain a couple of sentences summarizing the ontology and its purpose.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/elements/1.1/&gt;</td></tr>
+<tr><td><b>dcat</b></td><td>&lt;http://www.w3.org/ns/dcat#&gt;</td></tr>
+<tr><td><b>dcso</b></td><td>&lt;https://w3id.org/dcso/ns/core#&gt;</td></tr>
+<tr><td><b>dcsx</b></td><td>&lt;https://w3id.org/dcso/ns/extension#&gt;</td></tr>
+<tr><td><b>foaf</b></td><td>&lt;http://xmlns.com/foaf/0.1/&gt;</td></tr>
+<tr><td><b>ns</b></td><td>&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>prov</b></td><td>&lt;http://www.w3.org/ns/prov#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>schema</b></td><td>&lt;http://schema.org/&gt;</td></tr>
+<tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core#&gt;</td></tr>
+<tr><td><b>terms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>wot</b></td><td>&lt;http://xmlns.com/wot/0.1/&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric.: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#DataQualityAssuranceResourceId"
+         title="https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId">
+         <span>Data Quality Assurance Resource Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#DataRecoveryExplanationId"
+         title="https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId">
+         <span>Data Recovery Explanation Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/dcso/ns/core#Dataset" title="https://w3id.org/dcso/ns/core#Dataset">
+         <span>Dataset</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/dcso/ns/core#Id" title="https://w3id.org/dcso/ns/core#Id">
+         <span>Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Methodology" title="https://w3id.org/dcso/ns/extension#Methodology">
+         <span>Methodology</span>
+      </a>
+   </li>
+   <li>
+      <a href="#MethodologyId" title="https://w3id.org/dcso/ns/extension#MethodologyId">
+         <span>Methodology Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#PropertyRightsExplanationId"
+         title="https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId">
+         <span>Property Rights Explanation Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#RelatedPolicy" title="https://w3id.org/dcso/ns/extension#RelatedPolicy">
+         <span>Related Policy</span>
+      </a>
+   </li>
+   <li>
+      <a href="#RelatedPolicyId"
+         title="https://w3id.org/dcso/ns/extension#RelatedPolicyId">
+         <span>Related Policy Id</span>
+      </a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#hasDataQualityAssuranceResource"
+         title="https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource">
+         <span>has Data Quality Assurance Resource</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasDataQualityAssuranceRessourceId"
+         title="https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId">
+         <span>has Data Quality Assurance Ressource Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasDataRecoveryExplanation"
+         title="https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation">
+         <span>has Data Recovery Explanation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasDataRecoveryExplanationId"
+         title="https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId">
+         <span>has Data Recovery Explanation Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasMethodology"
+         title="https://w3id.org/dcso/ns/extension#hasMethodology">
+         <span>has Methodology</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasMethodologyId"
+         title="https://w3id.org/dcso/ns/extension#hasMethodologyId">
+         <span>has Methodology Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasPropertyRightsExplanation"
+         title="https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation">
+         <span>has Property Rights Explanation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasPropertyRightsExplanationId"
+         title="https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId">
+         <span>has Property Rights Explanation Id</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasRelatedPolicy"
+         title="https://w3id.org/dcso/ns/extension#hasRelatedPolicy">
+         <span>has Related Policy</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasRelatedPolicyId"
+         title="https://w3id.org/dcso/ns/extension#hasRelatedPolicyId">
+         <span>has Related Policy Id</span>
+      </a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#isReused" title="https://w3id.org/dcso/ns/extension#isReused">
+         <span>is Reused</span>
+      </a>
+   </li>
+   <li>
+      <a href="#restrictionExplanation"
+         title="https://w3id.org/dcso/ns/extension#restrictionExplanation">
+         <span>restriction Explanation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#targetAudience"
+         title="https://w3id.org/dcso/ns/extension#targetAudience">
+         <span>target Audience</span>
+      </a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/contributor" title="http://purl.org/dc/terms/contributor">
+         <span>contributor</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">
+         <span>creator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">
+         <span>description</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespacePrefix"
+         title="http://purl.org/vocab/vann/preferredNamespacePrefix">
+         <span>preferred Namespace Prefix</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/rights" title="http://purl.org/dc/terms/rights">
+         <span>rights</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric.: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">This ontology aims to add additional information to the DCS standard to better cover funder requirements stated by the Science Europe DMP Evaluation Rubric.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric. classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric..
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#DataQualityAssuranceResourceId" title="https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId"> <span>Data Quality Assurance Resource Id</span> </a></li>
+  <li><a href="#DataRecoveryExplanationId" title="https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId"> <span>Data Recovery Explanation Id</span> </a></li>
+  <li><a href="#https://w3id.org/dcso/ns/core#Dataset" title="https://w3id.org/dcso/ns/core#Dataset"> <span>Dataset</span> </a></li>
+  <li><a href="#https://w3id.org/dcso/ns/core#Id" title="https://w3id.org/dcso/ns/core#Id"> <span>Id</span> </a></li>
+  <li><a href="#Methodology" title="https://w3id.org/dcso/ns/extension#Methodology"> <span>Methodology</span> </a></li>
+  <li><a href="#MethodologyId" title="https://w3id.org/dcso/ns/extension#MethodologyId"> <span>Methodology Id</span> </a></li>
+  <li><a href="#PropertyRightsExplanationId" title="https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId"> <span>Property Rights Explanation Id</span> </a></li>
+  <li><a href="#RelatedPolicy" title="https://w3id.org/dcso/ns/extension#RelatedPolicy"> <span>Related Policy</span> </a></li>
+  <li><a href="#RelatedPolicyId" title="https://w3id.org/dcso/ns/extension#RelatedPolicyId"> <span>Related Policy Id</span> </a></li>
+ </ul>
+ <div class="entity" id="DataQualityAssuranceResourceId">
+  <h3>Data Quality Assurance Resource Id<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/dcso/ns/core#Id" title="https://w3id.org/dcso/ns/core#Id">Id</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasDataQualityAssuranceRessourceId" title="https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId">has Data Quality Assurance Ressource Id</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DataRecoveryExplanationId">
+  <h3>Data Recovery Explanation Id<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/dcso/ns/core#Id" title="https://w3id.org/dcso/ns/core#Id">Id</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasDataRecoveryExplanationId" title="https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId">has Data Recovery Explanation Id</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/dcso/ns/core#Dataset">
+  <h3>Dataset<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/core#Dataset</p>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasDataQualityAssuranceResource" title="https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource">has Data Quality Assurance Resource</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasMethodology" title="https://w3id.org/dcso/ns/extension#hasMethodology">has Methodology</a> <sup class="type-op" title="object property">op</sup>, <a href="#isReused" title="https://w3id.org/dcso/ns/extension#isReused">is Reused</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#targetAudience" title="https://w3id.org/dcso/ns/extension#targetAudience">target Audience</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#RelatedPolicy" title="https://w3id.org/dcso/ns/extension#RelatedPolicy">Related Policy</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="https://w3id.org/dcso/ns/core#Id">
+  <h3>Id<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/core#Id</p>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#DataQualityAssuranceResourceId" title="https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId">Data Quality Assurance Resource Id</a> <sup class="type-c" title="class">c</sup>, <a href="#DataRecoveryExplanationId" title="https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId">Data Recovery Explanation Id</a> <sup class="type-c" title="class">c</sup>, <a href="#MethodologyId" title="https://w3id.org/dcso/ns/extension#MethodologyId">Methodology Id</a> <sup class="type-c" title="class">c</sup>, <a href="#PropertyRightsExplanationId" title="https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId">Property Rights Explanation Id</a> <sup class="type-c" title="class">c</sup>, <a href="#RelatedPolicyId" title="https://w3id.org/dcso/ns/extension#RelatedPolicyId">Related Policy Id</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="https://w3id.org/dcso/ns/extension#DataRecoveryExplanation" target="_blank" title="https://w3id.org/dcso/ns/extension#DataRecoveryExplanation">Data Recovery Explanation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Methodology">
+  <h3>Methodology<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#Methodology</p>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasMethodologyId" title="https://w3id.org/dcso/ns/extension#hasMethodologyId">has Methodology Id</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasMethodology" title="https://w3id.org/dcso/ns/extension#hasMethodology">has Methodology</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MethodologyId">
+  <h3>Methodology Id<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#MethodologyId</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/dcso/ns/core#Id" title="https://w3id.org/dcso/ns/core#Id">Id</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasMethodologyId" title="https://w3id.org/dcso/ns/extension#hasMethodologyId">has Methodology Id</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PropertyRightsExplanationId">
+  <h3>Property Rights Explanation Id<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/dcso/ns/core#Id" title="https://w3id.org/dcso/ns/core#Id">Id</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasPropertyRightsExplanationId" title="https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId">has Property Rights Explanation Id</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RelatedPolicy">
+  <h3>Related Policy<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#RelatedPolicy</p>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasRelatedPolicyId" title="https://w3id.org/dcso/ns/extension#hasRelatedPolicyId">has Related Policy Id</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasRelatedPolicy" title="https://w3id.org/dcso/ns/extension#hasRelatedPolicy">has Related Policy</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/dcso/ns/core#Dataset" title="https://w3id.org/dcso/ns/core#Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RelatedPolicyId">
+  <h3>Related Policy Id<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#RelatedPolicyId</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#https://w3id.org/dcso/ns/core#Id" title="https://w3id.org/dcso/ns/core#Id">Id</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasRelatedPolicyId" title="https://w3id.org/dcso/ns/extension#hasRelatedPolicyId">has Related Policy Id</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasDataQualityAssuranceResource" title="https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource"> <span>has Data Quality Assurance Resource</span> </a></li>
+  <li><a href="#hasDataQualityAssuranceRessourceId" title="https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId"> <span>has Data Quality Assurance Ressource Id</span> </a></li>
+  <li><a href="#hasDataRecoveryExplanation" title="https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation"> <span>has Data Recovery Explanation</span> </a></li>
+  <li><a href="#hasDataRecoveryExplanationId" title="https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId"> <span>has Data Recovery Explanation Id</span> </a></li>
+  <li><a href="#hasMethodology" title="https://w3id.org/dcso/ns/extension#hasMethodology"> <span>has Methodology</span> </a></li>
+  <li><a href="#hasMethodologyId" title="https://w3id.org/dcso/ns/extension#hasMethodologyId"> <span>has Methodology Id</span> </a></li>
+  <li><a href="#hasPropertyRightsExplanation" title="https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation"> <span>has Property Rights Explanation</span> </a></li>
+  <li><a href="#hasPropertyRightsExplanationId" title="https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId"> <span>has Property Rights Explanation Id</span> </a></li>
+  <li><a href="#hasRelatedPolicy" title="https://w3id.org/dcso/ns/extension#hasRelatedPolicy"> <span>has Related Policy</span> </a></li>
+  <li><a href="#hasRelatedPolicyId" title="https://w3id.org/dcso/ns/extension#hasRelatedPolicyId"> <span>has Related Policy Id</span> </a></li>
+ </ul>
+ <div class="entity" id="hasDataQualityAssuranceResource">
+  <h3>has Data Quality Assurance Resource<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceResource</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/dcso/ns/core#Dataset" title="https://w3id.org/dcso/ns/core#Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource" target="_blank" title="https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource">Data Quality Assurance Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDataQualityAssuranceRessourceId">
+  <h3>has Data Quality Assurance Ressource Id<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasDataQualityAssuranceRessourceId</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#hasId" target="_blank" title="https://w3id.org/dcso/ns/core#hasId">has Id</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource" target="_blank" title="https://w3id.org/dcso/ns/extension#DataQualityAssuranceResource">Data Quality Assurance Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DataQualityAssuranceResourceId" title="https://w3id.org/dcso/ns/extension#DataQualityAssuranceResourceId">Data Quality Assurance Resource Id</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDataRecoveryExplanation">
+  <h3>has Data Recovery Explanation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanation</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#Host" target="_blank" title="https://w3id.org/dcso/ns/core#Host">Host</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/extension#DataRecoveryExplanation" target="_blank" title="https://w3id.org/dcso/ns/extension#DataRecoveryExplanation">Data Recovery Explanation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDataRecoveryExplanationId">
+  <h3>has Data Recovery Explanation Id<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasDataRecoveryExplanationId</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#hasId" target="_blank" title="https://w3id.org/dcso/ns/core#hasId">has Id</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/extension#DataRecoveryExplanation" target="_blank" title="https://w3id.org/dcso/ns/extension#DataRecoveryExplanation">Data Recovery Explanation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DataRecoveryExplanationId" title="https://w3id.org/dcso/ns/extension#DataRecoveryExplanationId">Data Recovery Explanation Id</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasMethodology">
+  <h3>has Methodology<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasMethodology</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/dcso/ns/core#Dataset" title="https://w3id.org/dcso/ns/core#Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Methodology" title="https://w3id.org/dcso/ns/extension#Methodology">Methodology</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasMethodologyId">
+  <h3>has Methodology Id<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasMethodologyId</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#hasId" target="_blank" title="https://w3id.org/dcso/ns/core#hasId">has Id</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Methodology" title="https://w3id.org/dcso/ns/extension#Methodology">Methodology</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MethodologyId" title="https://w3id.org/dcso/ns/extension#MethodologyId">Methodology Id</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPropertyRightsExplanation">
+  <h3>has Property Rights Explanation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanation</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#Distribution" target="_blank" title="https://w3id.org/dcso/ns/core#Distribution">Distribution</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/extension#PropertyRightsExplanation" target="_blank" title="https://w3id.org/dcso/ns/extension#PropertyRightsExplanation">Property Rights Explanation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPropertyRightsExplanationId">
+  <h3>has Property Rights Explanation Id<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasPropertyRightsExplanationId</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#hasId" target="_blank" title="https://w3id.org/dcso/ns/core#hasId">has Id</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/extension#PropertyRightsExplanation" target="_blank" title="https://w3id.org/dcso/ns/extension#PropertyRightsExplanation">Property Rights Explanation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#PropertyRightsExplanationId" title="https://w3id.org/dcso/ns/extension#PropertyRightsExplanationId">Property Rights Explanation Id</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRelatedPolicy">
+  <h3>has Related Policy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasRelatedPolicy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#DMP" target="_blank" title="https://w3id.org/dcso/ns/core#DMP">D M P</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#RelatedPolicy" title="https://w3id.org/dcso/ns/extension#RelatedPolicy">Related Policy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRelatedPolicyId">
+  <h3>has Related Policy Id<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#hasRelatedPolicyId</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#hasId" target="_blank" title="https://w3id.org/dcso/ns/core#hasId">has Id</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#RelatedPolicy" title="https://w3id.org/dcso/ns/extension#RelatedPolicy">Related Policy</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#RelatedPolicyId" title="https://w3id.org/dcso/ns/extension#RelatedPolicyId">Related Policy Id</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#isReused" title="https://w3id.org/dcso/ns/extension#isReused"> <span>is Reused</span> </a></li>
+  <li><a href="#restrictionExplanation" title="https://w3id.org/dcso/ns/extension#restrictionExplanation"> <span>restriction Explanation</span> </a></li>
+  <li><a href="#targetAudience" title="https://w3id.org/dcso/ns/extension#targetAudience"> <span>target Audience</span> </a></li>
+ </ul>
+ <div class="entity" id="isReused">
+  <h3>is Reused<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#isReused</p>
+  <div class="comment">
+   <span class="markdown">To explicitly indicate whether the dataset is reused or was produced in the course of research. Allowed values are: reused, produced.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/dcso/ns/core#Dataset" title="https://w3id.org/dcso/ns/core#Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="restrictionExplanation">
+  <h3>restriction Explanation<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#restrictionExplanation</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="https://w3id.org/dcso/ns/core#Distribution" target="_blank" title="https://w3id.org/dcso/ns/core#Distribution">Distribution</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="targetAudience">
+  <h3>target Audience<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/dcso/ns/extension#targetAudience</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#https://w3id.org/dcso/ns/core#Dataset" title="https://w3id.org/dcso/ns/core#Dataset">Dataset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://purl.org/dc/terms/contributor" title="http://purl.org/dc/terms/contributor"> <span>contributor</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator"> <span>creator</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description"> <span>description</span> </a></li>
+  <li><a href="#http://purl.org/vocab/vann/preferredNamespacePrefix" title="http://purl.org/vocab/vann/preferredNamespacePrefix"> <span>preferred Namespace Prefix</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/rights" title="http://purl.org/dc/terms/rights"> <span>rights</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title"> <span>title</span> </a></li>
+ </ul>
+ <div class="entity" id="http://purl.org/dc/terms/contributor">
+  <h3>contributor<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/contributor</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/creator">
+  <h3>creator<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/creator</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/description">
+  <h3>description<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/description</p>
+ </div>
+ <div class="entity" id="http://purl.org/vocab/vann/preferredNamespacePrefix">
+  <h3>preferred Namespace Prefix<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespacePrefix</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/rights">
+  <h3>rights<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/rights</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/title">
+  <h3>title<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/title</p>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

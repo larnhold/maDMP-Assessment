@@ -1,0 +1,23 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<https://w3id.org/dcso/ns/extension/science-europe/1.0.0> a prov:Entity;
+	 dc:title "An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric.";
+	 prov:wasAttributedTo :agent0;
+	 prov:wasAttributedTo :agent1;
+	 prov:wasAttributedTo :agent2;
+	 prov:wasAttributedTo :agent3;
+	 prov:wasAttributedTo :agent4;
+	 prov:wasAttributedTo :agent5;
+	 prov:wasAttributedTo :agent6;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:specializationOf <https://w3id.org/dcso/ns/extension>;
+.
+:agent0 a prov:Agent; foaf:name "Fajar J. Ekaputra".
+:agent1 a prov:Agent; foaf:name "João Cardoso".
+:agent2 a prov:Agent; foaf:name "Marie Christine Jacquemot".
+:agent3 a prov:Agent; foaf:name "Daniel Faria".
+:agent4 a prov:Agent; foaf:name "Diogo Proença".
+:agent5 a prov:Agent; foaf:name "Lukas Arnhold".
+:agent6 a prov:Agent; foaf:name "Tomasz Miksa".

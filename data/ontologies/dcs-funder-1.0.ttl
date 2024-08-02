@@ -1,4 +1,4 @@
-@prefix : <https://w3id.org/dcso/ns/extension#> .
+@prefix : <https://w3id.org/dcso/ns/extension/science-europe#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -15,10 +15,10 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
-@base <https://w3id.org/dcso/ns/extension#> .
+@base <https://w3id.org/dcso/ns/extension/science-europe#> .
 
 <https://w3id.org/dcso/ns/extension> rdf:type owl:Ontology ;
-                                      owl:versionIRI <https://w3id.org/dcso/ns/funder/1.0.0> ;
+                                      owl:versionIRI <https://w3id.org/dcso/ns/extension/science-europe/1.0.0> ;
                                       owl:imports <https://w3id.org/dcso/ns/core/4.0.0> ;
                                       terms:contributor "Daniel Faria" ,
                                                         "Diogo Proença" ,
@@ -27,9 +27,9 @@
                                       terms:creator "Fajar J. Ekaputra" ,
                                                     "João Cardoso" ,
                                                     "Marie Christine Jacquemot" ;
-                                      terms:description "This ontology aims to add additional information to the DCS standard to better cover funder requirements."@en ;
+                                      terms:description "This ontology aims to add additional information to the DCS standard to better cover funder requirements stated by the Science Europe DMP Evaluation Rubric."@en ;
                                       terms:rights "http://creativecommons.org/licenses/by/4.0/" ;
-                                      terms:title "The extension of DMP Common Standard Ontology." ;
+                                      terms:title "An extension of the DMP Common Standard Ontology to address the information required by the Science Europe DMP Evaluation Rubric." ;
                                       <http://purl.org/vocab/vann/preferredNamespacePrefix> "dcsx" .
 
 #################################################################

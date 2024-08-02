@@ -22,7 +22,7 @@
   },
   "namespace" : [ ],
   "class" : [ {
-    "id" : "3",
+    "id" : "0",
     "type" : "owl:Class"
   }, {
     "id" : "6",
@@ -46,20 +46,23 @@
     "id" : "33",
     "type" : "owl:Class"
   }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
     "id" : "34",
     "type" : "owl:Class"
   }, {
-    "id" : "8",
+    "id" : "35",
     "type" : "owl:Class"
   }, {
     "id" : "36",
     "type" : "owl:Class"
   }, {
     "id" : "37",
-    "type" : "owl:Class"
+    "type" : "rdfs:Datatype"
   }, {
-    "id" : "26",
-    "type" : "owl:Class"
+    "id" : "30",
+    "type" : "rdfs:Datatype"
   }, {
     "id" : "11",
     "type" : "owl:Thing"
@@ -70,22 +73,16 @@
     "id" : "38",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "30",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "31",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "39",
-    "type" : "rdfs:Literal"
-  }, {
     "id" : "22",
     "type" : "rdfs:Literal"
   }, {
     "id" : "5",
     "type" : "owl:Class"
   }, {
-    "id" : "2",
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
     "type" : "owl:Class"
   }, {
     "id" : "17",
@@ -100,7 +97,7 @@
     "id" : "32",
     "type" : "owl:Class"
   }, {
-    "id" : "50",
+    "id" : "49",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
@@ -112,7 +109,7 @@
     },
     "subClasses" : [ "1" ],
     "attributes" : [ "external" ],
-    "id" : "3"
+    "id" : "0"
   }, {
     "iri" : "http://www.w3.org/ns/dqv#Metric",
     "baseIri" : "http://www.w3.org/ns/dqv",
@@ -179,13 +176,8 @@
   }, {
     "instances" : 0,
     "union" : [ "32", "6" ],
-    "attributes" : [ "union", "anonymous" ],
+    "attributes" : [ "anonymous", "union" ],
     "id" : "21"
-  }, {
-    "instances" : 0,
-    "union" : [ "2", "6" ],
-    "attributes" : [ "union", "anonymous" ],
-    "id" : "33"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#MetricGroup",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
@@ -194,12 +186,12 @@
       "IRI-based" : "MetricGroup",
       "undefined" : "MetricGroup"
     },
-    "id" : "34"
+    "id" : "33"
   }, {
     "instances" : 0,
     "union" : [ "32", "6" ],
-    "attributes" : [ "union", "anonymous" ],
-    "id" : "8"
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "26"
   }, {
     "iri" : "http://www.w3.org/ns/prov#SoftwareAgent",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -212,17 +204,31 @@
       "undefined" : "Indicates which agent produced a given measurement."
     },
     "attributes" : [ "external" ],
+    "id" : "34"
+  }, {
+    "instances" : 0,
+    "union" : [ "3", "6" ],
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "35"
+  }, {
+    "instances" : 0,
+    "union" : [ "1", "3" ],
+    "attributes" : [ "anonymous", "union" ],
     "id" : "36"
   }, {
-    "instances" : 0,
-    "union" : [ "1", "2" ],
-    "attributes" : [ "union", "anonymous" ],
-    "id" : "37"
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "37",
+    "label" : {
+      "IRI-based" : "string"
+    }
   }, {
-    "instances" : 0,
-    "union" : [ "32", "6" ],
-    "attributes" : [ "union", "anonymous" ],
-    "id" : "26"
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "30",
+    "label" : {
+      "IRI-based" : "string"
+    }
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
@@ -245,27 +251,6 @@
       "undefined" : "Literal"
     }
   }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "30",
-    "label" : {
-      "undefined" : "Thing"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "31",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "39",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "id" : "22",
     "label" : {
@@ -274,9 +259,14 @@
     }
   }, {
     "instances" : 0,
-    "union" : [ "13", "34" ],
-    "attributes" : [ "union", "anonymous" ],
+    "union" : [ "13", "33" ],
+    "attributes" : [ "anonymous", "union" ],
     "id" : "5"
+  }, {
+    "instances" : 0,
+    "union" : [ "32", "6" ],
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "8"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#TestResult",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
@@ -288,7 +278,7 @@
     "comment" : {
       "undefined" : "Represents the result of the execution of a test according to a Test Definition."
     },
-    "id" : "2"
+    "id" : "3"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#LifecycleStage",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
@@ -329,7 +319,7 @@
     },
     "attributes" : [ "external" ],
     "id" : "1",
-    "superClasses" : [ "3" ]
+    "superClasses" : [ "0" ]
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#TestDefinition",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
@@ -350,10 +340,10 @@
       "IRI-based" : "Resource"
     },
     "attributes" : [ "external" ],
-    "id" : "50"
+    "id" : "49"
   } ],
   "property" : [ {
-    "id" : "0",
+    "id" : "2",
     "type" : "owl:objectProperty"
   }, {
     "id" : "4",
@@ -389,17 +379,20 @@
     "id" : "29",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "35",
+    "id" : "31",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "14",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "40",
+    "id" : "39",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "41",
+    "id" : "40",
     "type" : "owl:objectProperty"
+  }, {
+    "id" : "41",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "42",
     "type" : "owl:objectProperty"
@@ -408,7 +401,7 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "44",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "45",
     "type" : "owl:objectProperty"
@@ -421,14 +414,11 @@
   }, {
     "id" : "48",
     "type" : "owl:objectProperty"
-  }, {
-    "id" : "49",
-    "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
     "iri" : "https://w3id.org/dmpdqv/ns/core#hasTestResult",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
-    "range" : "2",
+    "range" : "3",
     "label" : {
       "IRI-based" : "hasTestResult",
       "undefined" : "hasTestResult"
@@ -438,7 +428,7 @@
       "undefined" : "Refers to a certain test result belonging to a measurement."
     },
     "attributes" : [ "object" ],
-    "id" : "0"
+    "id" : "2"
   }, {
     "iri" : "http://www.w3.org/ns/dqv#hasMetric",
     "baseIri" : "http://www.w3.org/ns/dqv",
@@ -451,7 +441,7 @@
     "comment" : {
       "undefined" : "Refers to a Metric that belongs to a Dimension of MetricGroup."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "4"
   }, {
     "iri" : "http://www.w3.org/ns/dqv#expectedDataType",
@@ -465,7 +455,7 @@
     "comment" : {
       "en" : "Represents the expected data type for metric's observed value (e.g. xsd:boolean, xsd:double etc...)"
     },
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "7"
   }, {
     "iri" : "http://www.w3.org/ns/dqv#hasQualityMeasurement",
@@ -479,7 +469,7 @@
     "comment" : {
       "en" : "Refers to the performed quality measurements. Quality measurements can be performed to any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, this property is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "10"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#hasParentDimension",
@@ -518,11 +508,11 @@
       "IRI-based" : "isMeasurementOf",
       "en" : "is measurement of"
     },
-    "domain" : "3",
+    "domain" : "0",
     "comment" : {
       "en" : "Indicates the metric being observed."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "18"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#valueUpperBound",
@@ -555,7 +545,7 @@
     "comment" : {
       "en" : "Represents the dimensions a quality metric, certificate and annotation allow a measurement of."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "23"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#valueLowerBound",
@@ -582,19 +572,19 @@
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#property",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
-    "range" : "31",
+    "range" : "30",
     "label" : {
       "IRI-based" : "property",
       "undefined" : "property"
     },
-    "domain" : "30",
+    "domain" : "24",
     "attributes" : [ "datatype" ],
     "id" : "29"
   }, {
-    "range" : "3",
+    "range" : "0",
     "domain" : "1",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "35"
+    "id" : "31"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#hasSubDimension",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
@@ -610,10 +600,10 @@
     "attributes" : [ "object" ],
     "id" : "14"
   }, {
-    "range" : "2",
+    "range" : "3",
     "domain" : "1",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "40"
+    "id" : "39"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#hasQualityMeasurement",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
@@ -624,11 +614,22 @@
     },
     "domain" : "11",
     "attributes" : [ "object" ],
+    "id" : "40"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#entity",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "37",
+    "label" : {
+      "IRI-based" : "entity",
+      "undefined" : "entity"
+    },
+    "domain" : "24",
+    "attributes" : [ "datatype" ],
     "id" : "41"
   }, {
     "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
     "baseIri" : "http://www.w3.org/ns/prov",
-    "range" : "36",
+    "range" : "34",
     "label" : {
       "IRI-based" : "wasAttributedTo",
       "undefined" : "wasAttributedTo"
@@ -637,19 +638,8 @@
     "comment" : {
       "undefined" : "Indicates which Software Agent was involved in the generation of a measurement."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "42"
-  }, {
-    "iri" : "https://w3id.org/dmpdqv/ns/core#entity",
-    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
-    "range" : "39",
-    "label" : {
-      "IRI-based" : "entity",
-      "undefined" : "entity"
-    },
-    "domain" : "30",
-    "attributes" : [ "datatype" ],
-    "id" : "43"
   }, {
     "iri" : "http://www.w3.org/ns/dqv#value",
     "baseIri" : "http://www.w3.org/ns/dqv",
@@ -658,12 +648,12 @@
       "IRI-based" : "value",
       "en" : "value"
     },
-    "domain" : "37",
+    "domain" : "36",
     "comment" : {
       "en" : "Refers to values computed by metric."
     },
-    "attributes" : [ "external", "datatype" ],
-    "id" : "44"
+    "attributes" : [ "datatype", "external" ],
+    "id" : "43"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#hasApplicableLifecycle",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
@@ -677,7 +667,7 @@
       "undefined" : "Refers to the DMP Lifecycle stage where the given action can be done."
     },
     "attributes" : [ "object" ],
-    "id" : "45"
+    "id" : "44"
   }, {
     "iri" : "http://www.w3.org/ns/dqv#inCategory",
     "baseIri" : "http://www.w3.org/ns/dqv",
@@ -698,7 +688,21 @@
     "comment" : {
       "en" : "Represents the category a dimension is grouped in."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "45"
+  }, {
+    "iri" : "https://w3id.org/dmpdqv/ns/core#inMetricGroup",
+    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
+    "range" : "33",
+    "label" : {
+      "IRI-based" : "inMetricGroup",
+      "undefined" : "inMetricGroup"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "Refers to the Metric Group that a Metric belongs to."
+    },
+    "attributes" : [ "object" ],
     "id" : "46"
   }, {
     "iri" : "http://www.w3.org/ns/dqv#computedOn",
@@ -713,22 +717,8 @@
     "comment" : {
       "en" : "Refers to the resource (e.g., a dataset, a linkset, a graph, a set of triples) on which the quality measurement is performed. In the DQV context, this property is generally expected to be used in statements in which objects are instances of dcat:Dataset or dcat:Distribution."
     },
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "47"
-  }, {
-    "iri" : "https://w3id.org/dmpdqv/ns/core#inMetricGroup",
-    "baseIri" : "https://w3id.org/dmpdqv/ns/core",
-    "range" : "34",
-    "label" : {
-      "IRI-based" : "inMetricGroup",
-      "undefined" : "inMetricGroup"
-    },
-    "domain" : "6",
-    "comment" : {
-      "undefined" : "Refers to the Metric Group that a Metric belongs to."
-    },
-    "attributes" : [ "object" ],
-    "id" : "48"
   }, {
     "iri" : "https://w3id.org/dmpdqv/ns/core#hasTestDefinition",
     "baseIri" : "https://w3id.org/dmpdqv/ns/core",
@@ -737,11 +727,11 @@
       "IRI-based" : "hasTestDefinition",
       "undefined" : "hasTestDefinition"
     },
-    "domain" : "33",
+    "domain" : "35",
     "comment" : {
       "undefined" : "Refers to a test definition."
     },
     "attributes" : [ "object" ],
-    "id" : "49"
+    "id" : "48"
   } ]
 }
