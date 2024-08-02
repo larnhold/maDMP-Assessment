@@ -64,7 +64,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
 
     private fun allURIsMeasurements(dmp: Model): List<Measurement?> {
         logger.info { "Get measurements of al urls" }
-        val query = Path.of(queryConfig.directory + "allUris.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queryConfig.directory + "/allUris.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} URIs in DMP"}
 
@@ -91,7 +91,7 @@ class AvailabilityDimensionEvaluator @Autowired constructor(
 
     private fun getAllIdentifiermeasurements(dmp: Model): List<Measurement?> {
         logger.info { "Get measurements of al identifiers" }
-        val query = Path.of(queryConfig.directory + "ids.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queryConfig.directory + "/ids.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} IDs"}
         return selected.map {

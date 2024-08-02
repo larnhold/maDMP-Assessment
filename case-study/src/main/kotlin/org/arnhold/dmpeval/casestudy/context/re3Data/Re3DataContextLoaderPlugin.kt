@@ -36,7 +36,7 @@ class Re3DataContextLoaderPlugin @Autowired constructor(
 
     override fun getContext(dmpModel: Model): List<DMPContext> {
         logger.info { "Get Re3Data context for all datasets" }
-        val query = Path.of(queriesConfig.directory + "allHosts.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queriesConfig.directory + "/allHosts.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmpModel, query)
         logger.info { "Found ${selected.size} Datasets with identifiers"}
 

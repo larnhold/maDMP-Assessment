@@ -27,7 +27,7 @@ class DataStoreServiceImpl @Autowired constructor(
 
     override fun saveModel(id: UUID, model: Model) {
         try {
-            val savePath = Path.of(dataStoreConfig.directory, String.format("%s.ttl", id.toString()))
+            val savePath = Path.of(dataStoreConfig.directory, "/store/", String.format("%s.ttl", id.toString()))
             logger.info { "Save model with id $id to $savePath" }
             FileOutputStream(savePath.toFile(), false).use { fileWriter ->
                 RDFDataMgr.write(fileWriter, model, Lang.TURTLE)
@@ -40,7 +40,7 @@ class DataStoreServiceImpl @Autowired constructor(
     }
 
     override fun getModel(id: UUID): Model {
-        val getFromPath = Path.of(dataStoreConfig.directory, String.format("%s.ttl", id.toString()))
+        val getFromPath = Path.of(dataStoreConfig.directory, "/store", String.format("%s.ttl", id.toString()))
         logger.info { "Get model with id $id from path $getFromPath" }
         val model: Model = ModelFactory.createDefaultModel()
         return model.read(getFromPath.toFile().absolutePath)
@@ -49,7 +49,7 @@ class DataStoreServiceImpl @Autowired constructor(
     override fun <T> saveAsJson(id: UUID, data: Any) {
         try {
             val jsonData = objectWriter.writeValueAsString(data as T)
-            val savePath = Path.of(dataStoreConfig.directory, String.format("%s.json", id.toString()))
+            val savePath = Path.of(dataStoreConfig.directory, "/store", String.format("%s.json", id.toString()))
             logger.info { "Save object with id $id to $savePath as JSON"}
             FileWriter(savePath.toFile()).use { fileWriter ->
                 fileWriter.write(jsonData)

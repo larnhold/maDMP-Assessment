@@ -46,7 +46,7 @@ class ScienceEuropeGuidelineComplianceDimensionEvaluator @Autowired constructor(
         extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         return if (extensionOntologies.containsKey(Extension.SCIENCE_EUROPE)) {
-            val query = Path.of(queriesConfig.directory + "allHosts.sparql").toFile().readText(Charsets.UTF_8)
+            val query = Path.of( queriesConfig.directory + "/allHosts.sparql").toFile().readText(Charsets.UTF_8)
             val selected = sparqlSelector.getSelectResults(dmp, query)
 
             return selected.mapNotNull {

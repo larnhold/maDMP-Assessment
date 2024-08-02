@@ -3,6 +3,7 @@ package org.arnhold.dmpeval.casestudy.context.openAire
 import com.fasterxml.jackson.databind.ObjectWriter
 import mu.KotlinLogging
 import org.apache.jena.rdf.model.Model
+import org.arnhold.dmpeval.casestudy.configuration.DataStoreConfig
 import org.arnhold.dmpeval.casestudy.configuration.QueriesConfig
 import org.arnhold.dmpeval.casestudy.context.ContextLoaderIdentifier
 import org.arnhold.sdk.context.ContextLoaderPlugin
@@ -36,7 +37,7 @@ class OpenAireContextLoaderPlugin @Autowired constructor(
 
     override fun getContext(dmpModel: Model): List<DMPContext> {
         logger.info { "Get OpenAire context for all datasets" }
-        val query = Path.of(queriesConfig.directory + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queriesConfig.directory + "/allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmpModel, query)
         logger.info { "Found ${selected.size} Datasets with identifiers"}
 

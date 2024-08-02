@@ -52,7 +52,7 @@ class FAIREvaluationDimensionEvaluator @Autowired constructor(
         extensionOntologies: Map<Extension, OntModel>
     ): List<Measurement> {
         logger.info { "Get measurements for all datasets" }
-        val query = Path.of(queriesConfig.directory + "allDatasets.sparql").toFile().readText(Charsets.UTF_8)
+        val query = Path.of(queriesConfig.directory + "/allDatasets.sparql").toFile().readText(Charsets.UTF_8)
         val selected = sparqlSelector.getSelectResults(dmp, query)
         logger.info { "Found ${selected.size} Datasets with identifiers"}
 

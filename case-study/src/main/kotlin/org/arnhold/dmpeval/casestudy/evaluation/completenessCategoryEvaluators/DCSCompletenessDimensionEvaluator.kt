@@ -2,6 +2,7 @@ package org.arnhold.dmpeval.casestudy.evaluation.completenessCategoryEvaluators
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
+import org.arnhold.dmpeval.casestudy.configuration.DataStoreConfig
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
@@ -19,10 +20,11 @@ import java.nio.file.Path
 
 @Component
 class DCSCompletenessDimensionEvaluator @Autowired constructor(
-    val shaclValidationService: ShaclValidationService
+    val shaclValidationService: ShaclValidationService,
+    val dataStoreConfig: DataStoreConfig
 ) : DimensionEvaluatorPlugin {
 
-    val dcsCompletenessShapes: Path = Path.of("./data/case-study/shapes/dcs-completeness.ttl")
+    val dcsCompletenessShapes: Path = Path.of( dataStoreConfig.directory + "/case-study/shapes/dcs-completeness.ttl")
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.DCS_COMPLETENESS.toString()

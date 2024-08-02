@@ -2,6 +2,7 @@ package org.arnhold.dmpeval.casestudy.evaluation.complianceCategoryEvaluators
 
 import org.apache.jena.ontology.OntModel
 import org.apache.jena.rdf.model.Model
+import org.arnhold.dmpeval.casestudy.configuration.DataStoreConfig
 import org.arnhold.dmpeval.casestudy.evaluation.CategoryDimmensionModels
 import org.arnhold.sdk.model.EvaluationDimensionConstants
 import org.arnhold.sdk.vocab.dqv.Measurement
@@ -19,11 +20,12 @@ import java.nio.file.Path
 
 @Component
 class DCSComplianceDimensionEvaluator @Autowired constructor(
-    val shaclValidationService: ShaclValidationService
+    val shaclValidationService: ShaclValidationService,
+    val dataStoreConfig: DataStoreConfig
 ) : DimensionEvaluatorPlugin {
 
-    val dcsMultiplicityShapes: Path = Path.of("./data/case-study/shapes/dcs-multiplicity.ttl")
-    val dateISOPatternShape: Path = Path.of("./data/case-study/shapes/dcs-date.ttl")
+    val dcsMultiplicityShapes: Path = Path.of(dataStoreConfig.directory,"/case-study/shapes/dcs-multiplicity.ttl")
+    val dateISOPatternShape: Path = Path.of(dataStoreConfig.directory, "/case-study/shapes/dcs-date.ttl")
 
     override fun getPluginIdentifier(): String {
         return EvaluationDimensionConstants.DCS_COMPLIANCE.toString()
