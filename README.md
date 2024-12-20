@@ -1,4 +1,4 @@
-# maDMP-Assesment Framework
+# maDMP-Assessment Framework
 This repository contains the sources codes and other outputs from the Master Thesis  *Automated Indicators on the Quality of Machine-actionable Data Management Plans*.
 
 ## Table of Contents
@@ -12,10 +12,10 @@ This repository contains the sources codes and other outputs from the Master The
 - [License](#license)
 
 ## DMP Quality Vocabulary
-The primary output of the evaluation of a maDMP in the scope of the solution are quality measurements representing quality measurements as described by the DMP Quality Vocabulary. This vocabulary also includes other information relevant to the representation of the result of a DMP Evaluation. The [DMPQV Documentation](https://larnhold.github.io/maDMP-Assesment/dmpqv/index.html) contains more information regarding this vocabulary.
+The primary output of the evaluation of a maDMP in the scope of the solution are quality measurements representing quality measurements as described by the DMP Quality Vocabulary. This vocabulary also includes other information relevant to the representation of the result of a DMP Evaluation. The [DMPQV Documentation](https://larnhold.github.io/maDMP-Assessment/dmpqv/index.html) contains more information regarding this vocabulary.
 
 ## DCS Science Europe Funder Extension
-To map all information required by the guidelines of the Science Europe DMP Evaluation Rubric to entries of a DCS DMP an extension is necessary and because of this reason we include such an extension with the implemented prototype. The [DCS Extension Documentation](https://larnhold.github.io/maDMP-Assesment/science-europe-extension/index.html) is available in this repository.
+To map all information required by the guidelines of the Science Europe DMP Evaluation Rubric to entries of a DCS DMP an extension is necessary and because of this reason we include such an extension with the implemented prototype. The [DCS Extension Documentation](https://larnhold.github.io/maDMP-Assessment/science-europe-extension/index.html) is available in this repository.
 
 ## Conceptual Framework
 The conceptual framework specifies components that enable the interaction if DMPs to generate automated quality indicators to assist in the evaluation of DMPs. The main components are shown in the pictures below.
@@ -54,7 +54,7 @@ We use Maven as a build system and therefore it is required before installation 
 
 1. Clone the repository:
 ```bash
- git clone https://github.com/larnhold/maDMP-Assesment.git
+ git clone https://github.com/larnhold/maDMP-Assessment.git
 ```
 
 2. Install dependencies:
